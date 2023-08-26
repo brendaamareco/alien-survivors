@@ -1290,7 +1290,7 @@ GameObject:
   - component: {fileID: 9012925404799886214}
   - component: {fileID: 1332905925928610182}
   m_Layer: 0
-  m_Name: CrazyCat_Orange
+  m_Name: CatOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
