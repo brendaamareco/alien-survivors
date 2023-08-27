@@ -3031,7 +3031,7 @@ Transform:
   - {fileID: 7359483974018954749}
   - {fileID: 283530736286233846}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2887142708889438758
 Animator:
@@ -4013,6 +4013,10 @@ PrefabInstance:
     - target: {fileID: 2229936911377821543, guid: 317edbd8a07e917499cf7b661af8195c, type: 3}
       propertyPath: m_Name
       value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229936911377821543, guid: 317edbd8a07e917499cf7b661af8195c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
