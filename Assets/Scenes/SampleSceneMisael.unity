@@ -235,6 +235,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 30.279, y: -89.8, z: 0}
+--- !u!1 &388672941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 388672942}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &388672942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388672941}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.25399995, y: 1.2590001, z: 0.977}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 812168305}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,6 +551,10 @@ MonoBehaviour:
   _rb: {fileID: 1094187498}
   _speed: 5
   _turnSpeed: 360
+  bulletSpawnPoint: {fileID: 388672942}
+  bulletPrefab: {fileID: 1000012871492402, guid: c827049c3d8082640940d385e01eac27, type: 3}
+  bulletSpeed: 7
+  spawnRate: 0.5
 --- !u!54 &1094187498
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1268,7 +1303,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5250514569022610469, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 388672942}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5641017903040618783, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
       insertIndex: -1

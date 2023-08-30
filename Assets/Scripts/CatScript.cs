@@ -9,10 +9,28 @@ public class CatScript : MonoBehaviour
     [SerializeField] private float _turnSpeed = 360;
     private Vector3 _input;
 
+    public Transform bulletSpawnPoint;
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 10;
+    public float spawnRate = 5;
+    private float timer = 0;
+
     private void Update()
     {
         GatherInput();
         Look();
+
+        if (timer < spawnRate)
+        {
+            timer = timer + Time.deltaTime;
+        }
+        else
+        {
+            var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+            timer = 0;
+        }
+ 
     }
 
     private void FixedUpdate()
