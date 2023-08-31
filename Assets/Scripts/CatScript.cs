@@ -27,7 +27,10 @@ public class CatScript : MonoBehaviour
         else
         {
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+            Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+            
+            bulletRb.rotation = Quaternion.Euler(new Vector3(90, transform.eulerAngles.y, transform.eulerAngles.z));
+            bulletRb.velocity = bulletSpawnPoint.forward * bulletSpeed;
             timer = 0;
         }
  
