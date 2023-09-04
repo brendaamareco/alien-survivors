@@ -12,6 +12,7 @@ public class DamageableEntity : MonoBehaviour, IEntity
     {
         m_Name = this.transform.name;
         m_HealthSystem = new HealthSystem(m_Stats.Health);
+        m_HealthSystem.OnDead += HealthSystem_OnDead;
     }
 
     public void Heal(float amount)
@@ -43,4 +44,10 @@ public class DamageableEntity : MonoBehaviour, IEntity
 
     public string GetName()
     { return m_Name; }
+
+    private void HealthSystem_OnDead(object sender, System.EventArgs e)
+    { GameEventManager.GetInstance().Publish(GameEvent.DEAD, new EventContext(this)); }
+
+    private void OnDestroy()
+    { m_HealthSystem.OnDead -= HealthSystem_OnDead; }
 }
