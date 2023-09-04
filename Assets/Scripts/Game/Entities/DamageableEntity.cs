@@ -18,10 +18,13 @@ public class DamageableEntity : MonoBehaviour, IEntity
     { m_HealthSystem.Heal(amount); }
 
     public void ReceiveDamage(float amount)
-    { m_HealthSystem.Damage(Mathf.Min(0, amount - GetDefensePoints())); }
+    { m_HealthSystem.Damage(Mathf.Max(0, amount - GetDefensePoints())); }
 
     public void SetMaxHealth(float maxHealth)
     { m_HealthSystem.SetHealthMax(maxHealth, false); }
+
+    public float GetCurrentHealthPoints()
+    { return m_HealthSystem.GetHealth(); }
 
     public virtual float GetAttackPoints()
     { return m_Stats.Attack;  }

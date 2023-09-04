@@ -17,7 +17,6 @@ public abstract class Weapon : MonoBehaviour, IEntity
     {
         m_ScopeCollider = GetComponent<SphereCollider>();
         m_ScopeCollider.isTrigger = true;
-        m_ScopeCollider.excludeLayers = gameObject.layer;
         SetScope(m_Scope);
 
         m_DamageablesInArea = new();
@@ -72,9 +71,6 @@ public abstract class Weapon : MonoBehaviour, IEntity
 
     protected HashSet<DamageableEntity> GetDamageablesInArea() 
     { return m_DamageablesInArea;}
-
-    protected LayerMask GetLayerMask()
-    { return gameObject.layer; }
 
     public string GetName()
     { return transform.name; }

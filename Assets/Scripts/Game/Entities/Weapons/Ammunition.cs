@@ -7,7 +7,6 @@ public class Ammunition : MonoBehaviour
 {
     [SerializeField] float m_TimeAlive = 0f;
     [SerializeField] float m_DamagePoints = 0f;
-    [SerializeField] LayerMask m_AttackerLayerMask;
 
     private BoxCollider m_BoxCollider;
     private Rigidbody m_Rigidbody;
@@ -16,7 +15,6 @@ public class Ammunition : MonoBehaviour
     {
         m_BoxCollider = GetComponent<BoxCollider>();
         m_BoxCollider.isTrigger = false;
-        m_BoxCollider.excludeLayers = m_AttackerLayerMask;    
 
         m_Rigidbody = GetComponent<Rigidbody>();
     }
@@ -47,6 +45,4 @@ public class Ammunition : MonoBehaviour
     public void SetDamagePoints(float damagePoints)
     { m_DamagePoints = damagePoints; }
 
-    public void SetAttackerLayerMask(LayerMask layer)
-    { m_AttackerLayerMask = layer; }
 }
