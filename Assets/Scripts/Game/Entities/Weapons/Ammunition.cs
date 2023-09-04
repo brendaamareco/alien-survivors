@@ -30,7 +30,7 @@ public class Ammunition : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        DamageableEntity damageable = GetComponentInChildren<DamageableEntity>();
+        DamageableEntity damageable = collision.gameObject.GetComponentInChildren<DamageableEntity>();
 
         if (damageable != null)
         {
@@ -45,4 +45,6 @@ public class Ammunition : MonoBehaviour
     public void SetDamagePoints(float damagePoints)
     { m_DamagePoints = damagePoints; }
 
+    public void SetLayerMask(LayerMask layer)
+    { gameObject.layer = layer; }
 }

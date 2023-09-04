@@ -18,7 +18,10 @@ public class DamageableEntity : MonoBehaviour, IEntity
     { m_HealthSystem.Heal(amount); }
 
     public void ReceiveDamage(float amount)
-    { m_HealthSystem.Damage(Mathf.Max(0, amount - GetDefensePoints())); }
+    {
+        GameEventManager.GetInstance().Publish(GameEvent.DAMAGE, new EventContext(this));
+        m_HealthSystem.Damage(Mathf.Max(0, amount - GetDefensePoints())); 
+    }
 
     public void SetMaxHealth(float maxHealth)
     { m_HealthSystem.SetHealthMax(maxHealth, false); }

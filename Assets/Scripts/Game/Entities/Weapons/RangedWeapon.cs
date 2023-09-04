@@ -17,6 +17,7 @@ public class RangedWeapon : Weapon
         Ammunition ammunition = ammunitionGameObject.GetComponent<Ammunition>();
         ammunition.SetDamagePoints(attackBase + GetWeaponAttackPoints());
         ammunition.SetTimeAlive(ammunitionTimeLive);
+        ammunition.SetLayerMask(gameObject.layer);
 
         ammunition.Fire();
     }
