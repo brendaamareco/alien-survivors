@@ -1,5 +1,6 @@
 
 public enum GameEvent
 {
-    DAMAGE
+    DAMAGE,
+    ATTACK
 }

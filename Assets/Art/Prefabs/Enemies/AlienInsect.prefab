@@ -1782,6 +1782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationNameReceiveDamage: Walk_GetHit
+  animationNameAttack: Walk_Attack
 --- !u!1 &7295820912907217454
 GameObject:
   m_ObjectHideFlags: 0

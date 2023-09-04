@@ -9,6 +9,8 @@ public class RangedWeapon : Weapon
 
     public override void PerformAttack(float attackBase)
     {
+        GameEventManager.GetInstance().Publish(GameEvent.ATTACK, new EventContext(this));
+
         GameObject ammunitionGameObject = Instantiate(ammunitionPrefab, spawnPosition.position, spawnPosition.rotation);
         Rigidbody ammunitionRb = ammunitionGameObject.GetComponent<Rigidbody>();
         ammunitionRb.MoveRotation(Quaternion.Euler(new Vector3(90, transform.eulerAngles.y, transform.eulerAngles.z)));
