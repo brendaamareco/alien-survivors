@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Agustin/Main Menu.unity
+    guid: b19189de626c32c449997b2f921f3d4c
+  - enabled: 1
+    path: Assets/Scenes/Agustin/SampleSceneAgustin.unity
+    guid: cc02a872cbe450c4b80efcc161e0993a
   m_configObjects: {}
