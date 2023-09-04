@@ -95,7 +95,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013541608862}
-  - component: {fileID: 95000012246789808}
   - component: {fileID: 2908978359838905621}
   - component: {fileID: 3190743634097074486}
   - component: {fileID: 7996112209990438891}
@@ -123,27 +122,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95000012246789808
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000011866055842}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e871e009dcc1a0142b9c5e480d6e021c, type: 3}
-  m_Controller: {fileID: 9100000, guid: e0b5a0062ae1f1844b21d29438627bd4, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!65 &2908978359838905621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -206,9 +184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TimeAlive: 5
   m_DamagePoints: 0
-  m_AttackerLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1000012591406096
 GameObject:
   m_ObjectHideFlags: 0

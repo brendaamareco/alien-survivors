@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(SphereCollider))]
 public abstract class Weapon : MonoBehaviour, IEntity
@@ -22,10 +25,22 @@ public abstract class Weapon : MonoBehaviour, IEntity
         m_DamageablesInArea = new();
     }
 
-    public void Attack(float attackBase)
+    public void Attack(float attackBase, Vector3 target)
     {
         if (!m_IsAttacking)
+        {
+            SetAim(target);
             StartCoroutine(nameof(AttackCoroutine), attackBase);
+        }
+    }
+
+    private void SetAim(Vector3 target) 
+    {
+        Vector3 targetDirection = target - transform.position;
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 1f, 0.0f);
+        transform.rotation = Quaternion.LookRotation(newDirection);
+
+        Debug.DrawRay(transform.position, newDirection, Color.red);
     }
 
     private IEnumerator AttackCoroutine(float attackBase)

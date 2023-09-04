@@ -17,6 +17,6 @@ public class EnemyController : MonoBehaviour
         Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         m_Enemy.Move(playerTransform.position);
-        m_Enemy.Attack();
+        m_Enemy.Attack(playerTransform.position);
     }
 }

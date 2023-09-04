@@ -9,7 +9,6 @@ public class NavMeshMotion : Motion
     private void Start()
     { 
         m_Agent = transform.GetComponentInChildren<NavMeshAgent>();
-        m_Agent.stoppingDistance = 0.4f;
     }
 
     public override void Move(Vector3 vector, float speed)
