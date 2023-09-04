@@ -4,11 +4,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 public abstract class Weapon : MonoBehaviour, IEntity
-{
+{   
     [SerializeField] private float m_Scope = 10f;
     [SerializeField] private float m_Cooldown = 1f;
     [SerializeField] private int m_AttackPoints = 0;
-    [SerializeField] LayerMask m_AttackerLayer;
 
     private bool m_IsAttacking = false;
     private SphereCollider m_ScopeCollider;
@@ -18,29 +17,29 @@ public abstract class Weapon : MonoBehaviour, IEntity
     {
         m_ScopeCollider = GetComponent<SphereCollider>();
         m_ScopeCollider.isTrigger = true;
-        m_ScopeCollider.excludeLayers = m_AttackerLayer;
+        m_ScopeCollider.excludeLayers = gameObject.layer;
         SetScope(m_Scope);
 
         m_DamageablesInArea = new();
     }
 
-    public void Attack()
+    public void Attack(float attackBase)
     {
         if (!m_IsAttacking)
-            StartCoroutine(nameof(AttackCoroutine));
+            StartCoroutine(nameof(AttackCoroutine), attackBase);
     }
 
-    private IEnumerator AttackCoroutine()
+    private IEnumerator AttackCoroutine(float attackBase)
     {
         m_IsAttacking = true;
-        PerformAttack();
+        PerformAttack(attackBase);
 
         yield return new WaitForSeconds(m_Cooldown);
 
         m_IsAttacking = false;
     }
 
-    public abstract void PerformAttack();
+    public abstract void PerformAttack(float attackBase);
 
     public void SetCooldown(float cooldown)
     { m_Cooldown = cooldown; }
@@ -68,11 +67,14 @@ public abstract class Weapon : MonoBehaviour, IEntity
             m_DamageablesInArea.Remove(damageable);
     }
 
-    protected float GetAttackPoints()
+    protected float GetWeaponAttackPoints()
     { return m_AttackPoints; }
 
     protected HashSet<DamageableEntity> GetDamageablesInArea() 
     { return m_DamageablesInArea;}
+
+    protected LayerMask GetLayerMask()
+    { return gameObject.layer; }
 
     public string GetName()
     { return transform.name; }

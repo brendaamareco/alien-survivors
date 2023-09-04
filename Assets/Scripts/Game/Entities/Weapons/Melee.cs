@@ -1,9 +1,9 @@
 
 public class Melee : Weapon
 {
-    public override void PerformAttack()
+    public override void PerformAttack(float attackBase)
     {
         foreach (DamageableEntity damageable in GetDamageablesInArea())
-            damageable.ReceiveDamage(GetAttackPoints());      
+            damageable.ReceiveDamage(attackBase + GetWeaponAttackPoints());      
     }
 }

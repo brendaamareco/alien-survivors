@@ -12,9 +12,9 @@ public class Enemy : DamageableEntity
         m_Motion = GetComponent<Motion>();
     }
 
-    //public void Move(Vector3 vector)
-    //{ m_Motion.Move(vector); }
+    public void Move(Vector3 vector)
+    { m_Motion.Move(vector, GetSpeedPoints()); }
 
     public void Attack()
-    { m_Weapon.Attack(); }
+    { m_Weapon.Attack(GetAttackPoints()); }
 }
