@@ -1005,6 +1005,7 @@ GameObject:
   - component: {fileID: 2321165494090473057}
   - component: {fileID: 9124823576196549106}
   - component: {fileID: 6574226585556387314}
+  - component: {fileID: 7027291978216355282}
   m_Layer: 6
   m_Name: Turret
   m_TagString: Enemy
@@ -1042,11 +1043,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0186905ec4327ac4aa798cba1fbf979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Stats:
-    m_Attack: 5
-    m_Defense: 20
-    m_Health: 200
-    m_Speed: 0
   m_Motion: {fileID: 9149904051562012416}
   m_Weapon: {fileID: 2321165494090473057}
 --- !u!114 &9149904051562012416
@@ -1094,9 +1090,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Scope: 10
-  m_Cooldown: 3
-  m_AttackPoints: 0
+  scope: 10
+  cooldown: 1
+  attackExtraPoints: 0
+  upgradePercentage: 0.25
+  maxLevel: 1
   spawnPosition: {fileID: 2008378844692586845}
   ammunitionPrefab: {fileID: 1000011866055842, guid: 3b79e6f8a415f7841a8a55733c4683cd, type: 3}
   ammunitionTimeLive: 10
@@ -1140,6 +1138,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7027291978216355282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758775795982184752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48378b2d4da09b469880d35f3d0d673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Attack: 30
+  m_Defense: 10
+  m_Health: 200
+  m_Speed: 0
 --- !u!1 &6104418911674085862
 GameObject:
   m_ObjectHideFlags: 0

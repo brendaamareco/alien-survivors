@@ -230,6 +230,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8310580491979065294, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6995188024053436553}
+    - targetCorrespondingSourceObject: {fileID: 8310580491979065294, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2264833922789726070}
   m_SourcePrefab: {fileID: 100100000, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
 --- !u!1 &5641017903040618783 stripped
 GameObject:
@@ -248,11 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d3010db01f51743bd19a9cb2f212c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Stats:
-    m_Attack: 25
-    m_Defense: 10
-    m_Health: 200
-    m_Speed: 5
+  m_Motion: {fileID: 0}
+  m_DefaultWeapon: {fileID: 0}
 --- !u!114 &6995188024053436553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,3 +266,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationNameReceiveDamage: Head Hit
+  animationNameAttack: 
+--- !u!114 &2264833922789726070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641017903040618783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48378b2d4da09b469880d35f3d0d673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Attack: 20
+  m_Defense: 5
+  m_Health: 200
+  m_Speed: 5

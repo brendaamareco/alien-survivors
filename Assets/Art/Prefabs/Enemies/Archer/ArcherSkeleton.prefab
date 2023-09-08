@@ -3047,6 +3047,7 @@ GameObject:
   - component: {fileID: 720111820726893240}
   - component: {fileID: 4581941807630803232}
   - component: {fileID: 6141161996177191959}
+  - component: {fileID: 7284477678014786452}
   m_Layer: 6
   m_Name: ArcherSkeleton
   m_TagString: Enemy
@@ -3105,11 +3106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0186905ec4327ac4aa798cba1fbf979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Stats:
-    m_Attack: 5
-    m_Defense: 5
-    m_Health: 50
-    m_Speed: 5
   m_Motion: {fileID: 7935946566981746525}
   m_Weapon: {fileID: 175764949597778382}
 --- !u!195 &2390378095142964868
@@ -3179,9 +3175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Scope: 10
-  m_Cooldown: 2
-  m_AttackPoints: 0
+  scope: 10
+  cooldown: 1
+  attackExtraPoints: 0
+  upgradePercentage: 0.25
+  maxLevel: 1
   spawnPosition: {fileID: 1889984652581136380}
   ammunitionPrefab: {fileID: 1000011023395326, guid: 21ce0107bf7576246b86b2f5e4105590, type: 3}
   ammunitionTimeLive: 5
@@ -3239,6 +3237,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationNameReceiveDamage: Head Hit
   animationNameAttack: Take 001
+--- !u!114 &7284477678014786452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7098359884938559839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48378b2d4da09b469880d35f3d0d673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Attack: 20
+  m_Defense: 10
+  m_Health: 60
+  m_Speed: 5
 --- !u!1 &7253964673056530483
 GameObject:
   m_ObjectHideFlags: 0

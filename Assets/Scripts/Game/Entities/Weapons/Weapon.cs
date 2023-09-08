@@ -74,16 +74,16 @@ public abstract class Weapon : StatsDecorator, IEntity
     { return transform.name; }
 
     public override int GetAttack()
-    { return GetAttack() + attackExtraPoints; }
+    { return GetStats().GetAttack() + attackExtraPoints; }
 
     public override int GetDefense()
-    { return GetDefense(); }
+    { return GetStats().GetDefense(); }
 
     public override int GetHealth()
-    { return GetHealth(); }
+    { return GetStats().GetHealth(); }
 
     public override int GetSpeed()
-    { return GetSpeed(); }
+    { return GetStats().GetSpeed(); }
 
     private void OnTriggerEnter(Collider other)
     {

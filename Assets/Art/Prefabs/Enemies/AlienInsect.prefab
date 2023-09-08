@@ -1596,6 +1596,7 @@ GameObject:
   - component: {fileID: 1228241411152819831}
   - component: {fileID: 863649243417326015}
   - component: {fileID: 935032595874707034}
+  - component: {fileID: 3142729544510802600}
   m_Layer: 6
   m_Name: AlienInsect
   m_TagString: Enemy
@@ -1653,11 +1654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0186905ec4327ac4aa798cba1fbf979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Stats:
-    m_Attack: 5
-    m_Defense: 5
-    m_Health: 100
-    m_Speed: 3
   m_Motion: {fileID: 1279359886947496559}
   m_Weapon: {fileID: 1696019396927674460}
 --- !u!195 &4761913780763645723
@@ -1727,9 +1723,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4685554823ca0e74db96ef4c7c7ec6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Scope: 2
-  m_Cooldown: 2
-  m_AttackPoints: 0
+  scope: 10
+  cooldown: 1
+  attackExtraPoints: 0
+  upgradePercentage: 0.25
+  maxLevel: 1
 --- !u!54 &1228241411152819831
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1783,6 +1781,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationNameReceiveDamage: Walk_GetHit
   animationNameAttack: Walk_Attack
+--- !u!114 &3142729544510802600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220170157630724832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48378b2d4da09b469880d35f3d0d673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Attack: 10
+  m_Defense: 5
+  m_Health: 100
+  m_Speed: 4
 --- !u!1 &7295820912907217454
 GameObject:
   m_ObjectHideFlags: 0

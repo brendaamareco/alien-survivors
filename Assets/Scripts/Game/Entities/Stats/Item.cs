@@ -16,16 +16,16 @@ public class Item : StatsDecorator, IEntity
     private int level = 1;
 
     public override int GetAttack()
-    { return GetAttack() + (int)(GetAttack() * attackPercentage); }
+    { return GetStats().GetAttack() + (int)(GetStats().GetAttack() * attackPercentage); }
 
     public override int GetDefense()
-    { return GetDefense() + (int)(GetDefense() * defensePercentage); }
+    { return GetStats().GetDefense() + (int)(GetStats().GetDefense() * defensePercentage); }
 
     public override int GetHealth()
-    { return GetHealth() + (int)(GetHealth() * healthPercentage); }
+    { return GetStats().GetHealth() + (int)(GetStats().GetHealth() * healthPercentage); }
 
     public override int GetSpeed()
-    { return GetSpeed() + (int)(GetSpeed() * speedPercentage); }
+    { return GetStats().GetSpeed() + (int)(GetStats().GetSpeed() * speedPercentage); }
 
     public string GetName()
     { return itemName; }

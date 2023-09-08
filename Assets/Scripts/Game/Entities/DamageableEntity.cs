@@ -1,18 +1,20 @@
 using CodeMonkey.HealthSystemCM;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DamageableEntity : MonoBehaviour, IEntity
 {
-    [SerializeField] private Stats m_Stats;
-
+    private Stats m_Stats;
     private string m_Name;
     private HealthSystem m_HealthSystem;
 
     protected virtual void Start()
     {
         m_Name = this.transform.name;
+        m_Stats = gameObject.GetOrAddComponent<BaseStats>();
+
         m_HealthSystem = new HealthSystem(m_Stats.GetHealth());
-        m_HealthSystem.OnDead += HealthSystem_OnDead;
+        m_HealthSystem.OnDead += HealthSystem_OnDead; 
     }
 
     protected virtual void Update()
@@ -26,7 +28,8 @@ public class DamageableEntity : MonoBehaviour, IEntity
 
     public void ReceiveDamage(float amount)
     {
-        Debug.Log(amount + "/" + GetMaxHealthPoints());
+        Debug.Log("damage:" +  amount);
+        Debug.Log(GetCurrentHealthPoints() + "/" + GetMaxHealthPoints());
 
         GameEventManager.GetInstance().Publish(GameEvent.DAMAGE, new EventContext(this));
         m_HealthSystem.Damage(Mathf.Max(0, amount - GetDefensePoints())); 
