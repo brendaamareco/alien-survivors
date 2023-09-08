@@ -11,8 +11,14 @@ public class DamageableEntity : MonoBehaviour, IEntity
     protected virtual void Start()
     {
         m_Name = this.transform.name;
-        m_HealthSystem = new HealthSystem(m_Stats.Health);
+        m_HealthSystem = new HealthSystem(m_Stats.GetHealth());
         m_HealthSystem.OnDead += HealthSystem_OnDead;
+    }
+
+    protected virtual void Update()
+    {
+        if (m_HealthSystem.GetHealthMax() != GetMaxHealthPoints())
+            SetMaxHealth(GetMaxHealthPoints());
     }
 
     public void Heal(float amount)
@@ -20,27 +26,38 @@ public class DamageableEntity : MonoBehaviour, IEntity
 
     public void ReceiveDamage(float amount)
     {
+        Debug.Log(amount + "/" + GetMaxHealthPoints());
+
         GameEventManager.GetInstance().Publish(GameEvent.DAMAGE, new EventContext(this));
         m_HealthSystem.Damage(Mathf.Max(0, amount - GetDefensePoints())); 
     }
 
-    public void SetMaxHealth(float maxHealth)
+    private void SetMaxHealth(float maxHealth)
     { m_HealthSystem.SetHealthMax(maxHealth, false); }
 
-    public float GetCurrentHealthPoints()
-    { return m_HealthSystem.GetHealth(); }
+    public Stats GetStats()
+    { return m_Stats; }
 
-    public virtual float GetAttackPoints()
-    { return m_Stats.Attack;  }
+    public void SetStats(Stats stats)
+    { m_Stats = stats; }
 
-    public virtual float GetDefensePoints()
-    { return m_Stats.Defense; }
+    public int GetCurrentHealthPoints()
+    { return (int)m_HealthSystem.GetHealth(); }
 
-    public virtual float GetMaxHealthPoints()
-    { return m_Stats.Health; }
+    public float GetCurrentHealthPointsNormalized()
+    { return m_HealthSystem.GetHealthNormalized(); }
 
-    public virtual float GetSpeedPoints()
-    { return m_Stats.Speed; }    
+    public virtual int GetAttackPoints()
+    { return m_Stats.GetAttack();  }
+
+    public virtual int GetDefensePoints()
+    { return m_Stats.GetDefense(); }
+
+    public virtual int GetMaxHealthPoints()
+    { return m_Stats.GetHealth(); }
+
+    public virtual int GetSpeedPoints()
+    { return m_Stats.GetSpeed(); }    
 
     public string GetName()
     { return m_Name; }

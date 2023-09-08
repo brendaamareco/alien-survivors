@@ -10,6 +10,9 @@ public class Enemy : DamageableEntity
         base.Start();
         m_Weapon = GetComponent<Weapon>();
         m_Motion = GetComponent<Motion>();
+
+        m_Weapon.SetStats(GetStats());
+        SetStats(m_Weapon);
     }
 
     public void Move(Vector3 vector)

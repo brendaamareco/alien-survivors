@@ -5,9 +5,8 @@ using UnityEngine;
 [RequireComponent (typeof(Rigidbody))]
 public class Ammunition : MonoBehaviour
 {
-    [SerializeField] float m_TimeAlive = 0f;
-    [SerializeField] float m_DamagePoints = 0f;
-
+    private float m_TimeAlive = 0f; 
+    private int m_DamagePoints;
     private BoxCollider m_BoxCollider;
     private Rigidbody m_Rigidbody;
 
@@ -42,7 +41,7 @@ public class Ammunition : MonoBehaviour
     public void SetTimeAlive(float time)
     { m_TimeAlive = time; }
 
-    public void SetDamagePoints(float damagePoints)
+    public void SetDamagePoints(int damagePoints)
     { m_DamagePoints = damagePoints; }
 
     public void SetLayerMask(LayerMask layer)

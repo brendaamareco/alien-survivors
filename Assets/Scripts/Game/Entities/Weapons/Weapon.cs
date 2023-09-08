@@ -5,13 +5,16 @@ using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(SphereCollider))]
-public abstract class Weapon : MonoBehaviour, IEntity
+public abstract class Weapon : StatsDecorator, IEntity
 {   
-    [SerializeField] private float m_Scope = 10f;
-    [SerializeField] private float m_Cooldown = 1f;
-    [SerializeField] private int m_AttackPoints = 0;
+    [SerializeField] private float scope = 10f;
+    [SerializeField] private float cooldown = 1f;
+    [SerializeField] private int attackExtraPoints = 0;
+    [SerializeField] private float upgradePercentage = 0.25f;
+    [SerializeField] private int maxLevel = 1;
 
     private bool m_IsAttacking = false;
+    private int m_Level;
     private SphereCollider m_ScopeCollider;
     private HashSet<DamageableEntity> m_DamageablesInArea;
 
@@ -19,17 +22,18 @@ public abstract class Weapon : MonoBehaviour, IEntity
     {
         m_ScopeCollider = GetComponent<SphereCollider>();
         m_ScopeCollider.isTrigger = true;
-        SetScope(m_Scope);
+        SetScope(scope);
 
         m_DamageablesInArea = new();
+        m_Level = 1;
     }
 
-    public void Attack(float attackBase, Vector3 target)
+    public void Attack(int attack, Vector3 target)
     {
         if (!m_IsAttacking)
         {
             SetAim(target);           
-            StartCoroutine(nameof(AttackCoroutine), attackBase);
+            StartCoroutine(nameof(AttackCoroutine), attack);
         }
     }
 
@@ -42,27 +46,44 @@ public abstract class Weapon : MonoBehaviour, IEntity
         Debug.DrawRay(transform.position, newDirection, Color.red);
     }
 
-    private IEnumerator AttackCoroutine(float attackBase)
+    private IEnumerator AttackCoroutine(int attack)
     {
         m_IsAttacking = true;
-        PerformAttack(attackBase);
+        PerformAttack(attack);
 
-        yield return new WaitForSeconds(m_Cooldown);
+        yield return new WaitForSeconds(cooldown);
 
         m_IsAttacking = false;
     }
 
-    public abstract void PerformAttack(float attackBase);
-
-    public void SetCooldown(float cooldown)
-    { m_Cooldown = cooldown; }
+    public abstract void PerformAttack(int attack);
 
     public void SetScope(float scope)
     { 
-        m_Scope = scope;
-        m_ScopeCollider.radius = m_Scope;
+        this.scope = scope;
+        m_ScopeCollider.radius = this.scope;
         m_ScopeCollider.center = Vector3.zero;
     }
+
+    public void Upgrade() { }
+
+    protected HashSet<DamageableEntity> GetDamageablesInArea() 
+    { return m_DamageablesInArea;}
+
+    public string GetName()
+    { return transform.name; }
+
+    public override int GetAttack()
+    { return GetAttack() + attackExtraPoints; }
+
+    public override int GetDefense()
+    { return GetDefense(); }
+
+    public override int GetHealth()
+    { return GetHealth(); }
+
+    public override int GetSpeed()
+    { return GetSpeed(); }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -79,13 +100,4 @@ public abstract class Weapon : MonoBehaviour, IEntity
         if (damageable != null)
             m_DamageablesInArea.Remove(damageable);
     }
-
-    protected float GetWeaponAttackPoints()
-    { return m_AttackPoints; }
-
-    protected HashSet<DamageableEntity> GetDamageablesInArea() 
-    { return m_DamageablesInArea;}
-
-    public string GetName()
-    { return transform.name; }
 }

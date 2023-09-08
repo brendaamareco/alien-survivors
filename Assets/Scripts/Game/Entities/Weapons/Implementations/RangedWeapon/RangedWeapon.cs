@@ -7,7 +7,7 @@ public class RangedWeapon : Weapon
     [SerializeField] float ammunitionTimeLive = 5f;
     [SerializeField] float ammunitionSpeed = 5f;
 
-    public override void PerformAttack(float attackBase)
+    public override void PerformAttack(int attack)
     {
         GameEventManager.GetInstance().Publish(GameEvent.ATTACK, new EventContext(this));
 
@@ -17,7 +17,7 @@ public class RangedWeapon : Weapon
         ammunitionRb.velocity = spawnPosition.forward * ammunitionSpeed;
 
         Ammunition ammunition = ammunitionGameObject.GetComponent<Ammunition>();
-        ammunition.SetDamagePoints(attackBase + GetWeaponAttackPoints());
+        ammunition.SetDamagePoints(attack);
         ammunition.SetTimeAlive(ammunitionTimeLive);
         ammunition.SetLayerMask(gameObject.layer);
 
