@@ -5,19 +5,21 @@ using UnityEngine;
 public class ProceduralTrees : MonoBehaviour
 {
     public GameObject[] objetosPosibles;
-    // Start is called before the first frame update
+
     void Start()
     {
-        Instantiate(
+        int childCount = transform.childCount;
+
+        for (int i = 0; i < childCount; i ++)
+        {
+           GameObject tree = Instantiate(
            objetosPosibles[Random.Range(0, objetosPosibles.Length)],
-           transform.position,
+           transform.GetChild(i).transform.position,
            Quaternion.identity
            );
+
+           tree.transform.parent = transform.GetChild(i).transform;      
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
