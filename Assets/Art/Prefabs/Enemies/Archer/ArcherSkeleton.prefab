@@ -3048,6 +3048,7 @@ GameObject:
   - component: {fileID: 4581941807630803232}
   - component: {fileID: 6141161996177191959}
   - component: {fileID: 7284477678014786452}
+  - component: {fileID: 502344991063093497}
   m_Layer: 6
   m_Name: ArcherSkeleton
   m_TagString: Enemy
@@ -3175,8 +3176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: Weapon3
   scope: 10
-  cooldown: 1
+  cooldown: 4
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
@@ -3252,7 +3254,30 @@ MonoBehaviour:
   m_Attack: 20
   m_Defense: 10
   m_Health: 60
-  m_Speed: 5
+  m_Speed: 2
+--- !u!136 &502344991063093497
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7098359884938559839}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.028057633
+  m_Height: 0.07335357
+  m_Direction: 1
+  m_Center: {x: -0.00058030605, y: 0.02895278, z: 0.0072583817}
 --- !u!1 &7253964673056530483
 GameObject:
   m_ObjectHideFlags: 0

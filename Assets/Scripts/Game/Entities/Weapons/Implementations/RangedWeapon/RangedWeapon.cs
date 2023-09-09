@@ -22,5 +22,5 @@ public class RangedWeapon : Weapon
         ammunition.SetLayerMask(gameObject.layer);
 
         ammunition.Fire();
-    }
+    } 
 }

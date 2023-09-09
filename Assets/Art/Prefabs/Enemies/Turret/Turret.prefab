@@ -1006,6 +1006,7 @@ GameObject:
   - component: {fileID: 9124823576196549106}
   - component: {fileID: 6574226585556387314}
   - component: {fileID: 7027291978216355282}
+  - component: {fileID: 4197188458346399562}
   m_Layer: 6
   m_Name: Turret
   m_TagString: Enemy
@@ -1090,8 +1091,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: Weapon4
   scope: 10
-  cooldown: 1
+  cooldown: 5
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
@@ -1154,6 +1156,27 @@ MonoBehaviour:
   m_Defense: 10
   m_Health: 200
   m_Speed: 0
+--- !u!65 &4197188458346399562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758775795982184752}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.3836493, y: 2.0887735, z: 4.6292453}
+  m_Center: {x: -0.07938981, y: 0.544387, z: 1.088773}
 --- !u!1 &6104418911674085862
 GameObject:
   m_ObjectHideFlags: 0

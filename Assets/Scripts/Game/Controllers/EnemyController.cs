@@ -8,9 +8,7 @@ public class EnemyController : MonoBehaviour
     private Enemy m_Enemy;
 
     private void Start()
-    {
-        m_Enemy = GetComponent<Enemy>();
-    }
+    { m_Enemy = GetComponent<Enemy>(); }
 
     private void FixedUpdate()
     {
@@ -18,5 +16,8 @@ public class EnemyController : MonoBehaviour
 
         m_Enemy.Move(playerTransform.position);
         m_Enemy.Attack(playerTransform.position);
+
+        if (m_Enemy.GetCurrentHealthPoints() <= 0)
+            Destroy(gameObject);
     }
 }

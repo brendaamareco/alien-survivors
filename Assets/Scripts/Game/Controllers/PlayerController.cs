@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Player m_Player;
+    private Vector3 m_Input;
 
     private void Start()
     {
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        m_Input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        m_Player.Move(m_Input);
+        m_Player.Attack(transform.position);
     }
 }
