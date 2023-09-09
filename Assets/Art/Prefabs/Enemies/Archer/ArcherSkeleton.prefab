@@ -3127,7 +3127,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 0.05
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -3185,7 +3185,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 1889984652581136380}
   ammunitionPrefab: {fileID: 1000011023395326, guid: 21ce0107bf7576246b86b2f5e4105590, type: 3}
   ammunitionTimeLive: 5
-  ammunitionSpeed: 20
+  ammunitionSpeed: 10
 --- !u!54 &720111820726893240
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3211,7 +3211,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &4581941807630803232
 MonoBehaviour:
