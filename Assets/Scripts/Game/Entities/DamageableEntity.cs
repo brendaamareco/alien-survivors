@@ -2,6 +2,7 @@ using CodeMonkey.HealthSystemCM;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(BaseStats))]
 public class DamageableEntity : MonoBehaviour, IEntity
 {
     private Stats m_Stats;
@@ -11,7 +12,7 @@ public class DamageableEntity : MonoBehaviour, IEntity
     protected virtual void Start()
     {
         m_Name = this.transform.name;
-        m_Stats = gameObject.GetOrAddComponent<BaseStats>();
+        m_Stats = gameObject.GetComponent<BaseStats>();
 
         m_HealthSystem = new HealthSystem(m_Stats.GetHealth());
         m_HealthSystem.OnDead += HealthSystem_OnDead; 
