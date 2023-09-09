@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerState
@@ -38,4 +39,7 @@ public class PlayerState
 
         return this;
     }
+
+    protected Player GetPlayer()
+    { return m_Player; }
 }
