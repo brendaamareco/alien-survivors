@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player : DamageableEntity
 {
-    [SerializeField] Motion m_Motion;
-    [SerializeField] Weapon m_DefaultWeapon;
+    [SerializeField] Motion motion;
+    [SerializeField] Weapon defaultWeapon;
 
     private List<Item> m_Items;
     private List<Weapon> m_Weapons;
@@ -16,17 +16,17 @@ public class Player : DamageableEntity
     {
         m_Items = new List<Item>();
 
-        m_DefaultWeapon.SetStats(GetStats());
-        SetStats(m_DefaultWeapon);
+        defaultWeapon.SetStats(GetStats());
+        SetStats(defaultWeapon);
 
-        m_Weapons = new() { m_DefaultWeapon };
+        m_Weapons = new() { defaultWeapon };
         m_Experience = 0;
 
         m_State = new PlayerState(this);
     }
 
     public void Move(Vector3 vectorMovement)
-    { m_State = m_State.Move(vectorMovement); }
+    { m_State = m_State.Move(vectorMovement, motion); }
 
     public void Attack(Vector3 target)
     { m_State = m_State.Attack(target); }

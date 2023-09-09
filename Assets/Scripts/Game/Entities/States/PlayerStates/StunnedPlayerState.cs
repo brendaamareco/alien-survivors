@@ -9,12 +9,6 @@ public class StunnedPlayerState : PlayerState
     public override PlayerState Attack(Vector3 target)
     { return this; }
 
-    public override PlayerState Equip(Item item)
-    { return this; }
-
-    public override PlayerState Equip(Weapon weapon)
-    { return this; }
-
-    public override PlayerState Move(Vector3 vectorMovement)
+    public override PlayerState Move(Vector3 vectorMovement, Motion motion)
     { return this; }
 }

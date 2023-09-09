@@ -10,9 +10,9 @@ public class PlayerState
     public PlayerState(Player player)
     { m_Player = player; }
 
-    public virtual PlayerState Move(Vector3 vectorMovement)
+    public virtual PlayerState Move(Vector3 vectorMovement, Motion motion)
     {
-        //TODO: agregar la parte de misael
+        motion.Move(vectorMovement, m_Player.GetSpeedPoints());
         return this;
     }
 
