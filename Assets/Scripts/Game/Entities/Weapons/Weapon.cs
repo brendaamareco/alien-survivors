@@ -42,8 +42,6 @@ public abstract class Weapon : StatsDecorator, IEntity
         Vector3 targetDirection = target - transform.position;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 1f, 0.0f);
         transform.rotation = Quaternion.LookRotation(newDirection);
-
-        Debug.DrawRay(transform.position, newDirection, Color.red);
     }
 
     private IEnumerator AttackCoroutine(int attack)

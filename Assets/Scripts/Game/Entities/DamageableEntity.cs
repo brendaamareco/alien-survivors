@@ -28,9 +28,6 @@ public class DamageableEntity : MonoBehaviour, IEntity
 
     public void ReceiveDamage(float amount)
     {
-        Debug.Log("damage:" +  amount);
-        Debug.Log(GetCurrentHealthPoints() + "/" + GetMaxHealthPoints());
-
         GameEventManager.GetInstance().Publish(GameEvent.DAMAGE, new EventContext(this));
         m_HealthSystem.Damage(Mathf.Max(0, amount - GetDefensePoints())); 
     }

@@ -9,7 +9,8 @@ public class Player : DamageableEntity
 
     private List<Item> m_Items;
     private List<Weapon> m_Weapons;
-    private int m_Experience;
+    private PlayerState m_State;
+    private int m_Experience;  
 
     private void Awake()
     {
@@ -20,29 +21,21 @@ public class Player : DamageableEntity
 
         m_Weapons = new() { m_DefaultWeapon };
         m_Experience = 0;
+
+        m_State = new PlayerState(this);
     }
 
     public void Move(Vector3 vectorMovement)
-    {
-
-    }
+    { m_State = m_State.Move(vectorMovement); }
 
     public void Attack(Vector3 target)
-    { m_Weapons.ForEach(weapon => weapon.Attack(GetAttackPoints(), target)); }
+    { m_State = m_State.Attack(target); }
 
     public void Equip(Item item)
-    {
-        item.SetStats(GetStats());
-        SetStats(item);
-        //TODO: poner logica de agregar a la lista, verificar si se puede agregar
-    }
+    { m_State = m_State.Equip(item); }
 
     public void Equip(Weapon weapon)
-    {
-        weapon.SetStats(GetStats());
-        SetStats(weapon);
-        //TODO: poner logica de agregar a la lista, verificar si se puede agregar
-    }
+    { m_State = m_State.Equip(weapon); }
 
     public List<Weapon> GetWeapons() 
     { return m_Weapons; }
