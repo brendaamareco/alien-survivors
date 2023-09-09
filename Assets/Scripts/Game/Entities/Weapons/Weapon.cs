@@ -6,12 +6,13 @@ using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(SphereCollider))]
 public abstract class Weapon : StatsDecorator, IEntity
-{   
-    [SerializeField] private float scope = 10f;
-    [SerializeField] private float cooldown = 1f;
-    [SerializeField] private int attackExtraPoints = 0;
-    [SerializeField] private float upgradePercentage = 0.25f;
-    [SerializeField] private int maxLevel = 1;
+{
+    [SerializeField] string weaponName;
+    [SerializeField] float scope = 10f;
+    [SerializeField] float cooldown = 1f;
+    [SerializeField] int attackExtraPoints = 0;
+    [SerializeField] float upgradePercentage = 0.25f;
+    [SerializeField] int maxLevel = 1;
 
     private bool m_IsAttacking = false;
     private int m_Level;
@@ -69,7 +70,7 @@ public abstract class Weapon : StatsDecorator, IEntity
     { return m_DamageablesInArea;}
 
     public string GetName()
-    { return transform.name; }
+    { return weaponName; }
 
     public override int GetAttack()
     { return GetStats().GetAttack() + attackExtraPoints; }
