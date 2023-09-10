@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.77183837, g: 0.91006994, b: 0.9954383, a: 1}
+  m_IndirectSpecularColor: {r: 0.7717552, g: 0.9100881, b: 0.9952162, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -301,6 +301,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 16.23
       objectReference: {fileID: 0}
+    - target: {fileID: 1961925257815450362, guid: 592ed36f87509aa42a55184120968e31, type: 3}
+      propertyPath: boss1
+      value: 
+      objectReference: {fileID: 577238562}
+    - target: {fileID: 1961925257815450362, guid: 592ed36f87509aa42a55184120968e31, type: 3}
+      propertyPath: UIObject
+      value: 
+      objectReference: {fileID: 1854482365}
     - target: {fileID: 2047937162721402061, guid: 592ed36f87509aa42a55184120968e31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.76
@@ -530,6 +538,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592ed36f87509aa42a55184120968e31, type: 3}
+--- !u!1 &577238562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7646069978523975087, guid: 9ff68b7f8fb50c243a9f0885cc4d6012, type: 3}
+  m_PrefabInstance: {fileID: 5325040942187738774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 0c4d7377472e3b94a809df14dee2601b, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 4e3a8a8700c717f489431c7861ebe7ea, type: 3}
   m_SortingOrder: 0
 --- !u!4 &1854482367
 Transform:
@@ -859,6 +872,10 @@ PrefabInstance:
     - target: {fileID: 7646069978523975087, guid: 9ff68b7f8fb50c243a9f0885cc4d6012, type: 3}
       propertyPath: m_Name
       value: Et
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646069978523975087, guid: 9ff68b7f8fb50c243a9f0885cc4d6012, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
