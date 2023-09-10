@@ -79,9 +79,8 @@ public class GameManager : MonoBehaviour
     {
         /*
          * Tuve que hacerlo de esta forma sino me tiraba error en la IA de ET:
-         * 1) Arrastrar el prefab ET a la escena y desactivarlo para que no se vea
-         * o cuando empieza este script podes hacer boss1.SetActive(false) para
-         * desactivarlo.
+         * 1) Arrastrar el prefab ET a la escena (Prefabs/Bosses/Et/Et) y desactivarlo para que no se vea
+         * desde el editor (hay un checkbox)
          * 2) Activarlo con la línea de código de abajo:
          */
         boss1.SetActive(true);
