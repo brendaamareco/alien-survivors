@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 9a44ec2eb2294404f8b6e3e139d9a1ed, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 42f430fff0ade924abee4c78fdc618bd, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7432411029608179063, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24133073
+      value: 0.24133071
       objectReference: {fileID: 0}
     - target: {fileID: 7432411029608179063, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_LocalRotation.y
@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7432411029608179063, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10038558
+      value: -0.100385554
       objectReference: {fileID: 0}
     - target: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24133073
+      value: 0.24133071
       objectReference: {fileID: 0}
     - target: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_LocalRotation.y
@@ -221,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10038558
+      value: -0.100385554
       objectReference: {fileID: 0}
     - target: {fileID: 8759397410888323983, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_Name
