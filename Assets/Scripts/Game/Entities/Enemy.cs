@@ -8,7 +8,7 @@ public class Enemy : DamageableEntity
     protected override void Start()
     {
         base.Start();
-        m_Weapon = GetComponent<Weapon>();
+        m_Weapon = GetComponentInChildren<Weapon>();
         m_Motion = GetComponent<Motion>();
 
         m_Weapon.SetStats(GetStats());

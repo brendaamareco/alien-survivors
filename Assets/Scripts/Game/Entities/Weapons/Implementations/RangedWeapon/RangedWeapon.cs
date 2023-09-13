@@ -7,8 +7,6 @@ public class RangedWeapon : Weapon
     [SerializeField] GameObject ammunitionPrefab;
     [SerializeField] float ammunitionSpeed = 5f;
 
-    private List<GameObject> m_Ammunitions = new();
-
     public override void PerformAttack(int attack)
     {
         GameEventManager.GetInstance().Publish(GameEvent.ATTACK, new EventContext(this));
@@ -21,18 +19,6 @@ public class RangedWeapon : Weapon
         Ammunition ammunition = ammunitionGameObject.GetComponent<Ammunition>();
         ammunition.SetDamagePoints(attack);
         ammunition.SetLayerMask(gameObject.layer);
-
-        m_Ammunitions.Add(ammunitionGameObject);
+        ammunition.SetDistance(GetScope());
     } 
-
-    protected override void OnTriggerExit(Collider other)
-    {
-        base.OnTriggerExit(other);
-
-        if (m_Ammunitions.Contains(other.gameObject))
-        {
-            m_Ammunitions.Remove(other.gameObject);
-            Destroy(other.gameObject);
-        }
-    }
 }

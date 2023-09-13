@@ -74,6 +74,9 @@ public abstract class Weapon : StatsDecorator, IEntity
     public override int GetSpeed()
     { return GetStats().GetSpeed(); }
 
+    public float GetScope()
+    { return scope; }
+
     private void OnTriggerEnter(Collider other)
     {
         DamageableEntity damageable = other.GetComponentInChildren<DamageableEntity>();
@@ -82,7 +85,7 @@ public abstract class Weapon : StatsDecorator, IEntity
             m_DamageablesInArea.Add(damageable);
     }
 
-    protected virtual void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         DamageableEntity damageable = other.GetComponentInChildren<DamageableEntity>();
 

@@ -1726,7 +1726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: AlienInsectWeapon
-  scope: 1
+  scope: 3
   cooldown: 2
   attackExtraPoints: 0
   upgradePercentage: 0.25
