@@ -5,13 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(BaseStats))]
 public class DamageableEntity : MonoBehaviour, IEntity
 {
+    [SerializeField] private string damageableName;
+
     private Stats m_Stats;
-    private string m_Name;
     private HealthSystem m_HealthSystem;
 
     protected virtual void Start()
     {
-        m_Name = this.transform.name;
         m_Stats = gameObject.GetComponent<BaseStats>();
 
         m_HealthSystem = new HealthSystem(m_Stats.GetHealth());
@@ -61,7 +61,7 @@ public class DamageableEntity : MonoBehaviour, IEntity
     { return m_Stats.GetSpeed(); }    
 
     public string GetName()
-    { return m_Name; }
+    { return damageableName; }
 
     private void HealthSystem_OnDead(object sender, System.EventArgs e)
     { GameEventManager.GetInstance().Publish(GameEvent.DEAD, new EventContext(this)); }

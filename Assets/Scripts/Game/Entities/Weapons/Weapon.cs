@@ -31,18 +31,8 @@ public abstract class Weapon : StatsDecorator, IEntity
 
     public void Attack(int attack, Vector3 target)
     {
-        if (!m_IsAttacking)
-        {
-            SetAim(target);           
+        if (!m_IsAttacking)      
             StartCoroutine(nameof(AttackCoroutine), attack);
-        }
-    }
-
-    private void SetAim(Vector3 target) 
-    {
-        Vector3 targetDirection = target - transform.position;
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 1f, 0.0f);
-        transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
     private IEnumerator AttackCoroutine(int attack)
@@ -92,7 +82,7 @@ public abstract class Weapon : StatsDecorator, IEntity
             m_DamageablesInArea.Add(damageable);
     }
 
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         DamageableEntity damageable = other.GetComponentInChildren<DamageableEntity>();
 
