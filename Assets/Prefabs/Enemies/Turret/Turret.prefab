@@ -1044,6 +1044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0186905ec4327ac4aa798cba1fbf979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageableName: Torreta
   m_Motion: {fileID: 9149904051562012416}
   m_Weapon: {fileID: 2321165494090473057}
 --- !u!114 &9149904051562012416
@@ -1091,16 +1092,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Weapon4
-  scope: 10
+  weaponName: TurretWeapon
+  scope: 2
   cooldown: 5
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
   spawnPosition: {fileID: 2008378844692586845}
   ammunitionPrefab: {fileID: 1000011866055842, guid: 3b79e6f8a415f7841a8a55733c4683cd, type: 3}
-  ammunitionTimeLive: 10
-  ammunitionSpeed: 20
+  ammunitionSpeed: 5
 --- !u!54 &9124823576196549106
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48378b2d4da09b469880d35f3d0d673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Attack: 30
+  m_Attack: 15
   m_Defense: 10
   m_Health: 200
   m_Speed: 0
