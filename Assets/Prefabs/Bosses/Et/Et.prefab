@@ -2106,7 +2106,7 @@ Transform:
   - {fileID: 7548530487267769372}
   - {fileID: 441869044845443844}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5727141731806040446
 MonoBehaviour:
@@ -2120,6 +2120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0186905ec4327ac4aa798cba1fbf979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageableName: Et
   m_Motion: {fileID: 587969727928135706}
   m_Weapon: {fileID: 7709494233500632054}
 --- !u!195 &7556936633569116467
@@ -2189,8 +2190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4685554823ca0e74db96ef4c7c7ec6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Weapon6
-  scope: 2
+  weaponName: EtFinger
+  scope: 3
   cooldown: 2
   attackExtraPoints: 0
   upgradePercentage: 0.25
