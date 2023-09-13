@@ -3107,6 +3107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0186905ec4327ac4aa798cba1fbf979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageableName: Arquero esqueleto
   m_Motion: {fileID: 7935946566981746525}
   m_Weapon: {fileID: 175764949597778382}
 --- !u!195 &2390378095142964868
@@ -3176,15 +3177,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Weapon3
-  scope: 10
+  weaponName: ArcherSkeletonWeapon
+  scope: 5
   cooldown: 4
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
   spawnPosition: {fileID: 1889984652581136380}
   ammunitionPrefab: {fileID: 1000011023395326, guid: 21ce0107bf7576246b86b2f5e4105590, type: 3}
-  ammunitionTimeLive: 5
   ammunitionSpeed: 10
 --- !u!54 &720111820726893240
 Rigidbody:
@@ -3251,9 +3251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48378b2d4da09b469880d35f3d0d673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Attack: 20
-  m_Defense: 10
-  m_Health: 60
+  m_Attack: 5
+  m_Defense: 2
+  m_Health: 75
   m_Speed: 2
 --- !u!136 &502344991063093497
 CapsuleCollider:
