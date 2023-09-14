@@ -14,6 +14,7 @@ public class RangedWeapon : Weapon
         GameObject ammunitionGameObject = Instantiate(ammunitionPrefab, spawnPosition.position, spawnPosition.rotation);
         Rigidbody ammunitionRb = ammunitionGameObject.GetComponent<Rigidbody>();
         ammunitionRb.MoveRotation(Quaternion.Euler(new Vector3(90, spawnPosition.eulerAngles.y, spawnPosition.eulerAngles.z)));
+        
         ammunitionRb.velocity = spawnPosition.forward * ammunitionSpeed;
 
         Ammunition ammunition = ammunitionGameObject.GetComponent<Ammunition>();

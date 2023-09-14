@@ -2,9 +2,11 @@
     <ui:Template name="Stopwatch" src="project://database/Assets/UI/Documents/Stopwatch.uxml?fileID=9197481963319205126&amp;guid=4e3a8a8700c717f489431c7861ebe7ea&amp;type=3#Stopwatch" />
     <Style src="project://database/Assets/UI/Styles/ProgressBar.uss?fileID=7433441132597879392&amp;guid=cd5e57976b416264499871e0fdba5491&amp;type=3#ProgressBar" />
     <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: auto;">
-        <ui:VisualElement name="Header" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 30%; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
-            <ui:ProgressBar value="9" title="Level 0" name="ExperienceBar" style="height: 20%; font-size: 24px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px;" />
-            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; height: 80%; padding-top: 0; align-items: flex-start; padding-left: 1%; padding-right: 1%;">
+        <ui:VisualElement name="Header" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 30%; padding-left: 1%; padding-right: 1%; padding-top: 0; padding-bottom: 0;">
+            <ui:VisualElement name="TopSection" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 20%; flex-direction: row; justify-content: space-between;">
+                <ui:ProgressBar value="9" title="Level 0" name="ExperienceBar" style="height: 100%; font-size: 24px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; width: 100%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="BottomSection" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; height: 80%; padding-top: 0; align-items: flex-start; padding-left: 0; padding-right: 0; margin-top: 1%; padding-bottom: 0;">
                 <ui:VisualElement name="RightSection" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: auto; height: 60%;">
                     <ui:VisualElement name="ItemsRow" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center; flex-wrap: nowrap; height: 30%; justify-content: center; width: auto;">
                         <ui:VisualElement name="Item1" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 100%; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);" />
@@ -30,5 +32,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="Content" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 70%;" />
+    <ui:VisualElement name="Content" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 70%;">
+        <ui:ProgressBar value="100" title="200/200" name="HealthBar" style="height: 36px; font-size: 24px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; width: 20%; position: absolute; bottom: 2%; right: auto; left: 1%;" />
+    </ui:VisualElement>
 </ui:UXML>
