@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: ArcherSkeletonWeapon
-  scope: 5
+  scope: 10
   cooldown: 4
   attackExtraPoints: 0
   upgradePercentage: 0.25

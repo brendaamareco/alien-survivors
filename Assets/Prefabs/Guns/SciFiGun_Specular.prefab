@@ -36,7 +36,7 @@ Transform:
   - {fileID: 460882}
   - {fileID: 6085272210847372969}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9560878
 Animator:
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Pistola
-  scope: 5
+  scope: 10
   cooldown: 0.5
   attackExtraPoints: 10
   upgradePercentage: 0.25

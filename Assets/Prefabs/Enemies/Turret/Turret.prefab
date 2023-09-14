@@ -1093,7 +1093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: TurretWeapon
-  scope: 5
+  scope: 10
   cooldown: 5
   attackExtraPoints: 0
   upgradePercentage: 0.25
