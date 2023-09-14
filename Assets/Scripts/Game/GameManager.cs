@@ -42,6 +42,20 @@ public class GameManager : MonoBehaviour
         currentState = NewState;
     }
 
+    public void SwitchPause()
+    {
+        if (currentState == GameState.Paused)
+        {
+            ChangeState(GameState.Gameplay);
+            Time.timeScale = 1.0f;
+        }
+        else
+        {
+            ChangeState(GameState.Paused);
+            Time.timeScale = 0;
+        }
+    }
+
     private void UpdateStopwacth()
     { 
         stopwatchTime += Time.deltaTime;
