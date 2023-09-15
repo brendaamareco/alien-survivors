@@ -254,8 +254,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1889984652581136380}
-  m_Layer: 6
-  m_Name: SpawnPoint
+  - component: {fileID: 7115835466739534086}
+  - component: {fileID: 5775162310556909983}
+  m_Layer: 0
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,10 +274,53 @@ Transform:
   m_LocalPosition: {x: 0.0034260484, y: 0.0339, z: 0.027254008}
   m_LocalScale: {x: 0.04738599, y: 0.04738599, z: 0.04738599}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6736623110088056837}
   m_Father: {fileID: 2189400362175043670}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7115835466739534086
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759023035386314695}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5775162310556909983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759023035386314695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: ArcherSkeletonWeapon
+  scope: 10
+  cooldown: 4
+  attackExtraPoints: 0
+  upgradePercentage: 0.25
+  maxLevel: 1
+  spawnPosition: {fileID: 6736623110088056837}
+  ammunitionPrefab: {fileID: 1000011023395326, guid: 21ce0107bf7576246b86b2f5e4105590, type: 3}
+  ammunitionSpeed: 10
 --- !u!1 &805374076199701590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3042,8 +3087,6 @@ GameObject:
   - component: {fileID: 5092420974442999685}
   - component: {fileID: 2390378095142964868}
   - component: {fileID: 7935946566981746525}
-  - component: {fileID: 8224435634577050444}
-  - component: {fileID: 175764949597778382}
   - component: {fileID: 720111820726893240}
   - component: {fileID: 4581941807630803232}
   - component: {fileID: 6141161996177191959}
@@ -3107,8 +3150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0186905ec4327ac4aa798cba1fbf979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageableName: Arquero esqueleto
   m_Motion: {fileID: 7935946566981746525}
-  m_Weapon: {fileID: 175764949597778382}
+  m_Weapon: {fileID: 5775162310556909983}
 --- !u!195 &2390378095142964868
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3123,7 +3167,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 8
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -3143,49 +3187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d25a6dd34e643141b7dd8d4f510a424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &8224435634577050444
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7098359884938559839}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &175764949597778382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7098359884938559839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponName: Weapon3
-  scope: 10
-  cooldown: 4
-  attackExtraPoints: 0
-  upgradePercentage: 0.25
-  maxLevel: 1
-  spawnPosition: {fileID: 1889984652581136380}
-  ammunitionPrefab: {fileID: 1000011023395326, guid: 21ce0107bf7576246b86b2f5e4105590, type: 3}
-  ammunitionTimeLive: 5
-  ammunitionSpeed: 10
 --- !u!54 &720111820726893240
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3251,9 +3252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48378b2d4da09b469880d35f3d0d673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Attack: 20
-  m_Defense: 10
-  m_Health: 60
+  m_Attack: 5
+  m_Defense: 2
+  m_Health: 75
   m_Speed: 2
 --- !u!136 &502344991063093497
 CapsuleCollider:
@@ -3375,6 +3376,37 @@ Transform:
   - {fileID: 6132292288609455815}
   - {fileID: 6737569207624586057}
   m_Father: {fileID: 1697433168917940743}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7611539291093138500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6736623110088056837}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6736623110088056837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611539291093138500}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1889984652581136380}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7776777838444935332

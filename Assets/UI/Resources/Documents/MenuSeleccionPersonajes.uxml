@@ -1,0 +1,46 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd">
+    <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 100%; align-items: center; background-image: url(&apos;project://database/Assets/3rdPartyAssets/Fantasy%20Skybox%20FREE/Panoramics/FS013/FS013_Night_Moonless.png?fileID=2800000&amp;guid=a81552b25f3b36b43b82a6c5daf6e098&amp;type=3#FS013_Night_Moonless&apos;); justify-content: flex-end; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%;">
+        <ui:VisualElement name="CharactersContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.25); width: 50%; height: auto; border-left-color: rgb(233, 192, 39); border-right-color: rgb(233, 192, 39); border-top-color: rgb(233, 192, 39); border-bottom-color: rgb(233, 192, 39); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; padding-left: 2%; padding-right: 2%; padding-top: 0; padding-bottom: 0;">
+            <ui:VisualElement name="Header" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 10%;">
+                <ui:Label tabindex="-1" text="Selección de personaje" display-tooltip-when-elided="true" name="Label" style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); -unity-font-style: normal; -unity-text-align: middle-center; font-size: 32px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Content" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 70%; flex-wrap: wrap; flex-direction: column; align-items: flex-start;">
+                <ui:VisualElement name="Row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 50%; width: 100%; flex-direction: row;">
+                    <ui:Button display-tooltip-when-elided="true" name="Personaje1" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; width: 50%; background-image: url(&apos;project://database/Assets/Art/Textures/UIElements/cat_orange.png?fileID=21300000&amp;guid=20ff8ab2d74185b4ca560f8c173ea486&amp;type=3#cat_orange&apos;); border-left-color: rgba(0, 0, 0, 0.78); border-right-color: rgba(0, 0, 0, 0.78); border-top-color: rgba(0, 0, 0, 0.78); border-bottom-color: rgba(0, 0, 0, 0.78); border-left-width: 10px; border-right-width: 0; border-top-width: 10px; border-bottom-width: 0;">
+                        <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.78); position: absolute; bottom: 5%; right: 5%; padding-left: 2%; padding-right: 2%; padding-top: 2%; padding-bottom: 2%;">
+                            <ui:Label tabindex="-1" text="Mango" display-tooltip-when-elided="true" name="Label" focusable="false" style="font-size: 24px; color: rgb(255, 255, 255);" />
+                        </ui:VisualElement>
+                    </ui:Button>
+                    <ui:Button display-tooltip-when-elided="true" name="Personaje2" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; width: 50%; background-image: url(&apos;project://database/Assets/Art/Textures/UIElements/cat_black.png?fileID=21300000&amp;guid=2811332c7977997459d0ab1f2409e632&amp;type=3#cat_black&apos;); border-left-color: rgba(0, 0, 0, 0.78); border-right-color: rgba(0, 0, 0, 0.78); border-top-color: rgba(0, 0, 0, 0.78); border-bottom-color: rgba(0, 0, 0, 0.78); border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 0;">
+                        <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.78); position: absolute; bottom: 5%; right: 5%; padding-left: 2%; padding-right: 2%; padding-top: 2%; padding-bottom: 2%;">
+                            <ui:Label tabindex="-1" text="Shadow" display-tooltip-when-elided="true" name="Label" style="font-size: 24px; color: rgb(255, 255, 255);" />
+                        </ui:VisualElement>
+                    </ui:Button>
+                </ui:VisualElement>
+                <ui:VisualElement name="Row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 50%; width: 100%; flex-direction: row;">
+                    <ui:Button display-tooltip-when-elided="true" name="Personaje3" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; width: 50%; background-image: url(&apos;project://database/Assets/Art/Textures/UIElements/cat_green.png?fileID=21300000&amp;guid=fd7d764d9e3181b408b031a9743f735c&amp;type=3#cat_green&apos;); border-left-color: rgba(0, 0, 0, 0.78); border-right-color: rgba(0, 0, 0, 0.78); border-top-color: rgba(0, 0, 0, 0.78); border-bottom-color: rgba(0, 0, 0, 0.78); border-left-width: 10px; border-right-width: 0; border-top-width: 10px; border-bottom-width: 10px;">
+                        <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.78); position: absolute; bottom: 5%; right: 5%; padding-left: 2%; padding-right: 2%; padding-top: 2%; padding-bottom: 2%;">
+                            <ui:Label tabindex="-1" text="Mint" display-tooltip-when-elided="true" name="Label" style="font-size: 24px; color: rgb(255, 255, 255);" />
+                        </ui:VisualElement>
+                    </ui:Button>
+                    <ui:Button display-tooltip-when-elided="true" name="Personaje4" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; width: 50%; background-image: url(&apos;project://database/Assets/Art/Textures/UIElements/cat_blueberry.png?fileID=21300000&amp;guid=34016a759a08fc747945752eb69a22f9&amp;type=3#cat_blueberry&apos;); border-left-color: rgba(0, 0, 0, 0.78); border-right-color: rgba(0, 0, 0, 0.78); border-top-color: rgba(0, 0, 0, 0.78); border-bottom-color: rgba(0, 0, 0, 0.78); border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 10px;">
+                        <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.78); position: absolute; bottom: 5%; right: 5%; padding-left: 2%; padding-right: 2%; padding-top: 2%; padding-bottom: 2%;">
+                            <ui:Label tabindex="-1" text="Blueberry" display-tooltip-when-elided="true" name="Label" style="font-size: 24px; color: rgb(255, 255, 255);" />
+                        </ui:VisualElement>
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Footer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 20%; padding-left: 2%; padding-right: 2%; padding-top: 2%; padding-bottom: 2%;">
+                <ui:VisualElement name="Row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: auto; flex-wrap: nowrap; align-self: auto; flex-direction: row; align-items: flex-end;">
+                    <ui:Label tabindex="-1" text="Ataque: 0" display-tooltip-when-elided="true" name="Ataque" style="width: 50%; height: 100%; -unity-text-align: middle-left; color: rgb(255, 255, 255); font-size: 28px;" />
+                    <ui:Label tabindex="-1" text="Velocidad: 0" display-tooltip-when-elided="true" name="Velocidad" style="height: 100%; width: 50%; font-size: 28px; -unity-text-align: middle-left; white-space: normal; color: rgb(255, 255, 255);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Row" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: auto; align-self: stretch; flex-direction: row; flex-wrap: nowrap;">
+                    <ui:Label tabindex="-1" text="Defensa: 0" display-tooltip-when-elided="true" name="Defensa" style="height: 100%; width: 50%; flex-wrap: wrap; font-size: 28px; color: rgb(255, 255, 255);" />
+                    <ui:Label tabindex="-1" text="Puntos de vida: 0" display-tooltip-when-elided="true" name="Vida" style="width: 50%; height: 100%; font-size: 28px; white-space: normal; color: rgb(255, 255, 255);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Button text="Confirmar" display-tooltip-when-elided="true" name="BtnConfirm" style="-unity-text-align: lower-center; position: absolute; bottom: 5%; right: 5%; font-size: 28px; color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0.78); border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; padding-top: 24px; padding-bottom: 24px; padding-left: 24px; padding-right: 24px;" />
+    </ui:VisualElement>
+</ui:UXML>

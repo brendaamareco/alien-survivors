@@ -605,20 +605,25 @@ PrefabInstance:
       addedObject: {fileID: 2264833922789726070}
     - targetCorrespondingSourceObject: {fileID: 8310580491979065294, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2958090780098018567}
-    - targetCorrespondingSourceObject: {fileID: 8310580491979065294, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3721363909803778275}
     - targetCorrespondingSourceObject: {fileID: 8310580491979065294, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2585841763781419420}
     - targetCorrespondingSourceObject: {fileID: 8310580491979065294, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3114630908994166515}
-    - targetCorrespondingSourceObject: {fileID: 8310580491979065294, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8957852493183808054}
   m_SourcePrefab: {fileID: 100100000, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+--- !u!114 &3508090064840453378 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 987073764381068243, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+  m_PrefabInstance: {fileID: 4403947625174197969}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5250514569022610469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8484891815314848500, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
@@ -641,8 +646,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d3010db01f51743bd19a9cb2f212c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageableName: Mango
   motion: {fileID: 2585841763781419420}
-  defaultWeapon: {fileID: 3114630908994166515}
+  defaultWeapon: {fileID: 3508090064840453378}
 --- !u!114 &6995188024053436553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,31 +675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48378b2d4da09b469880d35f3d0d673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Attack: 20
-  m_Defense: 5
+  m_Attack: 25
+  m_Defense: 2
   m_Health: 200
   m_Speed: 5
---- !u!135 &2958090780098018567
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5641017903040618783}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3721363909803778275
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -734,28 +719,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 360
---- !u!114 &3114630908994166515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5641017903040618783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponName: Weapon6
-  scope: 10
-  cooldown: 1
-  attackExtraPoints: 0
-  upgradePercentage: 0.25
-  maxLevel: 1
-  spawnPosition: {fileID: 751562646571697543}
-  ammunitionPrefab: {fileID: 1000012871492402, guid: c827049c3d8082640940d385e01eac27, type: 3}
-  ammunitionTimeLive: 5
-  ammunitionSpeed: 20
 --- !u!114 &8957852493183808054
 MonoBehaviour:
   m_ObjectHideFlags: 0
