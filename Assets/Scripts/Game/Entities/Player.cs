@@ -10,7 +10,7 @@ public class Player : DamageableEntity
     private List<Item> m_Items;
     private List<Weapon> m_Weapons;
     private PlayerState m_State;
-    private int m_Experience;  
+    public int m_Experience;  
 
     private void Awake()
     {
