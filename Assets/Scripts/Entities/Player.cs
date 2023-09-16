@@ -8,13 +8,15 @@ public class Player : DamageableEntity
         
     private int m_Experience;
     private List<InventorySlot<Weapon>> m_WeaponInventory;
-    private List<Item> m_Items;
+    private List<InventorySlot<Item>> m_ItemInventory;
     private int m_MaxElementsInInventory;
     private PlayerState m_State;
 
-    private void Awake()
+    protected override void Start()
     {
-        m_Items = new();
+        base.Start();
+
+        m_ItemInventory = LoadItemInventory();
         m_WeaponInventory = LoadWeaponInventory();
         m_State = new PlayerState(this);
         m_Experience = 0;
@@ -27,9 +29,23 @@ public class Player : DamageableEntity
     public void Attack(Vector3 target)
     { m_State = m_State.Attack(target); }
 
+
     public void Equip(Item item)
-    { 
-    
+    {
+        if (m_ItemInventory.Count < m_MaxElementsInInventory)
+        {
+            foreach (InventorySlot<Item> itemSlot in m_ItemInventory)
+            {
+                if (itemSlot.IsFree())
+                {
+                    item.SetStats(GetStats());
+                    SetStats(item.GetStats());
+
+                    item.gameObject.layer = gameObject.layer;
+                    itemSlot.SetElement(item);
+                }
+            }
+        }
     }
 
     public void Equip(Weapon weapon)
@@ -67,7 +83,17 @@ public class Player : DamageableEntity
     }
 
     public List<Item> GetItems() 
-    { return m_Items;}
+    {
+        List<Item> items = new();
+
+        foreach (InventorySlot<Item> itemSlot in m_ItemInventory)
+        {
+            if (!itemSlot.IsFree())
+                items.Add(itemSlot.GetElement());
+        }
+
+        return items;
+    }
 
     public int GetExperience()
     { return m_Experience; }
@@ -99,5 +125,30 @@ public class Player : DamageableEntity
         }
 
         return weaponInventory;
+    }
+
+    public List<InventorySlot<Item>> LoadItemInventory()
+    {
+        List<InventorySlot<Item>> itemInventory = new();
+        GameObject[] itemSlots = GameObject.FindGameObjectsWithTag("ItemSlot");
+
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            InventorySlot<Item> slot = new(itemSlots[i].transform);
+            Item item = itemSlots[i].GetComponentInChildren<Item>();
+
+            if (item)
+            {
+                item.SetStats(GetStats());
+                SetStats(item);
+
+                item.gameObject.layer = gameObject.layer;
+                slot.SetElement(item);
+            }
+
+            itemInventory.Add(slot);
+        }
+
+        return itemInventory;
     }
 }
