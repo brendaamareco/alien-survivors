@@ -6,16 +6,15 @@ public class PickUpExp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "CatOrange")
+        if (other.CompareTag("Player"))
         {
             // Check if the colliding object is the player
-            Player player = other.GetComponent<Player>();
-
-            if (player != null)
+            
+            if (other.TryGetComponent<Player>(out var player))
             {
                 // Increase the player's experience
-                player.m_Experience += experienceAmount;
-                Debug.Log("Player's experience: " + player.m_Experience);
+                player.AddExperience(experienceAmount);
+                Debug.Log("Player's experience: " + player.GetExperience());
 
                 // Destroy the pickup object
                 Destroy(gameObject);

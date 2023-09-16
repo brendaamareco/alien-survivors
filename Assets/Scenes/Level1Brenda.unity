@@ -608,11 +608,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7391595312896317258, guid: cec6f5cd901c59b4a842050d8a1c5308, type: 3}
   m_PrefabInstance: {fileID: 720710492}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &806102506 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 159406529470114355, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
-  m_PrefabInstance: {fileID: 1162912505038516427}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &826477881
 GameObject:
   m_ObjectHideFlags: 0
@@ -6368,10 +6363,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1090559928434641285, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1090559928434641285, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_TagString
+      value: WeaponSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3397407096778841417, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3397407096778841417, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_TagString
+      value: WeaponSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 3508090064840453378, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
       propertyPath: spawnPosition
       value: 
-      objectReference: {fileID: 806102506}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844029201380031245, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810769481456515385, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.101
+      objectReference: {fileID: 0}
     - target: {fileID: 5250514569022610469, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6420,9 +6439,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatOrange
       objectReference: {fileID: 0}
+    - target: {fileID: 5905494482156581449, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905494482156581449, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_TagString
+      value: WeaponSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183804589682458085, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183804589682458085, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_TagString
+      value: WeaponSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 6216491071513130452, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6216491071513130452, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_TagString
+      value: WeaponSlot
       objectReference: {fileID: 0}
     - target: {fileID: 6216491071513217256, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
       propertyPath: m_Layer
@@ -6436,13 +6475,45 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6783819585677563412, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7071789362225300594, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7657690281413191602, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657690281413417612, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657690281413417614, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657690281413417618, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409608758526585494, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409608758526585494, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_TagString
+      value: WeaponSlot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6839387526314886303, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+    - {fileID: 7071789362225300594, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+    - {fileID: 6216491071513217256, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+    - {fileID: 6216491071513217258, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+    - {fileID: 6216491071513217268, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
