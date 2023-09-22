@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 1889984652581136380}
   - component: {fileID: 7115835466739534086}
   - component: {fileID: 5775162310556909983}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3226,6 +3226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExpModel: {fileID: 0}
 --- !u!114 &6141161996177191959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3387,7 +3388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6736623110088056837}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

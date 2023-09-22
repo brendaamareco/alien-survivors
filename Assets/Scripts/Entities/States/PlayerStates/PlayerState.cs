@@ -22,24 +22,6 @@ public class PlayerState
         return this;
     }
 
-    public virtual PlayerState Equip(Item item)
-    {
-        item.SetStats(m_Player.GetStats());
-        m_Player.SetStats(item);
-        //TODO: poner logica de agregar a la lista, verificar si se puede agregar
-
-        return this;
-    }
-
-    public virtual PlayerState Equip(Weapon weapon)
-    {
-        weapon.SetStats(m_Player.GetStats());
-        m_Player.SetStats(weapon);
-        //TODO: poner logica de agregar a la lista, verificar si se puede agregar
-
-        return this;
-    }
-
     protected Player GetPlayer()
     { return m_Player; }
 }
