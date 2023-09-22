@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenu;
+    public AudioSource startButtonAudioSource;
 
     private VisualElement m_RootMain;
 
@@ -19,6 +20,16 @@ public class MenuManager : MonoBehaviour
     }
     private void OnClickStart()
     {
+        if (startButtonAudioSource != null)
+        {
+            // Reproduce la pista de audio "StartButtonMusic"
+            startButtonAudioSource.Play();
+        }
+        else
+        {
+            Debug.LogError("No se encontró el componente startButtonAudioSource.");
+        }
+
         m_RootMain.style.display = DisplayStyle.None;
         SceneManager.LoadScene("Level1");
     }
