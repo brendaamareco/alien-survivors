@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterScript : MonoBehaviour
+public class WaterPositionScript : MonoBehaviour
 {
     public float velocidadX = 0.05f; // Velocidad de movimiento en el eje X
     public bool ejeX = true;
     public bool sumar = true;
+
+    public float umbralMinX = 137.0f;
+    public float umbralMaxX = 12.0f;
+    public float umbralMinZ = 172.0f;
+    public float umbralMaxZ = 19.0f;
 
     private float tiempoAnterior; // Almacena el tiempo en el que se realizó la última actualización
 
@@ -25,24 +30,28 @@ public class WaterScript : MonoBehaviour
         {
             // Calcula la cantidad de movimiento en el eje X
             float movimientoEje = velocidadX * tiempoTranscurrido;
+            float posicionX = transform.localPosition.x;
+            float posicionZ = transform.localPosition.z;
 
-            if (ejeX && sumar)
+            if (ejeX && sumar && posicionX < umbralMaxX)
             {
-                // Suma la cantidad de movimiento al valor actual de la posición X
-                transform.position += new Vector3(movimientoEje, 0.0f, 0.0f);
+                transform.localPosition += new Vector3(movimientoEje, 0.0f, 0.0f);
             }
-            else if (ejeX && !sumar)
+            else if (ejeX && !sumar && posicionX > umbralMinX)
             {
-                transform.position -= new Vector3(movimientoEje, 0.0f, 0.0f);
+                transform.localPosition -= new Vector3(movimientoEje, 0.0f, 0.0f);
             }
-            else if (!ejeX && sumar)
+            else if (!ejeX && sumar && posicionZ < umbralMaxZ)
             {
-                transform.position += new Vector3(0.0f, 0.0f, movimientoEje);
+                transform.localPosition += new Vector3(0.0f, 0.0f, movimientoEje);
+            }
+            else if (!ejeX && !sumar && posicionZ > umbralMinZ)
+            {
+                transform.localPosition -= new Vector3(0.0f, 0.0f, movimientoEje);
             }
             else
             {
-                transform.position -= new Vector3(0.0f, 0.0f, movimientoEje);
-
+                Debug.Log("El agua no avanzara");
             }
 
             // Actualiza el tiempo anterior al tiempo actual
