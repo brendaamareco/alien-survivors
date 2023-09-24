@@ -10,6 +10,8 @@ public class DamageableEntityRepresentation : MonoBehaviour
     [SerializeField] string animationNameAttack = "";
 
     private DamageableEntity m_Damageable;
+    public AudioSource damageAudioSource;
+
     private Weapon m_Weapon;
     private Animator m_Animator;
 
@@ -26,7 +28,18 @@ public class DamageableEntityRepresentation : MonoBehaviour
     private void HandleDamage(EventContext context)
     {
         if (context.GetEntity().Equals(m_Damageable))
+        {
+            if (damageAudioSource != null)
+            {
+                // Reproduce la pista de audio
+                damageAudioSource.Play();
+            }
+            else
+            {
+                Debug.LogError("No se encontró el componente damageAudioSource.");
+            }
             m_Animator.Play(animationNameReceiveDamage);
+        }
     }
 
     private void HandleAttack(EventContext context)
