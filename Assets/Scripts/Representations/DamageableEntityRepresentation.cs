@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent (typeof(Animator))]
 public class DamageableEntityRepresentation : MonoBehaviour
 {
-    [SerializeField] string animationNameReceiveDamage = "";
     [SerializeField] string animationNameAttack = "";
 
     [SerializeField] GameObject stunnedVfx;
@@ -51,7 +50,7 @@ public class DamageableEntityRepresentation : MonoBehaviour
     private void HandleDamage(EventContext context)
     {
         if (context.GetEntity().Equals(m_Damageable))
-            m_Animator.Play(animationNameReceiveDamage);
+            m_Animator.SetTrigger("ReceiveDamage");
     }
 
     private void HandleAttack(EventContext context)
