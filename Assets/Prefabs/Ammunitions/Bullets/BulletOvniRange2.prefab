@@ -64,6 +64,14 @@ PrefabInstance:
       propertyPath: probability
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 864179892216441923, guid: 776b2de7ed7a88e4bbdcc336743a09f8, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 864179892216441923, guid: 776b2de7ed7a88e4bbdcc336743a09f8, type: 3}
+      propertyPath: probability
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
