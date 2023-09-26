@@ -850,26 +850,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 312851791}
     m_Modifications:
-    - target: {fileID: 479620574918116946, guid: cec6f5cd901c59b4a842050d8a1c5308, type: 3}
-      propertyPath: m_Size.y
-      value: 0.027066149
-      objectReference: {fileID: 0}
-    - target: {fileID: 479620574918116946, guid: cec6f5cd901c59b4a842050d8a1c5308, type: 3}
-      propertyPath: m_Size.z
-      value: 0.01941155
-      objectReference: {fileID: 0}
-    - target: {fileID: 479620574918116946, guid: cec6f5cd901c59b4a842050d8a1c5308, type: 3}
-      propertyPath: m_Center.x
-      value: 0.0000042557717
-      objectReference: {fileID: 0}
-    - target: {fileID: 479620574918116946, guid: cec6f5cd901c59b4a842050d8a1c5308, type: 3}
-      propertyPath: m_Center.y
-      value: 0.003465165
-      objectReference: {fileID: 0}
-    - target: {fileID: 479620574918116946, guid: cec6f5cd901c59b4a842050d8a1c5308, type: 3}
-      propertyPath: m_Center.z
-      value: -0.00064201676
-      objectReference: {fileID: 0}
     - target: {fileID: 6059834058676778511, guid: cec6f5cd901c59b4a842050d8a1c5308, type: 3}
       propertyPath: m_Name
       value: TurretLaserRange2
@@ -1047,26 +1027,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 312851791}
     m_Modifications:
-    - target: {fileID: 4520235702776388340, guid: a8d0795b31b4c934ea0a497eedba9fbd, type: 3}
-      propertyPath: m_Size.y
-      value: 0.023356194
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520235702776388340, guid: a8d0795b31b4c934ea0a497eedba9fbd, type: 3}
-      propertyPath: m_Size.z
-      value: 0.0226788
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520235702776388340, guid: a8d0795b31b4c934ea0a497eedba9fbd, type: 3}
-      propertyPath: m_Center.x
-      value: 0.0000042557717
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520235702776388340, guid: a8d0795b31b4c934ea0a497eedba9fbd, type: 3}
-      propertyPath: m_Center.y
-      value: 0.0016102123
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520235702776388340, guid: a8d0795b31b4c934ea0a497eedba9fbd, type: 3}
-      propertyPath: m_Center.z
-      value: -0.0022756553
-      objectReference: {fileID: 0}
     - target: {fileID: 6811930785685195756, guid: a8d0795b31b4c934ea0a497eedba9fbd, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6714,26 +6674,6 @@ PrefabInstance:
     - target: {fileID: 2988055339678612311, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
-      propertyPath: m_Size.y
-      value: 0.029004022
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
-      propertyPath: m_Size.z
-      value: 0.019727783
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
-      propertyPath: m_Center.x
-      value: 0.0000042557717
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
-      propertyPath: m_Center.y
-      value: 0.0044341325
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
-      propertyPath: m_Center.z
-      value: -0.0008001521
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

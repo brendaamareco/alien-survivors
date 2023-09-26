@@ -88,6 +88,22 @@ PrefabInstance:
       propertyPath: ammunitionPrefab
       value: 
       objectReference: {fileID: 8861331477618386062, guid: cf530b3590a9b684e97839b48ada154b, type: 3}
+    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.02341292
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
+      propertyPath: m_Size.z
+      value: 0.013141588
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
+      propertyPath: m_Center.y
+      value: 0.011185662
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0008922482
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
