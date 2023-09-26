@@ -726,7 +726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8017843377387684438, guid: 696fcc210299e33459e113ffa6d1e91e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1384,6 +1384,10 @@ PrefabInstance:
     - target: {fileID: 3331456792730183181, guid: ba1b72e888bee534d83e62f24330af87, type: 3}
       propertyPath: m_Name
       value: RobotRange2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331456792730183181, guid: ba1b72e888bee534d83e62f24330af87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3596069003844231083, guid: ba1b72e888bee534d83e62f24330af87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4839,6 +4843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RobotRange3
       objectReference: {fileID: 0}
+    - target: {fileID: 7577703466660905821, guid: 97d20b30dbc7c9b4198b21981fc103df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7895510048925172848, guid: 97d20b30dbc7c9b4198b21981fc103df, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.339986
@@ -6143,7 +6151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1437942090156491319, guid: 4dec512da3991f843b84f6e4c643944d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2233727426252983568, guid: 4dec512da3991f843b84f6e4c643944d, type: 3}
       propertyPath: m_RootOrder
@@ -6214,7 +6222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2132654687
 Transform:
   m_ObjectHideFlags: 0
@@ -6424,6 +6432,14 @@ PrefabInstance:
       propertyPath: spawnPosition
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3677800586827875377, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677800586827875378, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3844029201380031245, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.03
@@ -6624,7 +6640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4249658691347559742, guid: 3da053226633c9148bc29f335fe3cdba, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8947,6 +8963,10 @@ PrefabInstance:
     - target: {fileID: 4277234621566703959, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_Name
       value: Robot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277234621566703959, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4602924632404385402, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_LocalPosition.x

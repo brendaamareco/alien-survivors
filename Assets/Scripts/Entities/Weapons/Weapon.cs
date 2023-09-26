@@ -13,7 +13,6 @@ public abstract class Weapon : StatsDecorator, IEntity
     [SerializeField] int attackExtraPoints = 0;
     [SerializeField] float upgradePercentage = 0.25f;
     [SerializeField] int maxLevel = 1;
-    [SerializeField] WeaponComponent weaponComponent;
 
     private bool m_IsAttacking = false;
     private int m_Level;
@@ -78,8 +77,6 @@ public abstract class Weapon : StatsDecorator, IEntity
     public float GetScope()
     { return scope; }
 
-    public WeaponComponent GetWeaponComponent()
-    { return weaponComponent; }
 
     private void OnTriggerEnter(Collider other)
     {

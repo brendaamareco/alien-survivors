@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2016300632345811474, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2016300632345811474, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
       propertyPath: m_LocalScale.x
@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_Defense
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 5341715127822519239, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
+      propertyPath: ammunitionPrefab
+      value: 
+      objectReference: {fileID: 8861331477618386062, guid: cf530b3590a9b684e97839b48ada154b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

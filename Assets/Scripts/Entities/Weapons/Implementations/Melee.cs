@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Melee : Weapon
 {
+    [SerializeField] WeaponComponent weaponComponent;
+
     public override void PerformAttack(int attack)
     {
         foreach (DamageableEntity damageable in GetDamageablesInArea())
@@ -10,8 +12,8 @@ public class Melee : Weapon
             GameEventManager.GetInstance().Publish(GameEvent.ATTACK, new EventContext(this));
             damageable.ReceiveDamage(attack);
             
-            if (GetWeaponComponent())
-                damageable.AcceptWeaponComponent(GetWeaponComponent());
+            if (weaponComponent)
+                damageable.AcceptWeaponComponent(weaponComponent);
         }
     }
 }

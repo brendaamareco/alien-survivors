@@ -1080,6 +1080,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8957852493183808054}
   m_SourcePrefab: {fileID: 100100000, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+--- !u!1 &3677800586827875378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1015521231400051427, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+  m_PrefabInstance: {fileID: 4403947625174197969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5250514569022610469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8484891815314848500, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
@@ -1116,10 +1121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c5628c7d50d3c4b8f93c90953a09eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationWalk: Pistol Run
-  animationNameReceiveDamage: Head Hit
   animationNameAttack: Gunplay
-  animationStunned: Stunned
+  stunnedVfx: {fileID: 6814861053832838378}
+  confusedVfx: {fileID: 3677800586827875378}
 --- !u!114 &2264833922789726070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1188,6 +1192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366c4db998a916e4c8de867564f004b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6814861053832838378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7173872526076369467, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+  m_PrefabInstance: {fileID: 4403947625174197969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7657690281413308156
 PrefabInstance:
   m_ObjectHideFlags: 0

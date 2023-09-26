@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ammunition : MonoBehaviour
 {
     [SerializeField] private float distance = 0;
+    [SerializeField] WeaponComponent weaponComponent;
 
     private int m_DamagePoints;
     private BoxCollider m_BoxCollider;
@@ -32,7 +33,12 @@ public class Ammunition : MonoBehaviour
         DamageableEntity damageable = collision.gameObject.GetComponentInChildren<DamageableEntity>();
 
         if (damageable != null)
+        {
             damageable.ReceiveDamage(m_DamagePoints);
+
+            if (weaponComponent)
+                damageable.AcceptWeaponComponent(weaponComponent);
+        }
 
         Destroy(gameObject);
     }

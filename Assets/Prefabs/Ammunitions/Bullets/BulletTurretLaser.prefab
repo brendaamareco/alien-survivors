@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 487967813715752501}
   - component: {fileID: 1817914846256596105}
   - component: {fileID: 7567741102926049083}
+  - component: {fileID: 5946202871596856517}
   m_Layer: 0
   m_Name: BulletTurretLaser
   m_TagString: Untagged
@@ -97,6 +98,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 0
+  weaponComponent: {fileID: 5946202871596856517}
+--- !u!114 &5946202871596856517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010122379484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85e5a74afca7fa4cba937f8011fad90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 3
+  probability: 0.1
 --- !u!1 &1000010806109274
 GameObject:
   m_ObjectHideFlags: 0
