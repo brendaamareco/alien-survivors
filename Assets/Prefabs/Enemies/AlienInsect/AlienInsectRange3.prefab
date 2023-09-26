@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6078813944183197572, guid: 548e89481e3c81740abc5e1fab420aaf, type: 3}
       propertyPath: probability
-      value: 0.7
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7212336987817290551, guid: 548e89481e3c81740abc5e1fab420aaf, type: 3}
       propertyPath: m_RootOrder

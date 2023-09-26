@@ -23,9 +23,9 @@ public class DamageableEntityRepresentation : MonoBehaviour
 
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, HandleDamage);
         GameEventManager.GetInstance().Suscribe(GameEvent.ATTACK, HandleAttack);
-        GameEventManager.GetInstance().Suscribe(GameEvent.PLAYER_DEFAULT_STATE, HandleDefaultState);
-        GameEventManager.GetInstance().Suscribe(GameEvent.DEBUFF_STUNNED, HandleStunned);
-        GameEventManager.GetInstance().Suscribe(GameEvent.DEBUFF_CONFUSED, HandleConfused);
+        GameEventManager.GetInstance().Suscribe(GameEvent.STATE_DEFAULT, HandleDefaultState);
+        GameEventManager.GetInstance().Suscribe(GameEvent.STATE_STUNNED, HandleStunned);
+        GameEventManager.GetInstance().Suscribe(GameEvent.STATE_CONFUSED, HandleConfused);
         GameEventManager.GetInstance().Suscribe(GameEvent.DEBUFF_POISONED, HandlePoisoned);
         GameEventManager.GetInstance().Suscribe(GameEvent.DEBUFF_POISONED_END, HandlePoisonedEnd);
     }
