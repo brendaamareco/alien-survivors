@@ -6,7 +6,7 @@ public class ConfusedPlayerState : PlayerState
 {
     public ConfusedPlayerState(Player player) : base(player)
     {
-        GameEventManager.GetInstance().Publish(GameEvent.CONFUSED, new EventContext(player));
+        GameEventManager.GetInstance().Publish(GameEvent.DEBUFF_CONFUSED, new EventContext(player));
     }
 
     public override PlayerState Move(Vector3 vectorMovement, Motion motion)

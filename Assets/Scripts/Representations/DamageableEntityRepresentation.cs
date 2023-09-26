@@ -9,6 +9,7 @@ public class DamageableEntityRepresentation : MonoBehaviour
 
     [SerializeField] GameObject stunnedVfx;
     [SerializeField] GameObject confusedVfx;
+    [SerializeField] GameObject poisonedVfx;
 
     private DamageableEntity m_Damageable;
     private Weapon m_Weapon;
@@ -22,12 +23,28 @@ public class DamageableEntityRepresentation : MonoBehaviour
 
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, HandleDamage);
         GameEventManager.GetInstance().Suscribe(GameEvent.ATTACK, HandleAttack);
-        GameEventManager.GetInstance().Suscribe(GameEvent.STUNNED, HandleStunned);
         GameEventManager.GetInstance().Suscribe(GameEvent.PLAYER_DEFAULT_STATE, HandleDefaultState);
-        GameEventManager.GetInstance().Suscribe(GameEvent.CONFUSED, HandleConfused);
+        GameEventManager.GetInstance().Suscribe(GameEvent.DEBUFF_STUNNED, HandleStunned);
+        GameEventManager.GetInstance().Suscribe(GameEvent.DEBUFF_CONFUSED, HandleConfused);
+        GameEventManager.GetInstance().Suscribe(GameEvent.DEBUFF_POISONED, HandlePoisoned);
+        GameEventManager.GetInstance().Suscribe(GameEvent.DEBUFF_POISONED_END, HandlePoisonedEnd);
     }
 
-    
+    private void HandlePoisonedEnd(EventContext context)
+    {
+        if (poisonedVfx)
+            poisonedVfx.SetActive(false);
+    }
+
+    private void HandlePoisoned(EventContext context)
+    {
+        if (context.GetEntity().Equals(m_Damageable))
+        {
+            if (poisonedVfx)
+                poisonedVfx.SetActive(true);
+        }
+    }
+
     private void HandleDefaultState(EventContext context)
     {
         if (context.GetEntity().Equals(m_Damageable))
@@ -38,7 +55,7 @@ public class DamageableEntityRepresentation : MonoBehaviour
             if (stunnedVfx)
                 stunnedVfx.SetActive(false);
             if (confusedVfx)
-                confusedVfx.SetActive(false);
+                confusedVfx.SetActive(false);           
         }
     }
 

@@ -20,18 +20,19 @@ public class PoisonerComponent : WeaponComponent
             GameEventManager.GetInstance().Publish(GameEvent.WEAPON_COMPONENT_END, new EventContext(this));
     }
 
-    private IEnumerator PoisonCoroutine(Player player)
+    private IEnumerator PoisonCoroutine(DamageableEntity damageable)
     {
-        GameEventManager.GetInstance().Publish(GameEvent.PLAYER_POISONED, new EventContext(player));
+        GameEventManager.GetInstance().Publish(GameEvent.DEBUFF_POISONED, new EventContext(damageable));
         m_IsCoroutineRunning = true;
    
         for (int i = 0; i < GetDuration(); i++)
         {
-            player.ReceiveDamage(damageAmount);
+            damageable.ReceiveDamage(damageAmount);
             yield return new WaitForSeconds(1f);
         }
 
         m_IsCoroutineRunning = false;
+        GameEventManager.GetInstance().Publish(GameEvent.DEBUFF_POISONED_END, new EventContext(damageable));
         GameEventManager.GetInstance().Publish(GameEvent.WEAPON_COMPONENT_END, new EventContext(this));
     }
 }

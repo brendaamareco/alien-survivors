@@ -1080,6 +1080,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8957852493183808054}
   m_SourcePrefab: {fileID: 100100000, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+--- !u!1 &3277664832288662663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1180345269061272150, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+  m_PrefabInstance: {fileID: 4403947625174197969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3677800586827875378 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1015521231400051427, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
@@ -1124,6 +1129,7 @@ MonoBehaviour:
   animationNameAttack: Gunplay
   stunnedVfx: {fileID: 6814861053832838378}
   confusedVfx: {fileID: 3677800586827875378}
+  poisonedVfx: {fileID: 3277664832288662663}
 --- !u!114 &2264833922789726070
 MonoBehaviour:
   m_ObjectHideFlags: 0

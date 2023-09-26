@@ -6,7 +6,7 @@ public class StunnedPlayerState : PlayerState
 {
     public StunnedPlayerState(Player player) : base(player) 
     {
-        GameEventManager.GetInstance().Publish(GameEvent.STUNNED, new EventContext(player));
+        GameEventManager.GetInstance().Publish(GameEvent.DEBUFF_STUNNED, new EventContext(player));
     }
 
     public override PlayerState Attack(Vector3 target)
