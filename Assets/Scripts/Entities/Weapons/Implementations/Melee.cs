@@ -9,6 +9,9 @@ public class Melee : Weapon
         {
             GameEventManager.GetInstance().Publish(GameEvent.ATTACK, new EventContext(this));
             damageable.ReceiveDamage(attack);
+            
+            if (GetWeaponComponent())
+                damageable.AcceptWeaponComponent(GetWeaponComponent());
         }
     }
 }

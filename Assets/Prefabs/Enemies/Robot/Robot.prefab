@@ -934,6 +934,7 @@ GameObject:
   - component: {fileID: 3243825008983413861}
   - component: {fileID: 4394525774781623174}
   - component: {fileID: 7892166051479168403}
+  - component: {fileID: 2845961481695379128}
   m_Layer: 6
   m_Name: Robot
   m_TagString: Enemy
@@ -1025,6 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExpModel: {fileID: 0}
 --- !u!195 &5346117441592198027
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1098,6 +1100,7 @@ MonoBehaviour:
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
+  weaponComponent: {fileID: 2845961481695379128}
 --- !u!114 &3243825008983413861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,6 +1165,20 @@ CapsuleCollider:
   m_Height: 2.4415145
   m_Direction: 1
   m_Center: {x: 0, y: 0.72075725, z: 0}
+--- !u!114 &2845961481695379128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277234621566703959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0a4b34885059b4bb88dcc92a0d1e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 3
+  probability: 0.05
 --- !u!1 &4760725559900555445
 GameObject:
   m_ObjectHideFlags: 0

@@ -154,4 +154,7 @@ public class Player : DamageableEntity
 
     public void SetState(PlayerState state)
     { this.m_State = state; }
+
+    public override void AcceptWeaponComponent(WeaponComponent weaponComponent)
+    { weaponComponent.HandleOnHit(this); }
 }

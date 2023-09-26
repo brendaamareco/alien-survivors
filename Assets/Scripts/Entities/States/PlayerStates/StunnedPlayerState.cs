@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class StunnedPlayerState : PlayerState
 {
-    public StunnedPlayerState(Player player) : base(player) {}
+    public StunnedPlayerState(Player player) : base(player) 
+    {
+        GameEventManager.GetInstance().Publish(GameEvent.PLAYER_STUNNED, new EventContext(player));
+    }
 
     public override PlayerState Attack(Vector3 target)
     { return this; }

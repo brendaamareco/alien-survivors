@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2845961481695379128, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
+      propertyPath: duration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845961481695379128, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
+      propertyPath: probability
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4277234621566703959, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_Name
       value: RobotRange3
