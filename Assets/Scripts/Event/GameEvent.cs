@@ -6,5 +6,6 @@ public enum GameEvent
     DEAD,
     STUNNED,
     PLAYER_DEFAULT_STATE,
-    CONFUSED
+    CONFUSED,
+    WEAPON_COMPONENT_END
 }

@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5946202871596856517, guid: 476896f548afa7544a81b78015b0b2f2, type: 3}
       propertyPath: duration
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5946202871596856517, guid: 476896f548afa7544a81b78015b0b2f2, type: 3}
       propertyPath: probability
