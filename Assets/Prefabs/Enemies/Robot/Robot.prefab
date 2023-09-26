@@ -1113,8 +1113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c5628c7d50d3c4b8f93c90953a09eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationWalk: 
   animationNameReceiveDamage: Head Hit
   animationNameAttack: Hook Punch
+  animationStunned: 
 --- !u!54 &4394525774781623174
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1178,7 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 3
-  probability: 0.05
+  probability: 0.1
 --- !u!1 &4760725559900555445
 GameObject:
   m_ObjectHideFlags: 0

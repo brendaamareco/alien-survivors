@@ -583,6 +583,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2471201147337634533, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.025157154
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471201147337634533, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.71546763
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471201147337634533, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2699782237976245725, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -814,6 +826,42 @@ PrefabInstance:
     - target: {fileID: 7147869723929265952, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369446, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.20855577
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369446, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.5178641
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369446, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369464, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.241
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369467, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: m_Name
+      value: StunnedAura
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369467, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338405512207450743, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.15577899
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338405512207450743, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.6852477
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338405512207450743, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 7608783573692868004, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1068,8 +1116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c5628c7d50d3c4b8f93c90953a09eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationWalk: Pistol Run
   animationNameReceiveDamage: Head Hit
-  animationNameAttack: 
+  animationNameAttack: Gunplay
+  animationStunned: Stunned
 --- !u!114 &2264833922789726070
 MonoBehaviour:
   m_ObjectHideFlags: 0

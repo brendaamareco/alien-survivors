@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(DamageableEntity))]
@@ -8,6 +7,8 @@ public class DamageableEntityRepresentation : MonoBehaviour
 {
     [SerializeField] string animationNameReceiveDamage = "";
     [SerializeField] string animationNameAttack = "";
+
+    [SerializeField] GameObject stunnedVfx;
 
     private DamageableEntity m_Damageable;
     private Weapon m_Weapon;
@@ -21,6 +22,30 @@ public class DamageableEntityRepresentation : MonoBehaviour
 
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, HandleDamage);
         GameEventManager.GetInstance().Suscribe(GameEvent.ATTACK, HandleAttack);
+        GameEventManager.GetInstance().Suscribe(GameEvent.PLAYER_STUNNED, HandleStunned);
+        GameEventManager.GetInstance().Suscribe(GameEvent.PLAYER_DEFAULT_STATE, HandleDefaultState);
+    }
+
+    private void HandleDefaultState(EventContext context)
+    {
+        if (context.GetEntity().Equals(m_Damageable))
+        {
+            m_Animator.SetBool("IsStunned", false);
+
+            if (stunnedVfx)
+                stunnedVfx.SetActive(false);
+        }
+    }
+
+    private void HandleStunned(EventContext context)
+    {
+        if (context.GetEntity().Equals(m_Damageable))
+        {
+            m_Animator.SetBool("IsStunned", true);
+
+            if (stunnedVfx)
+                stunnedVfx.SetActive(true);
+        }
     }
 
     private void HandleDamage(EventContext context)

@@ -382,6 +382,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5250514569022610469, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
   m_PrefabInstance: {fileID: 1162912505038516427}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &483903703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6814861053832838378, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+  m_PrefabInstance: {fileID: 1162912505038516427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &494751826 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1961925257815450362, guid: 592ed36f87509aa42a55184120968e31, type: 3}
@@ -6491,6 +6496,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6814861053832838377, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995188024053436553, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
+      propertyPath: stunnedVfx
+      value: 
+      objectReference: {fileID: 483903703}
     - target: {fileID: 7071789362225300594, guid: 2bd5847e252ab674691633de739dfb8d, type: 3}
       propertyPath: m_Layer
       value: 7
