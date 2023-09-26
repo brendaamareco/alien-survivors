@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UfoRange3
       objectReference: {fileID: 0}
+    - target: {fileID: 8042838663946673880, guid: 3da053226633c9148bc29f335fe3cdba, type: 3}
+      propertyPath: ammunitionPrefab
+      value: 
+      objectReference: {fileID: 2279449570963578877, guid: 2acab6f8d08fbb742ac3b3fa0ccd842d, type: 3}
     - target: {fileID: 8196311845979249298, guid: 3da053226633c9148bc29f335fe3cdba, type: 3}
       propertyPath: m_Attack
       value: 200
