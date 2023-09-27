@@ -10,10 +10,9 @@ public class DamageableEntityRepresentation : MonoBehaviour
     [SerializeField] GameObject stunnedVfx;
     [SerializeField] GameObject confusedVfx;
     [SerializeField] GameObject poisonedVfx;
+    [SerializeField] AudioSource damageAudioSource;
 
     private DamageableEntity m_Damageable;
-    public AudioSource damageAudioSource;
-
     private Weapon m_Weapon;
     private Animator m_Animator;
 
@@ -96,7 +95,7 @@ public class DamageableEntityRepresentation : MonoBehaviour
             }
             else
             {
-                Debug.LogError("No se encontró el componente damageAudioSource.");
+                //Debug.LogError("No se encontró el componente damageAudioSource.");
             }
         }
     }
