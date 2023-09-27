@@ -98,7 +98,6 @@ public class DamageableEntityRepresentation : MonoBehaviour
             {
                 Debug.LogError("No se encontró el componente damageAudioSource.");
             }
-            m_Animator.Play(animationNameReceiveDamage);
         }
     }
 
