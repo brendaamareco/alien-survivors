@@ -3,5 +3,11 @@ public enum GameEvent
 {
     DAMAGE,
     ATTACK,
-    DEAD
+    DEAD,
+    STATE_STUNNED,
+    STATE_DEFAULT,
+    STATE_CONFUSED,
+    WEAPON_COMPONENT_END,
+    DEBUFF_POISONED,
+    DEBUFF_POISONED_END
 }

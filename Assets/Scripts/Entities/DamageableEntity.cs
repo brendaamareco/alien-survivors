@@ -1,4 +1,5 @@
 using CodeMonkey.HealthSystemCM;
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -68,4 +69,7 @@ public class DamageableEntity : MonoBehaviour, IEntity
 
     private void OnDestroy()
     { m_HealthSystem.OnDead -= HealthSystem_OnDead; }
+
+    public virtual void AcceptWeaponComponent(WeaponComponent weaponComponent)
+    { weaponComponent.HandleOnHit(this); }
 }
