@@ -499,9 +499,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1015521231400051427, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1090636416947386182, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180345269061272150, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1187146001385089384, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       propertyPath: m_LocalRotation.w
@@ -582,6 +590,18 @@ PrefabInstance:
     - target: {fileID: 2461738831047683755, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471201147337634533, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.025157154
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471201147337634533, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.71546763
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471201147337634533, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2699782237976245725, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       propertyPath: m_Layer
@@ -815,6 +835,42 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369446, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.20855577
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369446, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.5178641
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369446, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369464, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.241
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369467, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: m_Name
+      value: StunnedAura
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173872526076369467, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338405512207450743, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.15577899
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338405512207450743, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.6852477
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338405512207450743, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.8396226
+      objectReference: {fileID: 0}
     - target: {fileID: 7608783573692868004, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.63903564
@@ -1033,8 +1089,18 @@ PrefabInstance:
       addedObject: {fileID: 8957852493183808054}
     - targetCorrespondingSourceObject: {fileID: 8310580491979065294, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -4471406425095617956}
+      addedObject: {fileID: 8354734934293738505}
   m_SourcePrefab: {fileID: 100100000, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+--- !u!1 &3277664832288662663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1180345269061272150, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+  m_PrefabInstance: {fileID: 4403947625174197969}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3677800586827875378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1015521231400051427, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+  m_PrefabInstance: {fileID: 4403947625174197969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5250514569022610469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8484891815314848500, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
@@ -1071,9 +1137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c5628c7d50d3c4b8f93c90953a09eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationNameReceiveDamage: Head Hit
-  animationNameAttack: 
-  damageAudioSource: {fileID: -4471406425095617956}
+  animationNameAttack: Gunplay
+  stunnedVfx: {fileID: 6814861053832838378}
+  confusedVfx: {fileID: 3677800586827875378}
+  poisonedVfx: {fileID: 3277664832288662663}
+  damageAudioSource: {fileID: 8354734934293738505}
 --- !u!114 &2264833922789726070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1142,7 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366c4db998a916e4c8de867564f004b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &-4471406425095617956
+--- !u!82 &8354734934293738505
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1238,6 +1306,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &6814861053832838378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7173872526076369467, guid: a110596142a4a374ba427ad1b5498f92, type: 3}
+  m_PrefabInstance: {fileID: 4403947625174197969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7657690281413308156
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2344815403453665412, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2344815403453665412, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_LocalScale.x
@@ -67,6 +67,14 @@ PrefabInstance:
     - target: {fileID: 2344815403453665412, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845961481695379128, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845961481695379128, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
+      propertyPath: probability
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4277234621566703959, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_Name

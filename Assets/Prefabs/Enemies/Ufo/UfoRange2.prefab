@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4031427434580228633, guid: 3da053226633c9148bc29f335fe3cdba, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4031427434580228633, guid: 3da053226633c9148bc29f335fe3cdba, type: 3}
       propertyPath: m_LocalScale.x
@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UfoRange2
       objectReference: {fileID: 0}
+    - target: {fileID: 8042838663946673880, guid: 3da053226633c9148bc29f335fe3cdba, type: 3}
+      propertyPath: ammunitionPrefab
+      value: 
+      objectReference: {fileID: 1030051456344556715, guid: ab1f7dd911417e54ba18c57de34c887c, type: 3}
     - target: {fileID: 8196311845979249298, guid: 3da053226633c9148bc29f335fe3cdba, type: 3}
       propertyPath: m_Attack
       value: 100
