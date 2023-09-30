@@ -9,6 +9,7 @@ public class GameOverController : MonoBehaviour
     [SerializeField] UIDocument root;
     [SerializeField] GameManager gameManager;
     [SerializeField] Terrain terrain;
+    [SerializeField] AudioSource audioGameOver;
 
     private string m_PantallaDerrotaPath = "Documents/MenuDerrota";
     private VisualElement m_PantallaDerrota;
@@ -25,7 +26,6 @@ public class GameOverController : MonoBehaviour
         VisualTreeAsset pantallaDerrotaAsset = Resources.Load<VisualTreeAsset>(m_PantallaDerrotaPath);
         m_PantallaDerrota = pantallaDerrotaAsset.Instantiate();
         m_PantallaDerrota.style.height = Length.Percent(100);
-
         
         audioTerrain = terrain.GetComponent<AudioSource>();
     }
@@ -43,6 +43,10 @@ public class GameOverController : MonoBehaviour
         if (audioTerrain != null && audioTerrain.isPlaying)
         {
             audioTerrain.Stop();
+        }
+
+        if (audioGameOver != null) {
+            audioGameOver.Play();
         }
     }
 }
