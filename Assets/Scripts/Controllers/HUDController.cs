@@ -8,7 +8,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] UIDocument root;
     [SerializeField] MenuPauseController pauseController;
     [SerializeField] GameManager gameManager;
-    [SerializeField] GameOverController gameOverController;
+    [SerializeField] GameObject gameOver;
 
     private void Start()
     {
@@ -28,6 +28,22 @@ public class HUDController : MonoBehaviour
     private void PlayerIsDead(EventContext context)
     {
         gameManager.SwitchPause();
-        gameOverController.Show();
+        DeactivateHUD();
+        gameOver.SetActive(true);
+
+        //gameOverController.Show();
+    }
+
+    private void DeactivateHUD() {
+        VisualElement container = root.rootVisualElement.Q<VisualElement>("Container");
+        VisualElement content = root.rootVisualElement.Q<VisualElement>("Content");
+
+        if (container != null) {
+            container.visible = false;
+        }
+        if (content!= null)
+        {
+            content.visible = false;
+        }
     }
 }
