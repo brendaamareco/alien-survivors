@@ -15,12 +15,14 @@ public class DamageableEntityRepresentation : MonoBehaviour
     private DamageableEntity m_Damageable;
     private Weapon m_Weapon;
     private Animator m_Animator;
+    private Player m_player;
 
     void Start()
     {
         m_Damageable = GetComponent<DamageableEntity>();
         m_Animator = GetComponent<Animator>();
         m_Weapon = GetComponent<Weapon>();
+        m_player = GetComponent<Player>();
 
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, HandleDamage);
         GameEventManager.GetInstance().Suscribe(GameEvent.ATTACK, HandleAttack);
@@ -29,6 +31,13 @@ public class DamageableEntityRepresentation : MonoBehaviour
         GameEventManager.GetInstance().Suscribe(GameEvent.STATE_CONFUSED, HandleConfused);
         GameEventManager.GetInstance().Suscribe(GameEvent.DEBUFF_POISONED, HandlePoisoned);
         GameEventManager.GetInstance().Suscribe(GameEvent.DEBUFF_POISONED_END, HandlePoisonedEnd);
+        GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleDead);
+    }
+
+    private void HandleDead(EventContext context) {
+        if (context.GetEntity().Equals(m_player)) {
+            GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, context);
+        }    
     }
 
     private void HandlePoisonedEnd(EventContext context)
