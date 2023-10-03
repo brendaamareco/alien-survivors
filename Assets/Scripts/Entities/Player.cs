@@ -23,6 +23,11 @@ public class Player : DamageableEntity
         m_MaxElementsInInventory = 6;
     }
 
+    public void Reset()
+    {
+        ResetStats();
+    }
+
     public void Move(Vector3 vectorMovement)
     { m_State = m_State.Move(vectorMovement, motion); }
 

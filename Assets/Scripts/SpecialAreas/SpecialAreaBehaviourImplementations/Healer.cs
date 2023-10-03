@@ -11,7 +11,7 @@ public class Healer : SpecialAreaBehaviour
 
     public override void HandlePlayerInArea(Player player)
     {   
-        player.Heal(player.GetCurrentHealthPoints() + player.GetCurrentHealthPoints() * healPercentage);
+        player.Heal(player.GetCurrentHealthPoints() + player.GetMaxHealthPoints() * healPercentage);
         Destroy(gameObject);
     }
 }

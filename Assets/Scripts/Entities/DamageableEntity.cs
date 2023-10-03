@@ -1,6 +1,4 @@
 using CodeMonkey.HealthSystemCM;
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(BaseStats))]
@@ -14,7 +12,6 @@ public class DamageableEntity : MonoBehaviour, IEntity
     protected virtual void Start()
     {
         m_Stats = gameObject.GetComponent<BaseStats>();
-
         m_HealthSystem = new HealthSystem(m_Stats.GetHealth());
         m_HealthSystem.OnDead += HealthSystem_OnDead; 
     }
@@ -23,6 +20,11 @@ public class DamageableEntity : MonoBehaviour, IEntity
     {
         if (m_HealthSystem.GetHealthMax() != GetMaxHealthPoints())
             SetMaxHealth(GetMaxHealthPoints());
+    }
+
+    public void ResetStats()
+    {
+        m_Stats = gameObject.GetComponent<BaseStats>();
     }
 
     public void Heal(float amount)
