@@ -1732,6 +1732,7 @@ MonoBehaviour:
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
+  icon: {fileID: 0}
   weaponComponent: {fileID: 6078813944183197572}
 --- !u!54 &1228241411152819831
 Rigidbody:
@@ -1772,7 +1773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExpModel: {fileID: 0}
+  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!114 &935032595874707034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1788,6 +1789,8 @@ MonoBehaviour:
   animationNameAttack: Walk_Attack
   stunnedVfx: {fileID: 0}
   confusedVfx: {fileID: 0}
+  poisonedVfx: {fileID: 0}
+  damageAudioSource: {fileID: 0}
 --- !u!114 &3142729544510802600
 MonoBehaviour:
   m_ObjectHideFlags: 0

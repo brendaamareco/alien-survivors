@@ -1,26 +1,21 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using UnityEditor;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class LevelUpController : MonoBehaviour
 {
     [SerializeField] UIDocument root;
     [SerializeField] GameManager gameManager;
+    [SerializeField] VisualTreeAsset itemBtnTemplate;
 
     private string m_LevelUpAssetPath = "Documents/LevelUp";
     private VisualElement m_LevelUp;
     private VisualElement m_PopUpContainer;
-    public VisualTreeAsset itemBtnTemplate;
+    
+    private List<Weapon> m_WeaponInventory;
+    private List<Item> m_ItemInventory;
 
-    public List<Weapon> weaponInventory;
-    public List<Item> itemInventory;
-
-    public string folderPath = "Assets/Prefabs/Items";
+    private string folderPath = "Assets/Prefabs/Items";
     //private List<GameObject> prefabs = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -34,14 +29,14 @@ public class LevelUpController : MonoBehaviour
 
         GameObject playerObject = GameObject.FindWithTag("Player");
         Player player = playerObject.GetComponent<Player>();
-        weaponInventory = player.GetWeapons();
-        itemInventory = player.GetItems();
+        m_WeaponInventory = player.GetWeapons();
+        m_ItemInventory = player.GetItems();
 
         // Randomly select one weapon
-        Weapon selectedWeapon = weaponInventory.Count > 0 ? weaponInventory[Random.Range(0, weaponInventory.Count)] : null;
+        Weapon selectedWeapon = m_WeaponInventory.Count > 0 ? m_WeaponInventory[Random.Range(0, m_WeaponInventory.Count)] : null;
 
         // Randomly select one item
-        Item selectedItem = itemInventory.Count > 0 ? itemInventory[Random.Range(0, itemInventory.Count)] : null;
+        Item selectedItem = m_ItemInventory.Count > 0 ? m_ItemInventory[Random.Range(0, m_ItemInventory.Count)] : null;
 
         if (selectedWeapon != null)
         {
@@ -66,7 +61,7 @@ public class LevelUpController : MonoBehaviour
         // Create a list of item names that the player already has
         List<string> playerItemNames = new List<string>();
 
-        foreach (Item item in itemInventory)
+        foreach (Item item in m_ItemInventory)
         {
             playerItemNames.Add(item.GetName());
         }
@@ -120,7 +115,7 @@ public class LevelUpController : MonoBehaviour
         // Create a list of gun names that the player already has
         List<string> playerGunNames = new List<string>();
 
-        foreach (Weapon weapon in weaponInventory)
+        foreach (Weapon weapon in m_WeaponInventory)
         {
             playerGunNames.Add(weapon.GetName());
         }

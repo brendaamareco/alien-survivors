@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 1604981034209185665}
   - component: {fileID: 4204484682254762565}
   - component: {fileID: 7741724734492770376}
+  - component: {fileID: 1515627017329449418}
+  - component: {fileID: 6540315024204030919}
+  - component: {fileID: 1853294050395116970}
   m_Layer: 0
   m_Name: Herring
   m_TagString: Untagged
@@ -36,7 +39,7 @@ Transform:
   - {fileID: 351999433061141244}
   - {fileID: 7915422545485202566}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &4204484682254762565
 LODGroup:
@@ -90,6 +93,55 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &1515627017329449418
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342889782683910774}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6540315024204030919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342889782683910774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b87a4958d9ba94f97e0638bf3d3eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experienceAmount: 10
+  expController: {fileID: 1853294050395116970}
+--- !u!114 &1853294050395116970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342889782683910774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3597fa151507ed34ba83d74dff351e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  levelUpController: {fileID: 0}
 --- !u!1 &1915371716169189145
 GameObject:
   m_ObjectHideFlags: 0

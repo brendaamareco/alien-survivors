@@ -21,9 +21,9 @@ public class EnemyController : MonoBehaviour
         m_Enemy.Attack(targetPosition);
 
         if (m_Enemy.GetCurrentHealthPoints() <= 0)
-        {
-            Destroy(gameObject);
+        {           
             DropExp();
+            Destroy(gameObject);
         }
     }
 

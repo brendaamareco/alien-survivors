@@ -18,9 +18,9 @@ public class PickUpExp : MonoBehaviour
                 player.AddExperience(experienceAmount);
                 Debug.Log("Player's experience: " + player.GetExperience());
 
-                // Destroy the pickup object
-                Destroy(gameObject);
+                // Destroy the pickup object               
                 expController.CheckExp(player);
+                Destroy(gameObject);
             }
         }
     }

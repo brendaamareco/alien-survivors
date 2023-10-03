@@ -12,8 +12,8 @@ public class ChestController : MonoBehaviour
     private VisualElement m_ChestScreen;
     private VisualElement m_PopUpContainer;
 
-    public List<Weapon> weaponInventory;
-    public List<Item> itemInventory;
+    private List<Weapon> weaponInventory;
+    private List<Item> itemInventory;
 
     public void Start()
     {
@@ -26,7 +26,11 @@ public class ChestController : MonoBehaviour
         Button btnChest = m_ChestScreen.Q<Button>("chestButton");
         btnChest.clicked += BtnChest_clicked;
 
+        GameEventManager.GetInstance().Suscribe(GameEvent.CHEST_OPENED, HandleChestOpened);
     }
+
+    private void HandleChestOpened(EventContext context)
+    { Show(); }
 
     private void BtnChest_clicked()
     {

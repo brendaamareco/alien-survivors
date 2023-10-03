@@ -34,10 +34,10 @@ public class DamageableEntityRepresentation : MonoBehaviour
         GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleDead);
     }
 
-    private void HandleDead(EventContext context) {
-        if (context.GetEntity().Equals(m_player)) {
+    private void HandleDead(EventContext context) 
+    {
+        if (context.GetEntity().Equals(m_player)) 
             GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, context);
-        }    
     }
 
     private void HandlePoisonedEnd(EventContext context)
@@ -97,21 +97,14 @@ public class DamageableEntityRepresentation : MonoBehaviour
         {
             m_Animator.SetTrigger("ReceiveDamage");
             
-            if (damageAudioSource != null)
-            {
-                // Reproduce la pista de audio
+            if (damageAudioSource)
                 damageAudioSource.Play();
-            }
-            else
-            {
-                //Debug.LogError("No se encontró el componente damageAudioSource.");
-            }
         }
     }
 
     private void HandleAttack(EventContext context)
     {
-        if (m_Weapon != null)
+        if (m_Weapon)
         {
             if (context.GetEntity().Equals(m_Weapon))
                 m_Animator.Play(animationNameAttack);

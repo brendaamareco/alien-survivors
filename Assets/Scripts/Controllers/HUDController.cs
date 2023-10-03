@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,8 +7,11 @@ public class HUDController : MonoBehaviour
     [SerializeField] MenuPauseController pauseController;
     [SerializeField] GameManager gameManager;
     [SerializeField] GameObject gameOver;
-
     [SerializeField] ExpController expController;
+
+    private Player m_Player;
+    private ProgressBar m_HealthBar;
+    private ProgressBar m_ExperienceBar;
 
     private void Start()
     {
@@ -20,21 +20,21 @@ public class HUDController : MonoBehaviour
         btnPause.clicked += BtnPause_clicked;
 
         GameObject playerObject = GameObject.FindWithTag("Player");
-        Player player = playerObject.GetComponent<Player>();
+        m_Player = playerObject.GetComponent<Player>();
 
-        ProgressBar healthBar = container.Q<ProgressBar>("HealthBar");
-        healthBar.highValue = player.GetMaxHealthPoints();
-        healthBar.value = player.GetCurrentHealthPoints();
-        healthBar.title = healthBar.value + "/" + healthBar.highValue;
+        m_HealthBar = container.Q<ProgressBar>("HealthBar");
+        m_HealthBar.highValue = m_Player.GetMaxHealthPoints();
+        m_HealthBar.value = m_Player.GetCurrentHealthPoints();
+        m_HealthBar.title = m_HealthBar.value + "/" + m_HealthBar.highValue;
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, UpdateHealthBar);
+        GameEventManager.GetInstance().Suscribe(GameEvent.HEALED, UpdateHealthBar);
 
-        ProgressBar experienceBar = container.Q<ProgressBar>("ExperienceBar");
-        experienceBar.highValue = expController.GetExpNeeded();
-        experienceBar.value = player.GetExperience();
-        experienceBar.title = experienceBar.value + "/" + experienceBar.highValue;
+        m_ExperienceBar = container.Q<ProgressBar>("ExperienceBar");
+        m_ExperienceBar.highValue = expController.GetExpNeeded();
+        m_ExperienceBar.value = m_Player.GetExperience();
+        m_ExperienceBar.title = m_ExperienceBar.value + "/" + m_ExperienceBar.highValue;
         GameEventManager.GetInstance().Suscribe(GameEvent.EXPUP, UpdateExperienceBar);
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
-
     }
 
     private void BtnPause_clicked()
@@ -45,45 +45,34 @@ public class HUDController : MonoBehaviour
 
     private void UpdateHealthBar(EventContext context)
     {
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        Player player = playerObject.GetComponent<Player>();
-        VisualElement container = root.rootVisualElement;
-        ProgressBar healthBar = container.Q<ProgressBar>("HealthBar");
-        healthBar.highValue = player.GetMaxHealthPoints();
-        healthBar.value = player.GetCurrentHealthPoints();
-        healthBar.title = healthBar.value + "/" + healthBar.highValue;
+        m_HealthBar.highValue = m_Player.GetMaxHealthPoints();
+        m_HealthBar.value = m_Player.GetCurrentHealthPoints();
+        m_HealthBar.title = m_HealthBar.value + "/" + m_HealthBar.highValue;
     }
+
     private void UpdateExperienceBar(EventContext context)
     {
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        Player player = playerObject.GetComponent<Player>();
-        VisualElement container = root.rootVisualElement;
-        ProgressBar experienceBar = container.Q<ProgressBar>("ExperienceBar");
-        experienceBar.highValue = expController.GetExpNeeded();
-        experienceBar.value = player.GetExperience()+10;//Chequear esto
-        experienceBar.title = experienceBar.value + "/" + experienceBar.highValue;
-
+        m_ExperienceBar.highValue = expController.GetExpNeeded();
+        m_ExperienceBar.value = m_Player.GetExperience() + 10;//Chequear esto
+        m_ExperienceBar.title = m_ExperienceBar.value + "/" + m_ExperienceBar.highValue;
+    }
 
     private void PlayerIsDead(EventContext context)
     {
         gameManager.SwitchPause();
         DeactivateHUD();
         gameOver.SetActive(true);
-
-        //gameOverController.Show();
     }
 
-    private void DeactivateHUD() {
+    private void DeactivateHUD() 
+    {
         VisualElement container = root.rootVisualElement.Q<VisualElement>("Container");
         VisualElement content = root.rootVisualElement.Q<VisualElement>("Content");
 
-        if (container != null) {
+        if (container != null)
             container.visible = false;
-        }
-        if (content!= null)
-        {
-            content.visible = false;
-        }
 
+        if (content != null)  
+            content.visible = false;
     }
 }

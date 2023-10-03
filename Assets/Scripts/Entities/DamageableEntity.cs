@@ -26,7 +26,10 @@ public class DamageableEntity : MonoBehaviour, IEntity
     }
 
     public void Heal(float amount)
-    { m_HealthSystem.Heal(amount); }
+    { 
+        m_HealthSystem.Heal(amount);
+        GameEventManager.GetInstance().Publish(GameEvent.HEALED, new EventContext(this));
+    }
 
     public void ReceiveDamage(float amount)
     {

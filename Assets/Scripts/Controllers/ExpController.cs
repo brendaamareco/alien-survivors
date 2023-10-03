@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExpController : MonoBehaviour
@@ -19,8 +17,5 @@ public class ExpController : MonoBehaviour
     }
 
     public int GetExpNeeded()
-    {
-        return expNeeded;
-    }
-
+    {  return expNeeded; }
 }

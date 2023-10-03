@@ -318,6 +318,7 @@ MonoBehaviour:
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
+  icon: {fileID: 0}
   spawnPosition: {fileID: 6736623110088056837}
   ammunitionPrefab: {fileID: 1000011023395326, guid: 21ce0107bf7576246b86b2f5e4105590, type: 3}
   ammunitionSpeed: 10
@@ -3226,7 +3227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExpModel: {fileID: 0}
+  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!114 &6141161996177191959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3239,8 +3240,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c5628c7d50d3c4b8f93c90953a09eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationNameReceiveDamage: Head Hit
   animationNameAttack: Take 001
+  stunnedVfx: {fileID: 0}
+  confusedVfx: {fileID: 0}
+  poisonedVfx: {fileID: 0}
+  damageAudioSource: {fileID: 0}
 --- !u!114 &7284477678014786452
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1098,6 +1098,7 @@ MonoBehaviour:
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
+  icon: {fileID: 0}
   spawnPosition: {fileID: 2008378844692586845}
   ammunitionPrefab: {fileID: 1000011866055842, guid: 3b79e6f8a415f7841a8a55733c4683cd, type: 3}
   ammunitionSpeed: 10
@@ -1140,7 +1141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExpModel: {fileID: 0}
+  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!114 &7027291978216355282
 MonoBehaviour:
   m_ObjectHideFlags: 0

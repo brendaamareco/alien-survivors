@@ -11,5 +11,7 @@ public enum GameEvent
     WEAPON_COMPONENT_END,
     DEBUFF_POISONED,
     DEBUFF_POISONED_END,
-    GAME_OVER
+    GAME_OVER,
+    CHEST_OPENED,
+    HEALED
 }
