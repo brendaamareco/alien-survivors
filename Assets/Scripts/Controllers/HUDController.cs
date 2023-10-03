@@ -21,7 +21,7 @@ public class HUDController : MonoBehaviour
 
         GameObject playerObject = GameObject.FindWithTag("Player");
         m_Player = playerObject.GetComponent<Player>();
-
+        
         m_HealthBar = container.Q<ProgressBar>("HealthBar");
         m_HealthBar.highValue = m_Player.GetMaxHealthPoints();
         m_HealthBar.value = m_Player.GetCurrentHealthPoints();

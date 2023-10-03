@@ -11,6 +11,7 @@ public class DamageableEntityRepresentation : MonoBehaviour
     [SerializeField] GameObject confusedVfx;
     [SerializeField] GameObject poisonedVfx;
     [SerializeField] AudioSource damageAudioSource;
+    [SerializeField] AudioSource attackAudioSource;
 
     private DamageableEntity m_Damageable;
     private Weapon m_Weapon;
@@ -21,7 +22,7 @@ public class DamageableEntityRepresentation : MonoBehaviour
     {
         m_Damageable = GetComponent<DamageableEntity>();
         m_Animator = GetComponent<Animator>();
-        m_Weapon = GetComponent<Weapon>();
+        m_Weapon = GetComponentInChildren<Weapon>();
         m_player = GetComponent<Player>();
 
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, HandleDamage);
@@ -107,8 +108,14 @@ public class DamageableEntityRepresentation : MonoBehaviour
         if (m_Weapon)
         {
             if (context.GetEntity().Equals(m_Weapon))
-                m_Animator.Play(animationNameAttack);
-        }
+            {
+                if (!String.IsNullOrEmpty(animationNameAttack))
+                    m_Animator.Play(animationNameAttack);
+
+                if (attackAudioSource && !attackAudioSource.isPlaying)
+                    attackAudioSource.Play();
+            }
+        }   
     }
 
 }

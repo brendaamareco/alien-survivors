@@ -52,6 +52,7 @@ public class GameOverScreen : MonoBehaviour
 
     private void BtnMainMenu_clicked()
     {
+        Debug.Log("clicked");
         SceneManager.LoadScene(0);
     }
 }
