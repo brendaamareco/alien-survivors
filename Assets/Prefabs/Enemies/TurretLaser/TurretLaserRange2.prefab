@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2016300632345811474, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2016300632345811474, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
       propertyPath: m_LocalScale.x
@@ -83,6 +83,26 @@ PrefabInstance:
     - target: {fileID: 3986343638678155471, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
       propertyPath: m_Defense
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341715127822519239, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
+      propertyPath: ammunitionPrefab
+      value: 
+      objectReference: {fileID: 8861331477618386062, guid: cf530b3590a9b684e97839b48ada154b, type: 3}
+    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.02341292
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
+      propertyPath: m_Size.z
+      value: 0.013141588
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
+      propertyPath: m_Center.y
+      value: 0.011185662
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919548556332239626, guid: fd8ec5e226d267642a0e7085ccc667c2, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0008922482
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

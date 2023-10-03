@@ -24,9 +24,17 @@ PrefabInstance:
       propertyPath: m_Defense
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6078813944183197572, guid: 548e89481e3c81740abc5e1fab420aaf, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6078813944183197572, guid: 548e89481e3c81740abc5e1fab420aaf, type: 3}
+      propertyPath: probability
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7212336987817290551, guid: 548e89481e3c81740abc5e1fab420aaf, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7212336987817290551, guid: 548e89481e3c81740abc5e1fab420aaf, type: 3}
       propertyPath: m_LocalScale.x

@@ -82,6 +82,7 @@ public abstract class Weapon : StatsDecorator, IEntity
     public float GetScope()
     { return scope; }
 
+
     private void OnTriggerEnter(Collider other)
     {
         DamageableEntity damageable = other.GetComponentInChildren<DamageableEntity>();

@@ -203,4 +203,10 @@ public class Player : DamageableEntity
 
         return itemInventory;
     }
+
+    public void SetState(PlayerState state)
+    { this.m_State = state; }
+
+    public override void AcceptWeaponComponent(WeaponComponent weaponComponent)
+    { weaponComponent.HandleOnHit(this); }
 }

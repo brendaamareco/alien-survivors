@@ -9,6 +9,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] UIDocument root;
     [SerializeField] MenuPauseController pauseController;
     [SerializeField] GameManager gameManager;
+    [SerializeField] GameObject gameOver;
 
     [SerializeField] ExpController expController;
 
@@ -32,6 +33,8 @@ public class HUDController : MonoBehaviour
         experienceBar.value = player.GetExperience();
         experienceBar.title = experienceBar.value + "/" + experienceBar.highValue;
         GameEventManager.GetInstance().Suscribe(GameEvent.EXPUP, UpdateExperienceBar);
+        GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
+
     }
 
     private void BtnPause_clicked()
@@ -39,6 +42,7 @@ public class HUDController : MonoBehaviour
         gameManager.SwitchPause();
         pauseController.Show();
     }
+
     private void UpdateHealthBar(EventContext context)
     {
         GameObject playerObject = GameObject.FindWithTag("Player");
@@ -58,5 +62,28 @@ public class HUDController : MonoBehaviour
         experienceBar.highValue = expController.GetExpNeeded();
         experienceBar.value = player.GetExperience()+10;//Chequear esto
         experienceBar.title = experienceBar.value + "/" + experienceBar.highValue;
+
+
+    private void PlayerIsDead(EventContext context)
+    {
+        gameManager.SwitchPause();
+        DeactivateHUD();
+        gameOver.SetActive(true);
+
+        //gameOverController.Show();
+    }
+
+    private void DeactivateHUD() {
+        VisualElement container = root.rootVisualElement.Q<VisualElement>("Container");
+        VisualElement content = root.rootVisualElement.Q<VisualElement>("Content");
+
+        if (container != null) {
+            container.visible = false;
+        }
+        if (content!= null)
+        {
+            content.visible = false;
+        }
+
     }
 }
