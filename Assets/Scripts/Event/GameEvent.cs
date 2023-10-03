@@ -4,6 +4,7 @@ public enum GameEvent
     DAMAGE,
     ATTACK,
     DEAD,
+    EXPUP,
     STATE_STUNNED,
     STATE_DEFAULT,
     STATE_CONFUSED,

@@ -32,24 +32,54 @@ public class Player : DamageableEntity
 
     public void Equip(Item item)
     {
+        /*
+        Debug.Log("Entro as Player equip");
         if (m_ItemInventory.Count < m_MaxElementsInInventory)
         {
+            Debug.Log("inventory count" + m_ItemInventory.Count);
             foreach (InventorySlot<Item> itemSlot in m_ItemInventory)
             {
                 if (itemSlot.IsFree())
                 {
+                    Debug.Log("era libre");
                     item.SetStats(GetStats());
                     SetStats(item.GetStats());
 
                     item.gameObject.layer = gameObject.layer;
+                    Debug.Log(item.GetName());
                     itemSlot.SetElement(item);
                 }
+                else { Debug.Log("slot ocupado"); }
+            }
+        }
+        else { Debug.Log("inventory count max" + m_ItemInventory.Count); }
+        */
+        foreach (InventorySlot<Item> itemSlot in m_ItemInventory)
+        {
+            if (itemSlot.IsFree())
+            {
+                // Instantiate the weapon prefab.
+                Item itemInstance = Instantiate(item);
+
+                // Set the weapon's stats.
+                itemInstance.SetStats(GetStats());
+                SetStats(itemInstance.GetStats());
+
+                // Set the weapon's layer.
+                itemInstance.gameObject.layer = gameObject.layer;
+
+                // Add the weapon to the inventory slot.
+                itemSlot.SetElement(itemInstance);
+
+                // Stop the loop.
+                break;
             }
         }
     }
 
     public void Equip(Weapon weapon)
-    { 
+    {
+        /*
         if (m_WeaponInventory.Count < m_MaxElementsInInventory)
         {
             foreach(InventorySlot<Weapon> weaponSlot in m_WeaponInventory)
@@ -62,6 +92,28 @@ public class Player : DamageableEntity
                     weapon.gameObject.layer = gameObject.layer;
                     weaponSlot.SetElement(weapon);
                 }
+            }
+        }
+        */
+        foreach (InventorySlot<Weapon> weaponSlot in m_WeaponInventory)
+        {
+            if (weaponSlot.IsFree())
+            {
+                // Instantiate the weapon prefab.
+                Weapon weaponInstance = Instantiate(weapon);
+
+                // Set the weapon's stats.
+                weaponInstance.SetStats(GetStats());
+                SetStats(weaponInstance.GetStats());
+
+                // Set the weapon's layer.
+                weaponInstance.gameObject.layer = gameObject.layer;
+
+                // Add the weapon to the inventory slot.
+                weaponSlot.SetElement(weaponInstance);
+
+                // Stop the loop.
+                break;
             }
         }
     }

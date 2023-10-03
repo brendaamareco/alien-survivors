@@ -30,5 +30,12 @@ public class Item : StatsDecorator, IEntity
     public string GetName()
     { return itemName; }
 
-    public void Upgrade() { }
+    public void Upgrade() 
+    {
+        level += 1;
+        if (attackPercentage != 0) { attackPercentage += upgradePercentage; }
+        if (defensePercentage != 0) { defensePercentage += upgradePercentage; }
+        if (healthPercentage != 0) { healthPercentage += upgradePercentage; }
+        if (speedPercentage != 0) { speedPercentage += upgradePercentage; }
+    }
 }

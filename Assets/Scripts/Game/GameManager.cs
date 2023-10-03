@@ -55,6 +55,19 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+    public void SwitchLevelUp()
+    {
+        if (currentState == GameState.LevelUp)
+        {
+            ChangeState(GameState.Gameplay);
+            Time.timeScale = 1.0f;
+        }
+        else
+        {
+            ChangeState(GameState.LevelUp);
+            Time.timeScale = 0;
+        }
+    }
 
     private void UpdateStopwacth()
     { 

@@ -13,6 +13,7 @@ public abstract class Weapon : StatsDecorator, IEntity
     [SerializeField] int attackExtraPoints = 0;
     [SerializeField] float upgradePercentage = 0.25f;
     [SerializeField] int maxLevel = 1;
+    [SerializeField] Sprite icon;
 
     private bool m_IsAttacking = false;
     private int m_Level;
@@ -54,7 +55,11 @@ public abstract class Weapon : StatsDecorator, IEntity
         m_ScopeCollider.center = Vector3.zero;
     }
 
-    public void Upgrade() { }
+    public void Upgrade()
+    {
+        m_Level += 1;
+        attackExtraPoints += 1;
+    }
 
     protected HashSet<DamageableEntity> GetDamageablesInArea() 
     { return m_DamageablesInArea;}
