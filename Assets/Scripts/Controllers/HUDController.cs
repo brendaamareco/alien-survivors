@@ -7,6 +7,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] MenuPauseController pauseController;
     [SerializeField] GameManager gameManager;
     [SerializeField] GameObject gameOver;
+    [SerializeField] GameObject victory;
     [SerializeField] ExpController expController;
 
     private Player m_Player;
@@ -35,6 +36,7 @@ public class HUDController : MonoBehaviour
         m_ExperienceBar.title = m_ExperienceBar.value + "/" + m_ExperienceBar.highValue;
         GameEventManager.GetInstance().Suscribe(GameEvent.EXPUP, UpdateExperienceBar);
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
+        GameEventManager.GetInstance().Suscribe(GameEvent.VICTORY, Victory);
     }
 
     private void BtnPause_clicked()
@@ -62,6 +64,15 @@ public class HUDController : MonoBehaviour
         gameManager.SwitchPause();
         DeactivateHUD();
         gameOver.SetActive(true);
+    }
+
+    private void Victory(EventContext context)
+    {
+        Debug.Log("Llego a victory");
+        gameManager.SwitchPause();
+        DeactivateHUD();
+        victory.SetActive(true);
+        Debug.Log("Fin de victory");
     }
 
     private void DeactivateHUD() 
