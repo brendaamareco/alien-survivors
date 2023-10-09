@@ -9,11 +9,11 @@ public class DamageableEntity : MonoBehaviour, IEntity
     private Stats m_Stats;
     private HealthSystem m_HealthSystem;
 
-    protected virtual void Start()
+    private void Awake()
     {
         m_Stats = gameObject.GetComponent<BaseStats>();
         m_HealthSystem = new HealthSystem(m_Stats.GetHealth());
-        m_HealthSystem.OnDead += HealthSystem_OnDead; 
+        m_HealthSystem.OnDead += HealthSystem_OnDead;
     }
 
     protected virtual void Update()
