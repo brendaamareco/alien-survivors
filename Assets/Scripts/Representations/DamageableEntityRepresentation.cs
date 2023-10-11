@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(DamageableEntity))]
-[RequireComponent (typeof(Animator))]
+[RequireComponent(typeof(Animator))]
 public class DamageableEntityRepresentation : MonoBehaviour
 {
     [SerializeField] string animationNameAttack = "";
@@ -17,6 +17,7 @@ public class DamageableEntityRepresentation : MonoBehaviour
     private Weapon m_Weapon;
     private Animator m_Animator;
     private Player m_player;
+    private Enemy m_boss;
 
     void Start()
     {
@@ -24,6 +25,11 @@ public class DamageableEntityRepresentation : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         m_Weapon = GetComponentInChildren<Weapon>();
         m_player = GetComponent<Player>();
+
+        GameObject playerObject = GameObject.FindWithTag("Boss");
+        if (playerObject != null) {
+            m_boss = playerObject.GetComponent<Enemy>();
+        }
 
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, HandleDamage);
         GameEventManager.GetInstance().Suscribe(GameEvent.ATTACK, HandleAttack);
@@ -39,6 +45,11 @@ public class DamageableEntityRepresentation : MonoBehaviour
     {
         if (context.GetEntity().Equals(m_player)) 
             GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, context);
+
+        if (context.GetEntity().Equals(m_boss)) {
+            Debug.Log("****Boss is dead");
+            GameEventManager.GetInstance().Publish(GameEvent.VICTORY, context);
+        }
     }
 
     private void HandlePoisonedEnd(EventContext context)

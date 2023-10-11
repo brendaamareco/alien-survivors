@@ -13,5 +13,6 @@ public enum GameEvent
     DEBUFF_POISONED_END,
     GAME_OVER,
     CHEST_OPENED,
-    HEALED
+    HEALED,
+    VICTORY
 }
