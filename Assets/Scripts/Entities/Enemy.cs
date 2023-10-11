@@ -5,9 +5,8 @@ public class Enemy : DamageableEntity
     [SerializeField] private Motion m_Motion;
     [SerializeField] private Weapon m_Weapon;
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         m_Weapon = GetComponentInChildren<Weapon>();
         m_Motion = GetComponent<Motion>();
 

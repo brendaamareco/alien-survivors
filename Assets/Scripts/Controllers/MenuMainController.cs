@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
 
     private VisualElement m_RootMain;
 
-    private void OnEnable()
+    private void Start()
     {
         // Main Menu Screen      
         m_RootMain = mainMenu.GetComponent<UIDocument>().rootVisualElement;

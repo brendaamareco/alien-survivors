@@ -12,10 +12,8 @@ public class Player : DamageableEntity
     private int m_MaxElementsInInventory;
     private PlayerState m_State;
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
-
         m_ItemInventory = LoadItemInventory();
         m_WeaponInventory = LoadWeaponInventory();
         m_State = new PlayerState(this);
