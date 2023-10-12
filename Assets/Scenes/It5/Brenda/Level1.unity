@@ -763,7 +763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4213140274623332431, guid: bae628816aea0d74284f9d94680ce92f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -789,7 +789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1534193244695390649, guid: cacf9ba369062b1468e3bb8a266d6e76, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8476189061406120302, guid: cacf9ba369062b1468e3bb8a266d6e76, type: 3}
       propertyPath: ExpModel
@@ -1299,7 +1299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 275215710056868655, guid: b688add0a48b9ac4cb71422ae3b11bf2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7150087353367616504, guid: b688add0a48b9ac4cb71422ae3b11bf2, type: 3}
       propertyPath: ExpModel
@@ -8624,7 +8624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1311887338011966730, guid: db5b081335a462e49afcc271427d0070, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2429838720836569151, guid: db5b081335a462e49afcc271427d0070, type: 3}
       propertyPath: m_RootOrder
@@ -14587,7 +14587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1360687959597897219, guid: 6a368e13561cde54abd4c9e576046798, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8217336314355082964, guid: 6a368e13561cde54abd4c9e576046798, type: 3}
       propertyPath: ExpModel
@@ -15047,7 +15047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5098648193926562430, guid: 76e3cde07dc648c41a2c5e8620ef1e7b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8452779728448993099, guid: 76e3cde07dc648c41a2c5e8620ef1e7b, type: 3}
       propertyPath: m_RootOrder
