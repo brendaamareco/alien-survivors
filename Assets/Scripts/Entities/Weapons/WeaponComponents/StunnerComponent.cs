@@ -12,6 +12,8 @@ public class StunnerComponent : WeaponComponent
         
         if (randomValue < GetProbability() && !m_IsCoroutineRunning)
             StartCoroutine(nameof(StunCoroutine), player);
+        else
+            GameEventManager.GetInstance().Publish(GameEvent.WEAPON_COMPONENT_END, new EventContext(this));
     }
 
 
@@ -24,5 +26,6 @@ public class StunnerComponent : WeaponComponent
         player.SetState(new PlayerState(player));
 
         m_IsCoroutineRunning = false;
+        GameEventManager.GetInstance().Publish(GameEvent.WEAPON_COMPONENT_END, new EventContext(this));
     }
 }
