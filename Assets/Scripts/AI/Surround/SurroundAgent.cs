@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Sensors;
 using UnityEngine;
 
 public class SurroundAgent : Agent
@@ -26,6 +27,7 @@ public class SurroundAgent : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         MoveAgent(actions.DiscreteActions);
+        CheckRayCast();
     }
 
     private void MoveAgent(ActionSegment<int> act)
@@ -77,5 +79,27 @@ public class SurroundAgent : Agent
         
         if (Input.GetKey(KeyCode.D))
         { discreteActionsOut[1] = 2; }
+    }
+
+    private void CheckRayCast()
+    {
+        RayPerceptionSensorComponent3D m_rayPerceptionSensorComponent3D = GetComponent<RayPerceptionSensorComponent3D>();
+
+        var rayOutputs = RayPerceptionSensor.Perceive(m_rayPerceptionSensorComponent3D.GetRayPerceptionInput()).RayOutputs;
+        int lengthOfRayOutputs = rayOutputs.Length;
+
+        for (int i = 0; i < lengthOfRayOutputs; i++)
+        {
+            GameObject goHit = rayOutputs[i].HitGameObject;
+            if (goHit != null)
+            {
+                var rayDirection = rayOutputs[i].EndPositionWorld - rayOutputs[i].StartPositionWorld;
+                var scaledRayLength = rayDirection.magnitude;
+                float rayHitDistance = rayOutputs[i].HitFraction * scaledRayLength;
+
+                if (goHit.CompareTag("Enemy") && rayHitDistance < 0.5f)
+                    SetReward(-0.25f);
+            }
+        }
     }
 }

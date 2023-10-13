@@ -1,6 +1,7 @@
 using Unity.MLAgents;
 using UnityEngine;
 
+
 public class SurroundEnvironmentController : MonoBehaviour
 {
     [Tooltip("Max Environment Steps")] 
@@ -60,7 +61,7 @@ public class SurroundEnvironmentController : MonoBehaviour
         try
         {
             Player player = (Player)context.GetEntity();
-            m_Group.AddGroupReward(1f);
+            m_Group.AddGroupReward(0.1f);
 
             Debug.Log("Player health:" + player.GetCurrentHealthPoints());
         }
@@ -73,7 +74,7 @@ public class SurroundEnvironmentController : MonoBehaviour
         {
             Player player = (Player)context.GetEntity();
             Debug.Log("Player dead");
-            m_Group.AddGroupReward(1f);
+            m_Group.AddGroupReward(10f);
             m_Group.EndGroupEpisode();
             ResetScene();
         }
