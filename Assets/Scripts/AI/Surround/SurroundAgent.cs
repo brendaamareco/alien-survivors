@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents;
@@ -11,6 +12,15 @@ public class SurroundAgent : Agent
     public override void Initialize()
     {
         m_Enemy = GetComponent<Enemy>();
+    }
+
+    private void Update()
+    {
+        if (m_Enemy.GetCurrentHealthPoints() <= 0)
+        {
+            //DropExp();
+            this.gameObject.SetActive(false);
+        }
     }
 
     public override void OnActionReceived(ActionBuffers actions)
