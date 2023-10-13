@@ -34,9 +34,11 @@ public class DamageableEntity : MonoBehaviour, IEntity
     }
 
     public void ReceiveDamage(float amount)
-    {
-        GameEventManager.GetInstance().Publish(GameEvent.DAMAGE, new EventContext(this));
-        m_HealthSystem.Damage(Mathf.Max(0, amount - GetDefensePoints())); 
+    {     
+        m_HealthSystem.Damage(Mathf.Max(0, amount - GetDefensePoints()));
+
+        if (m_HealthSystem.GetHealth() > 0)
+            GameEventManager.GetInstance().Publish(GameEvent.DAMAGE, new EventContext(this));
     }
 
     private void SetMaxHealth(float maxHealth)
@@ -65,6 +67,9 @@ public class DamageableEntity : MonoBehaviour, IEntity
 
     public virtual int GetSpeedPoints()
     { return m_Stats.GetSpeed(); }    
+
+    public HealthSystem GetHealthSystem() 
+    { return m_HealthSystem; }
 
     public string GetName()
     { return damageableName; }

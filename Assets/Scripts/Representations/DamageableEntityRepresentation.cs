@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 [RequireComponent(typeof(DamageableEntity))]
 [RequireComponent(typeof(Animator))]
@@ -43,8 +44,8 @@ public class DamageableEntityRepresentation : MonoBehaviour
 
     private void HandleDead(EventContext context) 
     {
-        if (context.GetEntity().Equals(m_player)) 
-            GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, context);
+        if (context.GetEntity().Equals(m_player))
+            m_Animator.Play("Death");          
 
         if (context.GetEntity().Equals(m_boss)) {
             Debug.Log("****Boss is dead");
@@ -126,7 +127,12 @@ public class DamageableEntityRepresentation : MonoBehaviour
                 if (attackAudioSource && !attackAudioSource.isPlaying)
                     attackAudioSource.Play();
             }
-        }   
+        }
+    }
+
+    private void OnDeathAnimationEnd()
+    {
+        GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this.m_Damageable));
     }
 
 }
