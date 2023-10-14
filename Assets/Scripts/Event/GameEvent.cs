@@ -14,5 +14,6 @@ public enum GameEvent
     GAME_OVER,
     CHEST_OPENED,
     HEALED,
-    VICTORY
+    VICTORY,
+    FIRE
 }

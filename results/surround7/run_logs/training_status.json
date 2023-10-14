@@ -1,0 +1,65 @@
+{
+    "Surround": {
+        "checkpoints": [
+            {
+                "steps": 462105,
+                "file_path": "results\\surround7\\Surround\\Surround-462105.onnx",
+                "reward": null,
+                "creation_time": 1697293387.2715175,
+                "auxillary_file_paths": [
+                    "results\\surround7\\Surround\\Surround-462105.pt"
+                ]
+            },
+            {
+                "steps": 482105,
+                "file_path": "results\\surround7\\Surround\\Surround-482105.onnx",
+                "reward": -331.9087738037109,
+                "creation_time": 1697294311.2884932,
+                "auxillary_file_paths": [
+                    "results\\surround7\\Surround\\Surround-482105.pt"
+                ]
+            },
+            {
+                "steps": 999555,
+                "file_path": "results\\surround7\\Surround\\Surround-999555.onnx",
+                "reward": null,
+                "creation_time": 1697296384.3462346,
+                "auxillary_file_paths": [
+                    "results\\surround7\\Surround\\Surround-999555.pt"
+                ]
+            },
+            {
+                "steps": 1004555,
+                "file_path": "results\\surround7\\Surround\\Surround-1004555.onnx",
+                "reward": -675.7306030273437,
+                "creation_time": 1697296448.4871125,
+                "auxillary_file_paths": [
+                    "results\\surround7\\Surround\\Surround-1004555.pt"
+                ]
+            },
+            {
+                "steps": 1045925,
+                "file_path": "results\\surround7\\Surround\\Surround-1045925.onnx",
+                "reward": -9.716172528266906,
+                "creation_time": 1697296614.8705966,
+                "auxillary_file_paths": [
+                    "results\\surround7\\Surround\\Surround-1045925.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1045925,
+            "file_path": "results\\surround7\\Surround.onnx",
+            "reward": -9.716172528266906,
+            "creation_time": 1697296614.8705966,
+            "auxillary_file_paths": [
+                "results\\surround7\\Surround\\Surround-1045925.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.1.0+cpu"
+    }
+}

@@ -55,6 +55,7 @@ public class Ammunition : MonoBehaviour, IEntity
                 m_Rigidbody.useGravity = true;           
             }
 
+            GameEventManager.GetInstance().Publish(GameEvent.ATTACK, new EventContext(this));
             damageable.ReceiveDamage(m_DamagePoints);
 
             if (weaponComponent && !IsApplyingEffect)

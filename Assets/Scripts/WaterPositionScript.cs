@@ -49,10 +49,6 @@ public class WaterPositionScript : MonoBehaviour
             {
                 transform.localPosition -= new Vector3(0.0f, 0.0f, movimientoEje);
             }
-            else
-            {
-                Debug.Log("El agua no avanzara");
-            }
 
             // Actualiza el tiempo anterior al tiempo actual
             tiempoAnterior = Time.time;

@@ -10,7 +10,7 @@ public class RangedWeapon : Weapon
 
     public override void PerformAttack(int attack)
     {
-        GameEventManager.GetInstance().Publish(GameEvent.ATTACK, new EventContext(this));
+        GameEventManager.GetInstance().Publish(GameEvent.FIRE, new EventContext(this));
 
         GameObject ammunitionGameObject = Instantiate(ammunitionPrefab, spawnPosition.position, spawnPosition.rotation);
         Rigidbody ammunitionRb = ammunitionGameObject.GetComponent<Rigidbody>();

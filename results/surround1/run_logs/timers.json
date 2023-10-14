@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1697245012",
+        "python_version": "3.9.0 (tags/v3.9.0:9cf6752, Oct  5 2020, 15:34:40) [MSC v.1927 64 bit (AMD64)]",
+        "command_line_arguments": "D:\\BREND\\Documents\\Unity\\Projects\\Alien survivors (v2)\\alien-survivors\\venv\\Scripts\\mlagents-learn config/Surround.yaml --run-id=surround1 --resume",
+        "mlagents_version": "0.30.0",
+        "mlagents_envs_version": "0.30.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.1.0+cpu",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1697245031"
+    },
+    "total": 18.7552106,
+    "count": 1,
+    "self": 0.0053146000000019455,
+    "children": {
+        "run_training.setup": {
+            "total": 0.09823959999999987,
+            "count": 1,
+            "self": 0.09823959999999987
+        },
+        "TrainerController.start_learning": {
+            "total": 18.6516564,
+            "count": 1,
+            "self": 0.00031740000000013424,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 18.6513299,
+                    "count": 1,
+                    "self": 18.6513299
+                },
+                "trainer_threads": {
+                    "total": 8.999999998593466e-07,
+                    "count": 1,
+                    "self": 8.999999998593466e-07
+                },
+                "TrainerController._save_models": {
+                    "total": 8.19999999990273e-06,
+                    "count": 1,
+                    "self": 8.19999999990273e-06
+                }
+            }
+        }
+    }
+}

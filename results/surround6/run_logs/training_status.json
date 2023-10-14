@@ -1,0 +1,191 @@
+{
+    "Surround": {
+        "checkpoints": [
+            {
+                "steps": 495135,
+                "file_path": "results\\surround6\\Surround\\Surround-495135.onnx",
+                "reward": -289.1173599243164,
+                "creation_time": 1697258062.588392,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-495135.pt"
+                ]
+            },
+            {
+                "steps": 512755,
+                "file_path": "results\\surround6\\Surround\\Surround-512755.onnx",
+                "reward": -87.93883743286133,
+                "creation_time": 1697258338.885739,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-512755.pt"
+                ]
+            },
+            {
+                "steps": 531390,
+                "file_path": "results\\surround6\\Surround\\Surround-531390.onnx",
+                "reward": 53.461212921142575,
+                "creation_time": 1697258593.8526669,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-531390.pt"
+                ]
+            },
+            {
+                "steps": 999295,
+                "file_path": "results\\surround6\\Surround\\Surround-999295.onnx",
+                "reward": 20.212593913078308,
+                "creation_time": 1697259712.5118434,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-999295.pt"
+                ]
+            },
+            {
+                "steps": 1796295,
+                "file_path": "results\\surround6\\Surround\\Surround-1796295.onnx",
+                "reward": 74.00777401924134,
+                "creation_time": 1697261583.6718976,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-1796295.pt"
+                ]
+            },
+            {
+                "steps": 1917980,
+                "file_path": "results\\surround6\\Surround\\Surround-1917980.onnx",
+                "reward": 69.18616847991943,
+                "creation_time": 1697262068.3310251,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-1917980.pt"
+                ]
+            },
+            {
+                "steps": 1999315,
+                "file_path": "results\\surround6\\Surround\\Surround-1999315.onnx",
+                "reward": 139.37138152122498,
+                "creation_time": 1697262354.6174893,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-1999315.pt"
+                ]
+            },
+            {
+                "steps": 2999715,
+                "file_path": "results\\surround6\\Surround\\Surround-2999715.onnx",
+                "reward": 38.320542860031125,
+                "creation_time": 1697264664.3184106,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-2999715.pt"
+                ]
+            },
+            {
+                "steps": 3999665,
+                "file_path": "results\\surround6\\Surround\\Surround-3999665.onnx",
+                "reward": null,
+                "creation_time": 1697267004.2473366,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-3999665.pt"
+                ]
+            },
+            {
+                "steps": 4999600,
+                "file_path": "results\\surround6\\Surround\\Surround-4999600.onnx",
+                "reward": 9.153954863548279,
+                "creation_time": 1697269346.151746,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-4999600.pt"
+                ]
+            },
+            {
+                "steps": 5999035,
+                "file_path": "results\\surround6\\Surround\\Surround-5999035.onnx",
+                "reward": 11.447161356608072,
+                "creation_time": 1697271747.838022,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-5999035.pt"
+                ]
+            },
+            {
+                "steps": 6999792,
+                "file_path": "results\\surround6\\Surround\\Surround-6999792.onnx",
+                "reward": 86.85253397623698,
+                "creation_time": 1697274172.39657,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-6999792.pt"
+                ]
+            },
+            {
+                "steps": 7999035,
+                "file_path": "results\\surround6\\Surround\\Surround-7999035.onnx",
+                "reward": 13.422738756452288,
+                "creation_time": 1697276600.5449276,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-7999035.pt"
+                ]
+            },
+            {
+                "steps": 8999550,
+                "file_path": "results\\surround6\\Surround\\Surround-8999550.onnx",
+                "reward": 26.099274737494333,
+                "creation_time": 1697279065.2325616,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-8999550.pt"
+                ]
+            },
+            {
+                "steps": 9999465,
+                "file_path": "results\\surround6\\Surround\\Surround-9999465.onnx",
+                "reward": 26.473240852355957,
+                "creation_time": 1697281547.7221503,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-9999465.pt"
+                ]
+            },
+            {
+                "steps": 10999135,
+                "file_path": "results\\surround6\\Surround\\Surround-10999135.onnx",
+                "reward": 9.80791459764753,
+                "creation_time": 1697284063.6609166,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-10999135.pt"
+                ]
+            },
+            {
+                "steps": 11999460,
+                "file_path": "results\\surround6\\Surround\\Surround-11999460.onnx",
+                "reward": 23.85278252192906,
+                "creation_time": 1697286613.5633037,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-11999460.pt"
+                ]
+            },
+            {
+                "steps": 12855285,
+                "file_path": "results\\surround6\\Surround\\Surround-12855285.onnx",
+                "reward": null,
+                "creation_time": 1697288897.372103,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-12855285.pt"
+                ]
+            },
+            {
+                "steps": 12870285,
+                "file_path": "results\\surround6\\Surround\\Surround-12870285.onnx",
+                "reward": null,
+                "creation_time": 1697292227.720592,
+                "auxillary_file_paths": [
+                    "results\\surround6\\Surround\\Surround-12870285.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 12870285,
+            "file_path": "results\\surround6\\Surround.onnx",
+            "reward": null,
+            "creation_time": 1697292227.720592,
+            "auxillary_file_paths": [
+                "results\\surround6\\Surround\\Surround-12870285.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.1.0+cpu"
+    }
+}

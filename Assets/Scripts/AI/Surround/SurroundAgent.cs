@@ -87,6 +87,7 @@ public class SurroundAgent : Agent
 
         var rayOutputs = RayPerceptionSensor.Perceive(m_rayPerceptionSensorComponent3D.GetRayPerceptionInput()).RayOutputs;
         int lengthOfRayOutputs = rayOutputs.Length;
+        bool detectedPlayer = false;
 
         for (int i = 0; i < lengthOfRayOutputs; i++)
         {
@@ -97,9 +98,22 @@ public class SurroundAgent : Agent
                 var scaledRayLength = rayDirection.magnitude;
                 float rayHitDistance = rayOutputs[i].HitFraction * scaledRayLength;
 
-                if (goHit.CompareTag("Enemy") && rayHitDistance < 0.5f)
-                    SetReward(-0.25f);
+                //if (goHit.CompareTag("Enemy") && rayHitDistance < 0.1f)
+                //    AddReward(-0.01f);
+
+                if (goHit.CompareTag("Player"))
+                {
+                    detectedPlayer = true;
+
+                    SetReward(0.1f / (1 + rayHitDistance));
+                    break;
+                    //if (rayHitDistance < 5f)
+                       //SetReward(0.1f * (1 / (1 + rayHitDistance)));
+                }
             }
         }
+
+        //if (!detectedPlayer)
+        //    AddReward(-0.01f);
     }
 }
