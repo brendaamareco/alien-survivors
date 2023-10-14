@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 1063428020490408959}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &834629177422275496
 MeshFilter:
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healPercentage: 0.5
+  damageTextPrefab: {fileID: 1104734920501525971, guid: 4b87215fa2216a744b4a56271ab127fc, type: 3}
 --- !u!65 &5125840079781302123
 BoxCollider:
   m_ObjectHideFlags: 0
