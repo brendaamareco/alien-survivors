@@ -6,7 +6,6 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private Enemy m_Enemy;
-    public GameObject ExpModel;
 
     private void Start()
     { m_Enemy = GetComponent<Enemy>(); }
@@ -19,17 +18,5 @@ public class EnemyController : MonoBehaviour
         m_Enemy.Move(targetPosition);
         m_Enemy.Rotate(targetPosition);
         m_Enemy.Attack(targetPosition);
-
-        if (m_Enemy.GetCurrentHealthPoints() <= 0)
-        {           
-            DropExp();
-            Destroy(gameObject);
-        }
-    }
-
-    private void DropExp()
-    {
-        Vector3 position = m_Enemy.transform.position;
-        GameObject exp = Instantiate(ExpModel, position, Quaternion.identity);
     }
 }

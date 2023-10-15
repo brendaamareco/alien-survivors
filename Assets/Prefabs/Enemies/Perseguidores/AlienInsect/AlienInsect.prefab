@@ -1601,6 +1601,7 @@ GameObject:
   - component: {fileID: 3593042810574742068}
   - component: {fileID: 2503893132203328688}
   - component: {fileID: 3130709081232466066}
+  - component: {fileID: 1640433812190215992}
   m_Layer: 6
   m_Name: AlienInsect
   m_TagString: Enemy
@@ -1762,7 +1763,7 @@ MonoBehaviour:
   m_Attack: 8
   m_Defense: 5
   m_Health: 50
-  m_Speed: 3
+  m_Speed: 2
 --- !u!136 &7980108461197963189
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1901,6 +1902,19 @@ MonoBehaviour:
   rayMissColor: {r: 0.31538957, g: 0.16280994, b: 0.9245283, a: 1}
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0.5
+--- !u!114 &1640433812190215992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220170157630724832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7788070fde4374c8cecd7471cfb7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExpModel: {fileID: 0}
 --- !u!1 &7295820912907217454
 GameObject:
   m_ObjectHideFlags: 0

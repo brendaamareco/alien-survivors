@@ -9,6 +9,7 @@ TagManager:
   - WeaponSlot
   - ItemSlot
   - Wall
+  - Water
   layers:
   - Default
   - TransparentFX
