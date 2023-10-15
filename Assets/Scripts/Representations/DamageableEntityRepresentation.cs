@@ -45,7 +45,7 @@ public class DamageableEntityRepresentation : MonoBehaviour
     private void HandleDead(EventContext context) 
     {
         if (context.GetEntity().Equals(m_player))
-            m_Animator.Play("Death");          
+            m_Animator.SetTrigger("Dead");          
 
         if (context.GetEntity().Equals(m_boss)) {
             Debug.Log("****Boss is dead");
