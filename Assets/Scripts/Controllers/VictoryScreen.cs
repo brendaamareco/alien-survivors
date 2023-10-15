@@ -8,23 +8,21 @@ using UnityEngine.Rendering.PostProcessing;
 public class VictoryScreen : MonoBehaviour
 {
     [SerializeField] UIDocument root;
-    [SerializeField] VisualTreeAsset victoryScreen;
-    private VisualElement m_PantallaVictoria;
-    private VisualElement m_PopUpContainer;
+    [SerializeField] VisualTreeAsset victoryScreen;    
 
     [SerializeField] string postProcessLayerTag = "MainCamera";
     [SerializeField] LayerMask effectLayer;
+    
+    [SerializeField] AudioSource audioVictory;
+
+    private VisualElement m_PantallaVictoria;
+    private VisualElement m_PopUpContainer;
     private PostProcessLayer m_PostProcessLayer;
 
-    [SerializeField] Terrain terrain;
-    [SerializeField] AudioSource audioVictory;
-    private AudioSource audioTerrain;
-
-    // Start is called before the first frame update
     void Start()
     {
         m_PopUpContainer = root.rootVisualElement.Q<VisualElement>("PopUp");
-        if (victoryScreen != null)
+        if (victoryScreen)
         {
             m_PantallaVictoria = victoryScreen.Instantiate();
             m_PantallaVictoria.style.height = Length.Percent(100);
@@ -38,21 +36,19 @@ public class VictoryScreen : MonoBehaviour
         GameObject go = GameObject.FindGameObjectWithTag(postProcessLayerTag);
         m_PostProcessLayer = go.GetComponent<PostProcessLayer>();
         m_PostProcessLayer.volumeLayer = effectLayer;
+    }
 
-        audioTerrain = terrain.GetComponent<AudioSource>();
-        if (audioTerrain != null && audioTerrain.isPlaying)
-        {
-            audioTerrain.Stop();
-        }
-        if (audioVictory != null)
-        {
+    private void OnEnable()
+    {
+        GameObject backgroundMusicGo = GameObject.FindGameObjectWithTag("BackgroundMusic");
+
+        if (backgroundMusicGo)
+            backgroundMusicGo.SetActive(false);
+
+        if (audioVictory)
             audioVictory.Play();
-        }
     }
 
     private void BtnContinue_clicked()
-    {
-        Debug.Log("clicked");
-        SceneManager.LoadScene(0);
-    }
+    { SceneManager.LoadScene(0); }
 }
