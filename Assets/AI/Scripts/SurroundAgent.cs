@@ -15,19 +15,17 @@ public class SurroundAgent : Agent
         m_Enemy = GetComponent<Enemy>();
     }
 
-    private void Update()
+    public override void CollectObservations(VectorSensor sensor)
     {
-        if (m_Enemy.GetCurrentHealthPoints() <= 0)
-        {
-            //DropExp();
-            this.gameObject.SetActive(false);
-        }
+        Player player = GameObject.FindGameObjectWithTag("Player").transform.GetComponent<Player>();
+        sensor.AddObservation(transform.position); 
+        sensor.AddObservation(player.transform.position);
+        sensor.AddObservation(player.GetCurrentHealthPointsNormalized());
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
         MoveAgent(actions.DiscreteActions);
-        CheckRayCast();
     }
 
     private void MoveAgent(ActionSegment<int> act)
@@ -79,41 +77,5 @@ public class SurroundAgent : Agent
         
         if (Input.GetKey(KeyCode.D))
         { discreteActionsOut[1] = 2; }
-    }
-
-    private void CheckRayCast()
-    {
-        RayPerceptionSensorComponent3D m_rayPerceptionSensorComponent3D = GetComponent<RayPerceptionSensorComponent3D>();
-
-        var rayOutputs = RayPerceptionSensor.Perceive(m_rayPerceptionSensorComponent3D.GetRayPerceptionInput()).RayOutputs;
-        int lengthOfRayOutputs = rayOutputs.Length;
-        bool detectedPlayer = false;
-
-        for (int i = 0; i < lengthOfRayOutputs; i++)
-        {
-            GameObject goHit = rayOutputs[i].HitGameObject;
-            if (goHit != null)
-            {
-                var rayDirection = rayOutputs[i].EndPositionWorld - rayOutputs[i].StartPositionWorld;
-                var scaledRayLength = rayDirection.magnitude;
-                float rayHitDistance = rayOutputs[i].HitFraction * scaledRayLength;
-
-                //if (goHit.CompareTag("Enemy") && rayHitDistance < 0.1f)
-                //    AddReward(-0.01f);
-
-                if (goHit.CompareTag("Player"))
-                {
-                    detectedPlayer = true;
-
-                    SetReward(0.1f / (1 + rayHitDistance));
-                    break;
-                    //if (rayHitDistance < 5f)
-                       //SetReward(0.1f * (1 / (1 + rayHitDistance)));
-                }
-            }
-        }
-
-        //if (!detectedPlayer)
-        //    AddReward(-0.01f);
     }
 }

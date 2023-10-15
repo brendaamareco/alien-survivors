@@ -18,7 +18,7 @@ public class Wall : MonoBehaviour
             Agent enemyAgent = collision.gameObject.GetComponent<Agent>();
 
             if (enemyAgent)
-                enemyAgent.AddReward(-0.01f);
+                enemyAgent.AddReward(-0.001f);                
         }
     }
 }
