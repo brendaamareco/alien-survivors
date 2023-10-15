@@ -281,77 +281,21 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 296519834}
-    - target: {fileID: 2818208569438571106, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 8.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781167022241132743, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: far clip plane
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781167022241132743, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: near clip plane
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781167022241132743, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: orthographic size
-      value: 8.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7432411029608179063, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.2830887
-      objectReference: {fileID: 0}
-    - target: {fileID: 7432411029608179063, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 57.029644
-      objectReference: {fileID: 0}
-    - target: {fileID: 7432411029608179063, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 74.90512
-      objectReference: {fileID: 0}
-    - target: {fileID: 7432411029608179063, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8912092
-      objectReference: {fileID: 0}
     - target: {fileID: 7432411029608179063, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24133071
-      objectReference: {fileID: 0}
-    - target: {fileID: 7432411029608179063, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.3707134
+      value: 0.24133073
       objectReference: {fileID: 0}
     - target: {fileID: 7432411029608179063, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.100385554
-      objectReference: {fileID: 0}
-    - target: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.2830887
-      objectReference: {fileID: 0}
-    - target: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 57.029644
-      objectReference: {fileID: 0}
-    - target: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 74.90512
-      objectReference: {fileID: 0}
-    - target: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8912092
+      value: -0.10038558
       objectReference: {fileID: 0}
     - target: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24133071
-      objectReference: {fileID: 0}
-    - target: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.3707134
+      value: 0.24133073
       objectReference: {fileID: 0}
     - target: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.100385554
+      value: -0.10038558
       objectReference: {fileID: 0}
     - target: {fileID: 8759397410888323983, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
       propertyPath: m_Name
@@ -360,81 +304,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7338047097808519993, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 95615143}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
---- !u!4 &95615141 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8537484000968888155, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-  m_PrefabInstance: {fileID: 95615140}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &95615142 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7338047097808519993, guid: 557e532045d8b334f9cfc4cc40362b4b, type: 3}
-  m_PrefabInstance: {fileID: 95615140}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &95615143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95615142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 95615141}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 2
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!1001 &102818389
 PrefabInstance:
   m_ObjectHideFlags: 0
