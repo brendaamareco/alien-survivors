@@ -8,6 +8,8 @@ TagManager:
   - Boss
   - WeaponSlot
   - ItemSlot
+  - Wall
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Player
   - PostProcessingDefault
   - BlurrPostProcessing
-  - 
+  - Wall
   - 
   - 
   - 

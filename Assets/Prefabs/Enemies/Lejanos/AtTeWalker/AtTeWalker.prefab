@@ -5882,6 +5882,7 @@ GameObject:
   - component: {fileID: 7270891170745981362}
   - component: {fileID: 7612880435131252383}
   - component: {fileID: 3177039907994072396}
+  - component: {fileID: 7913261121899212451}
   m_Layer: 6
   m_Name: AtTeWalker
   m_TagString: Enemy
@@ -5905,7 +5906,7 @@ Transform:
   - {fileID: 6303482048598472057}
   - {fileID: 3149624349106831503}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6434934625408641519
 Animator:
@@ -5971,7 +5972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExpModel: {fileID: 0}
 --- !u!195 &5531939298746229976
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6115,6 +6115,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.5249195, y: 8.977221, z: 15.889651}
   m_Center: {x: -0.064817786, y: 3.9886103, z: 0.7514138}
+--- !u!114 &7913261121899212451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176767757451781118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7788070fde4374c8cecd7471cfb7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExpModel: {fileID: 0}
 --- !u!1 &8179655929488914379
 GameObject:
   m_ObjectHideFlags: 0

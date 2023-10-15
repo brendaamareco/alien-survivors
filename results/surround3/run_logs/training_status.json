@@ -1,0 +1,30 @@
+{
+    "Surround": {
+        "elo": 1200.0049949476036,
+        "checkpoints": [
+            {
+                "steps": 23055,
+                "file_path": "results\\surround3\\Surround\\Surround-23055.onnx",
+                "reward": null,
+                "creation_time": 1697252494.505973,
+                "auxillary_file_paths": [
+                    "results\\surround3\\Surround\\Surround-23055.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 23055,
+            "file_path": "results\\surround3\\Surround.onnx",
+            "reward": null,
+            "creation_time": 1697252494.505973,
+            "auxillary_file_paths": [
+                "results\\surround3\\Surround\\Surround-23055.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.1.0+cpu"
+    }
+}
