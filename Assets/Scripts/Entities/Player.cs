@@ -155,7 +155,10 @@ public class Player : DamageableEntity
     { return m_Experience; }
 
     public void AddExperience(int experience)
-    { m_Experience += experience; }
+    {
+        m_Experience += experience;
+        GameEventManager.GetInstance().Publish(GameEvent.EXPERIENCE_CHANGED, new EventContext(this));
+    }
 
 
     public List<InventorySlot<Weapon>> LoadWeaponInventory()

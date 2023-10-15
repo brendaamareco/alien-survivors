@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -16,6 +17,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Invoke("SpawnObject", spawnTime);
+
+        GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
+    }
+
+    private void HandleLevelUp(EventContext context)
+    {
+        SwitchLevelUp();
     }
 
     private void Update()

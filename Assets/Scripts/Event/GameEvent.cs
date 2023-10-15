@@ -15,5 +15,7 @@ public enum GameEvent
     CHEST_OPENED,
     HEALED,
     VICTORY,
-    FIRE
+    FIRE,
+    LEVEL_UP,
+    EXPERIENCE_CHANGED
 }
