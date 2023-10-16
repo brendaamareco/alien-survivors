@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class PlayerFactory : MonoBehaviour
 {
-    public void Create(PlayerId playerId)
+    public GameObject Create(PlayerId playerId)
     {
-        GameObject player = FindPlayer(playerId);
-        Instantiate(player, new Vector3(63, 0, 66), Quaternion.identity);
-    }
+        DestroyAllPlayers();
 
-    public Player GetPlayer(PlayerId playerId)
-    { return FindPlayer(playerId).GetComponent<Player>(); }
+        GameObject player = FindPlayer(playerId);
+        return Instantiate(player, new Vector3(63, 0, 66), Quaternion.identity);
+    }
 
     private GameObject FindPlayer(PlayerId playerId)
     {
@@ -32,6 +31,14 @@ public class PlayerFactory : MonoBehaviour
         }
 
         return Resources.Load<GameObject>("Characters/" + prefabName);
+    }
+
+    private void DestroyAllPlayers()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        
+        foreach (GameObject p in players)
+        { Destroy(p); }
     }
 }
 

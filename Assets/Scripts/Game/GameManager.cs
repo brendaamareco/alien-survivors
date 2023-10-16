@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Invoke("SpawnObject", spawnTime);
-        ChangeState(GameState.Gameplay);
+        Time.timeScale = 1.0f;
         
         GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
 
