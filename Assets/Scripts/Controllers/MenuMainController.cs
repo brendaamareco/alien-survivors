@@ -30,6 +30,6 @@ public class MenuManager : MonoBehaviour
             Debug.LogError("No se encontró el componente startButtonAudioSource.");
         }
 
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

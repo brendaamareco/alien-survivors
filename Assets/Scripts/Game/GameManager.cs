@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -17,8 +18,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Invoke("SpawnObject", spawnTime);
-        Time.timeScale = 1.0f;
+        ChangeState(GameState.Gameplay);
+        
         GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
+
+        GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
+        CinemachineVirtualCamera virtualCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponentInChildren<CinemachineVirtualCamera>();
+        virtualCamera.Follow = playerGo.transform;
+        virtualCamera.LookAt = playerGo.transform;
     }
 
     private void HandleLevelUp(EventContext context)
