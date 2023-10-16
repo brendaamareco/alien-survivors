@@ -28,7 +28,9 @@ public class Player : DamageableEntity
     }
 
     public void Move(Vector3 vectorMovement)
-    { m_State = m_State.Move(vectorMovement, motion); }
+    { m_State = m_State.Move(vectorMovement, motion);
+        Debug.Log("Inventory slots: " + m_WeaponInventory.Count);
+    }
 
     public void Attack(Vector3 target)
     { m_State = m_State.Attack(target); }

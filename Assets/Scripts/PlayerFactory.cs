@@ -6,8 +6,9 @@ public class PlayerFactory : MonoBehaviour
     {
         DestroyAllPlayers();
 
-        GameObject player = FindPlayer(playerId);
-        return Instantiate(player, new Vector3(63, 0, 66), Quaternion.identity);
+        GameObject playerPrefab = FindPlayer(playerId);
+        GameObject player = Instantiate(playerPrefab, new Vector3(63, 0, 66), Quaternion.identity);
+        return player;
     }
 
     private GameObject FindPlayer(PlayerId playerId)

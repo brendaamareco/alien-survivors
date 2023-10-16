@@ -43,6 +43,12 @@ public class CharacterSelectionController : MonoBehaviour
     private void UpdateStats()
     {
         GameObject playerGo = playerFactory.Create(selectedPlayer);
+        Transform cameraPosition = GameObject.FindGameObjectWithTag("MainCamera").transform;
+
+        Vector3 targetDirection = cameraPosition.position - playerGo.transform.position;
+        Vector3 newDirection = Vector3.RotateTowards(playerGo.transform.forward, targetDirection, 20f, 0.0f);
+        playerGo.transform.rotation = Quaternion.LookRotation(newDirection);
+
         Player player = playerGo.GetComponent<Player>();
         
         attackLbl.text = "Ataque: " + player.GetAttackPoints().ToString();
