@@ -18,6 +18,7 @@ public class CharacterSelectionController : MonoBehaviour
     {
         VisualElement container = GetComponent<UIDocument>().rootVisualElement;
 
+        container.Q<Button>("Personaje1").Focus();
         container.Q<Button>("Personaje1").clicked += Michi_clicked;
         container.Q<Button>("Personaje2").clicked += Eastwood_clicked;
         container.Q<Button>("Personaje3").clicked += Detective_clicked;
