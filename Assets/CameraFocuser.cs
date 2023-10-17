@@ -7,9 +7,9 @@ public class CameraFocuser : MonoBehaviour
 {
     private CinemachineVirtualCamera m_VirtualCam;
 
-    private void Start()
+    private void Awake()
     {
-        m_VirtualCam = GetComponent<CinemachineVirtualCamera>();
+        m_VirtualCam = GetComponent<CinemachineVirtualCamera>();      
     }
 
     private void Update()

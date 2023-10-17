@@ -31,6 +31,7 @@ public class CharacterSelectionController : MonoBehaviour
         speedLbl = container.Q<Label>("Velocidad");
         healthLbl = container.Q<Label>("Vida");
 
+        Time.timeScale = 1.0f;
         UpdateStats();
     }
 
