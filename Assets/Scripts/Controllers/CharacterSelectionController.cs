@@ -37,7 +37,7 @@ public class CharacterSelectionController : MonoBehaviour
         healthLbl = container.Q<Label>("Vida");
 
         Time.timeScale = 1.0f;
-        //UpdateStats();
+        UpdateStats();
     }
 
     private void CreatePlayer_clicked()

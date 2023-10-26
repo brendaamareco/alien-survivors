@@ -35,7 +35,6 @@ public class Player : DamageableEntity
 
     public void Attack(Vector3 target)
     {
-        Debug.Log("attacking");
         m_State = m_State.Attack(target);
     }
 

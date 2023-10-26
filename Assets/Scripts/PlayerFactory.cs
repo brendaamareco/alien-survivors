@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class PlayerFactory : MonoBehaviour
 {
@@ -23,27 +22,6 @@ public class PlayerFactory : MonoBehaviour
         }   
     }
 
-    private void LoadCharacters()
-    {
-        GameObject[] charactersPrefab = Resources.LoadAll<GameObject>("Characters/");
-        List<string> currentPlayers = LoadCurrentCharactersOnScene();
-
-        foreach (GameObject characterPrefab in charactersPrefab)
-        {
-            DestroyAllPlayers();
-
-            Player player = characterPrefab.GetComponent<Player>();
-
-            if ( !currentPlayers.Contains(player.GetName()) )
-            {
-                GameObject character = Instantiate(characterPrefab, new Vector3(63, 0, 66), Quaternion.identity);
-                character.SetActive(false);
-                
-                characters.Add(player.GetName(), character);
-            }
-        }
-    }
-
     private Player LoadCharacter(string characterID)
     {
         GameObject[] charactersPrefab = Resources.LoadAll<GameObject>("Characters/");
@@ -62,27 +40,6 @@ public class PlayerFactory : MonoBehaviour
         }
 
         return null;
-    }
-
-    private List<string> LoadCurrentCharactersOnScene()
-    {
-        List<string> currentPlayers = new();
-
-
-        foreach (GameObject currentPlayerObject in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            try
-            {
-                Player currentPlayer = currentPlayerObject.GetComponent<Player>();
-                currentPlayers.Add(currentPlayer.GetName());
-                Debug.Log("NAME:" + currentPlayer.GetName());
-                
-                characters.Add(currentPlayer.GetName(), currentPlayerObject);
-            }
-            catch { }      
-        }
-
-        return currentPlayers;
     }
 
     public GameObject Create(string playerId)
