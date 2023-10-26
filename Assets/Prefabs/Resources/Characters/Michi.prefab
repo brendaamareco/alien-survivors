@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 8957852493183808054}
   - component: {fileID: 8354734934293738505}
   - component: {fileID: 2221447094871179461}
-  - component: {fileID: 7955267767179667764}
+  - component: {fileID: 3595250528514821411}
   m_Layer: 7
   m_Name: Michi
   m_TagString: Player
@@ -1566,7 +1566,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7955267767179667764
+--- !u!114 &3595250528514821411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

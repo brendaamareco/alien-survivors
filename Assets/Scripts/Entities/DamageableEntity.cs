@@ -11,9 +11,19 @@ public class DamageableEntity : MonoBehaviour, IEntity
 
     private void Awake()
     {
-        m_Stats = gameObject.GetComponent<BaseStats>();
-        m_HealthSystem = new HealthSystem(m_Stats.GetHealth());
-        m_HealthSystem.OnDead += HealthSystem_OnDead;
+        ResetStats();
+    }
+
+    private void OnEnable()
+    {
+        ResetStats();
+
+    }
+
+    private void Start()
+    {
+        ResetStats();
+
     }
 
     protected virtual void Update()
@@ -25,6 +35,8 @@ public class DamageableEntity : MonoBehaviour, IEntity
     public void ResetStats()
     {
         m_Stats = gameObject.GetComponent<BaseStats>();
+        m_HealthSystem = new HealthSystem(m_Stats.GetHealth());
+        m_HealthSystem.OnDead += HealthSystem_OnDead;
     }
 
     public void Heal(float amount)
@@ -57,7 +69,12 @@ public class DamageableEntity : MonoBehaviour, IEntity
     { return m_HealthSystem.GetHealthNormalized(); }
 
     public virtual int GetAttackPoints()
-    { return m_Stats.GetAttack();  }
+    { 
+        if (m_Stats == null)
+            m_Stats = gameObject.GetComponent<BaseStats>();
+
+        return m_Stats.GetAttack();  
+    }
 
     public virtual int GetDefensePoints()
     { return m_Stats.GetDefense(); }
@@ -77,8 +94,11 @@ public class DamageableEntity : MonoBehaviour, IEntity
     private void HealthSystem_OnDead(object sender, System.EventArgs e)
     { GameEventManager.GetInstance().Publish(GameEvent.DEAD, new EventContext(this)); }
 
-    private void OnDestroy()
-    { m_HealthSystem.OnDead -= HealthSystem_OnDead; }
+    private void OnDisable()
+    { 
+        if (m_HealthSystem != null)
+            m_HealthSystem.OnDead -= HealthSystem_OnDead;
+    }
 
     public virtual void AcceptWeaponComponent(WeaponComponent weaponComponent)
     { weaponComponent.HandleOnHit(this); }

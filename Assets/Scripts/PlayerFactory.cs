@@ -1,37 +1,100 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class PlayerFactory : MonoBehaviour
 {
-    public GameObject Create(PlayerId playerId)
-    {
-        DestroyAllPlayers();
+    private Dictionary<string, GameObject> characters;
+    private static PlayerFactory instance;
 
-        GameObject playerPrefab = FindPlayer(playerId);
-        GameObject player = Instantiate(playerPrefab, new Vector3(63, 0, 66), Quaternion.identity);
-        return player;
+    private void Awake()
+    {
+        characters = new Dictionary<string, GameObject>();
+
+        if (instance != null && instance != this)
+            Destroy(this.gameObject);
+        else
+        {
+            instance = this;
+            characters = new Dictionary<string, GameObject>();
+            //LoadCharacters();
+            DestroyAllPlayers();
+        }   
     }
 
-    private GameObject FindPlayer(PlayerId playerId)
+    private void LoadCharacters()
     {
-        string prefabName = "";
+        GameObject[] charactersPrefab = Resources.LoadAll<GameObject>("Characters/");
+        List<string> currentPlayers = LoadCurrentCharactersOnScene();
 
-        switch (playerId)
+        foreach (GameObject characterPrefab in charactersPrefab)
         {
-            case PlayerId.MICHI:
-                prefabName = "Michi";
-                break;
-            case PlayerId.DETECTIVE:
-                prefabName = "MichiDetective";
-                break;
-            case PlayerId.FACHERO:
-                prefabName = "MichiFachero";
-                break;
-            case PlayerId.EASTWOOD:
-                prefabName = "MichiEastwood";
-                break;
+            DestroyAllPlayers();
+
+            Player player = characterPrefab.GetComponent<Player>();
+
+            if ( !currentPlayers.Contains(player.GetName()) )
+            {
+                GameObject character = Instantiate(characterPrefab, new Vector3(63, 0, 66), Quaternion.identity);
+                character.SetActive(false);
+                
+                characters.Add(player.GetName(), character);
+            }
+        }
+    }
+
+    private Player LoadCharacter(string characterID)
+    {
+        GameObject[] charactersPrefab = Resources.LoadAll<GameObject>("Characters/");
+
+        foreach (GameObject characterPrefab in charactersPrefab)
+        {
+            Player player = characterPrefab.GetComponent<Player>();
+
+            if ( characterID == player.GetName())
+            {
+                GameObject character = Instantiate(characterPrefab, new Vector3(63, 0, 66), Quaternion.identity);
+                //characters.Add(player.GetName(), character);
+
+                return player;
+            }
         }
 
-        return Resources.Load<GameObject>("Characters/" + prefabName);
+        return null;
+    }
+
+    private List<string> LoadCurrentCharactersOnScene()
+    {
+        List<string> currentPlayers = new();
+
+
+        foreach (GameObject currentPlayerObject in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            try
+            {
+                Player currentPlayer = currentPlayerObject.GetComponent<Player>();
+                currentPlayers.Add(currentPlayer.GetName());
+                Debug.Log("NAME:" + currentPlayer.GetName());
+                
+                characters.Add(currentPlayer.GetName(), currentPlayerObject);
+            }
+            catch { }      
+        }
+
+        return currentPlayers;
+    }
+
+    public GameObject Create(string playerId)
+    {
+        DestroyAllPlayers();
+        Player player = LoadCharacter(playerId);
+
+        //GameObject player = characters[playerId];
+
+        //player.SetActive(true);
+
+        return player.gameObject;
     }
 
     private void DestroyAllPlayers()
@@ -39,14 +102,10 @@ public class PlayerFactory : MonoBehaviour
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         
         foreach (GameObject p in players)
-        { Destroy(p); }
+            Destroy(p);
+
+        //foreach (GameObject p in players)
+        //{ p.SetActive(false); }
     }
 }
 
-public enum PlayerId
-{
-    MICHI,
-    EASTWOOD,
-    DETECTIVE,
-    FACHERO
-}

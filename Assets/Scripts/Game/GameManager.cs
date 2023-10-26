@@ -1,6 +1,7 @@
 using Cinemachine;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
@@ -26,6 +27,21 @@ public class GameManager : MonoBehaviour
         CinemachineVirtualCamera virtualCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponentInChildren<CinemachineVirtualCamera>();
         virtualCamera.Follow = playerGo.transform;
         virtualCamera.LookAt = playerGo.transform;
+
+        GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
+        GameEventManager.GetInstance().Suscribe(GameEvent.VICTORY, Victory);
+    }
+
+    private void Victory(EventContext obj)
+    {
+        SwitchPause();
+        GameEventManager.GetInstance().Reset();
+    }
+
+    private void PlayerIsDead(EventContext obj)
+    {
+        SwitchPause();
+        GameEventManager.GetInstance().Reset();
     }
 
     private void HandleLevelUp(EventContext context)
@@ -92,8 +108,13 @@ public class GameManager : MonoBehaviour
 
         if (stopwatchTime >= timeLimit)
         {
-            //gameOver()
+            GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(null));
         }
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
     
     private void UpdateStopwatchDisplay()

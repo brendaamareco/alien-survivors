@@ -18,9 +18,11 @@ public class GameOverScreen : MonoBehaviour
     private VisualElement m_PantallaDerrota;
     private VisualElement m_PopUpContainer;
     private PostProcessLayer m_PostProcessLayer;
+    private GameManager m_GameManager;
 
     void Start()
     {
+        m_GameManager = GameObject.FindObjectOfType<GameManager>(); 
         m_PopUpContainer = root.rootVisualElement.Q<VisualElement>("PopUp");
         
         if (gameOverScreen)
@@ -51,5 +53,5 @@ public class GameOverScreen : MonoBehaviour
     }
 
     private void BtnMainMenu_clicked()
-    { SceneManager.LoadScene(0); }
+    { m_GameManager.GoToMainMenu(); }
 }

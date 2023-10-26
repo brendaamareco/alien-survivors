@@ -14,8 +14,12 @@ public class CameraFocuser : MonoBehaviour
 
     private void Update()
     {
-        Transform target = GameObject.FindGameObjectWithTag("Player").transform;
-        m_VirtualCam.LookAt = target;
-        m_VirtualCam.Follow = target;
+        try
+        {
+            Transform target = GameObject.FindGameObjectWithTag("Player").transform;
+            m_VirtualCam.LookAt = target;
+            m_VirtualCam.Follow = target;
+        }
+        catch { }       
     }
 }

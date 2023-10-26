@@ -123,6 +123,10 @@ public class DamageableEntityRepresentation : MonoBehaviour
 
     private void OnDeathAnimationEnd()
     {
+        if (this.m_Damageable == null)
+        { m_Damageable = GetComponent<DamageableEntity>(); }
+        Debug.Log(GameEvent.GAME_OVER);
+        
         GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this.m_Damageable));
     }
 

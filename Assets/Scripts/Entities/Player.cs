@@ -13,8 +13,14 @@ public class Player : DamageableEntity
     private int m_MaxElementsInInventory;
     private PlayerState m_State;
 
-    private void Start()
+    private void OnEnable()
     {
+        Reset();
+    }
+
+    public void Reset()
+    {
+        ResetStats();
         m_ItemInventory = LoadItemInventory();
         m_WeaponInventory = LoadWeaponInventory();
         m_State = new PlayerState(this);
@@ -22,18 +28,16 @@ public class Player : DamageableEntity
         m_MaxElementsInInventory = 6;
     }
 
-    public void Reset()
-    {
-        ResetStats();
-    }
-
     public void Move(Vector3 vectorMovement)
-    { m_State = m_State.Move(vectorMovement, motion);
-        Debug.Log("Inventory slots: " + m_WeaponInventory.Count);
+    {
+        m_State = m_State.Move(vectorMovement, motion);      
     }
 
     public void Attack(Vector3 target)
-    { m_State = m_State.Attack(target); }
+    {
+        Debug.Log("attacking");
+        m_State = m_State.Attack(target);
+    }
 
 
     public void Equip(Item item)

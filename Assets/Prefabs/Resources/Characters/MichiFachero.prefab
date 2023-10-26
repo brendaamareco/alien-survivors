@@ -130,6 +130,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5508874015657689296, guid: e337d8b475976644aaa692ff974e4fed, type: 3}
+      propertyPath: damageableName
+      value: MichiFachero
+      objectReference: {fileID: 0}
     - target: {fileID: 5641017903040618783, guid: e337d8b475976644aaa692ff974e4fed, type: 3}
       propertyPath: m_Name
       value: MichiFachero

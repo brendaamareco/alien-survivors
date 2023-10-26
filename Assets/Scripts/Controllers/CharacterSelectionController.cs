@@ -5,14 +5,19 @@ using UnityEngine.UIElements;
 
 public class CharacterSelectionController : MonoBehaviour
 {
-    [SerializeField] PlayerFactory playerFactory;
     [SerializeField] AudioSource btnClickSfx;
 
-    private PlayerId selectedPlayer = PlayerId.MICHI;
+    PlayerFactory playerFactory;
+    private string selectedPlayer = "Michi";
     private Label attackLbl;
     private Label speedLbl;
     private Label defenseLbl;
     private Label healthLbl;
+
+    private void Awake()
+    {
+        playerFactory = GameObject.FindAnyObjectByType<PlayerFactory>();
+    }
 
     void Start()
     {
@@ -32,7 +37,7 @@ public class CharacterSelectionController : MonoBehaviour
         healthLbl = container.Q<Label>("Vida");
 
         Time.timeScale = 1.0f;
-        UpdateStats();
+        //UpdateStats();
     }
 
     private void CreatePlayer_clicked()
@@ -62,7 +67,7 @@ public class CharacterSelectionController : MonoBehaviour
     {
         btnClickSfx.Play();
 
-        selectedPlayer = PlayerId.DETECTIVE;
+        selectedPlayer = "MichiDetective";
         UpdateStats();       
     }
 
@@ -70,7 +75,7 @@ public class CharacterSelectionController : MonoBehaviour
     {
         btnClickSfx.Play();
 
-        selectedPlayer = PlayerId.FACHERO;
+        selectedPlayer = "MichiFachero";
         UpdateStats();
     }
 
@@ -78,7 +83,7 @@ public class CharacterSelectionController : MonoBehaviour
     {
         btnClickSfx.Play();
 
-        selectedPlayer = PlayerId.EASTWOOD;
+        selectedPlayer = "MichiEastwood";
         UpdateStats();
     }
 
@@ -86,7 +91,7 @@ public class CharacterSelectionController : MonoBehaviour
     {
         btnClickSfx.Play();
 
-        selectedPlayer = PlayerId.MICHI;
+        selectedPlayer = "Michi";
         UpdateStats();
     }
 }
