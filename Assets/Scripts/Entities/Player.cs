@@ -21,11 +21,11 @@ public class Player : DamageableEntity
     public void Reset()
     {
         ResetStats();
+        m_MaxElementsInInventory = 6;
         m_ItemInventory = LoadItemInventory();
         m_WeaponInventory = LoadWeaponInventory();
         m_State = new PlayerState(this);
-        m_Experience = 0;
-        m_MaxElementsInInventory = 6;
+        m_Experience = 0;    
     }
 
     public void Move(Vector3 vectorMovement)
@@ -41,34 +41,12 @@ public class Player : DamageableEntity
 
     public void Equip(Item item)
     {
-        /*
-        Debug.Log("Entro as Player equip");
-        if (m_ItemInventory.Count < m_MaxElementsInInventory)
-        {
-            Debug.Log("inventory count" + m_ItemInventory.Count);
-            foreach (InventorySlot<Item> itemSlot in m_ItemInventory)
-            {
-                if (itemSlot.IsFree())
-                {
-                    Debug.Log("era libre");
-                    item.SetStats(GetStats());
-                    SetStats(item.GetStats());
-
-                    item.gameObject.layer = gameObject.layer;
-                    Debug.Log(item.GetName());
-                    itemSlot.SetElement(item);
-                }
-                else { Debug.Log("slot ocupado"); }
-            }
-        }
-        else { Debug.Log("inventory count max" + m_ItemInventory.Count); }
-        */
         foreach (InventorySlot<Item> itemSlot in m_ItemInventory)
         {
             if (itemSlot.IsFree())
             {
                 // Instantiate the weapon prefab.
-                Item itemInstance = Instantiate(item);
+                Item itemInstance = Instantiate(item, Vector3.zero, Quaternion.identity, itemSlot.GetLocation());
 
                 // Set the weapon's stats.
                 itemInstance.SetStats(GetStats());
@@ -88,28 +66,13 @@ public class Player : DamageableEntity
 
     public void Equip(Weapon weapon)
     {
-        /*
-        if (m_WeaponInventory.Count < m_MaxElementsInInventory)
-        {
-            foreach(InventorySlot<Weapon> weaponSlot in m_WeaponInventory)
-            {
-                if (weaponSlot.IsFree())
-                {
-                    weapon.SetStats(GetStats());
-                    SetStats(weapon.GetStats());
-
-                    weapon.gameObject.layer = gameObject.layer;
-                    weaponSlot.SetElement(weapon);
-                }
-            }
-        }
-        */
         foreach (InventorySlot<Weapon> weaponSlot in m_WeaponInventory)
         {
             if (weaponSlot.IsFree())
             {
+
                 // Instantiate the weapon prefab.
-                Weapon weaponInstance = Instantiate(weapon);
+                Weapon weaponInstance = Instantiate(weapon, Vector3.zero, Quaternion.identity, weaponSlot.GetLocation());
 
                 // Set the weapon's stats.
                 weaponInstance.SetStats(GetStats());
@@ -117,7 +80,7 @@ public class Player : DamageableEntity
 
                 // Set the weapon's layer.
                 weaponInstance.gameObject.layer = gameObject.layer;
-
+                
                 // Add the weapon to the inventory slot.
                 weaponSlot.SetElement(weaponInstance);
 
@@ -171,7 +134,7 @@ public class Player : DamageableEntity
         List<InventorySlot<Weapon>> weaponInventory = new();
         GameObject[] weaponSlots = GameObject.FindGameObjectsWithTag("WeaponSlot");
 
-        for (int i = 0; i < weaponSlots.Length; i++)
+        for (int i = 0; i < m_MaxElementsInInventory; i++)
         {
             InventorySlot<Weapon> slot = new(weaponSlots[i].transform);            
             Weapon weapon = weaponSlots[i].GetComponentInChildren<Weapon>();
@@ -196,8 +159,8 @@ public class Player : DamageableEntity
         List<InventorySlot<Item>> itemInventory = new();
         GameObject[] itemSlots = GameObject.FindGameObjectsWithTag("ItemSlot");
 
-        for (int i = 0; i < itemSlots.Length; i++)
-        {
+        for (int i = 0; i < m_MaxElementsInInventory; i++)
+        {            
             InventorySlot<Item> slot = new(itemSlots[i].transform);
             Item item = itemSlots[i].GetComponentInChildren<Item>();
 

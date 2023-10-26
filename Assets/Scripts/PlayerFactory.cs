@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class PlayerFactory : MonoBehaviour
 {
-    private Dictionary<string, GameObject> characters;
     private static PlayerFactory instance;
 
     private void Awake()
     {
-        characters = new Dictionary<string, GameObject>();
 
         if (instance != null && instance != this)
             Destroy(this.gameObject);
         else
         {
             instance = this;
-            characters = new Dictionary<string, GameObject>();
-            //LoadCharacters();
             DestroyAllPlayers();
         }   
     }
@@ -32,8 +28,11 @@ public class PlayerFactory : MonoBehaviour
 
             if ( characterID == player.GetName())
             {
+                GameObject[] weaponSlots = GameObject.FindGameObjectsWithTag("WeaponSlot");
+                foreach(GameObject weaponSlot in weaponSlots)
+                    weaponSlot.SetActive(false);
+
                 GameObject character = Instantiate(characterPrefab, new Vector3(63, 0, 66), Quaternion.identity);
-                //characters.Add(player.GetName(), character);
 
                 return player;
             }
@@ -47,10 +46,6 @@ public class PlayerFactory : MonoBehaviour
         DestroyAllPlayers();
         Player player = LoadCharacter(playerId);
 
-        //GameObject player = characters[playerId];
-
-        //player.SetActive(true);
-
         return player.gameObject;
     }
 
@@ -60,9 +55,6 @@ public class PlayerFactory : MonoBehaviour
         
         foreach (GameObject p in players)
             Destroy(p);
-
-        //foreach (GameObject p in players)
-        //{ p.SetActive(false); }
     }
 }
 
