@@ -1,0 +1,110 @@
+{
+    "Surround": {
+        "checkpoints": [
+            {
+                "steps": 999720,
+                "file_path": "results\\surround8\\Surround\\Surround-999720.onnx",
+                "reward": null,
+                "creation_time": 1697310209.610435,
+                "auxillary_file_paths": [
+                    "results\\surround8\\Surround\\Surround-999720.pt"
+                ]
+            },
+            {
+                "steps": 1999880,
+                "file_path": "results\\surround8\\Surround\\Surround-1999880.onnx",
+                "reward": 4.837952454884847,
+                "creation_time": 1697312244.4075744,
+                "auxillary_file_paths": [
+                    "results\\surround8\\Surround\\Surround-1999880.pt"
+                ]
+            },
+            {
+                "steps": 2013785,
+                "file_path": "results\\surround8\\Surround\\Surround-2013785.onnx",
+                "reward": 3.8917000378171602,
+                "creation_time": 1697312271.2884388,
+                "auxillary_file_paths": [
+                    "results\\surround8\\Surround\\Surround-2013785.pt"
+                ]
+            },
+            {
+                "steps": 2999809,
+                "file_path": "results\\surround8\\Surround\\Surround-2999809.onnx",
+                "reward": 4.979500025510788,
+                "creation_time": 1697314912.9185872,
+                "auxillary_file_paths": [
+                    "results\\surround8\\Surround\\Surround-2999809.pt"
+                ]
+            },
+            {
+                "steps": 3999805,
+                "file_path": "results\\surround8\\Surround\\Surround-3999805.onnx",
+                "reward": 4.4,
+                "creation_time": 1697316913.2851694,
+                "auxillary_file_paths": [
+                    "results\\surround8\\Surround\\Surround-3999805.pt"
+                ]
+            },
+            {
+                "steps": 4999708,
+                "file_path": "results\\surround8\\Surround\\Surround-4999708.onnx",
+                "reward": 4.639285713966403,
+                "creation_time": 1697318913.8527691,
+                "auxillary_file_paths": [
+                    "results\\surround8\\Surround\\Surround-4999708.pt"
+                ]
+            },
+            {
+                "steps": 5999940,
+                "file_path": "results\\surround8\\Surround\\Surround-5999940.onnx",
+                "reward": 3.8253076787178335,
+                "creation_time": 1697320903.1722534,
+                "auxillary_file_paths": [
+                    "results\\surround8\\Surround\\Surround-5999940.pt"
+                ]
+            },
+            {
+                "steps": 6999655,
+                "file_path": "results\\surround8\\Surround\\Surround-6999655.onnx",
+                "reward": null,
+                "creation_time": 1697322912.7003107,
+                "auxillary_file_paths": [
+                    "results\\surround8\\Surround\\Surround-6999655.pt"
+                ]
+            },
+            {
+                "steps": 7999652,
+                "file_path": "results\\surround8\\Surround\\Surround-7999652.onnx",
+                "reward": 0.0,
+                "creation_time": 1697324913.6708927,
+                "auxillary_file_paths": [
+                    "results\\surround8\\Surround\\Surround-7999652.pt"
+                ]
+            },
+            {
+                "steps": 8137155,
+                "file_path": "results\\surround8\\Surround\\Surround-8137155.onnx",
+                "reward": 3.753600025177002,
+                "creation_time": 1697325205.9750485,
+                "auxillary_file_paths": [
+                    "results\\surround8\\Surround\\Surround-8137155.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 8137155,
+            "file_path": "results\\surround8\\Surround.onnx",
+            "reward": 3.753600025177002,
+            "creation_time": 1697325205.9750485,
+            "auxillary_file_paths": [
+                "results\\surround8\\Surround\\Surround-8137155.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.1.0+cpu"
+    }
+}

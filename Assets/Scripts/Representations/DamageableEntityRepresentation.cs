@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 [RequireComponent(typeof(DamageableEntity))]
 [RequireComponent(typeof(Animator))]
@@ -17,20 +16,12 @@ public class DamageableEntityRepresentation : MonoBehaviour
     private DamageableEntity m_Damageable;
     private Weapon m_Weapon;
     private Animator m_Animator;
-    private Player m_player;
-    private Enemy m_boss;
 
     void Start()
     {
         m_Damageable = GetComponent<DamageableEntity>();
         m_Animator = GetComponent<Animator>();
         m_Weapon = GetComponentInChildren<Weapon>();
-        m_player = GetComponent<Player>();
-
-        GameObject playerObject = GameObject.FindWithTag("Boss");
-        if (playerObject != null) {
-            m_boss = playerObject.GetComponent<Enemy>();
-        }
 
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, HandleDamage);
         GameEventManager.GetInstance().Suscribe(GameEvent.ATTACK, HandleAttack);
@@ -44,10 +35,10 @@ public class DamageableEntityRepresentation : MonoBehaviour
 
     private void HandleDead(EventContext context) 
     {
-        if (context.GetEntity().Equals(m_player))
-            m_Animator.Play("Death");          
+        if (context.GetEntity().Equals(m_Damageable) && gameObject.CompareTag("Player"))
+            m_Animator.SetTrigger("Dead");          
 
-        if (context.GetEntity().Equals(m_boss)) {
+        if (context.GetEntity().Equals(m_Damageable) && gameObject.CompareTag("Boss")) {
             Debug.Log("****Boss is dead");
             GameEventManager.GetInstance().Publish(GameEvent.VICTORY, context);
         }
@@ -55,7 +46,7 @@ public class DamageableEntityRepresentation : MonoBehaviour
 
     private void HandlePoisonedEnd(EventContext context)
     {
-        if (poisonedVfx)
+        if (context.GetEntity().Equals(m_Damageable) && poisonedVfx)
             poisonedVfx.SetActive(false);
     }
 
@@ -132,6 +123,10 @@ public class DamageableEntityRepresentation : MonoBehaviour
 
     private void OnDeathAnimationEnd()
     {
+        if (this.m_Damageable == null)
+        { m_Damageable = GetComponent<DamageableEntity>(); }
+        Debug.Log(GameEvent.GAME_OVER);
+        
         GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this.m_Damageable));
     }
 

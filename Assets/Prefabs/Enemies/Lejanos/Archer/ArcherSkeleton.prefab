@@ -3093,6 +3093,7 @@ GameObject:
   - component: {fileID: 6141161996177191959}
   - component: {fileID: 7284477678014786452}
   - component: {fileID: 502344991063093497}
+  - component: {fileID: 4816472217930187531}
   m_Layer: 6
   m_Name: ArcherSkeleton
   m_TagString: Enemy
@@ -3227,7 +3228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!114 &6141161996177191959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3245,6 +3245,7 @@ MonoBehaviour:
   confusedVfx: {fileID: 0}
   poisonedVfx: {fileID: 0}
   damageAudioSource: {fileID: 0}
+  attackAudioSource: {fileID: 0}
 --- !u!114 &7284477678014786452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3284,6 +3285,19 @@ CapsuleCollider:
   m_Height: 0.07335357
   m_Direction: 1
   m_Center: {x: -0.00058030605, y: 0.02895278, z: 0.0072583817}
+--- !u!114 &4816472217930187531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7098359884938559839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7788070fde4374c8cecd7471cfb7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!1 &7253964673056530483
 GameObject:
   m_ObjectHideFlags: 0

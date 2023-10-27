@@ -10,6 +10,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        LoadPlayer();
+    }
+
+    private void LoadPlayer()
+    {
         m_Player = GetComponent<Player>();
     }
 
@@ -36,7 +41,8 @@ public class PlayerController : MonoBehaviour
         }
 
         m_Input = new Vector3(movimientoHorizontal, 0, movimientoVertical);
+
         m_Player.Move(m_Input);
-        m_Player.Attack(transform.position);
+        m_Player.Attack(transform.position);    
     }
 }

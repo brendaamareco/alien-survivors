@@ -1589,16 +1589,19 @@ GameObject:
   - component: {fileID: 7212336987817290551}
   - component: {fileID: 8146587411940526660}
   - component: {fileID: 1871348449727083875}
-  - component: {fileID: 4761913780763645723}
-  - component: {fileID: 1279359886947496559}
   - component: {fileID: 517200918210088704}
   - component: {fileID: 1696019396927674460}
   - component: {fileID: 1228241411152819831}
-  - component: {fileID: 863649243417326015}
   - component: {fileID: 935032595874707034}
   - component: {fileID: 3142729544510802600}
   - component: {fileID: 7980108461197963189}
   - component: {fileID: 6078813944183197572}
+  - component: {fileID: 7484163356616205111}
+  - component: {fileID: 8487617744381592895}
+  - component: {fileID: 3593042810574742068}
+  - component: {fileID: 2503893132203328688}
+  - component: {fileID: 3130709081232466066}
+  - component: {fileID: 1640433812190215992}
   m_Layer: 6
   m_Name: AlienInsect
   m_TagString: Enemy
@@ -1657,42 +1660,8 @@ MonoBehaviour:
   m_Name: Alien Insecto
   m_EditorClassIdentifier: 
   damageableName: Alien insecto
-  m_Motion: {fileID: 1279359886947496559}
+  m_Motion: {fileID: 7484163356616205111}
   m_Weapon: {fileID: 1696019396927674460}
---- !u!195 &4761913780763645723
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7220170157630724832}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 1
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 3
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &1279359886947496559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7220170157630724832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d25a6dd34e643141b7dd8d4f510a424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &517200918210088704
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1761,19 +1730,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &863649243417326015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7220170157630724832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!114 &935032595874707034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1791,6 +1747,7 @@ MonoBehaviour:
   confusedVfx: {fileID: 0}
   poisonedVfx: {fileID: 0}
   damageAudioSource: {fileID: 0}
+  attackAudioSource: {fileID: 0}
 --- !u!114 &3142729544510802600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1806,7 +1763,7 @@ MonoBehaviour:
   m_Attack: 8
   m_Defense: 5
   m_Health: 50
-  m_Speed: 1
+  m_Speed: 2
 --- !u!136 &7980108461197963189
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1845,6 +1802,119 @@ MonoBehaviour:
   duration: 3
   probability: 0.05
   damageAmount: 10
+--- !u!114 &7484163356616205111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220170157630724832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4380ff373aea443baeb6e8a432d82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 360
+--- !u!114 &8487617744381592895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220170157630724832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 7
+    NumStackedVectorObservations: 3
+    m_ActionSpec:
+      m_NumContinuousActions: 0
+      BranchSizes: 0300000003000000
+    VectorActionSize: 0300000003000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 5022602860645237092, guid: adbc579f70df9f640997635526c57e6d, type: 3}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: Surround
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
+--- !u!114 &3593042810574742068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220170157630724832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489265c752f724c489d96c0fc3dd7579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+--- !u!114 &2503893132203328688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220170157630724832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
+--- !u!114 &3130709081232466066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220170157630724832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPerceptionSensor
+  m_DetectableTags:
+  - Water
+  m_RaysPerDirection: 4
+  m_MaxRayDegrees: 90
+  m_SphereCastRadius: 0.55
+  m_RayLength: 25
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 16
+  m_ObservationStacks: 3
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 0.31538957, g: 0.16280994, b: 0.9245283, a: 1}
+  m_StartVerticalOffset: 0
+  m_EndVerticalOffset: 0.5
+--- !u!114 &1640433812190215992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220170157630724832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7788070fde4374c8cecd7471cfb7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!1 &7295820912907217454
 GameObject:
   m_ObjectHideFlags: 0

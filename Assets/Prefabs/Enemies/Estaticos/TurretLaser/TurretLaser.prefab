@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5341715127822519239}
   - component: {fileID: 4371264807071294923}
   - component: {fileID: 8919548556332239626}
+  - component: {fileID: 9159493382385023991}
   m_Layer: 6
   m_Name: TurretLaser
   m_TagString: Enemy
@@ -39,7 +40,7 @@ Transform:
   - {fileID: 2744947414068163292}
   - {fileID: 4861929483240508881}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!114 &3986343638678155471
 MonoBehaviour:
@@ -84,7 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExpModel: {fileID: 0}
 --- !u!114 &3310876927458701352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +136,7 @@ MonoBehaviour:
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
+  icon: {fileID: 0}
   spawnPosition: {fileID: 4861929483240508881}
   ammunitionPrefab: {fileID: 1000010122379484, guid: 476896f548afa7544a81b78015b0b2f2, type: 3}
   ammunitionSpeed: 5
@@ -187,6 +188,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.019181298, z: 0.011335064}
   m_Center: {x: 0.0000042557717, y: 0.010671813, z: 0.00027675508}
+--- !u!114 &9159493382385023991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2988055339678612311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7788070fde4374c8cecd7471cfb7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!1 &6097691719886665238
 GameObject:
   m_ObjectHideFlags: 0

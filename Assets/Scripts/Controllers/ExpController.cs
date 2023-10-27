@@ -1,21 +1,37 @@
+using System;
 using UnityEngine;
 
-public class ExpController : MonoBehaviour
-{
-    [SerializeField] GameManager gameManager;
-    [SerializeField] LevelUpController levelUpController;
-    private int expNeeded = 20;
+public class ExpController : MonoBehaviour, IEntity
+{  
+    private int m_ExpNeeded = 20;
 
-    public void CheckExp(Player player)
+    private void Start()
     {
-        if (player.GetExperience() >= expNeeded)
+        GameEventManager.GetInstance().Suscribe(GameEvent.EXPERIENCE_CHANGED, HandleExperienceChanged);
+    }
+
+    private void HandleExperienceChanged(EventContext context)
+    {
+        try
         {
-            gameManager.SwitchLevelUp();
-            levelUpController.Show();
-            expNeeded += expNeeded;
+            Player player = (Player) context.GetEntity();
+            CheckExp(player);
+        }
+        catch { }
+    }
+
+    private void CheckExp(Player player)
+    {
+        if (player.GetExperience() >= m_ExpNeeded)
+        {
+            GameEventManager.GetInstance().Publish(GameEvent.LEVEL_UP, new EventContext(this));
+            m_ExpNeeded += m_ExpNeeded;
         }
     }
 
     public int GetExpNeeded()
-    {  return expNeeded; }
+    {  return m_ExpNeeded; }
+
+    public string GetName()
+    { return gameObject.name; }
 }

@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 5165065312083797107}
   - component: {fileID: 3423139849296880762}
   - component: {fileID: 8094226408059683647}
+  - component: {fileID: 1120009688189520653}
   m_Layer: 6
   m_Name: Ufo
   m_TagString: Enemy
@@ -241,6 +242,7 @@ MonoBehaviour:
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
+  icon: {fileID: 0}
   spawnPosition: {fileID: 7180046581941981236}
   ammunitionPrefab: {fileID: 1000011919393272, guid: 776b2de7ed7a88e4bbdcc336743a09f8, type: 3}
   ammunitionSpeed: 10
@@ -326,6 +328,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d25a6dd34e643141b7dd8d4f510a424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1120009688189520653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4249658691347559742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7788070fde4374c8cecd7471cfb7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!1 &6586128163581823244
 GameObject:
   m_ObjectHideFlags: 0

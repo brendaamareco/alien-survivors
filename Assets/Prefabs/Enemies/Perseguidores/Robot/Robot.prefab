@@ -935,6 +935,7 @@ GameObject:
   - component: {fileID: 4394525774781623174}
   - component: {fileID: 7892166051479168403}
   - component: {fileID: 2845961481695379128}
+  - component: {fileID: 7129180648671239712}
   m_Layer: 6
   m_Name: Robot
   m_TagString: Enemy
@@ -1026,7 +1027,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExpModel: {fileID: 0}
 --- !u!195 &5346117441592198027
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1100,6 +1100,7 @@ MonoBehaviour:
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
+  icon: {fileID: 0}
   weaponComponent: {fileID: 2845961481695379128}
 --- !u!114 &3243825008983413861
 MonoBehaviour:
@@ -1113,10 +1114,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c5628c7d50d3c4b8f93c90953a09eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationWalk: 
-  animationNameReceiveDamage: Head Hit
   animationNameAttack: Hook Punch
-  animationStunned: 
+  stunnedVfx: {fileID: 0}
+  confusedVfx: {fileID: 0}
+  poisonedVfx: {fileID: 0}
+  damageAudioSource: {fileID: 0}
+  attackAudioSource: {fileID: 0}
 --- !u!54 &4394525774781623174
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1181,6 +1184,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 3
   probability: 0.1
+--- !u!114 &7129180648671239712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277234621566703959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7788070fde4374c8cecd7471cfb7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!1 &4760725559900555445
 GameObject:
   m_ObjectHideFlags: 0

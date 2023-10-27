@@ -18,7 +18,6 @@ public class LevelUpController : MonoBehaviour
     private string folderPath = "Assets/Prefabs/Items";
     //private List<GameObject> prefabs = new List<GameObject>();
 
-    // Start is called before the first frame update
     void Start()
     {
         m_PopUpContainer = root.rootVisualElement.Q<VisualElement>("PopUp");
@@ -52,8 +51,16 @@ public class LevelUpController : MonoBehaviour
 
         SelectRandomGun();
         SelectRandomItem();
+
+        GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
     }
-    void SelectRandomItem()
+
+    private void HandleLevelUp(EventContext context)
+    {
+        Show();
+    }
+
+    private void SelectRandomItem()
     {
         // Use Resources.LoadAll to load all item prefabs in the "Items" folder
         GameObject[] itemPrefabs = Resources.LoadAll<GameObject>("Items");

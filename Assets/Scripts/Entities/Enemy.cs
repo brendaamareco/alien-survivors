@@ -8,7 +8,6 @@ public class Enemy : DamageableEntity
     private void Start()
     {
         m_Weapon = GetComponentInChildren<Weapon>();
-        m_Motion = GetComponent<Motion>();
 
         m_Weapon.SetStats(GetStats());
         SetStats(m_Weapon);

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7741724734492770376}
   - component: {fileID: 1515627017329449418}
   - component: {fileID: 6540315024204030919}
-  - component: {fileID: 1853294050395116970}
   m_Layer: 0
   m_Name: Herring
   m_TagString: Untagged
@@ -127,21 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceAmount: 10
-  expController: {fileID: 1853294050395116970}
---- !u!114 &1853294050395116970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342889782683910774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3597fa151507ed34ba83d74dff351e80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  levelUpController: {fileID: 0}
+  expController: {fileID: 0}
 --- !u!1 &1915371716169189145
 GameObject:
   m_ObjectHideFlags: 0

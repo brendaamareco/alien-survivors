@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 278058146945436041}
   - component: {fileID: 3452925999558951987}
   - component: {fileID: 1003790793906000421}
+  - component: {fileID: 2139064013228955512}
   m_Layer: 6
   m_Name: AlienTurret
   m_TagString: Enemy
@@ -39,7 +40,7 @@ Transform:
   - {fileID: 3846462908093910714}
   - {fileID: 8666143619861433399}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1128719637712977527
 MonoBehaviour:
@@ -84,7 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExpModel: {fileID: 0}
 --- !u!114 &4354989288045887683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +188,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &2139064013228955512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5098648193926562430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7788070fde4374c8cecd7471cfb7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!1 &6738417862692264929
 GameObject:
   m_ObjectHideFlags: 0

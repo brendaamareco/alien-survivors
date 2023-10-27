@@ -1,0 +1,231 @@
+.character-button {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 50%;
+    background-image: url('project://database/Assets/Art/Textures/UIElements/cat_1.png?fileID=21300000&guid=648f755ded0294b40b38d655c9129c82&type=3#cat_1');
+    border-left-color: rgba(0, 0, 0, 0.78);
+    border-right-color: rgba(0, 0, 0, 0.78);
+    border-top-color: rgba(0, 0, 0, 0.78);
+    border-bottom-color: rgba(0, 0, 0, 0.78);
+    border-left-width: 10px;
+    border-right-width: 0;
+    border-top-width: 10px;
+    border-bottom-width: 0;
+}
+
+.character-button:hover {
+    border-left-color: rgb(233, 192, 39);
+    border-right-color: rgb(233, 192, 39);
+    border-top-color: rgb(233, 192, 39);
+    border-bottom-color: rgb(233, 192, 39);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
+.character-button:focus {
+    border-left-color: rgb(233, 192, 39);
+    border-right-color: rgb(233, 192, 39);
+    border-top-color: rgb(233, 192, 39);
+    border-bottom-color: rgb(233, 192, 39);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
+.character-button-top-right {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 50%;
+    background-image: url('project://database/Assets/Art/Textures/UIElements/cat_2.png?fileID=21300000&guid=a672d421667bb2b48aba961731b3cd60&type=3#cat_2');
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 0;
+}
+
+.character-button-top-right:hover {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 50%;
+    background-image: url('project://database/Assets/Art/Textures/UIElements/cat_2.png?fileID=21300000&guid=a672d421667bb2b48aba961731b3cd60&type=3#cat_2');
+    border-left-color: rgb(233, 192, 39);
+    border-right-color: rgb(233, 192, 39);
+    border-top-color: rgb(233, 192, 39);
+    border-bottom-color: rgb(233, 192, 39);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
+.character-button-top-right:focus {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 50%;
+    background-image: url('project://database/Assets/Art/Textures/UIElements/cat_2.png?fileID=21300000&guid=a672d421667bb2b48aba961731b3cd60&type=3#cat_2');
+    border-left-color: rgb(233, 192, 39);
+    border-right-color: rgb(233, 192, 39);
+    border-top-color: rgb(233, 192, 39);
+    border-bottom-color: rgb(233, 192, 39);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
+.character-button-bottom_left {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 50%;
+    background-image: url('project://database/Assets/Art/Textures/UIElements/cat_3.png?fileID=21300000&guid=55df0f9fe1d42f24b9595295edd1e3e8&type=3#cat_3');
+    border-left-color: rgba(0, 0, 0, 0.78);
+    border-right-color: rgba(0, 0, 0, 0.78);
+    border-top-color: rgba(0, 0, 0, 0.78);
+    border-bottom-color: rgba(0, 0, 0, 0.78);
+    border-left-width: 10px;
+    border-right-width: 0;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
+.character-button-bottom_left:hover {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 50%;
+    background-image: url('project://database/Assets/Art/Textures/UIElements/cat_3.png?fileID=21300000&guid=55df0f9fe1d42f24b9595295edd1e3e8&type=3#cat_3');
+    border-left-color: rgb(233, 192, 39);
+    border-right-color: rgb(233, 192, 39);
+    border-top-color: rgb(233, 192, 39);
+    border-bottom-color: rgb(233, 192, 39);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
+.character-button-bottom_left:focus {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 50%;
+    background-image: url('project://database/Assets/Art/Textures/UIElements/cat_3.png?fileID=21300000&guid=55df0f9fe1d42f24b9595295edd1e3e8&type=3#cat_3');
+    border-left-color: rgb(233, 192, 39);
+    border-right-color: rgb(233, 192, 39);
+    border-top-color: rgb(233, 192, 39);
+    border-bottom-color: rgb(233, 192, 39);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
+.character-button-bottom_right {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 50%;
+    background-image: url('project://database/Assets/Art/Textures/UIElements/cat_4.png?fileID=21300000&guid=72d84e808ca7f434ab1695758db6cb0c&type=3#cat_4');
+    border-left-color: rgba(0, 0, 0, 0.78);
+    border-right-color: rgba(0, 0, 0, 0.78);
+    border-top-color: rgba(0, 0, 0, 0.78);
+    border-bottom-color: rgba(0, 0, 0, 0.78);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
+.character-button-bottom_right:hover {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 50%;
+    background-image: url('project://database/Assets/Art/Textures/UIElements/cat_4.png?fileID=21300000&guid=72d84e808ca7f434ab1695758db6cb0c&type=3#cat_4');
+    border-left-color: rgb(233, 192, 39);
+    border-right-color: rgb(233, 192, 39);
+    border-top-color: rgb(233, 192, 39);
+    border-bottom-color: rgb(233, 192, 39);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
+.character-button-bottom_right:focus {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 50%;
+    background-image: url('project://database/Assets/Art/Textures/UIElements/cat_4.png?fileID=21300000&guid=72d84e808ca7f434ab1695758db6cb0c&type=3#cat_4');
+    border-left-color: rgb(233, 192, 39);
+    border-right-color: rgb(233, 192, 39);
+    border-top-color: rgb(233, 192, 39);
+    border-bottom-color: rgb(233, 192, 39);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
