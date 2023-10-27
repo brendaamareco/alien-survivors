@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: a7e89db5b3e3a9644925cfd8f5e48c27, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 4115c2f92a5d3cb46b78d5d880c3bf56, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 42f430fff0ade924abee4c78fdc618bd, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -320,7 +320,6 @@ GameObject:
   - component: {fileID: 1854482367}
   - component: {fileID: 1854482368}
   - component: {fileID: 1854482369}
-  - component: {fileID: 1854482370}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -455,18 +454,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1854482370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854482365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23b840507eae1f544a32e59513dc12f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1922864204
 GameObject:
   m_ObjectHideFlags: 0
