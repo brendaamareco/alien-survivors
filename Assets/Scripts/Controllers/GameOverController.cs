@@ -9,14 +9,13 @@ public class GameOverController : MonoBehaviour
 {
     [SerializeField] UIDocument root;
     [SerializeField] GameManager gameManager;
-    [SerializeField] Terrain terrain;
     [SerializeField] AudioSource audioGameOver;
 
     private string m_PantallaDerrotaPath = "Documents/MenuDerrota";
     private VisualElement m_PantallaDerrota;
     private VisualElement m_PopUpContainer;
 
-    private AudioSource audioTerrain;
+    private AudioSource backgroundMusic;
 
     [SerializeField] string postProcessLayerTag = "MainCamera";
     [SerializeField] LayerMask effectLayer;
@@ -31,17 +30,12 @@ public class GameOverController : MonoBehaviour
         m_PantallaDerrota = pantallaDerrotaAsset.Instantiate();
         m_PantallaDerrota.style.height = Length.Percent(100);
         
-        audioTerrain = terrain.GetComponent<AudioSource>();
+        backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<AudioSource>();
 
         GameObject go = GameObject.FindGameObjectWithTag(postProcessLayerTag);
         m_PostProcessLayer = go.GetComponent<PostProcessLayer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Show()
     {
         m_PostProcessLayer.volumeLayer = effectLayer;
@@ -49,13 +43,10 @@ public class GameOverController : MonoBehaviour
         m_PopUpContainer.Add(m_PantallaDerrota);
         m_PopUpContainer.style.display = DisplayStyle.Flex;
 
-        if (audioTerrain != null && audioTerrain.isPlaying)
-        {
-            audioTerrain.Stop();
-        }
+        if (backgroundMusic && backgroundMusic.isPlaying)
+            backgroundMusic.Stop();
 
-        if (audioGameOver != null) {
+        if (audioGameOver)
             audioGameOver.Play();
-        }
     }
 }

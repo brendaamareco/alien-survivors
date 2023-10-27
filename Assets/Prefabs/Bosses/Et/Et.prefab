@@ -2083,6 +2083,7 @@ GameObject:
   - component: {fileID: 8426187679061416214}
   - component: {fileID: 738778592237539700}
   - component: {fileID: -3291707636956669738}
+  - component: {fileID: 5732468796805073726}
   m_Layer: 6
   m_Name: Et
   m_TagString: Boss
@@ -2211,7 +2212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
 --- !u!54 &8383593960194437364
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2316,6 +2316,7 @@ MonoBehaviour:
   confusedVfx: {fileID: 0}
   poisonedVfx: {fileID: 0}
   damageAudioSource: {fileID: -3291707636956669738}
+  attackAudioSource: {fileID: 0}
 --- !u!82 &-3291707636956669738
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2412,6 +2413,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5732468796805073726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7646069978523975087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7788070fde4374c8cecd7471cfb7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExpModel: {fileID: 3227511628643393044, guid: a6f235c61cbc0da43bcdd75d87ce331e, type: 3}
 --- !u!1 &7746391743132122306
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ TagManager:
   - ItemSlot
   - Wall
   - Water
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX
