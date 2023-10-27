@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_Defense
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7096663629113770608, guid: 42d5f7170020c5c4aade4b2e1fc98c09, type: 3}
+      propertyPath: ExpModel
+      value: 
+      objectReference: {fileID: 7182362370737994311, guid: e7587e8fdea3c044da2c748db4c1a54b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -458,7 +458,6 @@ GameObject:
   - component: {fileID: 1909005078372825209}
   - component: {fileID: 1251299974719804429}
   - component: {fileID: 5951130786152727300}
-  - component: {fileID: 1563616261525367667}
   m_Layer: 0
   m_Name: Herring3
   m_TagString: Untagged
@@ -484,7 +483,7 @@ Transform:
   - {fileID: 8497318601708516045}
   - {fileID: 2078197371952151735}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &5428899320030427764
 LODGroup:
@@ -572,21 +571,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceAmount: 40
-  expController: {fileID: 1563616261525367667}
---- !u!114 &1563616261525367667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7182362370737994311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3597fa151507ed34ba83d74dff351e80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  levelUpController: {fileID: 0}
 --- !u!1 &7696939725658379972
 GameObject:
   m_ObjectHideFlags: 0

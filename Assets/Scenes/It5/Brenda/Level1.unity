@@ -8573,7 +8573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2132654687
 Transform:
   m_ObjectHideFlags: 0
@@ -8608,6 +8608,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 7646069978523975087, guid: 9ff68b7f8fb50c243a9f0885cc4d6012, type: 3}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: boss1
       value: 
       objectReference: {fileID: 980178504}
@@ -8615,6 +8619,54 @@ PrefabInstance:
       propertyPath: UIObject
       value: 
       objectReference: {fileID: 1854482365}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank1Enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank2Enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank3Enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank1Enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 7220170157630724832, guid: 548e89481e3c81740abc5e1fab420aaf, type: 3}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank1Enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 7098359884938559839, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank1Enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 5758775795982184752, guid: 42d5f7170020c5c4aade4b2e1fc98c09, type: 3}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank2Enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 7248245731104289529, guid: e8a817cc13d511246b09ffdc1c18ea5d, type: 3}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank2Enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 2469122243975989085, guid: 82159d6e6c2ef72468ca8d29457ff192, type: 3}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank2Enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 4575876276046530876, guid: bf5839c4b2cad984ca68de8616f1870b, type: 3}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank3Enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 3752574713087552438, guid: a9e73147d7cd86542bc7c44e0e333686, type: 3}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank3Enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 8813760144545730727, guid: 1f8253c3ffc5e1248a85da92e84b5f54, type: 3}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: rank3Enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 3413668756875830440, guid: 9a14c6174ea9f6d409439871014c5509, type: 3}
     - target: {fileID: 4899264741976001677, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: m_Name
       value: GameManager

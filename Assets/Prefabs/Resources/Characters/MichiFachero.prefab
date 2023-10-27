@@ -80,7 +80,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2264833922789726070, guid: e337d8b475976644aaa692ff974e4fed, type: 3}
       propertyPath: m_Attack
-      value: 40
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3093256782555669889, guid: e337d8b475976644aaa692ff974e4fed, type: 3}
       propertyPath: m_Materials.Array.data[0]

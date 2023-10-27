@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4816472217930187531, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
+      propertyPath: ExpModel
+      value: 
+      objectReference: {fileID: 7182362370737994311, guid: e7587e8fdea3c044da2c748db4c1a54b, type: 3}
     - target: {fileID: 7098359884938559839, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
       propertyPath: m_Name
       value: ArcherSkeletonRange3
