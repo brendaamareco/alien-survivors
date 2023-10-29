@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : DamageableEntity
@@ -65,6 +66,8 @@ public class Player : DamageableEntity
 
     public void Equip(Weapon weapon)
     {
+        int weaponSlotIndex = 0;
+
         foreach (GameObject weaponSlotObject in weaponInventory)
         {
             if (weaponSlotObject.transform.childCount == 0)
@@ -83,9 +86,14 @@ public class Player : DamageableEntity
                 weaponInstance.transform.localPosition = Vector3.zero;
                 weaponInstance.transform.localRotation = Quaternion.identity;
 
+                if (weaponSlotIndex > 0)
+                    weaponInstance.AddComponent<AimWeapon>();
+
                 // Stop the loop.
                 break;
             }
+
+            weaponSlotIndex++;
         }
     }
 
