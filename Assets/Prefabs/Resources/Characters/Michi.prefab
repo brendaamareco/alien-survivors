@@ -1232,7 +1232,7 @@ Transform:
   - {fileID: 6112732188914981525}
   - {fileID: 2138293435472020638}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4614396242042946903
 Animator:
@@ -1292,6 +1292,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableName: Michi
   motion: {fileID: 2585841763781419420}
+  weaponInventory:
+  - {fileID: 7816011139932966336}
+  - {fileID: 1090559928434641285}
+  - {fileID: 5905494482156581449}
+  - {fileID: 8409608758526585494}
+  - {fileID: 3397407096778841417}
+  - {fileID: 6183804589682458085}
+  itemInventory:
+  - {fileID: 1668971767005088742}
+  - {fileID: 5800120509248418001}
+  - {fileID: 5882587046166855293}
+  - {fileID: 820220567108299464}
+  - {fileID: 387004254671020294}
+  - {fileID: 6069129114582574151}
 --- !u!114 &6995188024053436553
 MonoBehaviour:
   m_ObjectHideFlags: 0
