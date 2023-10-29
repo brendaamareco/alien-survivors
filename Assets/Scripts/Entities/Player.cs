@@ -136,20 +136,20 @@ public class Player : DamageableEntity
 
         for (int i = 0; i < m_MaxElementsInInventory; i++)
         {
-            InventorySlot<Weapon> slot = new(weaponSlots[i].transform);            
-            Weapon weapon = weaponSlots[i].GetComponentInChildren<Weapon>();
+                InventorySlot<Weapon> slot = new(weaponSlots[i].transform);            
+                Weapon weapon = weaponSlots[i].GetComponentInChildren<Weapon>();
 
-            if (weapon)
-            {
-                weapon.SetStats(GetStats());
-                SetStats(weapon);
+                if (weapon)
+                {
+                    weapon.SetStats(GetStats());
+                    SetStats(weapon);
 
-                weapon.gameObject.layer = gameObject.layer;
-                slot.SetElement(weapon);
+                    weapon.gameObject.layer = gameObject.layer;
+                    slot.SetElement(weapon);
+                }
+
+                weaponInventory.Add(slot);
             }
-
-            weaponInventory.Add(slot);
-        }
 
         return weaponInventory;
     }

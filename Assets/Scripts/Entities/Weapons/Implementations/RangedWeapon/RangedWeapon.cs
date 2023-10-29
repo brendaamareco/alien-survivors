@@ -22,5 +22,6 @@ public class RangedWeapon : Weapon
         ammunition.SetDamagePoints(attack);
         ammunition.SetLayerMask(gameObject.layer);
         ammunition.SetDistance(GetScope());
+        ammunition.SetWeapon(this);
     } 
 }
