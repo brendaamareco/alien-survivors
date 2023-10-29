@@ -724,7 +724,6 @@ GameObject:
   - component: {fileID: 3027586625049565260}
   - component: {fileID: 1365329762239700834}
   - component: {fileID: 275448280528957308}
-  - component: {fileID: 7787536063847880664}
   m_Layer: 0
   m_Name: Rifle Variant
   m_TagString: Untagged
@@ -800,18 +799,6 @@ MonoBehaviour:
   spawnPosition: {fileID: 8780192139318161910}
   ammunitionPrefab: {fileID: 1000011023395326, guid: 21ce0107bf7576246b86b2f5e4105590, type: 3}
   ammunitionSpeed: 15
---- !u!114 &7787536063847880664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2400406859929207542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e1ec63182b15149afa3688b90336ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4666560123537695156
 GameObject:
   m_ObjectHideFlags: 0
