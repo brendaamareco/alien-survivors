@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class SurroundDodgeAgent : Agent
 {
+    [SerializeField] Player player;
+
     private Enemy m_Enemy;
 
     public override void Initialize()
@@ -17,14 +19,33 @@ public class SurroundDodgeAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        Player player = GameObject.FindGameObjectWithTag("Player").transform.GetComponent<Player>();
         Weapon weapon = m_Enemy.GetComponentInChildren<Weapon>();
-        float weaponScope = weapon.GetScope();
+
+        if (player == null)
+        { player = GameObject.FindAnyObjectByType<Player>();  }
 
         sensor.AddObservation(transform.position);
+        sensor.AddObservation(m_Enemy.GetCurrentHealthPointsNormalized());
+        sensor.AddObservation(m_Enemy.GetSpeedPoints());
+        
         sensor.AddObservation(player.transform.position);
         sensor.AddObservation(player.GetCurrentHealthPointsNormalized());
-        sensor.AddObservation(weaponScope);
+        sensor.AddObservation(player.GetSpeedPoints());
+
+        sensor.AddObservation(weapon.GetScope());
+        sensor.AddObservation(weapon.GetCooldown());
+
+        Vector3 attackPosition = weapon.transform.forward;
+
+        try
+        {
+            RangedWeapon rangedWeapon = (RangedWeapon) weapon;
+            attackPosition = rangedWeapon.GetSpawnPosition();
+            
+        }
+        catch { }
+
+        sensor.AddObservation(attackPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -37,7 +58,6 @@ public class SurroundDodgeAgent : Agent
 
     private void MoveAgent(ActionSegment<int> act)
     {
-        Vector3 dirToGo = Vector3.zero;
         int forwardAxis = act[0];
         int rightAxis = act[1];
 
@@ -64,7 +84,9 @@ public class SurroundDodgeAgent : Agent
                 break;
         }
 
-        m_Enemy.Move(new Vector3(horizontalMove, 0 , verticalMove));
+        Vector3 dirToGo = new Vector3(horizontalMove, 0, verticalMove);
+
+        m_Enemy.Move(dirToGo);
         m_Enemy.Attack(transform.position);
     }
 

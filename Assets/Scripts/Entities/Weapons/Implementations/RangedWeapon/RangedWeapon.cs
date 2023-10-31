@@ -20,8 +20,12 @@ public class RangedWeapon : Weapon
 
         Ammunition ammunition = ammunitionGameObject.GetComponent<Ammunition>();
         ammunition.SetDamagePoints(attack);
+        ammunition.tag = "Ammunition";
         ammunition.SetLayerMask(gameObject.layer);
         ammunition.SetDistance(GetScope());
         ammunition.SetWeapon(this);
     } 
+
+    public Vector3 GetSpawnPosition()
+    { return spawnPosition.forward; }
 }
