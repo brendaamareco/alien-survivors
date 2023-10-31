@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent (typeof(Rigidbody))]
@@ -8,6 +7,7 @@ public class Ammunition : MonoBehaviour, IEntity
 {
     [SerializeField] private float distance = 0;
     [SerializeField] WeaponComponent weaponComponent;
+    private Weapon weapon;
     
     private int m_DamagePoints;
     private BoxCollider m_BoxCollider;
@@ -55,7 +55,7 @@ public class Ammunition : MonoBehaviour, IEntity
                 m_Rigidbody.useGravity = true;           
             }
 
-            GameEventManager.GetInstance().Publish(GameEvent.ATTACK, new EventContext(this));
+            GameEventManager.GetInstance().Publish(GameEvent.ATTACK, new EventContext(this.weapon));
             damageable.ReceiveDamage(m_DamagePoints);
 
             if (weaponComponent && !IsApplyingEffect)
@@ -78,6 +78,10 @@ public class Ammunition : MonoBehaviour, IEntity
     public void SetDistance(float newDistance)
     { distance = newDistance; }
 
+    public void SetWeapon(Weapon weapon)
+    {
+        this.weapon = weapon;
+    }
     public string GetName()
     { return typeof(Ammunition).Name; }
 }

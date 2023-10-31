@@ -20,8 +20,8 @@ public class RigidBodyMotion : Motion
             var rot = Quaternion.LookRotation(vector.ToIso(), Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, turnSpeed * Time.deltaTime);
         }
-
-        m_Rb.MovePosition(transform.position + transform.forward * vector.normalized.magnitude * speed * Time.deltaTime);
+        if (m_Rb != null)
+            m_Rb.MovePosition(transform.position + transform.forward * vector.normalized.magnitude * speed * Time.deltaTime);
     }
 }
 

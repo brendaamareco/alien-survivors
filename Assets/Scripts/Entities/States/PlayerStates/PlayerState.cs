@@ -18,7 +18,7 @@ public class PlayerState
     }
 
     public virtual PlayerState Attack(Vector3 target)
-    { 
+    {
         m_Player.GetWeapons().ForEach(weapon => weapon.Attack(m_Player.GetAttackPoints(), target));
         return this;
     }

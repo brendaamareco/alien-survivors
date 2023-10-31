@@ -61,18 +61,14 @@ public class HUDController : MonoBehaviour
 
     private void PlayerIsDead(EventContext context)
     {
-        gameManager.SwitchPause();
         DeactivateHUD();
         gameOver.SetActive(true);
     }
 
     private void Victory(EventContext context)
     {
-        Debug.Log("Llego a victory");
-        gameManager.SwitchPause();
         DeactivateHUD();
         victory.SetActive(true);
-        Debug.Log("Fin de victory");
     }
 
     private void DeactivateHUD() 
