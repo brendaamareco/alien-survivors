@@ -48,7 +48,7 @@ behaviors:
         encoding_size: null
         use_actions: false
         use_vail: false
-        demo_path: Assets/Demonstrations/MyDemo_36.demo
+        demo_path: Assets/Demonstrations/MyDemo_54.demo
     init_path: null
     keep_checkpoints: 5
     checkpoint_interval: 500000
@@ -58,7 +58,7 @@ behaviors:
     threaded: false
     self_play: null
     behavioral_cloning:
-      demo_path: Assets/Demonstrations/MyDemo_36.demo
+      demo_path: Assets/Demonstrations/MyDemo_54.demo
       steps: 10000000
       strength: 0.5
       samples_per_update: 0
