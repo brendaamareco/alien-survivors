@@ -182,18 +182,5 @@ public class LevelUpController : MonoBehaviour
         m_PopUpContainer.Remove(m_LevelUp);
         m_PopUpContainer.style.display = DisplayStyle.None;
         gameManager.SwitchLevelUp();
-        StartCoroutine(GlowActive());
-    }
-
-    private IEnumerator GlowActive()
-    {
-        GameObject glowVfx = GameObject.Find("GlowVfx");
-        for (int i = 0; i < 3; i++)
-        {
-            glowVfx.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
-            glowVfx.SetActive(false);
-            yield return new WaitForSeconds(0.5f);
-        }
     }
 }

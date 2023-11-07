@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
 
         if (stopwatchTime >= timeLimit)
         {
-            GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(null));
+            GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this));
         }
     }
 
