@@ -12,6 +12,7 @@ TagManager:
   - Water
   - BackgroundMusic
   - Exp
+  - Ammunition
   layers:
   - Default
   - TransparentFX

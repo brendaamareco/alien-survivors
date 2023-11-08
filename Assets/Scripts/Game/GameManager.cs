@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject UIObject;
     [SerializeField] GameState currentState;
-    [SerializeField] float timeLimit;
+    [SerializeField] float bossSpawnTime = 60.0f;
 
     private float stopwatchTime;
     private VisualElement rootStopwatch;
@@ -19,26 +20,31 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] rank3Enemies;
     [SerializeField] GameObject boss;
 
-    private float spawnTime = 2.0f;    // Initial spawn time
+    private float spawnTime = 0.5f;    // Initial spawn time
     private float timer = 0.0f;
-    private float bossSpawnTime = 60.0f;
     private bool bossDefeated = false;
+    private float spawnMediumTime; 
+    private float spawnFinalTime;
+    private Player player;
+    private bool bossSpawned = false;
 
     private void Start()
     {
         Time.timeScale = 1.0f;
-        
+        spawnMediumTime = bossSpawnTime / 2f;
+        spawnFinalTime = spawnMediumTime + bossSpawnTime / 4f;
+
         GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
 
-        GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         CinemachineVirtualCamera virtualCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponentInChildren<CinemachineVirtualCamera>();
-        virtualCamera.Follow = playerGo.transform;
-        virtualCamera.LookAt = playerGo.transform;
+        virtualCamera.Follow = player.transform;
+        virtualCamera.LookAt = player.transform;
 
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
         GameEventManager.GetInstance().Suscribe(GameEvent.VICTORY, Victory);
 
-        Invoke("SpawnBoss", bossSpawnTime);
+        //Invoke("SpawnBoss", bossSpawnTime);
         StartCoroutine(SpawnEnemies());
     }
 
@@ -121,12 +127,13 @@ public class GameManager : MonoBehaviour
         {
             GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this));
         }
+        
+        if (stopwatchTime >= bossSpawnTime)
+            SpawnBoss();
     }
 
     public void GoToMainMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
+    { SceneManager.LoadScene(0); }
     
     private void UpdateStopwatchDisplay()
     {
@@ -149,30 +156,60 @@ public class GameManager : MonoBehaviour
 
     private void SpawnBoss()
     {
-        boss.SetActive(true);
+        if (!bossSpawned)
+        {
+            Vector3 bossPosition = new Vector3(player.transform.position.x, 10f, player.transform.position.z);
+            Instantiate(boss, bossPosition, Quaternion.identity);
+            bossSpawned = true;
+        }        
     }
 
-    private void SpawnObject(GameObject[] enemies)
+    private void SpawnEnemy(GameObject[] enemies, float probPerseguidor, float probLejano, float probEstatico)
     {
         if (enemies.Length > 0)
         {
             GameObject playerObject = GameObject.FindWithTag("Player");
             Player player = playerObject.GetComponent<Player>();
+            float probability = Random.value;
+            int enemyIndex = -1;           
 
-            int randomIndex = Random.Range(0, enemies.Length);
+            if (probability <= probPerseguidor)
+                enemyIndex = 0;
 
+            else if (probability <= probPerseguidor + probLejano)
+                enemyIndex = 1;
+
+            else if (probability <= probPerseguidor + probLejano + probEstatico)
+                enemyIndex = 2;
+          
             Vector3 randomDirection = Random.onUnitSphere;
             randomDirection.y = 0; // Ensure enemies spawn at the same ground level
             Vector3 spawnPosition = player.transform.position + randomDirection * 15f; // Adjust the radius as needed
             RaycastHit hit;
 
             if (Physics.Raycast(spawnPosition + Vector3.up * 10f, Vector3.down, out hit, Mathf.Infinity, LayerMask.GetMask("GroundLayer")))
-            {
                 spawnPosition = hit.point;
-            }
 
-            Instantiate(enemies[randomIndex], spawnPosition, Quaternion.identity).SetActive(true);
+            Instantiate(enemies[enemyIndex], spawnPosition, Quaternion.identity).SetActive(true);
         }
+    }
+
+
+    private void SpawnRankedEnemies(float probRank1, float probRank2, float probRank3)
+    {
+        float probPerseguidor = 0.6f;
+        float probLejano = 0.35f;
+        float probEstatico = 0.05f;
+        float probabilityRandom = Random.value;
+
+        if (probabilityRandom <= probRank1)
+            SpawnEnemy(rank1Enemies, probPerseguidor, probLejano, probEstatico);
+
+        else if (probabilityRandom <= probRank1 + probRank2)
+            SpawnEnemy(rank2Enemies, probPerseguidor, probLejano, probEstatico);
+
+        else if (probabilityRandom <= probRank1 + probRank2 + probRank3)
+            SpawnEnemy(rank3Enemies, probPerseguidor, probLejano, probEstatico);
     }
 
     private IEnumerator SpawnEnemies()
@@ -180,24 +217,17 @@ public class GameManager : MonoBehaviour
         while (!bossDefeated)
         {
             yield return new WaitForSeconds(spawnTime);
-            SpawnObject(rank1Enemies);
 
             timer += spawnTime;
 
-            if (timer >= 10.0f)
-            {
-                // After 2 minutes, spawn rank 2 enemies
-                spawnTime = 4.0f;
-                SpawnObject(rank2Enemies);
-            }
+            if (timer > 0 && timer < spawnMediumTime)
+                SpawnRankedEnemies(0.9f, 0.1f, 0.0f);
 
-            if (timer >= 15.0f)
-            {
-                // After 4 minutes, spawn rank 3 enemies
-                spawnTime = 6.0f;
-                SpawnObject(rank2Enemies);
-                SpawnObject(rank3Enemies);
-            }
+            if (timer >= spawnMediumTime && timer < spawnFinalTime)
+                SpawnRankedEnemies(0.6f, 0.35f, 0.05f);
+
+            if (timer >= spawnFinalTime)
+                SpawnRankedEnemies(0.1f, 0.6f, 0.3f);
         }
     }
 
