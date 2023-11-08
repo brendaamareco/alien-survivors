@@ -8397,7 +8397,7 @@ PrefabInstance:
     - target: {fileID: 1062343857335948798, guid: 592ed36f87509aa42a55184120968e31, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: d145ae787003585408b6a6d19871dba8, type: 2}
+      objectReference: {fileID: 23800000, guid: 0ce17569208ee1144b3a87bc27103b15, type: 2}
     - target: {fileID: 2589966894574520773, guid: 592ed36f87509aa42a55184120968e31, type: 3}
       propertyPath: m_Name
       value: Level1Terrain

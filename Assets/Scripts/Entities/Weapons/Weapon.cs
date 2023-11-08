@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(SphereCollider))]
@@ -78,6 +77,9 @@ public abstract class Weapon : StatsDecorator, IEntity
 
     public override int GetSpeed()
     { return GetStats().GetSpeed(); }
+
+    public float GetCooldown()
+    { return cooldown; }
 
     public float GetScope()
     { return scope; }

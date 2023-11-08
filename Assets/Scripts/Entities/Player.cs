@@ -1,15 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : DamageableEntity
 {
     [SerializeField] Motion motion;
-        
+    [SerializeField] GameObject[] weaponInventory;
+    [SerializeField] GameObject[] itemInventory;
+
     private int m_Experience;
-    private List<InventorySlot<Weapon>> m_WeaponInventory;
-    private List<InventorySlot<Item>> m_ItemInventory;
     private int m_MaxElementsInInventory;
     private PlayerState m_State;
 
@@ -22,8 +23,6 @@ public class Player : DamageableEntity
     {
         ResetStats();
         m_MaxElementsInInventory = 6;
-        m_ItemInventory = LoadItemInventory();
-        m_WeaponInventory = LoadWeaponInventory();
         m_State = new PlayerState(this);
         m_Experience = 0;    
     }
@@ -41,12 +40,12 @@ public class Player : DamageableEntity
 
     public void Equip(Item item)
     {
-        foreach (InventorySlot<Item> itemSlot in m_ItemInventory)
+        foreach (GameObject itemSlotObject in itemInventory)
         {
-            if (itemSlot.IsFree())
+            if (itemSlotObject.transform.childCount == 0)
             {
                 // Instantiate the weapon prefab.
-                Item itemInstance = Instantiate(item, Vector3.zero, Quaternion.identity, itemSlot.GetLocation());
+                Item itemInstance = Instantiate(item, Vector3.zero, Quaternion.identity, itemSlotObject.transform);
 
                 // Set the weapon's stats.
                 itemInstance.SetStats(GetStats());
@@ -56,7 +55,8 @@ public class Player : DamageableEntity
                 itemInstance.gameObject.layer = gameObject.layer;
 
                 // Add the weapon to the inventory slot.
-                itemSlot.SetElement(itemInstance);
+                itemInstance.transform.localPosition = Vector3.zero;
+                itemInstance.transform.localRotation = Quaternion.identity;
 
                 // Stop the loop.
                 break;
@@ -66,13 +66,14 @@ public class Player : DamageableEntity
 
     public void Equip(Weapon weapon)
     {
-        foreach (InventorySlot<Weapon> weaponSlot in m_WeaponInventory)
-        {
-            if (weaponSlot.IsFree())
-            {
+        int weaponSlotIndex = 0;
 
+        foreach (GameObject weaponSlotObject in weaponInventory)
+        {
+            if (weaponSlotObject.transform.childCount == 0)
+            {
                 // Instantiate the weapon prefab.
-                Weapon weaponInstance = Instantiate(weapon, Vector3.zero, Quaternion.identity, weaponSlot.GetLocation());
+                Weapon weaponInstance = Instantiate(weapon, Vector3.zero, Quaternion.identity, weaponSlotObject.transform);
 
                 // Set the weapon's stats.
                 weaponInstance.SetStats(GetStats());
@@ -80,13 +81,19 @@ public class Player : DamageableEntity
 
                 // Set the weapon's layer.
                 weaponInstance.gameObject.layer = gameObject.layer;
-                
+
                 // Add the weapon to the inventory slot.
-                weaponSlot.SetElement(weaponInstance);
+                weaponInstance.transform.localPosition = Vector3.zero;
+                weaponInstance.transform.localRotation = Quaternion.identity;
+
+                if (weaponSlotIndex > 0)
+                    weaponInstance.AddComponent<AimWeapon>();
 
                 // Stop the loop.
                 break;
             }
+
+            weaponSlotIndex++;
         }
     }
 
@@ -97,10 +104,13 @@ public class Player : DamageableEntity
     { 
         List<Weapon> weapons = new();
 
-        foreach(InventorySlot<Weapon> weaponSlot in m_WeaponInventory) 
+        foreach(GameObject weaponSlotObject in weaponInventory)
         {
-            if (!weaponSlot.IsFree())
-                weapons.Add(weaponSlot.GetElement());
+            if (weaponSlotObject.transform.childCount > 0)
+            {
+                Weapon weapon = weaponSlotObject.GetComponentInChildren<Weapon>();
+                weapons.Add(weapon);
+            }
         }
 
         return weapons; 
@@ -110,10 +120,13 @@ public class Player : DamageableEntity
     {
         List<Item> items = new();
 
-        foreach (InventorySlot<Item> itemSlot in m_ItemInventory)
+        foreach (GameObject itemSlotObject in itemInventory)
         {
-            if (!itemSlot.IsFree())
-                items.Add(itemSlot.GetElement());
+            if (itemSlotObject.transform.childCount > 0)
+            {
+                Item item = itemSlotObject.GetComponentInChildren<Item>();
+                items.Add(item);
+            }
         }
 
         return items;
@@ -136,20 +149,20 @@ public class Player : DamageableEntity
 
         for (int i = 0; i < m_MaxElementsInInventory; i++)
         {
-            InventorySlot<Weapon> slot = new(weaponSlots[i].transform);            
-            Weapon weapon = weaponSlots[i].GetComponentInChildren<Weapon>();
+                InventorySlot<Weapon> slot = new(weaponSlots[i].transform);            
+                Weapon weapon = weaponSlots[i].GetComponentInChildren<Weapon>();
 
-            if (weapon)
-            {
-                weapon.SetStats(GetStats());
-                SetStats(weapon);
+                if (weapon)
+                {
+                    weapon.SetStats(GetStats());
+                    SetStats(weapon);
 
-                weapon.gameObject.layer = gameObject.layer;
-                slot.SetElement(weapon);
+                    weapon.gameObject.layer = gameObject.layer;
+                    slot.SetElement(weapon);
+                }
+
+                weaponInventory.Add(slot);
             }
-
-            weaponInventory.Add(slot);
-        }
 
         return weaponInventory;
     }

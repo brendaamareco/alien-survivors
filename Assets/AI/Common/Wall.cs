@@ -13,12 +13,12 @@ public class Wall : MonoBehaviour
 
     private void AddReward(Collision collision)
     {
-        if (collision.transform.CompareTag("Enemy"))
+        if (collision.transform.CompareTag("Enemy") || collision.transform.CompareTag("Player"))
         {
-            Agent enemyAgent = collision.gameObject.GetComponent<Agent>();
+            Agent agent = collision.gameObject.GetComponent<Agent>();
 
-            if (enemyAgent)
-                enemyAgent.AddReward(-0.001f);                
+            if (agent)
+                agent.AddReward(-0.001f);                
         }
     }
 }
