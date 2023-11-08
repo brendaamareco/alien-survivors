@@ -314,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: ArcherSkeletonWeapon
   scope: 10
-  cooldown: 1
+  cooldown: 3
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
@@ -3097,6 +3097,9 @@ GameObject:
   - component: {fileID: 4758987222092298608}
   - component: {fileID: 3416201456134180288}
   - component: {fileID: 5560944631254876025}
+  - component: {fileID: 2746040758419492873}
+  - component: {fileID: 3399905541995802237}
+  - component: {fileID: 4068322661489948522}
   m_Layer: 6
   m_Name: ArcherSkeleton
   m_TagString: Enemy
@@ -3156,7 +3159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageableName: Arquero esqueleto
-  m_Motion: {fileID: 4876710630098784891}
+  m_Motion: {fileID: 3399905541995802237}
   m_Weapon: {fileID: 5775162310556909983}
 --- !u!54 &720111820726893240
 Rigidbody:
@@ -3262,7 +3265,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7098359884938559839}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa4380ff373aea443baeb6e8a432d82f, type: 3}
   m_Name: 
@@ -3348,7 +3351,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7098359884938559839}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baaa0dec3dcb11d459605a543ad5c345, type: 3}
   m_Name: 
@@ -3385,6 +3388,52 @@ MonoBehaviour:
   rayMissColor: {r: 0, g: 0, b: 0, a: 1}
   m_StartVerticalOffset: 0.045
   m_EndVerticalOffset: 0
+--- !u!195 &2746040758419492873
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7098359884938559839}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.02
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 8
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.06
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &3399905541995802237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7098359884938559839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d25a6dd34e643141b7dd8d4f510a424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4068322661489948522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7098359884938559839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7253964673056530483
 GameObject:
   m_ObjectHideFlags: 0
