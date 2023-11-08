@@ -147,5 +147,5 @@ MonoBehaviour:
   attackExtraPoints: 40
   upgradePercentage: 0.25
   maxLevel: 10
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 73d729ec5097c2145892363ea89882d6, type: 3}
   weaponComponent: {fileID: 0}

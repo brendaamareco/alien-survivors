@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject UIObject;
     [SerializeField] GameState currentState;
+    [SerializeField] float timeLimit;
     [SerializeField] float bossSpawnTime = 60.0f;
 
     private float stopwatchTime;
@@ -123,10 +124,10 @@ public class GameManager : MonoBehaviour
         UpdateStopwatchDisplay();
         CheckSpawnTime();
 
-        if (stopwatchTime >= timeLimit)
-        {
-            GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this));
-        }
+        //if (stopwatchTime >= timeLimit)
+        //{
+        //    GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this));
+        //}
         
         if (stopwatchTime >= bossSpawnTime)
             SpawnBoss();
