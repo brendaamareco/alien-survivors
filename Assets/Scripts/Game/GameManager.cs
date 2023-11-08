@@ -123,6 +123,11 @@ public class GameManager : MonoBehaviour
         UpdateStopwatchDisplay();
         CheckSpawnTime();
 
+        if (stopwatchTime >= timeLimit)
+        {
+            GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this));
+        }
+        
         if (stopwatchTime >= bossSpawnTime)
             SpawnBoss();
     }

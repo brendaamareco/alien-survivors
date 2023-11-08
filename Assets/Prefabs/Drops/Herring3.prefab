@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 5951130786152727300}
   m_Layer: 0
   m_Name: Herring3
-  m_TagString: Untagged
+  m_TagString: Exp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

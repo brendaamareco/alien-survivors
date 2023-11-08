@@ -1,4 +1,5 @@
 using CodeMonkey.HealthSystemCM;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(BaseStats))]
@@ -8,6 +9,10 @@ public class DamageableEntity : MonoBehaviour, IEntity
 
     private Stats m_Stats;
     private HealthSystem m_HealthSystem;
+
+    private bool isInvincible = false;
+    private float timer = 0f;
+    public float invincibleTime = 4.0f;
 
     private void Awake()
     {
@@ -30,6 +35,18 @@ public class DamageableEntity : MonoBehaviour, IEntity
     {
         if (m_HealthSystem.GetHealthMax() != GetMaxHealthPoints())
             SetMaxHealth(GetMaxHealthPoints());
+
+        if (isInvincible)
+        {
+            timer += Time.deltaTime;
+            Debug.Log("paso el tiempo");
+            if (timer >= invincibleTime)
+            {
+                isInvincible = false;
+                timer = 0f;
+                Debug.Log("ya no es mas invincible");
+            }
+        }
     }
 
     public void ResetStats()
@@ -46,11 +63,20 @@ public class DamageableEntity : MonoBehaviour, IEntity
     }
 
     public void ReceiveDamage(float amount)
-    {     
-        m_HealthSystem.Damage(Mathf.Max(0, amount - GetDefensePoints()));
+    {
+        if (!isInvincible)
+        {
+            m_HealthSystem.Damage(Mathf.Max(0, amount - GetDefensePoints()));
 
-        if (m_HealthSystem.GetHealth() > 0)
-            GameEventManager.GetInstance().Publish(GameEvent.DAMAGE, new EventContext(this));
+            if (m_HealthSystem.GetHealth() > 0)
+                GameEventManager.GetInstance().Publish(GameEvent.DAMAGE, new EventContext(this));
+        }
+    }
+
+    public void MakeInvincible()
+    {
+        isInvincible = true;
+        Debug.Log("es invencible");
     }
 
     private void SetMaxHealth(float maxHealth)
@@ -83,7 +109,7 @@ public class DamageableEntity : MonoBehaviour, IEntity
     { return m_Stats.GetHealth(); }
 
     public virtual int GetSpeedPoints()
-    { return m_Stats.GetSpeed(); }    
+    { return m_Stats.GetSpeed(); }
 
     public HealthSystem GetHealthSystem() 
     { return m_HealthSystem; }

@@ -197,4 +197,9 @@ public class Player : DamageableEntity
 
     public override void AcceptWeaponComponent(WeaponComponent weaponComponent)
     { weaponComponent.HandleOnHit(this); }
+
+    internal T GetComponentInChildren<T>(string v)
+    {
+        throw new NotImplementedException();
+    }
 }

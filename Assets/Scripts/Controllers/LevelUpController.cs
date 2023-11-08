@@ -1,4 +1,7 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -32,10 +35,10 @@ public class LevelUpController : MonoBehaviour
         m_ItemInventory = player.GetItems();
 
         // Randomly select one weapon
-        Weapon selectedWeapon = m_WeaponInventory.Count > 0 ? m_WeaponInventory[Random.Range(0, m_WeaponInventory.Count)] : null;
+        Weapon selectedWeapon = m_WeaponInventory.Count > 0 ? m_WeaponInventory[UnityEngine.Random.Range(0, m_WeaponInventory.Count)] : null;
 
         // Randomly select one item
-        Item selectedItem = m_ItemInventory.Count > 0 ? m_ItemInventory[Random.Range(0, m_ItemInventory.Count)] : null;
+        Item selectedItem = m_ItemInventory.Count > 0 ? m_ItemInventory[UnityEngine.Random.Range(0, m_ItemInventory.Count)] : null;
 
         if (selectedWeapon != null)
         {
@@ -53,6 +56,7 @@ public class LevelUpController : MonoBehaviour
         SelectRandomItem();
 
         GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
+
     }
 
     private void HandleLevelUp(EventContext context)
@@ -91,7 +95,7 @@ public class LevelUpController : MonoBehaviour
         if (availableItemPrefabs.Count > 0)
         {
             // Select a random item prefab from the available list
-            int randomIndex = Random.Range(0, availableItemPrefabs.Count);
+            int randomIndex = UnityEngine.Random.Range(0, availableItemPrefabs.Count);
             GameObject selectedPrefab = availableItemPrefabs[randomIndex];
 
             // Access the Item component inside the selected prefab
@@ -145,7 +149,7 @@ public class LevelUpController : MonoBehaviour
         if (availableGunPrefabs.Count > 0)
         {
             // Select a random gun prefab from the available list
-            int randomIndex = Random.Range(0, availableGunPrefabs.Count);
+            int randomIndex = UnityEngine.Random.Range(0, availableGunPrefabs.Count);
             GameObject selectedPrefab = availableGunPrefabs[randomIndex];
 
             // Access the Weapon component inside the selected prefab

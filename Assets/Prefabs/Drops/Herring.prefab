@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6540315024204030919}
   m_Layer: 0
   m_Name: Herring
-  m_TagString: Untagged
+  m_TagString: Exp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceAmount: 10
-  expController: {fileID: 0}
 --- !u!1 &1915371716169189145
 GameObject:
   m_ObjectHideFlags: 0
