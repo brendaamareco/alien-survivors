@@ -53,13 +53,13 @@ public class GameManager : MonoBehaviour
     {
         BossDefeated();
         SwitchPause();
-        GameEventManager.GetInstance().Reset();
+        //GameEventManager.GetInstance().Reset();
     }
 
     private void PlayerIsDead(EventContext obj)
     {
         SwitchPause();
-        GameEventManager.GetInstance().Reset();
+        //GameEventManager.GetInstance().Reset();
     }
 
     private void HandleLevelUp(EventContext context)
@@ -134,7 +134,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void GoToMainMenu()
-    { SceneManager.LoadScene(0); }
+    {
+        GameEventManager.GetInstance().Reset();
+        SceneManager.LoadScene(0);
+    }
     
     private void UpdateStopwatchDisplay()
     {
