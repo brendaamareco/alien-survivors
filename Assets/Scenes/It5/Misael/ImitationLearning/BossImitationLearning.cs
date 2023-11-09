@@ -18,10 +18,11 @@ public class BossImitationLearning : Agent
     /// </summary>
     public override void CollectObservations(VectorSensor sensor)
     {
-        Player player = GameObject.FindGameObjectWithTag("Player").transform.GetComponent<Player>();
+        sensor.AddObservation(m_Enemy.GetCurrentHealthPointsNormalized());
         sensor.AddObservation(transform.position);
+
+        Player player = GameObject.FindGameObjectWithTag("Player").transform.GetComponent<Player>();
         sensor.AddObservation(player.transform.position);
-        sensor.AddObservation(player.GetCurrentHealthPointsNormalized());
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
@@ -33,7 +34,6 @@ public class BossImitationLearning : Agent
     /// </summary>
     public void MoveAgent(ActionSegment<int> act)
     {
-        Debug.Log("Move agent et");
         int forwardAxis = act[0];
         int rightAxis = act[1];
 
@@ -43,7 +43,6 @@ public class BossImitationLearning : Agent
         switch (forwardAxis)
         {
             case 1:
-                Debug.Log("Flecha arriba 1f");
                 verticalMove = 1f;
                 break;
             case 2:
@@ -62,6 +61,7 @@ public class BossImitationLearning : Agent
         }
 
         m_Enemy.Move(new Vector3(horizontalMove, 0, verticalMove));
+        m_Enemy.Attack(transform.position);
     }
     public override void Heuristic(in ActionBuffers actionsOut)
     {
@@ -69,7 +69,6 @@ public class BossImitationLearning : Agent
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            Debug.Log("Flecha arriba");
             discreteActionsOut[0] = 1; }
 
         if (Input.GetKey(KeyCode.DownArrow))

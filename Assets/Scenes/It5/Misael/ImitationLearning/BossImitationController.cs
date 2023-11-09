@@ -6,8 +6,15 @@ using Unity.MLAgents;
 public class BossImitationController : MonoBehaviour
 {
     [Tooltip("Max Environment Steps")]
-    [SerializeField] int MaxEnvironmentSteps = 25000;
+    [SerializeField] int MaxEnvironmentSteps = 5000;
     [SerializeField] BoxCollider spawnArea;
+    [SerializeField] Material greenMaterial;
+    [SerializeField] Material redMaterial;
+    [SerializeField] GameObject wall1;
+    [SerializeField] GameObject wall2;
+    [SerializeField] GameObject wall3;
+    [SerializeField] GameObject wall4;
+
     private int m_ResetTimer;
     private Player m_player;
     private Enemy m_boss;
@@ -59,16 +66,18 @@ public class BossImitationController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //m_boss.Attack(m_player.transform.position);
+
         if (enemies != null) 
         {
             enemies.Clear();
         }        
         GameObject[] enemiesObject = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemiesObject.Length == 0)
-        {
-            m_agent.EndEpisode();
-            ResetScene();
-        }
+        //if (enemiesObject.Length == 0)
+        //{
+        //    m_agent.EndEpisode();
+        //    ResetScene();
+        //}
         foreach (GameObject enemyObject in enemiesObject)
         {
             Enemy m_enemy = enemyObject.GetComponent<Enemy>();
@@ -76,25 +85,70 @@ public class BossImitationController : MonoBehaviour
         }
 
         bool estaDetrasDeAlgunEnemigo = false;
+        float angle = 0f;
         foreach (Enemy enemy in enemies) 
         {
-            if (EstaDetrasDelEnemigo(m_boss.transform.position, enemy.transform.position))
+            if (EtIsCovered(m_boss.transform.position, enemy.transform.position, m_player.transform.position))
             {
-                Debug.Log("El jefe está detrás del enemigo.");
                 estaDetrasDeAlgunEnemigo = true;
-                m_agent.AddReward(1f);
+                float enemyAngle = GetEtAngle(m_boss.transform.position, enemy.transform.position, m_player.transform.position);
+                if (enemyAngle > angle) 
+                {
+                    angle = enemyAngle;
+                }
             }
         }
 
-        if (!estaDetrasDeAlgunEnemigo) 
+        if (estaDetrasDeAlgunEnemigo) 
         {
-            m_agent.AddReward(-1f);
+            if (angle > 155f && angle < 160f)
+            {
+                m_agent.AddReward(1f);
+            }
+            if (angle > 160f && angle < 165f)
+            {
+                m_agent.AddReward(1.2f);
+            }
+            if (angle > 165f && angle < 170f)
+            {
+                m_agent.AddReward(1.4f);
+            }
+            if (angle > 170f && angle < 175f)
+            {
+                m_agent.AddReward(1.6f);
+            }
+            if (angle > 175f && angle < 180f)
+            {
+                m_agent.AddReward(1.8f);
+            }
+
+            Renderer rend1 = wall1.GetComponent<Renderer>();
+            rend1.material = greenMaterial;
+            Renderer rend2 = wall2.GetComponent<Renderer>();
+            rend2.material = greenMaterial;
+            Renderer rend3 = wall3.GetComponent<Renderer>();
+            rend3.material = greenMaterial;
+            Renderer rend4 = wall4.GetComponent<Renderer>();
+            rend4.material = greenMaterial;
+        }
+        else 
+        {
+            m_agent.AddReward(-0.001f);
+
+            Renderer rend1 = wall1.GetComponent<Renderer>();
+            rend1.material = redMaterial;
+            Renderer rend2 = wall2.GetComponent<Renderer>();
+            rend2.material = redMaterial;
+            Renderer rend3 = wall3.GetComponent<Renderer>();
+            rend3.material = redMaterial;
+            Renderer rend4 = wall4.GetComponent<Renderer>();
+            rend4.material = redMaterial;
         }
 
         m_ResetTimer += 1;
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
-            m_agent.AddReward(1f);
+            m_agent.AddReward(0.25f);
             m_agent.EpisodeInterrupted();
             ResetScene();
         }
@@ -102,16 +156,61 @@ public class BossImitationController : MonoBehaviour
         m_agent.AddReward(1f/MaxEnvironmentSteps); 
     }
 
-    // Función para determinar si el jefe está detrás del enemigo.
-    private bool EstaDetrasDelEnemigo(Vector3 posicionJefe, Vector3 posicionEnemigo)
+    private bool EtIsCovered(Vector3 etPosition, Vector3 alienPosition, Vector3 catPosition)
     {
-        // Compara las posiciones en los ejes X y Z.
-        if (posicionJefe.z < posicionEnemigo.z && Mathf.Abs(posicionJefe.x - posicionEnemigo.x) < 1.0f)
+        bool isCloseToAnAlien = EtIsCloseToAnAlien(etPosition, alienPosition);
+        bool isBehindToAnAlien = EtIsBehindAnAlien(etPosition, alienPosition, catPosition);
+
+        if (isCloseToAnAlien && isBehindToAnAlien)
         {
             return true;
         }
-
         return false;
+    }
+
+    private bool EtIsCloseToAnAlien(Vector3 etPosition, Vector3 alienPosition) 
+    {
+        float distanciaMaxima = 6.0f;
+        float distanceOnEjeX = Mathf.Abs(etPosition.x - alienPosition.x);
+        float distanceOnEjeZ = Mathf.Abs(etPosition.z - alienPosition.z);
+
+        //Debug.Log($"Distancia en eje x: {distanceOnEjeX}");
+        //Debug.Log($"Distancia en eje z: {distanceOnEjeZ}");
+
+        bool isCloseOnEjeX = distanceOnEjeX < distanciaMaxima;
+        bool isCloseOnEjeZ = distanceOnEjeZ < distanciaMaxima;
+
+        if (isCloseOnEjeX && isCloseOnEjeZ) 
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private bool EtIsBehindAnAlien(Vector3 etPosition, Vector3 alienPosition, Vector3 catPosition)
+    {
+        float angle = GetEtAngle(etPosition, alienPosition, catPosition);
+
+        // Comprueba si ET está detrás del alien
+        if (angle > 155f)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private float GetEtAngle(Vector3 etPosition, Vector3 alienPosition, Vector3 catPosition)
+    {
+        // Calcula el vector que va desde el alien al gato
+        Vector3 vectorAlienToGato = catPosition - alienPosition;
+
+        // Calcula el vector que va desde el alien a ET
+        Vector3 vectorAlienToET = etPosition - alienPosition;
+
+        // Calcula el ángulo entre estos dos vectores
+        float angle = Vector3.Angle(vectorAlienToGato, vectorAlienToET);
+
+        return angle;
     }
 
     private void HandleOnDead(EventContext context)

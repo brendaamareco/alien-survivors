@@ -48,18 +48,18 @@ behaviors:
         encoding_size: null
         use_actions: false
         use_vail: false
-        demo_path: Assets/Demonstrations/MyDemo_36.demo
+        demo_path: Assets/Demonstrations/MyDemo_55.demo
     init_path: null
     keep_checkpoints: 5
     checkpoint_interval: 500000
-    max_steps: 100000
+    max_steps: 10000000
     time_horizon: 64
     summary_freq: 60000
     threaded: false
     self_play: null
     behavioral_cloning:
-      demo_path: Assets/Demonstrations/MyDemo_36.demo
-      steps: 50000
+      demo_path: Assets/Demonstrations/MyDemo_55.demo
+      steps: 10000000
       strength: 0.5
       samples_per_update: 0
       num_epoch: null
@@ -88,7 +88,7 @@ checkpoint_settings:
   initialize_from: null
   load_model: false
   resume: false
-  force: false
+  force: true
   train_model: false
   inference: false
   results_dir: results
