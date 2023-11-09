@@ -15,12 +15,12 @@ public class GameManager : MonoBehaviour
     private VisualElement rootStopwatch;
 
     //SPAWNER
+    [SerializeField] float spawnTime = 1.5f;
     [SerializeField] GameObject[] rank1Enemies;
     [SerializeField] GameObject[] rank2Enemies;
     [SerializeField] GameObject[] rank3Enemies;
     [SerializeField] GameObject boss;
-
-    private float spawnTime = 3f;    // Initial spawn time
+  
     private float timer = 0.0f;
     private bool bossDefeated = false;
     private float spawnMediumTime; 
@@ -52,13 +52,11 @@ public class GameManager : MonoBehaviour
     {
         BossDefeated();
         SwitchPause();
-        //GameEventManager.GetInstance().Reset();
     }
 
     private void PlayerIsDead(EventContext obj)
     {
         SwitchPause();
-        //GameEventManager.GetInstance().Reset();
     }
 
     private void HandleLevelUp(EventContext context)

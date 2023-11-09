@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1927386756900491571
 MonoBehaviour:
@@ -48,9 +48,12 @@ MonoBehaviour:
   UIObject: {fileID: 0}
   currentState: 0
   timeLimit: 120
-  boss1: {fileID: 0}
-  stopSpawn: 0
-  spawnTime: 5
+  bossSpawnTime: 60
+  spawnTime: 1
+  rank1Enemies: []
+  rank2Enemies: []
+  rank3Enemies: []
+  boss: {fileID: 0}
 --- !u!114 &5287968784262530288
 MonoBehaviour:
   m_ObjectHideFlags: 0
