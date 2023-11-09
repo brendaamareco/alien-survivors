@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
-    { AddReward(collision); }
-
     private void OnCollisionStay(Collision collision)
     { AddReward(collision); }
 

@@ -10,8 +10,10 @@ public class SurroundDodgeEnvironmentController : MonoBehaviour
     [SerializeField] BoxCollider spawnArea;
     [SerializeField] Agent[] enemyAgents;
     [SerializeField] Player m_Player;
+    [SerializeField] Transform loserPlace;
     [SerializeField] private Material enemyWinMaterial;
     [SerializeField] private Material playerWinMaterial;
+    [SerializeField] private Material tieMaterial;
     [SerializeField] private MeshRenderer floorMeshRenderer;
 
     private SimpleMultiAgentGroup m_GroupEnemy;
@@ -43,7 +45,7 @@ public class SurroundDodgeEnvironmentController : MonoBehaviour
     {
         m_ResetTimer += 1;
 
-        CheckEnemiesDistanceToPlayer();
+        //CheckEnemiesDistanceToPlayer();
 
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
@@ -52,11 +54,12 @@ public class SurroundDodgeEnvironmentController : MonoBehaviour
             //Debug.Log("timeout. player health: " + m_Player.GetCurrentHealthPointsNormalized());
 
             m_GroupEnemy.AddGroupReward(-1f);
+            m_GroupPlayer.AddGroupReward(-1f);
 
-            m_GroupEnemy.GroupEpisodeInterrupted();
-            m_GroupPlayer.GroupEpisodeInterrupted();
+            m_GroupEnemy.EndGroupEpisode();
+            m_GroupPlayer.EndGroupEpisode();
 
-            floorMeshRenderer.material = playerWinMaterial;
+            floorMeshRenderer.material = tieMaterial;
             ResetScene();
         }
     }
@@ -68,7 +71,7 @@ public class SurroundDodgeEnvironmentController : MonoBehaviour
             float desiredDistance = enemyAgent.GetComponentInChildren<Weapon>().GetScope();
             float currentDistance = Vector3.Distance(enemyAgent.transform.position, m_Player.transform.position);
 
-            if (currentDistance <= desiredDistance && currentDistance >= 1)
+            if (currentDistance <= desiredDistance && currentDistance >= desiredDistance/2)
                 enemyAgent.AddReward(1f / (float) MaxEnvironmentSteps);
         }
     }
@@ -91,16 +94,19 @@ public class SurroundDodgeEnvironmentController : MonoBehaviour
 
         foreach (Agent agent in m_GroupEnemy.GetRegisteredAgents())
         {
-            agent.transform.localPosition = new Vector3(
-            Random.Range(spawnerBounds.min.x, spawnerBounds.max.x), 0,
-            Random.Range(spawnerBounds.min.z, spawnerBounds.max.z)
-            );
+            //agent.transform.position = new Vector3(
+            //Random.Range(spawnerBounds.min.x, spawnerBounds.max.x), 0,
+            //Random.Range(spawnerBounds.min.z, spawnerBounds.max.z)
+            //);
+
+            agent.transform.localPosition = spawnArea.transform.localPosition + new Vector3(Random.Range(1f, 3f), 0, 0);
         }
 
-        m_Player.transform.localPosition = new Vector3(
-            Random.Range(spawnerBounds.min.x, spawnerBounds.max.x), 0,
-            Random.Range(spawnerBounds.min.z, spawnerBounds.max.z)
-            );
+        //m_Player.transform.position = new Vector3(
+        //    Random.Range(spawnerBounds.min.x, spawnerBounds.max.x), 0,
+        //    Random.Range(spawnerBounds.min.z, spawnerBounds.max.z)
+        //    );
+        m_Player.transform.localPosition = spawnArea.transform.localPosition + new Vector3(0f, 0, Random.Range(1f,3f));
     }
 
     private void HandleOnAttack(EventContext context)
@@ -113,21 +119,21 @@ public class SurroundDodgeEnvironmentController : MonoBehaviour
 
             if (agent && agent.CompareTag("Enemy") && m_GroupEnemy.GetRegisteredAgents().Contains(agent))
             {
-                Enemy enemy = agent.GetComponent<Enemy>();
-                int maxPossibleAttacks = m_Player.GetMaxHealthPoints() / enemy.GetAttackPoints();
+                //Enemy enemy = agent.GetComponent<Enemy>();
+                //int maxPossibleAttacks = m_Player.GetMaxHealthPoints() / enemy.GetAttackPoints();
 
-                if (maxPossibleAttacks == 0)
-                    maxPossibleAttacks = 1;
+                //if (maxPossibleAttacks == 0)
+                //    maxPossibleAttacks = 1;
 
-                agent.AddReward( 2f / (float) maxPossibleAttacks );
+                //agent.AddReward( 2f / (float) maxPossibleAttacks );
+                agent.AddReward(1f * m_GroupEnemy.GetRegisteredAgents().Count);
 
                 //Debug.Log("Enemy attack success. maxPossibleAttacks: " + maxPossibleAttacks);
             }
 
             else if (agent && agent.CompareTag("Player") && m_GroupPlayer.GetRegisteredAgents().Contains(agent))
             {
-                agent.AddReward( 0.1f / (float)m_GroupEnemy.GetRegisteredAgents().Count );
-
+                agent.AddReward( 1f / (float)m_GroupEnemy.GetRegisteredAgents().Count );
                 //Debug.Log("Player attack success");
             }
         }
@@ -144,13 +150,15 @@ public class SurroundDodgeEnvironmentController : MonoBehaviour
 
             if (agent && agent.CompareTag("Enemy") && m_GroupEnemy.GetRegisteredAgents().Contains(agent))
             {
-                Enemy enemy = agent.GetComponent<Enemy>();
-                int maxPossibleAttacks = enemy.GetMaxHealthPoints() / m_Player.GetAttackPoints();
+                //Enemy enemy = agent.GetComponent<Enemy>();
+                //int maxPossibleAttacks = enemy.GetMaxHealthPoints() / m_Player.GetAttackPoints();
 
-                if (maxPossibleAttacks == 0)
-                    maxPossibleAttacks = 1;
+                //if (maxPossibleAttacks == 0)
+                //    maxPossibleAttacks = 1;
 
-                agent.AddReward(-0.1f / (float)maxPossibleAttacks);
+                //agent.AddReward(-0.1f / (float)maxPossibleAttacks);
+
+                agent.AddReward(-0.1f);
 
                 //Debug.Log("Enemy receive damage. maxPossibleAttacks: " + maxPossibleAttacks );
             }
@@ -176,7 +184,8 @@ public class SurroundDodgeEnvironmentController : MonoBehaviour
 
                 playerAgent.AddReward(-1f);
 
-                m_GroupEnemy.AddGroupReward(2f);
+
+                m_GroupEnemy.AddGroupReward(1f);
                 m_GroupPlayer.AddGroupReward(-1f);
 
                 m_GroupEnemy.EndGroupEpisode();
@@ -199,18 +208,18 @@ public class SurroundDodgeEnvironmentController : MonoBehaviour
         
                 if (m_GroupEnemy.GetRegisteredAgents().Contains(enemyAgent))
                 {
-                    enemyAgent.AddReward(-1f);
+                    enemyAgent.AddReward(-1f / (float)m_GroupEnemy.GetRegisteredAgents().Count);
                     playerAgent.AddReward( 1f / (float)m_GroupEnemy.GetRegisteredAgents().Count);
 
                     //Debug.Log("Enemy dead");
                     //Debug.Log("#" + totalEnemies);
 
-                    m_GroupEnemy.AddGroupReward(-0.1f / (float)m_GroupEnemy.GetRegisteredAgents().Count);
-                    m_GroupPlayer.AddGroupReward(1f);
+                    //m_GroupEnemy.AddGroupReward(-0.1f / (float)m_GroupEnemy.GetRegisteredAgents().Count);
+                    //m_GroupPlayer.AddGroupReward(1f);
 
                     m_DeadEnemies += 1;
 
-                    enemy.transform.localPosition = new Vector3(0, -5f, 0);
+                    enemy.transform.position = loserPlace.position;
 
                     if (m_DeadEnemies == totalEnemies)
                     {
