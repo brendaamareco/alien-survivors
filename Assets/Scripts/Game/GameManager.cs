@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] rank3Enemies;
     [SerializeField] GameObject boss;
 
-    private float spawnTime = 5f;    // Initial spawn time
+    private float spawnTime = 3f;    // Initial spawn time
     private float timer = 0.0f;
     private bool bossDefeated = false;
     private float spawnMediumTime; 
