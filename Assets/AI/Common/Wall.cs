@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
-    { AddReward(collision); }
-
     private void OnCollisionStay(Collision collision)
     { AddReward(collision); }
 
@@ -18,7 +15,11 @@ public class Wall : MonoBehaviour
             Agent agent = collision.gameObject.GetComponent<Agent>();
 
             if (agent)
-                agent.AddReward(-0.001f);                
+            {
+                Debug.Log(agent + " collisioned with wall");
+                agent.AddReward(-0.001f);
+                
+            }
         }
     }
 }

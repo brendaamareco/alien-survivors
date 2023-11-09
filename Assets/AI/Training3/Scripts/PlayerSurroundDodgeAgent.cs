@@ -16,7 +16,7 @@ public class PlayerSurroundDodgeAgent : Agent
     {
         Weapon weapon = m_Player.GetComponentInChildren<Weapon>();
 
-        sensor.AddObservation(transform.position);
+        sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(m_Player.GetCurrentHealthPointsNormalized());
         sensor.AddObservation(m_Player.GetSpeedPoints());
 

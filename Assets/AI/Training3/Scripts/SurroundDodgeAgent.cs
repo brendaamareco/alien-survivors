@@ -24,28 +24,28 @@ public class SurroundDodgeAgent : Agent
         if (player == null)
         { player = GameObject.FindAnyObjectByType<Player>();  }
 
-        sensor.AddObservation(transform.position);
+        sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(m_Enemy.GetCurrentHealthPointsNormalized());
         sensor.AddObservation(m_Enemy.GetSpeedPoints());
         
-        sensor.AddObservation(player.transform.position);
+        sensor.AddObservation(player.transform.localPosition);
         sensor.AddObservation(player.GetCurrentHealthPointsNormalized());
         sensor.AddObservation(player.GetSpeedPoints());
 
         sensor.AddObservation(weapon.GetScope());
         sensor.AddObservation(weapon.GetCooldown());
 
-        Vector3 attackPosition = weapon.transform.forward;
+        //Vector3 attackPosition = weapon.transform.forward;
 
-        try
-        {
-            RangedWeapon rangedWeapon = (RangedWeapon) weapon;
-            attackPosition = rangedWeapon.GetSpawnPosition();
+        //try
+        //{
+        //    RangedWeapon rangedWeapon = (RangedWeapon) weapon;
+        //    attackPosition = rangedWeapon.GetSpawnPosition();
             
-        }
-        catch { }
+        //}
+        //catch { }
 
-        sensor.AddObservation(attackPosition);
+        //sensor.AddObservation(attackPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
