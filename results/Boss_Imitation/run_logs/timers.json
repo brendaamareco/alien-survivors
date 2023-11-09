@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1697858372",
+        "python_version": "3.8.0 (tags/v3.8.0:fa919fd, Oct 14 2019, 19:37:50) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "E:\\AlienSurvivors\\It5\\alien-survivors\\venv\\Scripts\\mlagents-learn config/boss.yaml --run-id=Boss_Imitation",
+        "mlagents_version": "0.29.0",
+        "mlagents_envs_version": "0.29.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.7.0+cu110",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1697858396"
+    },
+    "total": 23.933746999999997,
+    "count": 1,
+    "self": 0.032507199999994185,
+    "children": {
+        "run_training.setup": {
+            "total": 0.14089079999999998,
+            "count": 1,
+            "self": 0.14089079999999998
+        },
+        "TrainerController.start_learning": {
+            "total": 23.760349,
+            "count": 1,
+            "self": 0.0002423000000000286,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 23.7600921,
+                    "count": 1,
+                    "self": 23.7600921
+                },
+                "TrainerController._save_models": {
+                    "total": 1.4600000000086766e-05,
+                    "count": 1,
+                    "self": 1.4600000000086766e-05
+                }
+            }
+        }
+    }
+}
