@@ -54,6 +54,6 @@ public class VictoryScreen : MonoBehaviour
 
     private void BtnContinue_clicked()
     { 
-        m_GameManager.GoToMainMenu();
+        m_GameManager.NextLevel();
     }
 }

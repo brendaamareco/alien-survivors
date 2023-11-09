@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Linq;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,7 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] rank3Enemies;
     [SerializeField] GameObject boss;
 
-    private float spawnTime = 0.5f;    // Initial spawn time
+    private float spawnTime = 5f;    // Initial spawn time
     private float timer = 0.0f;
     private bool bossDefeated = false;
     private float spawnMediumTime; 
@@ -116,6 +115,20 @@ public class GameManager : MonoBehaviour
             ChangeState(GameState.LevelUp);
             Time.timeScale = 0;
         }
+    }
+
+    public void NextLevel()
+    {
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (currentIndex < SceneManager.sceneCountInBuildSettings - 1)
+        {
+            GameEventManager.GetInstance().Reset();
+            SceneManager.LoadScene(currentIndex+1);
+        }
+        
+        else
+            GoToMainMenu();
     }
 
     private void UpdateStopwacth()
