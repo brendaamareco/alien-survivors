@@ -54,6 +54,7 @@ public class LevelUpSlot
                 // Equip the new weapon
                 player.Equip(weapon);
                 Debug.Log("Equipped " + weapon.GetName());
+                GameEventManager.GetInstance().Publish(GameEvent.INVENTORY_CHANGED, new EventContext(this));
             }
         }
         screen.Hide();
@@ -82,6 +83,7 @@ public class LevelUpSlot
                 // Equip the new item
                 player.Equip(item);
                 Debug.Log("Equipped " + item.GetName());
+                GameEventManager.GetInstance().Publish(GameEvent.INVENTORY_CHANGED, new EventContext(this));
             }
         }
         screen.Hide();

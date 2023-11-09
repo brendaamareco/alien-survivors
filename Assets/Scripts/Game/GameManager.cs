@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject UIObject;
     [SerializeField] GameState currentState;
+    [SerializeField] float timeLimit;
     [SerializeField] float bossSpawnTime = 60.0f;
 
     private float stopwatchTime;
@@ -52,13 +53,13 @@ public class GameManager : MonoBehaviour
     {
         BossDefeated();
         SwitchPause();
-        GameEventManager.GetInstance().Reset();
+        //GameEventManager.GetInstance().Reset();
     }
 
     private void PlayerIsDead(EventContext obj)
     {
         SwitchPause();
-        GameEventManager.GetInstance().Reset();
+        //GameEventManager.GetInstance().Reset();
     }
 
     private void HandleLevelUp(EventContext context)
@@ -123,12 +124,20 @@ public class GameManager : MonoBehaviour
         UpdateStopwatchDisplay();
         CheckSpawnTime();
 
+        //if (stopwatchTime >= timeLimit)
+        //{
+        //    GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this));
+        //}
+        
         if (stopwatchTime >= bossSpawnTime)
             SpawnBoss();
     }
 
     public void GoToMainMenu()
-    { SceneManager.LoadScene(0); }
+    {
+        GameEventManager.GetInstance().Reset();
+        SceneManager.LoadScene(0);
+    }
     
     private void UpdateStopwatchDisplay()
     {

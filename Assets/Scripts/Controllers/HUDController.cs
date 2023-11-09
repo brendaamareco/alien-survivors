@@ -1,5 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Xml.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class HUDController : MonoBehaviour
 {
@@ -14,6 +20,9 @@ public class HUDController : MonoBehaviour
     private ProgressBar m_HealthBar;
     private ProgressBar m_ExperienceBar;
 
+    private List<Weapon> m_WeaponInventory;
+    private List<Item> m_ItemInventory;
+
     private void Start()
     {
         VisualElement container = root.rootVisualElement;
@@ -22,7 +31,7 @@ public class HUDController : MonoBehaviour
 
         GameObject playerObject = GameObject.FindWithTag("Player");
         m_Player = playerObject.GetComponent<Player>();
-        
+
         m_HealthBar = container.Q<ProgressBar>("HealthBar");
         m_HealthBar.highValue = m_Player.GetMaxHealthPoints();
         m_HealthBar.value = m_Player.GetCurrentHealthPoints();
@@ -37,6 +46,47 @@ public class HUDController : MonoBehaviour
         GameEventManager.GetInstance().Suscribe(GameEvent.EXPUP, UpdateExperienceBar);
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
         GameEventManager.GetInstance().Suscribe(GameEvent.VICTORY, Victory);
+
+        SetWeaponInventory();
+        SetItemInventory();
+        GameEventManager.GetInstance().Suscribe(GameEvent.INVENTORY_CHANGED, SetInventorySprites);
+
+    }
+
+    private void SetInventorySprites(EventContext context)
+    {
+        SetWeaponInventory();
+        SetItemInventory();
+    }
+
+    private void SetItemInventory()
+    {
+        m_ItemInventory = m_Player.GetItems();
+        VisualElement container = root.rootVisualElement;
+        int count = 1;
+        foreach (Item item in m_ItemInventory)
+        {
+            VisualElement m_itemN = container.Q<VisualElement>("Item" + count);
+            Texture2D backgroundImage = Resources.Load<Texture2D>("ItemSprite/" + item.GetName());
+            StyleBackground styleBackground = new StyleBackground(backgroundImage);
+            m_itemN.style.backgroundImage = styleBackground;
+            count += 1;
+        }
+    }
+
+    private void SetWeaponInventory()
+    {
+        m_WeaponInventory = m_Player.GetWeapons();
+        VisualElement container = root.rootVisualElement;
+        int count = 1;
+        foreach (Weapon weapon in m_WeaponInventory)
+        {
+            VisualElement m_weaponN = container.Q<VisualElement>("Weapon" + count);
+            Texture2D backgroundImage = Resources.Load<Texture2D>("WeaponSprite/" + weapon.GetName());
+            StyleBackground styleBackground = new StyleBackground(backgroundImage);
+            m_weaponN.style.backgroundImage = styleBackground;
+            count += 1;
+        }
     }
 
     private void BtnPause_clicked()

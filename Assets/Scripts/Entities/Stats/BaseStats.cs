@@ -7,7 +7,7 @@ public class BaseStats : Stats
     [SerializeField] private int m_Attack = 0;
     [SerializeField] private int m_Defense = 0;
     [SerializeField] private int m_Health = 0;
-    [SerializeField] private int m_Speed = 0;
+    [SerializeField] public int m_Speed = 0;
 
     public override int GetAttack()
     { return  m_Attack; }

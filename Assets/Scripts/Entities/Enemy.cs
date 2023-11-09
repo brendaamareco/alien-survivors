@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Enemy : DamageableEntity
@@ -24,5 +25,10 @@ public class Enemy : DamageableEntity
         Vector3 targetDirection = target - transform.position;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 1f, 0.0f);
         transform.rotation = Quaternion.LookRotation(newDirection);
+    }
+
+    public static implicit operator Enemy(GameObject v)
+    {
+        throw new NotImplementedException();
     }
 }

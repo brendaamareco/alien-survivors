@@ -36,7 +36,7 @@ public class MenuPauseController : MonoBehaviour
 
     private void BtnMainMenu_clicked()
     {
-        SceneManager.LoadScene(0);
+        gameManager.GoToMainMenu();
     }
 
     private void BtnContinue_clicked()

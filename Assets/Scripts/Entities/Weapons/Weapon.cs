@@ -58,6 +58,15 @@ public abstract class Weapon : StatsDecorator, IEntity
     {
         m_Level += 1;
         attackExtraPoints += 1;
+        CheckMaxLevel();
+    }
+
+    public void CheckMaxLevel()
+    {
+        if (m_Level <= maxLevel)
+        {
+            Debug.Log("MaxLevel");
+        }
     }
 
     protected HashSet<DamageableEntity> GetDamageablesInArea() 

@@ -18,9 +18,12 @@ public class VictoryScreen : MonoBehaviour
     private VisualElement m_PantallaVictoria;
     private VisualElement m_PopUpContainer;
     private PostProcessLayer m_PostProcessLayer;
+    private GameManager m_GameManager;
 
     void Start()
     {
+        m_GameManager = GameObject.FindObjectOfType<GameManager>();
+
         m_PopUpContainer = root.rootVisualElement.Q<VisualElement>("PopUp");
         if (victoryScreen)
         {
@@ -50,5 +53,7 @@ public class VictoryScreen : MonoBehaviour
     }
 
     private void BtnContinue_clicked()
-    { SceneManager.LoadScene(0); }
+    { 
+        m_GameManager.GoToMainMenu();
+    }
 }
