@@ -9,24 +9,28 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject UIObject;
     [SerializeField] GameState currentState;
     [SerializeField] float timeLimit;
+
+    [Header("Boss Spawner")]
     [SerializeField] float bossSpawnTime = 60.0f;
+    [SerializeField] GameObject boss;
 
-    private float stopwatchTime;
-    private VisualElement rootStopwatch;
-
-    //SPAWNER
+    [Header("Enemies Spawner")]
     [SerializeField] float spawnTime = 1.5f;
+    [SerializeField] float probPerseguidor = 0.6f;
+    [SerializeField] float probLejano = 0.35f;
+    [SerializeField] float probEstatico = 0.05f;
     [SerializeField] GameObject[] rank1Enemies;
     [SerializeField] GameObject[] rank2Enemies;
     [SerializeField] GameObject[] rank3Enemies;
-    [SerializeField] GameObject boss;
-  
+
     private float timer = 0.0f;
     private bool bossDefeated = false;
     private float spawnMediumTime; 
     private float spawnFinalTime;
     private Player player;
     private bool bossSpawned = false;
+    private float stopwatchTime;
+    private VisualElement rootStopwatch;
 
     private void Start()
     {
@@ -216,9 +220,6 @@ public class GameManager : MonoBehaviour
 
     private void SpawnRankedEnemies(float probRank1, float probRank2, float probRank3)
     {
-        float probPerseguidor = 0.6f;
-        float probLejano = 0.35f;
-        float probEstatico = 0.05f;
         float probabilityRandom = Random.value;
 
         if (probabilityRandom <= probRank1)
