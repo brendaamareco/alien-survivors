@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 7d0ebace576524846a6bc9f2954112f7, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 92d0d634044ee314a9b59ff295577c11, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: f2ca8dc53ddb8e5438c0b1c39cab2bef, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 43f306854ef2cf549b5a28292b76f92b, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -366,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5641017903040618783, guid: e337d8b475976644aaa692ff974e4fed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8636,7 +8636,7 @@ PrefabInstance:
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: boss
       value: 
-      objectReference: {fileID: 1105699505783279114, guid: de6c17439f5ec2840a8d013c2b5100df, type: 3}
+      objectReference: {fileID: 3209135777306319466, guid: 1a233cea8ee3c4041a6c7b9d269481fa, type: 3}
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: boss1
       value: 
@@ -8646,12 +8646,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1854482365}
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: spawnTime
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: probLejano
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: probEstatico
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
+      propertyPath: bossSpawnTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: probPerseguidor
