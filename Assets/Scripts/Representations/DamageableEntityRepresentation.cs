@@ -23,6 +23,11 @@ public class DamageableEntityRepresentation : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         m_Weapon = GetComponentInChildren<Weapon>();
 
+        Reset();   
+    }
+
+    public void Reset()
+    {
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, HandleDamage);
         GameEventManager.GetInstance().Suscribe(GameEvent.ATTACK, HandleAttack);
         GameEventManager.GetInstance().Suscribe(GameEvent.STATE_DEFAULT, HandleDefaultState);

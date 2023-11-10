@@ -14,7 +14,7 @@ public class Player : DamageableEntity
     private int m_MaxElementsInInventory;
     private PlayerState m_State;
 
-    private void OnEnable()
+    private void Awake()
     {
         Reset();
     }

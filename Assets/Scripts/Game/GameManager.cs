@@ -121,8 +121,12 @@ public class GameManager : MonoBehaviour
 
         if (currentIndex < SceneManager.sceneCountInBuildSettings - 1)
         {
+            player.Heal(player.GetMaxHealthPoints());
             GameEventManager.GetInstance().Reset();
             SceneManager.LoadScene(currentIndex+1);
+
+            DamageableEntityRepresentation playerRepresentation = player.gameObject.GetComponent<DamageableEntityRepresentation>();
+            playerRepresentation.Reset();
         }
         
         else

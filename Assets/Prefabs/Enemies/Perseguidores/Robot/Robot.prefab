@@ -961,7 +961,7 @@ Transform:
   - {fileID: 1865669327521027617}
   - {fileID: 7414107542277708603}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8262775623647815597
 Animator:
@@ -1013,6 +1013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageableName: Robot
+  invincibleTime: 4
   m_Motion: {fileID: 6125510605502511933}
   m_Weapon: {fileID: 2303726042541009670}
 --- !u!114 &1596335622769086549

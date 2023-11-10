@@ -30,6 +30,7 @@ public class GameEventManager
         if (m_EventHub.ContainsKey(gameEvent))
         {
             List<Action<EventContext>> eventHandlers = m_EventHub[gameEvent];
+
             eventHandlers.ForEach( handler => handler.Invoke(context));
         }
     }
