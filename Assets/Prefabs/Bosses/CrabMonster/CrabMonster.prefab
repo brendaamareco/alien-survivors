@@ -84,13 +84,14 @@ GameObject:
   - component: {fileID: 1712097625866428645}
   - component: {fileID: 3804006441062563695}
   - component: {fileID: 1780721465244770115}
+  - component: {fileID: 6596983957350841540}
   m_Layer: 6
   m_Name: CrabMonster
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &277230533980816768
 Transform:
   m_ObjectHideFlags: 0
@@ -107,7 +108,7 @@ Transform:
   - {fileID: 1404160849985077842}
   - {fileID: 1490917906685471694}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5562460418812065932
 MonoBehaviour:
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageableName: CrabMonster
+  invincibleTime: 4
   m_Motion: {fileID: 4028204678479741165}
   m_Weapon: {fileID: 6394181331582362911}
 --- !u!195 &6887745082501071651
@@ -142,7 +144,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 4.01
+  m_Height: 2.93
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -177,7 +179,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5
+  m_Radius: 3
   m_Center: {x: 0, y: 1, z: 0.5}
 --- !u!114 &6394181331582362911
 MonoBehaviour:
@@ -198,7 +200,7 @@ MonoBehaviour:
   upgradePercentage: 0.25
   maxLevel: 1
   icon: {fileID: 0}
-  weaponComponent: {fileID: 0}
+  weaponComponent: {fileID: 6596983957350841540}
 --- !u!114 &4255674792047602415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef48f60274788408739136d1ff446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExpModel: {fileID: 0}
 --- !u!54 &2722336897758062553
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -317,6 +318,21 @@ MonoBehaviour:
   poisonedVfx: {fileID: 0}
   damageAudioSource: {fileID: 0}
   attackAudioSource: {fileID: 0}
+--- !u!114 &6596983957350841540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102072474750170463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaec2e6b83b0ddc48992632060fde42d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 5
+  probability: 0.25
+  damageAmount: 25
 --- !u!1 &192631106578658163
 GameObject:
   m_ObjectHideFlags: 0
