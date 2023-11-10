@@ -40,11 +40,10 @@ public class DamageableEntityRepresentation : MonoBehaviour
 
     private void HandleDead(EventContext context) 
     {
-        if (context.GetEntity().Equals(m_Damageable) && gameObject.CompareTag("Player"))
+        if (context.GetEntity().Equals(m_Damageable) && (gameObject.CompareTag("Player") || gameObject.CompareTag("PlayerAI")) )
             m_Animator.SetTrigger("Dead");          
 
         if (context.GetEntity().Equals(m_Damageable) && gameObject.CompareTag("Boss")) {
-            Debug.Log("****Boss is dead");
             GameEventManager.GetInstance().Publish(GameEvent.VICTORY, context);
         }
     }
@@ -130,9 +129,12 @@ public class DamageableEntityRepresentation : MonoBehaviour
     {
         if (this.m_Damageable == null)
         { m_Damageable = GetComponent<DamageableEntity>(); }
-        Debug.Log(GameEvent.GAME_OVER);
-        
-        GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this.m_Damageable));
+
+        if (m_Damageable.gameObject.CompareTag("Player"))
+            GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this.m_Damageable));
+
+        if (m_Damageable.gameObject.CompareTag("PlayerAI"))
+            m_Damageable.gameObject.SetActive(false);
     }
 
 }
