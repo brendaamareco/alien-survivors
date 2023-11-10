@@ -13,6 +13,7 @@ TagManager:
   - BackgroundMusic
   - Exp
   - Ammunition
+  - PlayerAI
   layers:
   - Default
   - TransparentFX
