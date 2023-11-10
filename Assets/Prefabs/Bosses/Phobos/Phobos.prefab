@@ -4001,7 +4001,7 @@ GameObject:
   - component: {fileID: 222753882473543342}
   - component: {fileID: 8630383072051232653}
   - component: {fileID: 8773549586778327661}
-  - component: {fileID: 6937842642214239743}
+  - component: {fileID: 4440904238906423896}
   m_Layer: 6
   m_Name: Phobos
   m_TagString: Boss
@@ -4117,7 +4117,7 @@ MonoBehaviour:
   upgradePercentage: 0.25
   maxLevel: 1
   icon: {fileID: 0}
-  weaponComponent: {fileID: 6937842642214239743}
+  weaponComponent: {fileID: 4440904238906423896}
 --- !u!114 &3257589198468449693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4235,7 +4235,7 @@ MonoBehaviour:
   poisonedVfx: {fileID: 0}
   damageAudioSource: {fileID: 0}
   attackAudioSource: {fileID: 0}
---- !u!114 &6937842642214239743
+--- !u!114 &4440904238906423896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4244,10 +4244,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6131873618982205410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd0a4b34885059b4bb88dcc92a0d1e40, type: 3}
+  m_Script: {fileID: 11500000, guid: a85e5a74afca7fa4cba937f8011fad90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 3
+  duration: 5
   probability: 0.25
 --- !u!1 &6161267877205017227
 GameObject:
