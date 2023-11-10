@@ -21,8 +21,7 @@ public class PickUpHelp : MonoBehaviour
             { 
                 if (!characterNames.Contains(characterPrefab.name)) 
                 {
-                    GameObject playerHelper = Instantiate(characterPrefab, other.transform.localPosition, Quaternion.identity);
-
+                    GameObject playerHelper = Instantiate(characterPrefab, transform.localPosition, Quaternion.identity);
                     playerHelper.tag = "PlayerAI";
                     playerHelper.GetComponent<PlayerController>().enabled = false;
                     playerHelper.GetComponent<PlayerSurroundDodgeAgent>().enabled = true;

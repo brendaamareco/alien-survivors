@@ -8647,7 +8647,7 @@ PrefabInstance:
       objectReference: {fileID: 1854482365}
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: spawnTime
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: probLejano
