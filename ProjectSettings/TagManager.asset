@@ -13,6 +13,7 @@ TagManager:
   - BackgroundMusic
   - Exp
   - Ammunition
+  - PlayerAI
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - PostProcessingDefault
   - BlurrPostProcessing
   - Wall
-  - 
-  - 
+  - EnemyR2
+  - EnemyR3
   - 
   - 
   - 
