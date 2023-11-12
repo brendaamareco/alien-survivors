@@ -915,7 +915,7 @@ MonoBehaviour:
   m_Attack: 30
   m_Defense: 20
   m_Health: 1500
-  m_Speed: 3
+  m_Speed: 2
 --- !u!95 &9043093327476137677
 Animator:
   serializedVersion: 5
