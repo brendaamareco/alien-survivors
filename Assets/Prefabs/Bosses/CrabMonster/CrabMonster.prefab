@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 3804006441062563695}
   - component: {fileID: 1780721465244770115}
   - component: {fileID: 6596983957350841540}
+  - component: {fileID: 4177228550680482269}
   m_Layer: 6
   m_Name: CrabMonster
   m_TagString: Boss
@@ -333,6 +334,19 @@ MonoBehaviour:
   duration: 5
   probability: 0.25
   damageAmount: 25
+--- !u!114 &4177228550680482269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102072474750170463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7788070fde4374c8cecd7471cfb7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExpModel: {fileID: 3227511628643393044, guid: a6f235c61cbc0da43bcdd75d87ce331e, type: 3}
 --- !u!1 &192631106578658163
 GameObject:
   m_ObjectHideFlags: 0
