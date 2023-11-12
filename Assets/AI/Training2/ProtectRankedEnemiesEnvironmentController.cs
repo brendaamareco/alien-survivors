@@ -47,7 +47,6 @@ public class ProtectRankedEnemiesEnvironmentController : MonoBehaviour
 
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
-            m_GroupPlayer.AddGroupReward(-1f);
             CheckEnemiesAlive();
 
             m_GroupEnemy.EndGroupEpisode();
@@ -99,10 +98,10 @@ public class ProtectRankedEnemiesEnvironmentController : MonoBehaviour
 
         foreach (Agent agent in m_GroupEnemy.GetRegisteredAgents())
         {
-            agent.transform.localPosition = spawnArea.transform.localPosition + new Vector3(Random.Range(3f, 6f), 0, 0);
+            agent.transform.localPosition = spawnArea.transform.localPosition + new Vector3(Random.Range(5f, 10f), 0, 0);
         }
 
-        m_Player.transform.localPosition = spawnArea.transform.localPosition + new Vector3(0f, 0, Random.Range(3f,6f));
+        m_Player.transform.localPosition = spawnArea.transform.localPosition + new Vector3(0f, 0, Random.Range(-5f, -10f));
     }
 
     private void HandleOnAttack(EventContext context)
@@ -116,13 +115,14 @@ public class ProtectRankedEnemiesEnvironmentController : MonoBehaviour
             if (agent && agent.CompareTag("Enemy") && m_GroupEnemy.GetRegisteredAgents().Contains(agent))
             {
                 Debug.Log("enemy attacked");
-                agent.AddReward(1f * m_GroupEnemy.GetRegisteredAgents().Count);
+                agent.AddReward(1f);
             }
 
             else if (agent && agent.CompareTag("Player") && m_GroupPlayer.GetRegisteredAgents().Contains(agent))
             {
                 Debug.Log("player attacked");
-                agent.AddReward( 1f / (float)m_GroupEnemy.GetRegisteredAgents().Count );
+                agent.AddReward(1 / m_GroupEnemy.GetRegisteredAgents().Count);
+                m_GroupPlayer.AddGroupReward(1f / m_GroupEnemy.GetRegisteredAgents().Count);
             }
         }
         catch { }
@@ -139,7 +139,7 @@ public class ProtectRankedEnemiesEnvironmentController : MonoBehaviour
             {
                 if (agent.CompareTag("Enemy"))
                 {
-                    agent.AddReward(-0.1f);
+                    //agent.AddReward(-0.1f);
 
                     if (agent.gameObject.layer == LayerMask.NameToLayer("EnemyR2"))
                     {
@@ -176,6 +176,7 @@ public class ProtectRankedEnemiesEnvironmentController : MonoBehaviour
                 playerAgent.AddReward(-1f);
 
                 m_GroupEnemy.AddGroupReward(1f);
+                CheckEnemiesAlive();
                 m_GroupPlayer.AddGroupReward(-1f);
 
                 m_GroupEnemy.EndGroupEpisode();
@@ -198,19 +199,33 @@ public class ProtectRankedEnemiesEnvironmentController : MonoBehaviour
         
                 if (m_GroupEnemy.GetRegisteredAgents().Contains(enemyAgent))
                 {
-                    enemyAgent.AddReward(-1f / (float)m_GroupEnemy.GetRegisteredAgents().Count);
+                    //enemyAgent.AddReward(-1f / (float)m_GroupEnemy.GetRegisteredAgents().Count);
                     playerAgent.AddReward(1f / (float)m_GroupEnemy.GetRegisteredAgents().Count);
 
                     m_GroupPlayer.AddGroupReward(1f / (float)m_GroupEnemy.GetRegisteredAgents().Count);
 
                     if (enemyAgent.gameObject.layer == LayerMask.NameToLayer("EnemyR2"))
                     {
+                        Debug.Log("Enemy R2 dead");
+                        m_GroupPlayer.AddGroupReward(1f);
                         m_GroupEnemy.AddGroupReward(-2f);
+                        m_GroupEnemy.EndGroupEpisode();
+                        m_GroupPlayer.EndGroupEpisode();
+
+                        floorMeshRenderer.material = playerWinMaterial;
+                        ResetScene();
                     }
 
                     else if (enemyAgent.gameObject.layer == LayerMask.NameToLayer("EnemyR3"))
                     {
+                        Debug.Log("Enemy R3 dead");
+                        m_GroupPlayer.AddGroupReward(1f);
                         m_GroupEnemy.AddGroupReward(-3f);
+                        m_GroupEnemy.EndGroupEpisode();
+                        m_GroupPlayer.EndGroupEpisode();
+
+                        floorMeshRenderer.material = playerWinMaterial;
+                        ResetScene();
                     }
 
                     m_DeadEnemies += 1;
