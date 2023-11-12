@@ -10651,6 +10651,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1860813168953959475, guid: 9dbdf4aba24955c4d88def6e699616a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6216814634605349852, guid: 9dbdf4aba24955c4d88def6e699616a8, type: 3}
       propertyPath: m_Name
       value: Level3Terrain
