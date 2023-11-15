@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
     {
         if (!bossSpawned)
         {
-            Vector3 bossPosition = new Vector3(player.transform.position.x, 10f, player.transform.position.z);
+            Vector3 bossPosition = new Vector3(player.transform.position.x, 0f, player.transform.position.z);
             Instantiate(boss, bossPosition, Quaternion.identity);
             bossSpawned = true;
         }        

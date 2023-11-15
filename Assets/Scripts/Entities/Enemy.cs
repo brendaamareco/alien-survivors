@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class Enemy : DamageableEntity
 {
-    [SerializeField] private Motion m_Motion;
-    [SerializeField] private Weapon m_Weapon;
+    private Motion m_Motion;
+    private Weapon m_Weapon;
 
     private void Start()
     {
         m_Weapon = GetComponentInChildren<Weapon>();
+        m_Motion = GetComponentInChildren<Motion>();
 
         m_Weapon.SetStats(GetStats());
         SetStats(m_Weapon);

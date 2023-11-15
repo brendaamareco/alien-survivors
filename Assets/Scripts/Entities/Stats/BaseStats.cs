@@ -20,4 +20,16 @@ public class BaseStats : Stats
 
     public override int GetSpeed()
     { return m_Speed; }
+
+    public void SetDefense(int defensePoints)
+    { m_Defense = defensePoints; }
+
+    public void SetAttack(int attackPoints)
+    { m_Attack = attackPoints; }
+
+    public void SetHealth(int healthPoints)
+    { m_Health = healthPoints; }
+
+    public void SetSpeed(int speedPoints)
+    { m_Speed = speedPoints; }
 }

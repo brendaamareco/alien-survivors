@@ -8,44 +8,30 @@ using UnityEngine;
 
 public class SurroundDodgeAgent : Agent
 {
-    [SerializeField] Player player;
+    [SerializeField] Enemy m_Enemy;
+    [SerializeField] Weapon m_Weapon;
 
-    private Enemy m_Enemy;
 
-    public override void Initialize()
-    {
-        m_Enemy = GetComponent<Enemy>();
-    }
+    //public override void Initialize()
+    //{
+    //    m_Enemy = GetComponent<Enemy>();
+    //    m_Weapon = m_Enemy.GetComponentInChildren<Weapon>();
+    //}
+    //private void Awake()
+    //{
+    //    m_Enemy = GetComponent<Enemy>();
+    //    m_Weapon = m_Enemy.GetComponentInChildren<Weapon>();
+    //}
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        Weapon weapon = m_Enemy.GetComponentInChildren<Weapon>();
-
-        if (player == null)
-        { player = GameObject.FindAnyObjectByType<Player>();  }
-
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(m_Enemy.GetCurrentHealthPointsNormalized());
         sensor.AddObservation(m_Enemy.GetSpeedPoints());
-        
-        sensor.AddObservation(player.transform.localPosition);
-        sensor.AddObservation(player.GetCurrentHealthPointsNormalized());
-        sensor.AddObservation(player.GetSpeedPoints());
+        sensor.AddObservation(m_Enemy.transform.localScale);
 
-        sensor.AddObservation(weapon.GetScope());
-        sensor.AddObservation(weapon.GetCooldown());
-
-        //Vector3 attackPosition = weapon.transform.forward;
-
-        //try
-        //{
-        //    RangedWeapon rangedWeapon = (RangedWeapon) weapon;
-        //    attackPosition = rangedWeapon.GetSpawnPosition();
-            
-        //}
-        //catch { }
-
-        //sensor.AddObservation(attackPosition);
+        sensor.AddObservation(m_Weapon.GetScope());
+        sensor.AddObservation(m_Weapon.GetCooldown());
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -85,7 +71,6 @@ public class SurroundDodgeAgent : Agent
         }
 
         Vector3 dirToGo = new Vector3(horizontalMove, 0, verticalMove);
-
         m_Enemy.Move(dirToGo);
         m_Enemy.Attack(transform.position);
     }

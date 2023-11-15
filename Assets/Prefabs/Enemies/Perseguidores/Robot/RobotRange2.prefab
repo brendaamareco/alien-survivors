@@ -62,19 +62,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2344815403453665412, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2344815403453665412, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2344815403453665412, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2344815403453665412, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2344815403453665412, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -252,10 +252,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 6101115139067383419, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
-      propertyPath: m_StartVerticalOffset
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6181335893204068672, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -279,22 +275,6 @@ PrefabInstance:
     - target: {fileID: 6502459981504064949, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_Layer
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844849884656037212, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
-      propertyPath: m_SphereCastRadius
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844849884656037212, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
-      propertyPath: m_RayLayerMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844849884656037212, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
-      propertyPath: m_DetectableTags.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844849884656037212, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
-      propertyPath: m_DetectableTags.Array.data[0]
-      value: Ammunition
       objectReference: {fileID: 0}
     - target: {fileID: 6857860839801064205, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_Layer
