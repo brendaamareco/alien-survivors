@@ -11,18 +11,6 @@ public class SurroundDodgeAgent : Agent
     [SerializeField] Enemy m_Enemy;
     [SerializeField] Weapon m_Weapon;
 
-
-    //public override void Initialize()
-    //{
-    //    m_Enemy = GetComponent<Enemy>();
-    //    m_Weapon = m_Enemy.GetComponentInChildren<Weapon>();
-    //}
-    //private void Awake()
-    //{
-    //    m_Enemy = GetComponent<Enemy>();
-    //    m_Weapon = m_Enemy.GetComponentInChildren<Weapon>();
-    //}
-
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(transform.localPosition);

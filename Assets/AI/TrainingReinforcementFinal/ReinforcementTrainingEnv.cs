@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.MLAgents;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -57,7 +58,129 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
     private void Start()
     {
-        ResetScene();
+        GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, HandleOnDamage);
+        GameEventManager.GetInstance().Suscribe(GameEvent.ATTACK, HandleOnAttack);
+        GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleOnDead);
+        
+        ResetScene();       
+    }
+
+    private void HandleOnDead(EventContext context)
+    {
+        try
+        {
+            DamageableEntity damageable = (DamageableEntity)context.GetEntity();
+            Agent agent = damageable.gameObject.GetComponent<Agent>();
+
+            if (agent && m_GroupPlayer.GetRegisteredAgents().Contains(agent))
+            {
+                if (agent.CompareTag("Player"))
+                {
+                    Debug.Log("Enemies team won");
+
+                    m_GroupPlayer.AddGroupReward(-1f);
+                    m_GroupEnemy.AddGroupReward(1f);
+
+                    m_GroupEnemy.EndGroupEpisode();
+                    m_GroupPlayer.EndGroupEpisode();
+
+                    resultMeshRenderer.material = enemyWinMaterial;
+                    ResetScene();
+                }
+            }
+
+            else if (agent && m_GroupEnemy.GetRegisteredAgents().Contains(agent))
+            {
+                m_DeadEnemies += 1;
+
+                if (agent.CompareTag("Boss") || m_DeadEnemies == m_GroupEnemy.GetRegisteredAgents().Count)
+                {
+                    Debug.Log("Player team won");
+
+                    m_GroupPlayer.AddGroupReward(1f);
+                    m_GroupEnemy.AddGroupReward(-1f);
+
+                    m_GroupEnemy.EndGroupEpisode();
+                    m_GroupPlayer.EndGroupEpisode();
+
+                    resultMeshRenderer.material = playerWinMaterial;
+                    ResetScene();
+                }
+
+                agent.gameObject.transform.position = loserPlace.position;
+            }
+        }
+        catch { } 
+    }
+
+    private void HandleOnAttack(EventContext context)
+    {
+        try
+        {
+            Weapon weapon = (Weapon)context.GetEntity();
+            Agent agent = weapon.gameObject.GetComponentInParent<Agent>();
+
+            if (agent && agent.CompareTag("Enemy") && m_GroupEnemy.GetRegisteredAgents().Contains(agent))
+            {
+                Debug.Log("enemy attacked");
+                agent.AddReward(0.2f);
+            }
+
+            if (agent && agent.CompareTag("Boss") && m_GroupEnemy.GetRegisteredAgents().Contains(agent))
+            {
+                Debug.Log("boss attacked");
+                agent.AddReward(0.2f);
+            }
+
+            else if (agent && agent.CompareTag("Player") && m_GroupPlayer.GetRegisteredAgents().Contains(agent))
+            {
+                Debug.Log("player attacked");
+                agent.AddReward(0.2f);
+            }
+        }
+        catch { }
+    }
+
+    private void HandleOnDamage(EventContext context)
+    {
+        try
+        {
+            DamageableEntity damageable = (DamageableEntity)context.GetEntity();
+            Agent agent = damageable.gameObject.GetComponent<Agent>();
+
+            if (agent && m_GroupEnemy.GetRegisteredAgents().Contains(agent))
+            {
+                agent.AddReward(-0.1f);
+
+                if (agent.CompareTag("Enemy"))
+                {                  
+                    if (agent.gameObject.layer == LayerMask.NameToLayer("EnemyR2"))
+                    {
+                        Debug.Log("enemy range 2 damaged");
+                        m_GroupEnemy.AddGroupReward(-0.1f);
+                    }
+
+                    else if (agent.gameObject.layer == LayerMask.NameToLayer("EnemyR3"))
+                    {
+                        Debug.Log("enemy range 3 damaged");
+                        m_GroupEnemy.AddGroupReward(-0.25f);
+                    }      
+                }
+
+                else if (agent.CompareTag("Boss"))
+                {
+                    m_GroupEnemy.AddGroupReward(-0.5f);
+                }
+            }
+
+            else if (agent && agent.CompareTag("Player") && m_GroupPlayer.GetRegisteredAgents().Contains(agent))
+            {
+                Debug.Log("player damaged");
+                agent.AddReward(-0.1f);
+            }
+
+        }
+        catch { }
     }
 
     private void ResetScene()
@@ -68,27 +191,12 @@ public class ReinforcementTrainingEnv : MonoBehaviour
         m_GroupEnemy = new SimpleMultiAgentGroup();
         m_GroupPlayer = new SimpleMultiAgentGroup();
 
-        //DestroyAllObjects();
-
         m_Player = CreatePlayer();        
-
         m_Boss = CreateBoss();
+
         m_EnemiesRange1 = CreateEnemies(enemiesRange1Parent, enemiesRange1MaxCant, enemiesRange1MaxAttack, enemiesRange1MaxHP);
         m_EnemiesRange2 = CreateEnemies(enemiesRange2Parent, enemiesRange2MaxCant, enemiesRange2MaxAttack, enemiesRange2MaxHP);
         m_EnemiesRange3 = CreateEnemies(enemiesRange3Parent, enemiesRange3MaxCant, enemiesRange3MaxAttack, enemiesRange3MaxHP);   
-    }
-
-    private void DestroyAllObjects()
-    {
-        //if (m_Player != null)
-        //    m_Player.gameObject.SetActive(false);
-
-        //if (m_Boss != null)
-        //    m_Boss.gameObject.SetActive(false);
-
-        m_EnemiesRange1?.ForEach(x => x.gameObject.SetActive(false));
-        m_EnemiesRange2?.ForEach(x => x.gameObject.SetActive(false));
-        m_EnemiesRange3?.ForEach(x => x.gameObject.SetActive(false));
     }
 
     private void FixedUpdate()
@@ -97,6 +205,11 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
         if (m_ResetTimer >= maxEnvironmentSteps && maxEnvironmentSteps > 0)
         {
+            Debug.Log("Tie");
+
+            m_GroupEnemy.AddGroupReward(-1f);
+            m_GroupPlayer.AddGroupReward(-1f);
+
             m_GroupEnemy.EndGroupEpisode();
             m_GroupPlayer.EndGroupEpisode();
 
@@ -180,6 +293,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
     {
         playerGo.GetComponent<PlayerController>().enabled = false;
         playerGo.GetComponent<DontDestroy>().enabled = false;
+        playerGo.GetComponent<DamageableEntityRepresentation>().enabled = false;
 
         Player player = playerGo.GetComponent<Player>();
         BaseStats playerStats = playerGo.GetComponent<BaseStats>();

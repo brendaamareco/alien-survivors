@@ -24,7 +24,10 @@ public class PlayerSurroundDodgeAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        MoveAgent(actions.DiscreteActions);
+        if (m_Player.GetCurrentHealthPointsNormalized() > 0)
+            MoveAgent(actions.DiscreteActions);
+        else
+            return;
     }
 
     private void MoveAgent(ActionSegment<int> act)
