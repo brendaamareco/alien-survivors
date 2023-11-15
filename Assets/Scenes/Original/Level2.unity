@@ -7461,13 +7461,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3174314366896755987, guid: f06bfa969aeb28844b3061bd0185eb72, type: 3}
+      propertyPath: initPositionX
+      value: 234
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174314366896755987, guid: f06bfa969aeb28844b3061bd0185eb72, type: 3}
+      propertyPath: initPositionZ
+      value: -69.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3952229981101125823, guid: f06bfa969aeb28844b3061bd0185eb72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3952229981101125823, guid: f06bfa969aeb28844b3061bd0185eb72, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 161
+      value: 160.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248063536846902428, guid: f06bfa969aeb28844b3061bd0185eb72, type: 3}
+      propertyPath: initPositionX
+      value: 85.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248063536846902428, guid: f06bfa969aeb28844b3061bd0185eb72, type: 3}
+      propertyPath: initPositionZ
+      value: -231.6
       objectReference: {fileID: 0}
     - target: {fileID: 4534021459826527420, guid: f06bfa969aeb28844b3061bd0185eb72, type: 3}
       propertyPath: m_Name
       value: Level2Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100879821096423657, guid: f06bfa969aeb28844b3061bd0185eb72, type: 3}
+      propertyPath: initPositionX
+      value: -71.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100879821096423657, guid: f06bfa969aeb28844b3061bd0185eb72, type: 3}
+      propertyPath: initPositionZ
+      value: -69.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357232904438653342, guid: f06bfa969aeb28844b3061bd0185eb72, type: 3}
+      propertyPath: initPositionX
+      value: 84.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357232904438653342, guid: f06bfa969aeb28844b3061bd0185eb72, type: 3}
+      propertyPath: initPositionZ
+      value: 102.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
