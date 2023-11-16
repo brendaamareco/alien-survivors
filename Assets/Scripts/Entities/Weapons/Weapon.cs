@@ -54,6 +54,9 @@ public abstract class Weapon : StatsDecorator, IEntity
         m_ScopeCollider.center = Vector3.zero;
     }
 
+    public void SetCooldown(float cooldown)
+    { this.cooldown = cooldown; }
+
     public void Upgrade()
     {
         m_Level += 1;

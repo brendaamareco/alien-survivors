@@ -16,11 +16,14 @@ public class ReinforcementTrainingEnv : MonoBehaviour
     [SerializeField] Material tieMaterial;
     [SerializeField] MeshRenderer resultMeshRenderer;
 
+    [Header("Global config")]
+    [SerializeField] int agentsMaxSpeed = 5;
+    [SerializeField] int agentsMaxCooldown = 5;
+
     [Header("Player config")]
     [SerializeField] GameObject playerGo;
     [SerializeField] int playerMaxHP = 10;
-    [SerializeField] int playerMaxAttack = 10;
-    [SerializeField] int playerMaxSpeed = 5;
+    [SerializeField] int playerMaxAttack = 10;    
 
     [Header("Boss config")]
     [SerializeField] GameObject bossGo;
@@ -79,7 +82,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
         if (m_ResetTimer >= maxEnvironmentSteps && maxEnvironmentSteps > 0)
         {
-            Debug.Log("Tie");
+            //Debug.Log("Tie");
 
             m_GroupEnemy.AddGroupReward(-1f);
             m_GroupPlayer.AddGroupReward(-1f);
@@ -103,7 +106,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
             {
                 if (agent.CompareTag("Player"))
                 {
-                    Debug.Log("Enemies team won");
+                    //Debug.Log("Enemies team won");
 
                     m_GroupPlayer.AddGroupReward(-1f);
                     m_GroupEnemy.AddGroupReward(1f);
@@ -124,7 +127,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
                 if (agent.CompareTag("Boss") || m_DeadEnemies == m_GroupEnemy.GetRegisteredAgents().Count)
                 {
-                    Debug.Log("Player team won");
+                    //Debug.Log("Player team won");
 
                     m_GroupPlayer.AddGroupReward(1f);
                     m_GroupEnemy.AddGroupReward(-1f);
@@ -149,19 +152,19 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
             if (agent && agent.CompareTag("Enemy") && m_GroupEnemy.GetRegisteredAgents().Contains(agent))
             {
-                Debug.Log("enemy attacked");
+                //Debug.Log("enemy attacked");
                 agent.AddReward(0.2f);
             }
 
             if (agent && agent.CompareTag("Boss") && m_GroupEnemy.GetRegisteredAgents().Contains(agent))
             {
-                Debug.Log("boss attacked");
+                //Debug.Log("boss attacked");
                 agent.AddReward(0.2f);
             }
 
             else if (agent && agent.CompareTag("Player") && m_GroupPlayer.GetRegisteredAgents().Contains(agent))
             {
-                Debug.Log("player attacked");
+                //Debug.Log("player attacked");
                 agent.AddReward(0.2f);
             }
         }
@@ -183,13 +186,13 @@ public class ReinforcementTrainingEnv : MonoBehaviour
                 {                  
                     if (agent.gameObject.layer == LayerMask.NameToLayer("EnemyR2"))
                     {
-                        Debug.Log("enemy range 2 damaged");
+                        //Debug.Log("enemy range 2 damaged");
                         m_GroupEnemy.AddGroupReward(-0.1f);
                     }
 
                     else if (agent.gameObject.layer == LayerMask.NameToLayer("EnemyR3"))
                     {
-                        Debug.Log("enemy range 3 damaged");
+                        //Debug.Log("enemy range 3 damaged");
                         m_GroupEnemy.AddGroupReward(-0.25f);
                     }      
                 }
@@ -202,7 +205,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
             else if (agent && agent.CompareTag("Player") && m_GroupPlayer.GetRegisteredAgents().Contains(agent))
             {
-                Debug.Log("player damaged");
+                //Debug.Log("player damaged");
                 agent.AddReward(-0.1f);
             }
 
@@ -214,15 +217,18 @@ public class ReinforcementTrainingEnv : MonoBehaviour
     {
         bossGo.transform.localPosition = GetRandomPosition();
 
-        Enemy boss = bossGo.GetComponent<Enemy>();
-        boss.Heal(boss.GetMaxHealthPoints());
+        Weapon weapon = bossGo.GetComponentInChildren<Weapon>();
+        weapon.SetCooldown(Random.Range(0.5f, agentsMaxCooldown));
 
         BaseStats bossStats = bossGo.GetComponent<BaseStats>();
         bossStats.SetDefense(0);
         bossStats.SetAttack(Random.Range(10, bossMaxAttack + 1));
         bossStats.SetHealth(Random.Range(10, bossMaxHP + 1));
+        bossStats.SetSpeed(Random.Range(1, agentsMaxSpeed + 1));
 
+        Enemy boss = bossGo.GetComponent<Enemy>();
         boss.ResetStats();
+        boss.Heal(boss.GetMaxHealthPoints());
 
         m_GroupEnemy.RegisterAgent(bossGo.GetComponent<Agent>());
 
@@ -247,14 +253,18 @@ public class ReinforcementTrainingEnv : MonoBehaviour
                     enemyGo.GetComponent<DropSpawner>().enabled = false;
                     enemyGo.GetComponent<DamageableEntityRepresentation>().enabled = false;
 
-                    Enemy enemy = enemyGo.GetComponent<Enemy>();
-                    enemy.Heal(enemy.GetMaxHealthPoints());
+                    Weapon weapon = enemyGo.GetComponentInChildren<Weapon>();
+                    weapon.SetCooldown(Random.Range(0.5f, agentsMaxCooldown));
 
                     BaseStats enemyStats = enemyGo.GetComponent<BaseStats>();
                     enemyStats.SetDefense(0);
                     enemyStats.SetAttack(Random.Range(10, enemiesMaxAttack + 1));
                     enemyStats.SetHealth(Random.Range(10, enemiesMaxHP + 1));
+                    enemyStats.SetSpeed(Random.Range(1, agentsMaxSpeed + 1));
+
+                    Enemy enemy = enemyGo.GetComponent<Enemy>();
                     enemy.ResetStats();
+                    enemy.Heal(enemy.GetMaxHealthPoints());
 
                     enemies.Add(enemy);
                     m_GroupEnemy.RegisterAgent(enemyGo.GetComponent<Agent>());
@@ -268,21 +278,23 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
     private Player CreatePlayer()
     {
+        playerGo.transform.localPosition = GetRandomPosition();
         playerGo.GetComponent<PlayerController>().enabled = false;
         playerGo.GetComponent<DontDestroy>().enabled = false;
         playerGo.GetComponent<DamageableEntityRepresentation>().enabled = false;
 
-        Player player = playerGo.GetComponent<Player>();
+        Weapon weapon = playerGo.GetComponentInChildren<Weapon>();
+        weapon.SetCooldown(Random.Range(0.5f, agentsMaxCooldown));
+
         BaseStats playerStats = playerGo.GetComponent<BaseStats>();
-
-        player.transform.localPosition = GetRandomPosition();
-        player.Heal(player.GetMaxHealthPoints());
-
         playerStats.SetDefense(0);
         playerStats.SetAttack(Random.Range(10, playerMaxAttack + 1));
-        playerStats.SetSpeed(Random.Range(1, playerMaxSpeed + 1));
+        playerStats.SetSpeed(Random.Range(1, agentsMaxSpeed + 1));
         playerStats.SetHealth(Random.Range(10, playerMaxHP + 1));
+
+        Player player = playerGo.GetComponent<Player>();
         player.ResetStats();
+        player.Heal(player.GetMaxHealthPoints());
 
         m_GroupPlayer.RegisterAgent(playerGo.GetComponent<Agent>());
 
