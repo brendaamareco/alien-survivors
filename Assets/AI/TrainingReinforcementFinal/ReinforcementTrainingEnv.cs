@@ -29,19 +29,16 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
     [Header("Enemies Range 1 config")]
     [SerializeField] GameObject enemiesRange1Parent;
-    [SerializeField] int enemiesRange1MaxCant = 1;
     [SerializeField] int enemiesRange1MaxHP = 10;
     [SerializeField] int enemiesRange1MaxAttack = 10;
 
     [Header("Enemies Range 2 config")]
     [SerializeField] GameObject enemiesRange2Parent;
-    [SerializeField] int enemiesRange2MaxCant = 1;
     [SerializeField] int enemiesRange2MaxHP = 10;
     [SerializeField] int enemiesRange2MaxAttack = 10;
 
     [Header("Enemies Range 3 config")]
     [SerializeField] GameObject enemiesRange3Parent;
-    [SerializeField] int enemiesRange3MaxCant = 1;
     [SerializeField] int enemiesRange3MaxHP = 10;
     [SerializeField] int enemiesRange3MaxAttack = 10;
 
@@ -58,11 +55,48 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
     private void Start()
     {
+        m_GroupEnemy = new SimpleMultiAgentGroup();
+        m_GroupPlayer = new SimpleMultiAgentGroup();
+
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, HandleOnDamage);
         GameEventManager.GetInstance().Suscribe(GameEvent.ATTACK, HandleOnAttack);
         GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleOnDead);
-        
+
         ResetScene();       
+    }
+
+    private void ResetScene()
+    {
+        m_ResetTimer = 0;
+        m_DeadEnemies = 0;
+
+
+        m_Player = CreatePlayer();
+        m_Boss = SetUpBoss();
+
+        m_EnemiesRange1 = CreateEnemies(enemiesRange1Parent, enemiesRange1MaxAttack, enemiesRange1MaxHP);
+        m_EnemiesRange2 = CreateEnemies(enemiesRange2Parent, enemiesRange2MaxAttack, enemiesRange2MaxHP);
+        m_EnemiesRange3 = CreateEnemies(enemiesRange3Parent, enemiesRange3MaxAttack, enemiesRange3MaxHP);
+
+    }
+
+    private void FixedUpdate()
+    {
+        m_ResetTimer += 1;
+
+        if (m_ResetTimer >= maxEnvironmentSteps && maxEnvironmentSteps > 0)
+        {
+            Debug.Log("Tie");
+
+            m_GroupEnemy.AddGroupReward(-1f);
+            m_GroupPlayer.AddGroupReward(-1f);
+
+            m_GroupEnemy.EndGroupEpisode();
+            m_GroupPlayer.EndGroupEpisode();
+
+            resultMeshRenderer.material = tieMaterial;
+            ResetScene();
+        }
     }
 
     private void HandleOnDead(EventContext context)
@@ -93,6 +127,8 @@ public class ReinforcementTrainingEnv : MonoBehaviour
             {
                 m_DeadEnemies += 1;
 
+                agent.gameObject.transform.position = loserPlace.position;
+
                 if (agent.CompareTag("Boss") || m_DeadEnemies == m_GroupEnemy.GetRegisteredAgents().Count)
                 {
                     Debug.Log("Player team won");
@@ -105,9 +141,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
                     resultMeshRenderer.material = playerWinMaterial;
                     ResetScene();
-                }
-
-                agent.gameObject.transform.position = loserPlace.position;
+                }    
             }
         }
         catch { } 
@@ -183,105 +217,55 @@ public class ReinforcementTrainingEnv : MonoBehaviour
         catch { }
     }
 
-    private void ResetScene()
+    private Enemy SetUpBoss()
     {
-        m_ResetTimer = 0;
-        m_DeadEnemies = 0;
+        bossGo.transform.localPosition = GetRandomPosition();
 
-        m_GroupEnemy = new SimpleMultiAgentGroup();
-        m_GroupPlayer = new SimpleMultiAgentGroup();
+        Enemy boss = bossGo.GetComponent<Enemy>();
+        boss.Heal(boss.GetMaxHealthPoints());
 
-        m_Player = CreatePlayer();        
-        m_Boss = CreateBoss();
+        BaseStats bossStats = bossGo.GetComponent<BaseStats>();
+        bossStats.SetDefense(0);
+        bossStats.SetAttack(Random.Range(10, bossMaxAttack + 1));
+        bossStats.SetHealth(Random.Range(10, bossMaxHP + 1));
 
-        m_EnemiesRange1 = CreateEnemies(enemiesRange1Parent, enemiesRange1MaxCant, enemiesRange1MaxAttack, enemiesRange1MaxHP);
-        m_EnemiesRange2 = CreateEnemies(enemiesRange2Parent, enemiesRange2MaxCant, enemiesRange2MaxAttack, enemiesRange2MaxHP);
-        m_EnemiesRange3 = CreateEnemies(enemiesRange3Parent, enemiesRange3MaxCant, enemiesRange3MaxAttack, enemiesRange3MaxHP);   
+        boss.ResetStats();
+
+        m_GroupEnemy.RegisterAgent(bossGo.GetComponent<Agent>());
+
+        return boss;        
     }
 
-    private void FixedUpdate()
-    {
-        m_ResetTimer += 1;
-
-        if (m_ResetTimer >= maxEnvironmentSteps && maxEnvironmentSteps > 0)
-        {
-            Debug.Log("Tie");
-
-            m_GroupEnemy.AddGroupReward(-1f);
-            m_GroupPlayer.AddGroupReward(-1f);
-
-            m_GroupEnemy.EndGroupEpisode();
-            m_GroupPlayer.EndGroupEpisode();
-
-            resultMeshRenderer.material = tieMaterial;
-            ResetScene();
-        }
-    }
-
-
-    private Enemy CreateBoss()
-    {
-        int bossCant = Random.Range(0, 2);
-
-        if (bossCant > 0) 
-        {
-            bossGo.SetActive(true);
-            bossGo.transform.localPosition = GetRandomPosition();
-
-            Enemy boss = bossGo.GetComponent<Enemy>();
-            boss.Heal(boss.GetMaxHealthPoints());
-
-            BaseStats bossStats = bossGo.GetComponent<BaseStats>();
-            bossStats.SetDefense(0);
-            bossStats.SetAttack(Random.Range(10, bossMaxAttack + 1));
-            bossStats.SetHealth(Random.Range(10, bossMaxHP + 1));
-
-            m_GroupEnemy.RegisterAgent(bossGo.GetComponent<Agent>());
-
-            return boss;
-        }
-
-        else
-        {
-            bossGo.SetActive(false);
-            return null;
-        }     
-    }
-
-    private List<Enemy> CreateEnemies(GameObject enemiesParent, int enemiesMaxCant, int enemiesMaxAttack, int enemiesMaxHP)
+    private List<Enemy> CreateEnemies(GameObject enemiesParent, int enemiesMaxAttack, int enemiesMaxHP)
     {
         List<Enemy> enemies = new();
         int numberOfChilds = enemiesParent.transform.childCount;
 
         if (enemiesParent != null)
         {
-            int numOfEnemies = Random.Range(1, Math.Min(numberOfChilds + 1, enemiesMaxCant + 1));
 
-            for (int i = 0; i < numOfEnemies; i++)
+            for (int i = 0; i < numberOfChilds; i++)
             {
-
                 GameObject enemyGo = enemiesParent.transform.GetChild(i).gameObject;
-                enemyGo.SetActive(true);
-                enemyGo.transform.localPosition = GetRandomPosition();
-                enemyGo.GetComponent<DropSpawner>().enabled = false;
-                enemyGo.GetComponent<DamageableEntityRepresentation>().enabled = false;
-
-                Enemy enemy = enemyGo.GetComponent<Enemy>();
-                enemy.Heal(enemy.GetMaxHealthPoints());
                 
-                BaseStats enemyStats = enemyGo.GetComponent<BaseStats>();
-                enemyStats.SetDefense(0);
-                enemyStats.SetAttack(Random.Range(10, enemiesMaxAttack + 1));
-                enemyStats.SetHealth(Random.Range(10, enemiesMaxHP + 1));
+                if (enemyGo.activeInHierarchy)
+                {
+                    enemyGo.transform.localPosition = GetRandomPosition();
+                    enemyGo.GetComponent<DropSpawner>().enabled = false;
+                    enemyGo.GetComponent<DamageableEntityRepresentation>().enabled = false;
 
-                enemies.Add(enemy);
-                m_GroupEnemy.RegisterAgent(enemyGo.GetComponent<Agent>());
-            }
+                    Enemy enemy = enemyGo.GetComponent<Enemy>();
+                    enemy.Heal(enemy.GetMaxHealthPoints());
 
-            for (int i = numOfEnemies; i < numberOfChilds; i++)
-            {
-                GameObject enemyGo = enemiesParent.transform.GetChild(i).gameObject;
-                enemyGo.SetActive(false);
+                    BaseStats enemyStats = enemyGo.GetComponent<BaseStats>();
+                    enemyStats.SetDefense(0);
+                    enemyStats.SetAttack(Random.Range(10, enemiesMaxAttack + 1));
+                    enemyStats.SetHealth(Random.Range(10, enemiesMaxHP + 1));
+                    enemy.ResetStats();
+
+                    enemies.Add(enemy);
+                    m_GroupEnemy.RegisterAgent(enemyGo.GetComponent<Agent>());
+                }             
             }
         }      
 
@@ -302,9 +286,10 @@ public class ReinforcementTrainingEnv : MonoBehaviour
         player.Heal(player.GetMaxHealthPoints());
 
         playerStats.SetDefense(0);
-        playerStats.SetAttack(Random.Range(10, playerMaxAttack+1));
+        playerStats.SetAttack(Random.Range(10, playerMaxAttack + 1));
         playerStats.SetSpeed(Random.Range(1, playerMaxSpeed + 1));
         playerStats.SetHealth(Random.Range(10, playerMaxHP + 1));
+        player.ResetStats();
 
         m_GroupPlayer.RegisterAgent(playerGo.GetComponent<Agent>());
 

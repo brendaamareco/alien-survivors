@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3203010070365598654, guid: de6c17439f5ec2840a8d013c2b5100df, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3398726356938314096, guid: de6c17439f5ec2840a8d013c2b5100df, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -181,6 +185,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3398726356938314096, guid: de6c17439f5ec2840a8d013c2b5100df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549476915347303912, guid: de6c17439f5ec2840a8d013c2b5100df, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543129383203360581, guid: de6c17439f5ec2840a8d013c2b5100df, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -766,15 +778,12 @@ MonoBehaviour:
   bossMaxHP: 10
   bossMaxAttack: 10
   enemiesRange1Parent: {fileID: 756091336}
-  enemiesRange1MaxCant: 2
   enemiesRange1MaxHP: 10
   enemiesRange1MaxAttack: 10
   enemiesRange2Parent: {fileID: 502272611}
-  enemiesRange2MaxCant: 1
   enemiesRange2MaxHP: 10
   enemiesRange2MaxAttack: 10
   enemiesRange3Parent: {fileID: 1307928590}
-  enemiesRange3MaxCant: 1
   enemiesRange3MaxHP: 10
   enemiesRange3MaxAttack: 10
 --- !u!1001 &913033321
@@ -829,9 +838,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4816472217930187531, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6141161996177191959, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7098359884938559839, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
       propertyPath: m_Name
@@ -903,6 +916,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3243825008983413861, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4277234621566703959, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_Name
       value: Robot
@@ -910,6 +927,10 @@ PrefabInstance:
     - target: {fileID: 4277234621566703959, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129180648671239712, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1067,6 +1088,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1307928591}
     m_Modifications:
+    - target: {fileID: 3503047453468181546, guid: 97d20b30dbc7c9b4198b21981fc103df, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7577703466660905821, guid: 97d20b30dbc7c9b4198b21981fc103df, type: 3}
       propertyPath: m_Name
       value: RobotRange3
@@ -1117,6 +1142,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8284607024018606734, guid: 97d20b30dbc7c9b4198b21981fc103df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184742580449021551, guid: 97d20b30dbc7c9b4198b21981fc103df, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1214,6 +1243,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3243825008983413861, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4277234621566703959, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_Name
       value: Robot (1)
@@ -1221,6 +1254,10 @@ PrefabInstance:
     - target: {fileID: 4277234621566703959, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129180648671239712, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1292,6 +1329,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6995188024053436553, guid: e337d8b475976644aaa692ff974e4fed, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1354,13 +1395,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5614720860058592751, guid: 1f8253c3ffc5e1248a85da92e84b5f54, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486660542240248563, guid: 1f8253c3ffc5e1248a85da92e84b5f54, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8813760144545730727, guid: 1f8253c3ffc5e1248a85da92e84b5f54, type: 3}
       propertyPath: m_Name
       value: ArcherSkeletonRange3
       objectReference: {fileID: 0}
     - target: {fileID: 8813760144545730727, guid: 1f8253c3ffc5e1248a85da92e84b5f54, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1424,6 +1473,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3243825008983413861, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4277234621566703959, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_Name
       value: Robot (2)
@@ -1431,6 +1484,10 @@ PrefabInstance:
     - target: {fileID: 4277234621566703959, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129180648671239712, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1600,13 +1657,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4816472217930187531, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141161996177191959, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7098359884938559839, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
       propertyPath: m_Name
       value: ArcherSkeleton (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7098359884938559839, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1632,7 +1697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331456792730183181, guid: ba1b72e888bee534d83e62f24330af87, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3884927915124240350, guid: ba1b72e888bee534d83e62f24330af87, type: 3}
       propertyPath: m_RootOrder
@@ -1676,6 +1741,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3884927915124240350, guid: ba1b72e888bee534d83e62f24330af87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063405594956983103, guid: ba1b72e888bee534d83e62f24330af87, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8615259039944778106, guid: ba1b72e888bee534d83e62f24330af87, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1788,6 +1861,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 502272612}
     m_Modifications:
+    - target: {fileID: 149162887361152265, guid: 82159d6e6c2ef72468ca8d29457ff192, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585178428977721877, guid: 82159d6e6c2ef72468ca8d29457ff192, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2469122243975989085, guid: 82159d6e6c2ef72468ca8d29457ff192, type: 3}
       propertyPath: m_Name
       value: ArcherSkeletonRange2
@@ -1907,13 +1988,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4816472217930187531, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141161996177191959, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7098359884938559839, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
       propertyPath: m_Name
       value: ArcherSkeleton (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7098359884938559839, guid: c57d57969b47a494a8f20d125b9c0e48, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
