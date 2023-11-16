@@ -47,12 +47,6 @@ public class ReinforcementTrainingEnv : MonoBehaviour
     private int m_ResetTimer = 0;
     private int m_DeadEnemies = 0;
 
-    private Player m_Player;
-    private Enemy m_Boss;
-    private List<Enemy> m_EnemiesRange1;
-    private List<Enemy> m_EnemiesRange2;
-    private List<Enemy> m_EnemiesRange3;
-
     private void Start()
     {
         m_GroupEnemy = new SimpleMultiAgentGroup();
@@ -70,13 +64,12 @@ public class ReinforcementTrainingEnv : MonoBehaviour
         m_ResetTimer = 0;
         m_DeadEnemies = 0;
 
+        CreatePlayer();
+        SetUpBoss();
 
-        m_Player = CreatePlayer();
-        m_Boss = SetUpBoss();
-
-        m_EnemiesRange1 = CreateEnemies(enemiesRange1Parent, enemiesRange1MaxAttack, enemiesRange1MaxHP);
-        m_EnemiesRange2 = CreateEnemies(enemiesRange2Parent, enemiesRange2MaxAttack, enemiesRange2MaxHP);
-        m_EnemiesRange3 = CreateEnemies(enemiesRange3Parent, enemiesRange3MaxAttack, enemiesRange3MaxHP);
+        CreateEnemies(enemiesRange1Parent, enemiesRange1MaxAttack, enemiesRange1MaxHP);
+        CreateEnemies(enemiesRange2Parent, enemiesRange2MaxAttack, enemiesRange2MaxHP);
+        CreateEnemies(enemiesRange3Parent, enemiesRange3MaxAttack, enemiesRange3MaxHP);
 
     }
 
@@ -299,7 +292,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
     private Vector3 GetRandomPosition()
     {
         Bounds spawnerBounds = spawnArea.bounds;
-        Vector3 globalRandomPosition = new Vector3(Random.Range(spawnerBounds.min.x, spawnerBounds.max.x), 0,
+        Vector3 globalRandomPosition = new Vector3(Random.Range(spawnerBounds.min.x, spawnerBounds.max.x), spawnArea.transform.position.y,
                             Random.Range(spawnerBounds.min.z, spawnerBounds.max.z));
 
         return transform.InverseTransformPoint(globalRandomPosition);
