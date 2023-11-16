@@ -19,5 +19,6 @@ public enum GameEvent
     FIRE,
     LEVEL_UP,
     EXPERIENCE_CHANGED,
-    INVENTORY_CHANGED
+    INVENTORY_CHANGED,
+    FINISH_LEVEL
 }

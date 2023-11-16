@@ -43,9 +43,11 @@ public class DamageableEntityRepresentation : MonoBehaviour
         if (context.GetEntity().Equals(m_Damageable) && (gameObject.CompareTag("Player") || gameObject.CompareTag("PlayerAI")) )
             m_Animator.SetTrigger("Dead");          
 
+        /*
         if (context.GetEntity().Equals(m_Damageable) && gameObject.CompareTag("Boss")) {
             GameEventManager.GetInstance().Publish(GameEvent.VICTORY, context);
         }
+        */
     }
 
     private void HandlePoisonedEnd(EventContext context)

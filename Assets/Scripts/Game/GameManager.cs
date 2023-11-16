@@ -46,16 +46,23 @@ public class GameManager : MonoBehaviour
         virtualCamera.LookAt = player.transform;
 
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
-        GameEventManager.GetInstance().Suscribe(GameEvent.VICTORY, Victory);
+        GameEventManager.GetInstance().Suscribe(GameEvent.FINISH_LEVEL, FinishLevel);
+        //GameEventManager.GetInstance().Suscribe(GameEvent.VICTORY, Victory);
 
         //Invoke("SpawnBoss", bossSpawnTime);
         StartCoroutine(SpawnEnemies());
+    }
+
+    private void FinishLevel(EventContext obj) 
+    {
+        Victory(obj);
     }
 
     private void Victory(EventContext obj)
     {
         BossDefeated();
         SwitchPause();
+        GameEventManager.GetInstance().Publish(GameEvent.VICTORY, obj);
     }
 
     private void PlayerIsDead(EventContext obj)
