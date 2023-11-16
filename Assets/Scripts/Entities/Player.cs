@@ -1,3 +1,4 @@
+using CodeMonkey.HealthSystemCM;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ public class Player : DamageableEntity
         ResetStats();
         m_MaxElementsInInventory = 6;
         m_State = new PlayerState(this);
-        m_Experience = 0;    
+        m_Experience = 0;
     }
 
     public void Move(Vector3 vectorMovement)
@@ -202,4 +203,90 @@ public class Player : DamageableEntity
     {
         throw new NotImplementedException();
     }
+    public override int GetSpeedPoints()
+    {
+        int totalSpeed = base.GetSpeedPoints();
+
+        List<Item> inventoryItems = GetItems();
+        Item speedItem = null;
+        foreach (Item i in inventoryItems)
+        {
+            if (i.GetName() == "Speed")
+            {
+                speedItem = i;
+                break;
+            }
+        }
+
+        if (speedItem != null)
+        {
+            totalSpeed += speedItem.GetSpeed();
+        }
+
+        return totalSpeed;
+    }
+    public override int GetAttackPoints()
+    {
+        int totalAttack = base.GetAttackPoints();
+        List<Item> inventoryItems = GetItems();
+        Item attackItem = null;
+        foreach (Item i in inventoryItems)
+        {
+            if (i.GetName() == "Attack")
+            {
+                attackItem = i;
+                break;
+            }
+        }
+
+        if (attackItem != null)
+        {
+            totalAttack += attackItem.GetAttack();
+        }
+
+        return totalAttack;
+    }
+    public override int GetMaxHealthPoints()
+    {
+        int totalHealth = base.GetMaxHealthPoints();
+        List<Item> inventoryItems = GetItems();
+        Item healthItem = null;
+        foreach (Item i in inventoryItems)
+        {
+            if (i.GetName() == "Health")
+            {
+                healthItem = i;
+                break;
+            }
+        }
+
+        if (healthItem != null)
+        {
+            totalHealth += healthItem.GetHealth();
+        }
+
+        return totalHealth;
+    }
+    public override int GetDefensePoints()
+    {
+        int totalDefense = base.GetDefensePoints();
+        List<Item> inventoryItems = GetItems();
+        Item defenseItem = null;
+        foreach (Item i in inventoryItems)
+        {
+            if (i.GetName() == "Defense")
+            {
+                defenseItem = i;
+                break;
+            }
+        }
+
+        if (defenseItem != null)
+        {
+            totalDefense += defenseItem.GetDefense();
+        }
+
+        return totalDefense;
+    }
+
 }
