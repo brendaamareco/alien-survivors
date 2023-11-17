@@ -7,6 +7,7 @@ public class RigidBodyMotion : Motion
 {
     [SerializeField] private float turnSpeed = 360;
     private Rigidbody m_Rb;
+    private float timeCount = 0f;
 
     private void Start()
     {
@@ -18,10 +19,16 @@ public class RigidBodyMotion : Motion
         if (vector != Vector3.zero)
         {
             var rot = Quaternion.LookRotation(vector.ToIso(), Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, turnSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, turnSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, timeCount * speed);
         }
         if (m_Rb != null)
             m_Rb.MovePosition(transform.position + transform.forward * vector.normalized.magnitude * speed * Time.deltaTime);
+    }
+
+    private void Update()
+    {
+        timeCount += Time.deltaTime;
     }
 }
 
