@@ -17,6 +17,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
     [SerializeField] MeshRenderer resultMeshRenderer;
 
     [Header("Global config")]
+    [SerializeField] int agentsMinSpeed = 2;
     [SerializeField] int agentsMaxSpeed = 5;
     [SerializeField] int agentsMaxCooldown = 5;
 
@@ -224,7 +225,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
         bossStats.SetDefense(0);
         bossStats.SetAttack(Random.Range(10, bossMaxAttack + 1));
         bossStats.SetHealth(Random.Range(10, bossMaxHP + 1));
-        bossStats.SetSpeed(Random.Range(1, agentsMaxSpeed + 1));
+        bossStats.SetSpeed(Random.Range(agentsMinSpeed, agentsMaxSpeed + 1));
 
         Enemy boss = bossGo.GetComponent<Enemy>();
         boss.ResetStats();
@@ -260,7 +261,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
                     enemyStats.SetDefense(0);
                     enemyStats.SetAttack(Random.Range(10, enemiesMaxAttack + 1));
                     enemyStats.SetHealth(Random.Range(10, enemiesMaxHP + 1));
-                    enemyStats.SetSpeed(Random.Range(1, agentsMaxSpeed + 1));
+                    enemyStats.SetSpeed(Random.Range(agentsMinSpeed, agentsMaxSpeed + 1));
 
                     Enemy enemy = enemyGo.GetComponent<Enemy>();
                     enemy.ResetStats();
@@ -289,7 +290,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
         BaseStats playerStats = playerGo.GetComponent<BaseStats>();
         playerStats.SetDefense(0);
         playerStats.SetAttack(Random.Range(10, playerMaxAttack + 1));
-        playerStats.SetSpeed(Random.Range(1, agentsMaxSpeed + 1));
+        playerStats.SetSpeed(Random.Range(agentsMinSpeed, agentsMaxSpeed + 1));
         playerStats.SetHealth(Random.Range(10, playerMaxHP + 1));
 
         Player player = playerGo.GetComponent<Player>();

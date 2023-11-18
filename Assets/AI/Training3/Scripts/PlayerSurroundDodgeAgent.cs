@@ -18,6 +18,7 @@ public class PlayerSurroundDodgeAgent : Agent
         sensor.AddObservation(m_Player.GetSpeedPoints());
         sensor.AddObservation(transform.localScale);
 
+        //TODO: null error
         sensor.AddObservation(weapon.GetScope());
         sensor.AddObservation(weapon.GetCooldown());
     }

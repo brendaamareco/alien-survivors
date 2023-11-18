@@ -3120,7 +3120,7 @@ Transform:
   - {fileID: 7359483974018954749}
   - {fileID: 283530736286233846}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2887142708889438758
 Animator:
@@ -3157,7 +3157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableName: Arquero esqueleto
   invincibleTime: 4
-  m_Motion: {fileID: 4876710630098784891}
 --- !u!54 &720111820726893240
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3368,7 +3367,7 @@ MonoBehaviour:
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: Enemy
+  m_BehaviorName: EnemyRangedWeapon
   TeamId: 1
   m_UseChildSensors: 1
   m_UseChildActuators: 1

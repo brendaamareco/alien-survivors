@@ -144,7 +144,7 @@ Transform:
   - {fileID: 6008268290254406470}
   - {fileID: 5301016934572680471}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1620800062383231355
 Animator:
@@ -197,7 +197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableName: Predator
   invincibleTime: 4
-  m_Motion: {fileID: 5857663485840232399}
 --- !u!135 &29877394333613437
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -384,7 +383,6 @@ MonoBehaviour:
   - Player
   - Enemy
   - Water
-  - Boss
   m_RaysPerDirection: 24
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.3
@@ -512,7 +510,7 @@ MonoBehaviour:
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: Enemy
+  m_BehaviorName: Boss
   TeamId: 1
   m_UseChildSensors: 1
   m_UseChildActuators: 1
