@@ -34,10 +34,16 @@ public class BlinderComponent : WeaponComponent
     {
         m_IsCoroutineRunning = true;
 
-        previousPostProcessLayer = m_PostProcessLayer.volumeLayer;
-        m_PostProcessLayer.volumeLayer = effectLayer;
-        yield return new WaitForSeconds(GetDuration());
-        m_PostProcessLayer.volumeLayer = previousPostProcessLayer;
+        if (m_PostProcessLayer != null)
+        {
+            previousPostProcessLayer = m_PostProcessLayer.volumeLayer;
+            m_PostProcessLayer.volumeLayer = effectLayer;
+            yield return new WaitForSeconds(GetDuration());
+            m_PostProcessLayer.volumeLayer = previousPostProcessLayer;
+        }
+
+        else
+            yield return new WaitForSeconds(GetDuration());
 
         m_IsCoroutineRunning = false;
         GameEventManager.GetInstance().Publish(GameEvent.WEAPON_COMPONENT_END, new EventContext(this));

@@ -8,15 +8,27 @@ public class BoxController : MonoBehaviour
     public GameObject[] prefabsToSpawn;
     public float itemLifetime = 3f;
 
+    private PickUpBox m_PickUpBox;
+
     public void Start()
     {
+        m_PickUpBox = GetComponent<PickUpBox>();
         GameEventManager.GetInstance().Suscribe(GameEvent.BOX_OPENED, HandleBoxOpened);
     }
 
     private void HandleBoxOpened(EventContext context)
     {
+        try
+        {
+            PickUpBox box = (PickUpBox)context.GetEntity();
 
-        SpawnRandomItem();
+            //Si es la misma instancia que la caja, sino se abren todas las cajas
+            if (box == m_PickUpBox)
+            {
+                SpawnRandomItem();
+            }
+        }
+        catch { }
     }
     void SpawnRandomItem()
     {

@@ -1283,8 +1283,8 @@ MonoBehaviour:
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 5022602860645237092, guid: f06303f8dd6146141a07bf8dba2d7fa7, type: 3}
-  m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_InferenceDevice: 3
+  m_BehaviorType: 2
   m_BehaviorName: SurroundDodge
   TeamId: 1
   m_UseChildSensors: 1

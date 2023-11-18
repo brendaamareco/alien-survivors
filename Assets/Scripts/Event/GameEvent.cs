@@ -24,5 +24,6 @@ public enum GameEvent
     EFFECT_SPDUP,
     EFFECT_DEFUP,
     EFFECT_HLTUP,
-    MAXLVL_WEAPON
+    MAXLVL_WEAPON,
+    FINISH_LEVEL
 }

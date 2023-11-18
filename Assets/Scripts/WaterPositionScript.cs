@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WaterPositionScript : MonoBehaviour
 {
+    [SerializeField] float initPositionX = 0.0f;
+    [SerializeField] float initPositionZ = 0.0f;
+
     public float velocidadX = 0.05f; // Velocidad de movimiento en el eje X
     public bool ejeX = true;
     public bool sumar = true;
@@ -18,6 +21,7 @@ public class WaterPositionScript : MonoBehaviour
     private void Start()
     {
         tiempoAnterior = Time.time; // Inicializa el tiempo anterior al tiempo actual
+        transform.localPosition = new Vector3(initPositionX, 0.0f, initPositionZ);
     }
 
     private void Update()

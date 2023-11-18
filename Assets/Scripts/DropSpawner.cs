@@ -20,5 +20,8 @@ public class DropSpawner : MonoBehaviour
     }
 
     private void DropExp()
-    { Instantiate(ExpModel, transform.position, Quaternion.identity); }
+    {
+        Vector3 newPosition = new(transform.position.x, 0, transform.position.z);
+        Instantiate(ExpModel, newPosition, Quaternion.identity); 
+    }
 }
