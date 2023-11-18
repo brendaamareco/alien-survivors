@@ -1052,7 +1052,6 @@ MonoBehaviour:
   - Player
   - Enemy
   - Water
-  - Boss
   m_RaysPerDirection: 24
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.3

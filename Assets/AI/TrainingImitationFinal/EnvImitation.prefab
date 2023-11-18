@@ -31,7 +31,7 @@ Transform:
   - {fileID: 2364765156317388097}
   - {fileID: 356238106987475289}
   - {fileID: 8408648902312221474}
-  - {fileID: 5357489737835353072}
+  - {fileID: 1978278164957360658}
   - {fileID: 555803886903767766}
   - {fileID: 3919352789779897310}
   m_Father: {fileID: 5198690575085329081}
@@ -672,7 +672,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6083332394286660162}
-  - {fileID: 4549316108983765960}
+  - {fileID: 536069838263840752}
   m_Father: {fileID: 5198690575085329081}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -736,7 +736,7 @@ MonoBehaviour:
   tieMaterial: {fileID: 2100000, guid: 00b4b256646365b47acecc2d04b18527, type: 2}
   resultMeshRenderer: {fileID: 3945418287184033874}
   agentsMaxSpeed: 5
-  agentsMaxCooldown: 5
+  agentsMaxCooldown: 4
   playerGo: {fileID: 1004055027435574855}
   playerMaxHP: 10
   playerMaxAttack: 10
@@ -1365,7 +1365,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1b72e888bee534d83e62f24330af87, type: 3}
---- !u!4 &4549316108983765960 stripped
+--- !u!4 &536069838263840752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3884927915124240350, guid: ba1b72e888bee534d83e62f24330af87, type: 3}
   m_PrefabInstance: {fileID: 3646378540019925038}
@@ -1443,7 +1443,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
---- !u!4 &5357489737835353072 stripped
+--- !u!4 &1978278164957360658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2344815403453665412, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
   m_PrefabInstance: {fileID: 4322950613639471766}

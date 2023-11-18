@@ -224,7 +224,7 @@ public class TrainingImitationEnv : MonoBehaviour
         bossStats.SetDefense(0);
         bossStats.SetAttack(Random.Range(10, bossMaxAttack + 1));
         bossStats.SetHealth(Random.Range(10, bossMaxHP + 1));
-        bossStats.SetSpeed(Random.Range(1, agentsMaxSpeed + 1));
+        bossStats.SetSpeed(Random.Range(2, agentsMaxSpeed + 1));
 
         Enemy boss = bossGo.GetComponent<Enemy>();
         boss.ResetStats();
@@ -260,7 +260,7 @@ public class TrainingImitationEnv : MonoBehaviour
                     enemyStats.SetDefense(0);
                     enemyStats.SetAttack(Random.Range(10, enemiesMaxAttack + 1));
                     enemyStats.SetHealth(Random.Range(10, enemiesMaxHP + 1));
-                    enemyStats.SetSpeed(Random.Range(1, agentsMaxSpeed + 1));
+                    enemyStats.SetSpeed(Random.Range(2, agentsMaxSpeed + 1));
 
                     Enemy enemy = enemyGo.GetComponent<Enemy>();
                     enemy.ResetStats();
@@ -289,7 +289,7 @@ public class TrainingImitationEnv : MonoBehaviour
         BaseStats playerStats = playerGo.GetComponent<BaseStats>();
         playerStats.SetDefense(0);
         playerStats.SetAttack(Random.Range(10, playerMaxAttack + 1));
-        playerStats.SetSpeed(Random.Range(1, agentsMaxSpeed + 1));
+        playerStats.SetSpeed(Random.Range(2, agentsMaxSpeed + 1));
         playerStats.SetHealth(Random.Range(10, playerMaxHP + 1));
 
         Player player = playerGo.GetComponent<Player>();
