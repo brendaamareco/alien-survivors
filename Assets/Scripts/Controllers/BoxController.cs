@@ -29,7 +29,6 @@ public class BoxController : MonoBehaviour
             }
         }
         catch { }
-        
     }
     void SpawnRandomItem()
     {
@@ -43,7 +42,7 @@ public class BoxController : MonoBehaviour
             GameObject spawnedItem = Instantiate(randomPrefab, transform.position + Vector3.up, Quaternion.identity);
 
             // Destroy the spawned item after 'itemLifetime' seconds.
-            Destroy(spawnedItem, itemLifetime);
+            //Destroy(spawnedItem, itemLifetime);
             Destroy(gameObject);
         }
         else

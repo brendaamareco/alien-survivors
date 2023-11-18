@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -14,7 +15,9 @@ public class LevelUpController : MonoBehaviour
     private string m_LevelUpAssetPath = "Documents/LevelUp";
     private VisualElement m_LevelUp;
     private VisualElement m_PopUpContainer;
-    
+    private VisualTreeAsset levelUpAsset;
+
+
     private List<Weapon> m_WeaponInventory;
     private List<Item> m_ItemInventory;
 
@@ -25,38 +28,44 @@ public class LevelUpController : MonoBehaviour
     {
         m_PopUpContainer = root.rootVisualElement.Q<VisualElement>("PopUp");
 
-        VisualTreeAsset levelUpAsset = Resources.Load<VisualTreeAsset>(m_LevelUpAssetPath);
+        levelUpAsset = Resources.Load<VisualTreeAsset>(m_LevelUpAssetPath);
         m_LevelUp = levelUpAsset.Instantiate();
         m_LevelUp.style.height = Length.Percent(100);
 
+        GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
+
+    }
+
+    private void SelectOwnedItem()
+    {
         GameObject playerObject = GameObject.FindWithTag("Player");
         Player player = playerObject.GetComponent<Player>();
-        m_WeaponInventory = player.GetWeapons();
         m_ItemInventory = player.GetItems();
-
-        // Randomly select one weapon
-        Weapon selectedWeapon = m_WeaponInventory.Count > 0 ? m_WeaponInventory[UnityEngine.Random.Range(0, m_WeaponInventory.Count)] : null;
 
         // Randomly select one item
         Item selectedItem = m_ItemInventory.Count > 0 ? m_ItemInventory[UnityEngine.Random.Range(0, m_ItemInventory.Count)] : null;
-
-        if (selectedWeapon != null)
-        {
-            LevelUpSlot invSlot = new LevelUpSlot(selectedWeapon, itemBtnTemplate, this);
-            m_LevelUp.Q<VisualElement>("ItemContainer").Add(invSlot.button);
-        }
 
         if (selectedItem != null)
         {
             LevelUpSlot invSlot = new LevelUpSlot(selectedItem, itemBtnTemplate, this);
             m_LevelUp.Q<VisualElement>("ItemContainer").Add(invSlot.button);
         }
+    }
 
-        SelectRandomGun();
-        SelectRandomItem();
+    private void SelectOwnedGun()
+    {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        Player player = playerObject.GetComponent<Player>();
+        m_WeaponInventory = player.GetWeapons();
 
-        GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
+        // Randomly select one weapon
+        Weapon selectedWeapon = m_WeaponInventory.Count > 0 ? m_WeaponInventory[UnityEngine.Random.Range(0, m_WeaponInventory.Count)] : null;
 
+        if (selectedWeapon != null)
+        {
+            LevelUpSlot invSlot = new LevelUpSlot(selectedWeapon, itemBtnTemplate, this);
+            m_LevelUp.Q<VisualElement>("ItemContainer").Add(invSlot.button);
+        }
     }
 
     private void HandleLevelUp(EventContext context)
@@ -176,11 +185,26 @@ public class LevelUpController : MonoBehaviour
     {
         m_PopUpContainer.Add(m_LevelUp);
         m_PopUpContainer.style.display = DisplayStyle.Flex;
+        SelectOwnedGun();
+        SelectOwnedItem();
+        SelectRandomGun();
+        SelectRandomItem();
     }
     public void Hide()
     {
+        ResetButtons();
         m_PopUpContainer.Remove(m_LevelUp);
         m_PopUpContainer.style.display = DisplayStyle.None;
         gameManager.SwitchLevelUp();
+    }
+
+    public void ResetButtons()
+    {
+        VisualElement itemContainer = m_LevelUp.Q<VisualElement>("ItemContainer");
+        while (itemContainer.childCount > 0)
+        {
+            VisualElement child = itemContainer.Children().First();
+            itemContainer.Remove(child);
+        }
     }
 }

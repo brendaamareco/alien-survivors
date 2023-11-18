@@ -39,12 +39,10 @@ public class DamageableEntity : MonoBehaviour, IEntity
         if (isInvincible)
         {
             timer += Time.deltaTime;
-            Debug.Log("paso el tiempo");
             if (timer >= invincibleTime)
             {
                 isInvincible = false;
                 timer = 0f;
-                Debug.Log("ya no es mas invincible");
             }
         }
     }

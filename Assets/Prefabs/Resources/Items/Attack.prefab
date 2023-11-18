@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Attack
-  attackPercentage: 1
+  attackPercentage: 2
   defensePercentage: 0
   healthPercentage: 0
   speedPercentage: 0
   maxLevel: 10
-  upgradePercentage: 0.25
+  upgradePercentage: 0.5
