@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] rank3Enemies;
 
     private float timer = 0.0f;
-    private bool bossDefeated = false;
     private float spawnMediumTime; 
     private float spawnFinalTime;
     private Player player;
@@ -280,7 +279,6 @@ public class GameManager : MonoBehaviour
 
     public void BossDefeated()
     {
-        bossDefeated = true;
         StopAllCoroutines();
     }
 }
