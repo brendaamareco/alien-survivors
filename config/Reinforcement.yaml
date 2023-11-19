@@ -20,7 +20,7 @@ behaviors:
         gamma: 0.99
         strength: 1.0    
     keep_checkpoints: 60
-    checkpoint_interval: 500000
+    checkpoint_interval: 1000000
     max_steps: 60000000
     time_horizon: 1000
     summary_freq: 10000
@@ -52,7 +52,7 @@ behaviors:
         gamma: 0.99
         strength: 1.0    
     keep_checkpoints: 60
-    checkpoint_interval: 500000
+    checkpoint_interval: 1000000
     max_steps: 60000000
     time_horizon: 1000
     summary_freq: 10000
@@ -84,7 +84,7 @@ behaviors:
         gamma: 0.99
         strength: 1.0    
     keep_checkpoints: 60
-    checkpoint_interval: 500000
+    checkpoint_interval: 1000000
     max_steps: 60000000
     time_horizon: 1000
     summary_freq: 10000
@@ -116,7 +116,7 @@ behaviors:
         gamma: 0.99
         strength: 1.0   
     keep_checkpoints: 60
-    checkpoint_interval: 500000
+    checkpoint_interval: 1000000
     max_steps: 60000000
     time_horizon: 1000
     summary_freq: 10000
