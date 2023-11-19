@@ -34,7 +34,9 @@ public class DamageableEntity : MonoBehaviour, IEntity
     protected virtual void Update()
     {
         if (m_HealthSystem.GetHealthMax() != GetMaxHealthPoints())
+        {
             SetMaxHealth(GetMaxHealthPoints());
+        }
 
         if (isInvincible)
         {
@@ -78,7 +80,10 @@ public class DamageableEntity : MonoBehaviour, IEntity
     }
 
     private void SetMaxHealth(float maxHealth)
-    { m_HealthSystem.SetHealthMax(maxHealth, false); }
+    {
+        GameEventManager.GetInstance().Publish(GameEvent.HEALED, new EventContext(this));
+        m_HealthSystem.SetHealthMax(maxHealth, false);
+    }
 
     public Stats GetStats()
     { return m_Stats; }
