@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,14 +9,14 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject UIObject;
     [SerializeField] GameState currentState;
-    [SerializeField] float timeLimit;
 
     [Header("Boss Spawner")]
     [SerializeField] float bossSpawnTime = 60.0f;
     [SerializeField] GameObject boss;
 
     [Header("Enemies Spawner")]
-    [SerializeField] float spawnTime = 1.5f;
+    [SerializeField] int maxEnemiesOnScreen = 5;
+    [SerializeField] float spawnTime = 2f;
     [SerializeField] float probPerseguidor = 0.6f;
     [SerializeField] float probLejano = 0.35f;
     [SerializeField] float probEstatico = 0.05f;
@@ -31,6 +32,12 @@ public class GameManager : MonoBehaviour
     private bool bossSpawned = false;
     private float stopwatchTime;
     private VisualElement rootStopwatch;
+    private int enemiesOnScreen;
+
+    private void Awake()
+    {
+        enemiesOnScreen = 0;
+    }
 
     private void Start()
     {
@@ -47,10 +54,23 @@ public class GameManager : MonoBehaviour
 
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
         GameEventManager.GetInstance().Suscribe(GameEvent.FINISH_LEVEL, FinishLevel);
-        //GameEventManager.GetInstance().Suscribe(GameEvent.VICTORY, Victory);
+        GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleDead);
 
-        //Invoke("SpawnBoss", bossSpawnTime);
         StartCoroutine(SpawnEnemies());
+    }
+
+    private void HandleDead(EventContext context)
+    {
+        try
+        {
+            Enemy enemy = (Enemy)context.GetEntity();
+
+            if (enemy != null)
+            {
+                enemiesOnScreen--;
+            }
+
+        } catch { }
     }
 
     private void FinishLevel(EventContext obj) 
@@ -150,11 +170,6 @@ public class GameManager : MonoBehaviour
         UpdateStopwatchDisplay();
         CheckSpawnTime();
 
-        //if (stopwatchTime >= timeLimit)
-        //{
-        //    GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this));
-        //}
-        
         if (stopwatchTime >= bossSpawnTime)
             SpawnBoss();
     }
@@ -241,20 +256,25 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        while (!bossDefeated)
+        while (!bossSpawned)
         {
             yield return new WaitForSeconds(spawnTime);
 
-            timer += spawnTime;
+            if (enemiesOnScreen <= maxEnemiesOnScreen)
+            {        
+                timer += spawnTime;
 
-            if (timer > 0 && timer < spawnMediumTime)
-                SpawnRankedEnemies(0.9f, 0.1f, 0.0f);
+                if (timer > 0 && timer < spawnMediumTime)
+                    SpawnRankedEnemies(0.9f, 0.1f, 0.0f);
 
-            if (timer >= spawnMediumTime && timer < spawnFinalTime)
-                SpawnRankedEnemies(0.6f, 0.35f, 0.05f);
+                if (timer >= spawnMediumTime && timer < spawnFinalTime)
+                    SpawnRankedEnemies(0.6f, 0.35f, 0.05f);
 
-            if (timer >= spawnFinalTime)
-                SpawnRankedEnemies(0.1f, 0.6f, 0.3f);
+                if (timer >= spawnFinalTime)
+                    SpawnRankedEnemies(0.1f, 0.6f, 0.3f);
+
+                enemiesOnScreen++;
+            }         
         }
     }
 
