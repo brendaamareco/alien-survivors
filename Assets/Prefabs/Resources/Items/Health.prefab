@@ -47,7 +47,7 @@ MonoBehaviour:
   itemName: Health
   attackPercentage: 0
   defensePercentage: 0
-  healthPercentage: 1
+  healthPercentage: 50
   speedPercentage: 0
   maxLevel: 10
-  upgradePercentage: 0.25
+  upgradePercentage: 0.2
