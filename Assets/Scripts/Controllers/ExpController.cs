@@ -24,7 +24,7 @@ public class ExpController : MonoBehaviour, IEntity
     {
         if (player.GetExperience() >= m_ExpNeeded)
         {
-            GameEventManager.GetInstance().Publish(GameEvent.LEVEL_UP, new EventContext(this));
+            GameEventManager.GetInstance().Publish(GameEvent.LEVEL_UP, new EventContext(player));
             m_ExpNeeded += m_ExpNeeded;
         }
     }
