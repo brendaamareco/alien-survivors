@@ -155,6 +155,12 @@ public class GameManager : MonoBehaviour
 
             DamageableEntityRepresentation playerRepresentation = player.gameObject.GetComponent<DamageableEntityRepresentation>();
             playerRepresentation.Reset();
+
+            EffectItemsController effectItemsController = player.gameObject.GetComponentInChildren<EffectItemsController>();
+            effectItemsController.Reset();
+
+            EvoGunsController evoGunsController = player.gameObject.GetComponentInChildren<EvoGunsController>();
+            evoGunsController.Reset();
         }
         
         else

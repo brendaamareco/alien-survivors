@@ -14,6 +14,11 @@ public class EvoGunsController : MonoBehaviour
     };
     void Start()
     {
+        Reset();
+    }
+
+    public void Reset()
+    {
         GameEventManager.GetInstance().Suscribe(GameEvent.MAXLVL_WEAPON, HandleMaxLvlWeapon);
     }
 

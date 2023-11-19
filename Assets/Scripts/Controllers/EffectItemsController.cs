@@ -15,22 +15,16 @@ public class EffectItemsController : MonoBehaviour
 
     void Start()
     {
+        Reset();
+    }
+
+    public void Reset()
+    {
         GameEventManager.GetInstance().Suscribe(GameEvent.EFFECT_ATKUP, HandleAtkUp);
         GameEventManager.GetInstance().Suscribe(GameEvent.EFFECT_SPDUP, HandleSpeedUp);
         GameEventManager.GetInstance().Suscribe(GameEvent.EFFECT_DEFUP, HandleDefenseUp);
         GameEventManager.GetInstance().Suscribe(GameEvent.EFFECT_HLTUP, HandleHealthUp);
         GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
- 
-
-    }
-
-    private void Update()
-    {
-        //_ = EffectAttackUp.activeInHierarchy;
-        //Debug.Log(EffectAttackUp.activeInHierarchy);
-        //Debug.Log(EffectSpeedUp.activeInHierarchy);
-        //Debug.Log(EffectDefenseUp.activeInHierarchy);
-        //Debug.Log(EffectLevelUp.activeInHierarchy);
     }
 
     private void HandleAtkUp(EventContext context)
