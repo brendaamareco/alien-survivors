@@ -66,7 +66,7 @@ public abstract class Weapon : StatsDecorator, IEntity
 
     public void CheckMaxLevel()
     {
-        if (m_Level <= maxLevel)
+        if (m_Level >= maxLevel)
         {
             GameEventManager.GetInstance().Publish(GameEvent.MAXLVL_WEAPON, new EventContext(this));
             Debug.Log("maxLevel");

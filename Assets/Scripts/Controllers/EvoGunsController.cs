@@ -25,11 +25,13 @@ public class EvoGunsController : MonoBehaviour
         m_WeaponInventory = player.GetWeapons();
 
         List<Weapon> maxWeapons =  GetMaxLevelWeapons(m_WeaponInventory);
+        Debug.Log(maxWeapons.ToArray());
         if (maxWeapons.Count >= 2)
         {
             List<string> evoGuns = FindEvoMatch(maxWeapons);
             if (evoGuns.Count > 0)
             {
+                Debug.Log("Evo");
                 EvolveWeapon(evoGuns, player);
             }
             else { Debug.Log("No hubo match"); };
@@ -45,6 +47,7 @@ public class EvoGunsController : MonoBehaviour
 
         foreach (Weapon weapon in weaponList)
         {
+            Debug.Log(weapon.GetName() + " LVL:" + weapon.GetLevel());
             if (weapon.GetLevel() == weapon.GetMaxLevel())
             {
                 maxLevelWeapons.Add(weapon);
@@ -75,11 +78,14 @@ public class EvoGunsController : MonoBehaviour
         foreach (string evoGun in evoGuns)
         {
             Weapon existingWeapon = weaponInventory.Find(w => w.GetName() == evoGun);
+            Debug.Log("Evool weapon");
+           
             if (existingWeapon == null)
             {
                 GameObject evoGunPrefab = Resources.Load<GameObject>("EvoGuns/"+evoGun);
                 Weapon gunComponent = evoGunPrefab.GetComponent<Weapon>();
                 player.Equip(gunComponent);
+                Debug.Log("Ready evo");
             }
         }
     }
