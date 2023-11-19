@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EvoGunsController : MonoBehaviour
 {
-    public List<Weapon> m_WeaponInventory;
+    private List<Weapon> m_WeaponInventory;
 
     Dictionary<string, string> evoGunstMap = new Dictionary<string, string>
     {

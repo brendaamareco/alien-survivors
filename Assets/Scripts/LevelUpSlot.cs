@@ -97,7 +97,7 @@ public class LevelUpSlot
                 // Publish effect aura activation
                 if (itemEventMap.ContainsKey(itemName))
                 {
-                    GameEventManager.GetInstance().Publish(itemEventMap[itemName], new EventContext(this));
+                    GameEventManager.GetInstance().Publish(itemEventMap[itemName], new EventContext(player));
                 }
             }
         }

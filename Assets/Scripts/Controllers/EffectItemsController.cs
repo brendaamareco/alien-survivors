@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EffectItemsController : MonoBehaviour
 {
+    [SerializeField] Player player;
+
     [SerializeField] GameObject EffectAttackUp;
     [SerializeField] GameObject EffectSpeedUp;
     [SerializeField] GameObject EffectDefenseUp;
@@ -18,28 +20,73 @@ public class EffectItemsController : MonoBehaviour
         GameEventManager.GetInstance().Suscribe(GameEvent.EFFECT_DEFUP, HandleDefenseUp);
         GameEventManager.GetInstance().Suscribe(GameEvent.EFFECT_HLTUP, HandleHealthUp);
         GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
+ 
+
+    }
+
+    private void Update()
+    {
+        //_ = EffectAttackUp.activeInHierarchy;
+        //Debug.Log(EffectAttackUp.activeInHierarchy);
+        //Debug.Log(EffectSpeedUp.activeInHierarchy);
+        //Debug.Log(EffectDefenseUp.activeInHierarchy);
+        //Debug.Log(EffectLevelUp.activeInHierarchy);
     }
 
     private void HandleAtkUp(EventContext context)
     {
-        EffectAttackUp.SetActive(true);
+        try
+        {
+            Player other = (Player)context.GetEntity();
+
+            if (other == player)
+                EffectAttackUp.SetActive(true);
+        }
+        catch { }
     }
     private void HandleSpeedUp(EventContext context)
     {
-        EffectSpeedUp.SetActive(true);
+        try
+        {
+            Player other = (Player)context.GetEntity();
+
+            if (other == player)
+                EffectSpeedUp.SetActive(true);
+        }
+        catch { }
     }
     private void HandleDefenseUp(EventContext context)
     {
-        EffectDefenseUp.SetActive(true);
+        try
+        {
+            Player other = (Player)context.GetEntity();
+
+            if (other == player)
+                EffectDefenseUp.SetActive(true);
+        }
+        catch { } 
     }
     private void HandleHealthUp(EventContext context)
     {
-        EffectHealthUp.SetActive(true);
+        try
+        {
+            Player other = (Player)context.GetEntity();
+
+            if (other == player)
+                EffectHealthUp.SetActive(true);
+        }
+        catch { }
     }
     private void HandleLevelUp(EventContext context)
     {
-        StartCoroutine(setOnAndOff());
+        try
+        {
+            Player other = (Player)context.GetEntity();
 
+            if (other == player)
+                StartCoroutine(setOnAndOff());
+        }
+        catch { }
     }
     private IEnumerator setOnAndOff()
     {
