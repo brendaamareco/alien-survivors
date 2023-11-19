@@ -11,7 +11,7 @@ public abstract class Weapon : StatsDecorator, IEntity
     [SerializeField] float cooldown = 1f;
     [SerializeField] int attackExtraPoints = 0;
     [SerializeField] float upgradePercentage = 0.25f;
-    [SerializeField] int maxLevel = 1;
+    [SerializeField] int maxLevel = 2;
     [SerializeField] Sprite icon;
 
     private bool m_IsAttacking = false;
@@ -54,6 +54,9 @@ public abstract class Weapon : StatsDecorator, IEntity
         m_ScopeCollider.center = Vector3.zero;
     }
 
+    public void SetCooldown(float cooldown)
+    { this.cooldown = cooldown; }
+
     public void Upgrade()
     {
         m_Level += 1;
@@ -63,9 +66,10 @@ public abstract class Weapon : StatsDecorator, IEntity
 
     public void CheckMaxLevel()
     {
-        if (m_Level <= maxLevel)
+        if (m_Level >= maxLevel)
         {
-            Debug.Log("MaxLevel");
+            GameEventManager.GetInstance().Publish(GameEvent.MAXLVL_WEAPON, new EventContext(this));
+            Debug.Log("maxLevel");
         }
     }
 
@@ -93,6 +97,11 @@ public abstract class Weapon : StatsDecorator, IEntity
     public float GetScope()
     { return scope; }
 
+    public int GetLevel()
+    { return m_Level; }
+
+    public int GetMaxLevel()
+    { return maxLevel; }
 
     private void OnTriggerEnter(Collider other)
     {

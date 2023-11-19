@@ -47,13 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIObject: {fileID: 0}
   currentState: 0
-  timeLimit: 120
   bossSpawnTime: 60
-  spawnTime: 1
+  boss: {fileID: 0}
+  maxEnemiesOnScreen: 50
+  spawnTime: 2
+  probPerseguidor: 0.6
+  probLejano: 0.35
+  probEstatico: 0.05
   rank1Enemies: []
   rank2Enemies: []
   rank3Enemies: []
-  boss: {fileID: 0}
 --- !u!114 &5287968784262530288
 MonoBehaviour:
   m_ObjectHideFlags: 0

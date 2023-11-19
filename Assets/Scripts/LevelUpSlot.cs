@@ -11,6 +11,14 @@ public class LevelUpSlot
     public Item item;
     public LevelUpController screen;
 
+    Dictionary<string, GameEvent> itemEventMap = new Dictionary<string, GameEvent>
+    {
+        { "Attack", GameEvent.EFFECT_ATKUP },
+        { "Health", GameEvent.EFFECT_HLTUP },
+        { "Speed", GameEvent.EFFECT_SPDUP },
+        { "Defense", GameEvent.EFFECT_DEFUP },
+    };
+
     public LevelUpSlot(Weapon weapon, VisualTreeAsset template, LevelUpController screen)
     {
         TemplateContainer itemButtonContainer = template.Instantiate();
@@ -84,6 +92,13 @@ public class LevelUpSlot
                 player.Equip(item);
                 Debug.Log("Equipped " + item.GetName());
                 GameEventManager.GetInstance().Publish(GameEvent.INVENTORY_CHANGED, new EventContext(this));
+
+                string itemName = item.GetName();
+                // Publish effect aura activation
+                if (itemEventMap.ContainsKey(itemName))
+                {
+                    GameEventManager.GetInstance().Publish(itemEventMap[itemName], new EventContext(player));
+                }
             }
         }
         screen.Hide();

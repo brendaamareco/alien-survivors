@@ -27,7 +27,7 @@
 #ExperienceBar .unity-progress-bar__progress {
     background-image: none;
     -unity-background-scale-mode: stretch-to-fill;
-    background-color: rgb(255, 181, 0);
+    background-color: rgb(40, 122, 255);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
@@ -93,4 +93,9 @@
     max-width: 100%;
     max-height: 100%;
     background-image: none;
+}
+
+#HealthBarBoss .unity-progress-bar__progress {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgb(255, 181, 0);
 }
