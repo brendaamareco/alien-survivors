@@ -31,26 +31,24 @@ public class GameManager : MonoBehaviour
     private bool bossSpawned = false;
     private float stopwatchTime;
     private VisualElement rootStopwatch;
-    private int enemiesOnScreen;
-
-    private void Awake()
-    {
-        enemiesOnScreen = 0;
-    }
+    private Label stopwatchLbl;
+    private int enemiesOnScreen = 0;
 
     private void Start()
     {
         Time.timeScale = 1.0f;
         spawnMediumTime = bossSpawnTime / 2f;
         spawnFinalTime = spawnMediumTime + bossSpawnTime / 4f;
-
-        GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
+        
+        rootStopwatch = UIObject.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Stopwatch");
+        stopwatchLbl = rootStopwatch.Q<Label>("stopwatch");
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         CinemachineVirtualCamera virtualCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponentInChildren<CinemachineVirtualCamera>();
         virtualCamera.Follow = player.transform;
         virtualCamera.LookAt = player.transform;
 
+        GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
         GameEventManager.GetInstance().Suscribe(GameEvent.FINISH_LEVEL, FinishLevel);
         GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleDead);
@@ -167,7 +165,6 @@ public class GameManager : MonoBehaviour
     { 
         stopwatchTime += Time.deltaTime;
         UpdateStopwatchDisplay();
-        CheckSpawnTime();
 
         if (stopwatchTime >= bossSpawnTime)
             SpawnBoss();
@@ -184,18 +181,7 @@ public class GameManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(stopwatchTime/60);
         int seconds = Mathf.FloorToInt(stopwatchTime%60);
 
-        rootStopwatch = UIObject.GetComponent<UIDocument>().rootVisualElement;
-
-        Label stopwatch = rootStopwatch.Q<Label>("stopwatch");
-
-        stopwatch.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    }
-
-    private void CheckSpawnTime()
-    {
-        rootStopwatch = UIObject.GetComponent<UIDocument>().rootVisualElement;
-
-        Label stopwatch = rootStopwatch.Q<Label>("stopwatch");
+        stopwatchLbl.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     private void SpawnBoss()
@@ -205,6 +191,7 @@ public class GameManager : MonoBehaviour
             Vector3 bossPosition = new Vector3(player.transform.position.x, 0f, player.transform.position.z);
             Instantiate(boss, bossPosition, Quaternion.identity);
             bossSpawned = true;
+            rootStopwatch.visible = false;
         }        
     }
 
