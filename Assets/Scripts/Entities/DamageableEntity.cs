@@ -69,7 +69,7 @@ public class DamageableEntity : MonoBehaviour, IEntity
             m_HealthSystem.Damage(Mathf.Max(0, amount - GetDefensePoints()));
 
             if (m_HealthSystem.GetHealth() > 0)
-                GameEventManager.GetInstance().Publish(GameEvent.DAMAGE, new EventContext(this));
+                GameEventManager.GetInstance().Publish(GameEvent.DAMAGE, new EventContext(this, amount));
         }
     }
 

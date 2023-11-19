@@ -1327,6 +1327,7 @@ MonoBehaviour:
   poisonedVfx: {fileID: 3277664832288662663}
   damageAudioSource: {fileID: 8354734934293738505}
   attackAudioSource: {fileID: 2221447094871179461}
+  damageTextPrefab: {fileID: 6063627137709668570, guid: 78fec08c6541b874397dd61de4cf19ae, type: 3}
 --- !u!114 &2264833922789726070
 MonoBehaviour:
   m_ObjectHideFlags: 0
