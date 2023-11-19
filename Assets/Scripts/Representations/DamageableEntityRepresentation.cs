@@ -115,13 +115,7 @@ public class DamageableEntityRepresentation : MonoBehaviour
                 GameObject DamageTextInstance = Instantiate(damageTextPrefab, transform.position, rotacion);
                 float damageAmount = context.GetDamageAmount();
                 TextMeshPro damageText = DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>();
-
-                Debug.Log("Color antes de la configuración: " + damageText.color);
-                damageText.fontSize = 12;
-                damageText.color = Color.red;
                 damageText.SetText("-" + damageAmount.ToString());
-                damageText.SetMaterialDirty();
-                Debug.Log("Color después de la configuración: " + damageText.color);
             }
 
             m_Animator.SetTrigger("ReceiveDamage");
