@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EvoGunsController : MonoBehaviour
 {
+    [SerializeField] Player player;
+
     private List<Weapon> m_WeaponInventory;
 
     Dictionary<string, string> evoGunstMap = new Dictionary<string, string>
@@ -24,25 +26,31 @@ public class EvoGunsController : MonoBehaviour
 
     private void HandleMaxLvlWeapon(EventContext context)
     {
-        Debug.Log("handlemax level");
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        Player player = playerObject.GetComponent<Player>();
-        m_WeaponInventory = player.GetWeapons();
-
-        List<Weapon> maxWeapons =  GetMaxLevelWeapons(m_WeaponInventory);
-        Debug.Log(maxWeapons.ToArray());
-        if (maxWeapons.Count >= 2)
+        try
         {
-            List<string> evoGuns = FindEvoMatch(maxWeapons);
-            if (evoGuns.Count > 0)
-            {
-                Debug.Log("Evo");
-                EvolveWeapon(evoGuns, player);
-            }
-            else { Debug.Log("No hubo match"); };
-        }
-        else { Debug.Log("Max weapons menor a 2"); }
+            Weapon weapon = (Weapon)context.GetEntity();
+            m_WeaponInventory = player.GetWeapons();
 
+            if (m_WeaponInventory.Contains(weapon)) 
+            {
+                Debug.Log("handlemax level");
+
+                List<Weapon> maxWeapons = GetMaxLevelWeapons(m_WeaponInventory);
+
+                if (maxWeapons.Count >= 2)
+                {
+                    List<string> evoGuns = FindEvoMatch(maxWeapons);
+                    if (evoGuns.Count > 0)
+                    {
+                        Debug.Log("Evo");
+                        EvolveWeapon(evoGuns, player);
+                    }
+                    else { Debug.Log("No hubo match"); };
+                }
+                else { Debug.Log("Max weapons menor a 2"); }
+            }       
+        }
+        catch { }  
     }
 
     // Get a list of weapons at their maximum level
