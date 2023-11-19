@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+using TMPro;
+
 [RequireComponent(typeof(DamageableEntity))]
 [RequireComponent(typeof(Animator))]
 public class DamageableEntityRepresentation : MonoBehaviour
@@ -16,6 +18,8 @@ public class DamageableEntityRepresentation : MonoBehaviour
     private DamageableEntity m_Damageable;
     private Weapon m_Weapon;
     private Animator m_Animator;
+
+    public GameObject damageTextPrefab;
 
     void Start()
     {
@@ -105,6 +109,21 @@ public class DamageableEntityRepresentation : MonoBehaviour
     {
         if (context.GetEntity().Equals(m_Damageable))
         {
+            if (damageTextPrefab != null)
+            {
+                Quaternion rotacion = Quaternion.identity;
+                GameObject DamageTextInstance = Instantiate(damageTextPrefab, transform.position, rotacion);
+                float damageAmount = context.GetDamageAmount();
+                TextMeshPro damageText = DamageTextInstance.transform.GetChild(0).GetComponent<TextMeshPro>();
+
+                Debug.Log("Color antes de la configuración: " + damageText.color);
+                damageText.fontSize = 12;
+                damageText.color = Color.red;
+                damageText.SetText("-" + damageAmount.ToString());
+                damageText.SetMaterialDirty();
+                Debug.Log("Color después de la configuración: " + damageText.color);
+            }
+
             m_Animator.SetTrigger("ReceiveDamage");
             
             if (damageAudioSource)
