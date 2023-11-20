@@ -4043,8 +4043,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableName: Phobos
   invincibleTime: 4
-  m_Motion: {fileID: 2115029452635309398}
-  m_Weapon: {fileID: 3864743904933060758}
 --- !u!195 &964132313655031621
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4237,6 +4235,7 @@ MonoBehaviour:
   poisonedVfx: {fileID: 0}
   damageAudioSource: {fileID: 1474064769284279813}
   attackAudioSource: {fileID: 0}
+  damageTextPrefab: {fileID: 0}
 --- !u!114 &4440904238906423896
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3202,6 +3202,7 @@ MonoBehaviour:
   poisonedVfx: {fileID: 0}
   damageAudioSource: {fileID: 0}
   attackAudioSource: {fileID: 0}
+  damageTextPrefab: {fileID: 0}
 --- !u!114 &7284477678014786452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3237,10 +3238,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.010756676
-  m_Height: 0.07335357
+  m_Radius: 0.018334055
+  m_Height: 0.07335358
   m_Direction: 1
-  m_Center: {x: -0.00058030605, y: 0.02895278, z: 0.0013017177}
+  m_Center: {x: 0.0009068966, y: 0.028952777, z: 0.0013017178}
 --- !u!114 &4816472217930187531
 MonoBehaviour:
   m_ObjectHideFlags: 0
