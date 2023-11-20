@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Attack: 50
   m_Defense: 2
-  m_Health: 200
+  m_Health: 500
   m_Speed: 5
 --- !u!54 &3721363909803778275
 Rigidbody:
