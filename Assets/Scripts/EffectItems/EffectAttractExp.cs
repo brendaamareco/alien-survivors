@@ -7,11 +7,17 @@ public class ExpAttractor : MonoBehaviour
     public float attractionSpeed = 5f; // Adjust this value to control the attraction speed.
     private Transform playerTransform;
 
+    private GameObject prefabToSpawn;
+    private float itemLifetime = 10f;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             playerTransform = other.transform;
+            SpawnEffect();
+            transform.position += Vector3.up * 100f;
+            Destroy(gameObject, itemLifetime);
         }
     }
 
@@ -37,5 +43,17 @@ public class ExpAttractor : MonoBehaviour
             }
         }
     }
+    public void SpawnEffect()
+    {
+        prefabToSpawn = Resources.Load<GameObject>("Effects/AttractEffect");
+        if (prefabToSpawn != null)
+        {
+            GameObject spawnedItem = Instantiate(prefabToSpawn, transform.position + Vector3.up, Quaternion.identity);
+            Destroy(spawnedItem, itemLifetime);
+        }
+        else
+        {
+            Debug.LogError("No prefabs to spawn. Add prefabs to the 'prefabsToSpawn' array in the Inspector.");
+        }
+    }
 }
-

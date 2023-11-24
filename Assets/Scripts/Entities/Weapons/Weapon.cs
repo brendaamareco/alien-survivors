@@ -15,7 +15,7 @@ public abstract class Weapon : StatsDecorator, IEntity
     [SerializeField] Sprite icon;
 
     private bool m_IsAttacking = false;
-    private int m_Level;
+    private int m_Level = 1;
     private SphereCollider m_ScopeCollider;
     private HashSet<DamageableEntity> m_DamageablesInArea;
 

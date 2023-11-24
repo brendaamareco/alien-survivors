@@ -1,12 +1,14 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: column;">
         <ui:VisualElement name="Inventory" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: auto; height: 30%; justify-content: flex-end;">
-            <ui:VisualElement name="VisualElement" style="height: 70%; width: 60%; align-self: center; justify-content: flex-start; align-items: stretch; flex-direction: column; margin-top: 0; padding-top: 0; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(255, 222, 0); border-right-color: rgb(255, 222, 0); border-top-color: rgb(255, 222, 0); border-bottom-color: rgb(255, 222, 0); background-color: rgba(0, 0, 0, 0.15);" />
+            <ui:VisualElement name="VisualElement" style="height: 70%; width: 60%; align-self: center; justify-content: center; align-items: stretch; flex-direction: column; margin-top: 0; padding-top: 0; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(255, 222, 0); border-right-color: rgb(255, 222, 0); border-top-color: rgb(255, 222, 0); border-bottom-color: rgb(255, 222, 0); background-color: rgba(0, 0, 0, 0.15);">
+                <ui:Label tabindex="-1" text="Level Up!" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; font-size: 36px; -unity-font-style: bold; color: rgb(255, 222, 0); -unity-text-outline-width: 1.5px; -unity-text-outline-color: rgb(0, 0, 0);" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="ItemSelect" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 70%; align-self: auto; justify-content: center;">
             <ui:VisualElement name="VisualElement" style="height: 70%; width: 90%; align-self: center; justify-content: flex-start; align-items: stretch; flex-direction: column; margin-top: 0; padding-top: 0; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-left-color: rgb(255, 222, 0); border-right-color: rgb(255, 222, 0); border-top-color: rgb(255, 222, 0); border-bottom-color: rgb(255, 222, 0); background-color: rgba(0, 0, 0, 0.15);">
-                <ui:Label tabindex="-1" text="Level Up!" display-tooltip-when-elided="true" style="align-self: center; color: rgb(255, 255, 255); font-size: 16px;" />
-                <ui:VisualElement name="ItemContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;" />
+                <ui:Label tabindex="-1" text=" " display-tooltip-when-elided="true" style="align-self: center; color: rgb(255, 222, 0); font-size: 20px; -unity-font-style: bold; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0);" />
+                <ui:VisualElement name="ItemContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; padding-top: 0; padding-bottom: 40px;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

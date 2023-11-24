@@ -5,6 +5,7 @@ using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class HUDController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class HUDController : MonoBehaviour
     private Player m_Player;
     private ProgressBar m_HealthBar;
     private ProgressBar m_ExperienceBar;
+    private Label m_LevelLabel;
 
     private List<Weapon> m_WeaponInventory;
     private List<Item> m_ItemInventory;
@@ -46,6 +48,10 @@ public class HUDController : MonoBehaviour
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
         GameEventManager.GetInstance().Suscribe(GameEvent.VICTORY, Victory);
 
+        m_LevelLabel = container.Q<Label>("LevelLabel");
+        m_LevelLabel.text = "Level 1";
+        GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, UpdateLevelLabel);
+
         SetWeaponInventory();
         SetItemInventory();
         GameEventManager.GetInstance().Suscribe(GameEvent.INVENTORY_CHANGED, SetInventorySprites);
@@ -69,6 +75,10 @@ public class HUDController : MonoBehaviour
             Texture2D backgroundImage = Resources.Load<Texture2D>("ItemSprite/" + item.GetName());
             StyleBackground styleBackground = new StyleBackground(backgroundImage);
             m_itemN.style.backgroundImage = styleBackground;
+
+            Label m_itemNLabel = container.Q<Label>("Item" + count + "Label");
+            m_itemNLabel.text = (item.GetLevel()).ToString();
+
             count += 1;
         }
     }
@@ -84,6 +94,10 @@ public class HUDController : MonoBehaviour
             Texture2D backgroundImage = Resources.Load<Texture2D>("WeaponSprite/" + weapon.GetName());
             StyleBackground styleBackground = new StyleBackground(backgroundImage);
             m_weaponN.style.backgroundImage = styleBackground;
+
+            Label m_weaponNLabel = container.Q<Label>("Weapon" + count + "Label");
+            m_weaponNLabel.text = (weapon.GetLevel()).ToString();
+
             count += 1;
         }
     }
@@ -106,6 +120,11 @@ public class HUDController : MonoBehaviour
         m_ExperienceBar.highValue = expController.GetExpNeeded();
         m_ExperienceBar.value = m_Player.GetExperience() + 10;//Chequear esto
         m_ExperienceBar.title = m_ExperienceBar.value + "/" + m_ExperienceBar.highValue;
+    }
+
+    private void UpdateLevelLabel(EventContext context)
+    {
+        m_LevelLabel.text = "Level " + (m_Player.GetLevel()+1).ToString();
     }
 
     private void PlayerIsDead(EventContext context)

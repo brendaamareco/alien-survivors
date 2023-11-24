@@ -17,5 +17,12 @@ public class EventContext
         this.gameManager = gameManager;
     }
 
+    public EventContext(ChestController chestController)
+    {
+        ChestController = chestController;
+    }
+
+    public ChestController ChestController { get; }
+
     public IEntity GetEntity() { return publisher; }
 }
