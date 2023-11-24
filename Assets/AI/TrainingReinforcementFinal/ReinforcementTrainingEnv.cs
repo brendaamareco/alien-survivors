@@ -195,19 +195,19 @@ public class ReinforcementTrainingEnv : MonoBehaviour
                     if (agent.gameObject.layer == LayerMask.NameToLayer("EnemyR2"))
                     {
                         //Debug.Log("enemy range 2 damaged");
-                        m_GroupEnemy.AddGroupReward(-0.01f);
+                        //m_GroupEnemy.AddGroupReward(-0.01f);
                     }
 
                     else if (agent.gameObject.layer == LayerMask.NameToLayer("EnemyR3"))
                     {
                         //Debug.Log("enemy range 3 damaged");
-                        m_GroupEnemy.AddGroupReward(-0.02f);
+                        //m_GroupEnemy.AddGroupReward(-0.02f);
                     }      
                 }
 
                 else if (agent.CompareTag("Boss"))
                 {
-                    m_GroupEnemy.AddGroupReward(-0.05f);
+                    m_GroupEnemy.AddGroupReward(-0.01f);
                 }
             }
 
