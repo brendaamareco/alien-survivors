@@ -113,9 +113,9 @@ Transform:
   - {fileID: 8436774659868619252}
   - {fileID: 1404160849985077842}
   - {fileID: 1490917906685471694}
-  - {fileID: 1441700783250589113}
+  - {fileID: 7266703821312136375}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5562460418812065932
 MonoBehaviour:
@@ -5176,7 +5176,7 @@ Transform:
   m_Father: {fileID: 2352576532524328735}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1762721845177870938
+--- !u!1001 &7543253997254130516
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5187,18 +5187,6 @@ PrefabInstance:
     - target: {fileID: 898328576160968675, guid: 3355f6bfa6db8b24281b827de929694c, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 898328576160968675, guid: 3355f6bfa6db8b24281b827de929694c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 898328576160968675, guid: 3355f6bfa6db8b24281b827de929694c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 898328576160968675, guid: 3355f6bfa6db8b24281b827de929694c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 898328576160968675, guid: 3355f6bfa6db8b24281b827de929694c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5240,10 +5228,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 898328576160968675, guid: 3355f6bfa6db8b24281b827de929694c, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7957833072274404953, guid: 3355f6bfa6db8b24281b827de929694c, type: 3}
       propertyPath: m_Name
       value: Meteors AOE
@@ -5253,8 +5237,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3355f6bfa6db8b24281b827de929694c, type: 3}
---- !u!4 &1441700783250589113 stripped
+--- !u!4 &7266703821312136375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 898328576160968675, guid: 3355f6bfa6db8b24281b827de929694c, type: 3}
-  m_PrefabInstance: {fileID: 1762721845177870938}
+  m_PrefabInstance: {fileID: 7543253997254130516}
   m_PrefabAsset: {fileID: 0}

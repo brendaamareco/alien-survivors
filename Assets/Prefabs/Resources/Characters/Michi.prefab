@@ -1234,7 +1234,7 @@ Transform:
   - {fileID: 2138293435472020638}
   - {fileID: 3739305189421822138}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4614396242042946903
 Animator:
@@ -1612,7 +1612,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 5022602860645237092, guid: 47c75098b8c4bfe4bb84f88cc99465ac, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: Player
   TeamId: 0
   m_UseChildSensors: 1

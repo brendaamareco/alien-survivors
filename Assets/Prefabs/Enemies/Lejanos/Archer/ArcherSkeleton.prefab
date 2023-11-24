@@ -314,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: ArcherSkeletonWeapon
   scope: 10
-  cooldown: 3
+  cooldown: 1
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
@@ -3120,7 +3120,7 @@ Transform:
   - {fileID: 7359483974018954749}
   - {fileID: 283530736286233846}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2887142708889438758
 Animator:
@@ -3218,7 +3218,7 @@ MonoBehaviour:
   m_Attack: 5
   m_Defense: 2
   m_Health: 75
-  m_Speed: 2
+  m_Speed: 3
 --- !u!136 &502344991063093497
 CapsuleCollider:
   m_ObjectHideFlags: 0
