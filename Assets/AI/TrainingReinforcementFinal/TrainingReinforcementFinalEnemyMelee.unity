@@ -911,7 +911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 553636207791147502, guid: ab76dd2c3c21a024dacd3a04be1fb580, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 558021466638497687, guid: ab76dd2c3c21a024dacd3a04be1fb580, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6658,7 +6658,7 @@ PrefabInstance:
     - target: {fileID: 8710874660989407778, guid: 97d20b30dbc7c9b4198b21981fc103df, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 0706e9d51214aa2478cd582e8afbd48e, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7047,7 +7047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 553636207791147502, guid: ab76dd2c3c21a024dacd3a04be1fb580, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 558021466638497687, guid: ab76dd2c3c21a024dacd3a04be1fb580, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12800,7 +12800,7 @@ PrefabInstance:
     - target: {fileID: 3067405738408413224, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 0706e9d51214aa2478cd582e8afbd48e, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4277234621566703959, guid: 8c3d371abaadfd84f99c17fc155442bb, type: 3}
       propertyPath: m_Name
       value: Robot
@@ -13193,7 +13193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 553636207791147502, guid: ab76dd2c3c21a024dacd3a04be1fb580, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 558021466638497687, guid: ab76dd2c3c21a024dacd3a04be1fb580, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19614,7 +19614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 553636207791147502, guid: ab76dd2c3c21a024dacd3a04be1fb580, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 558021466638497687, guid: ab76dd2c3c21a024dacd3a04be1fb580, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25426,7 +25426,7 @@ PrefabInstance:
     - target: {fileID: 4607711493534185330, guid: ba1b72e888bee534d83e62f24330af87, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 0706e9d51214aa2478cd582e8afbd48e, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25890,7 +25890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 553636207791147502, guid: ab76dd2c3c21a024dacd3a04be1fb580, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 558021466638497687, guid: ab76dd2c3c21a024dacd3a04be1fb580, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38277,7 +38277,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6534849789315222956}
-  m_LocalRotation: {x: 0.24133071, y: 0.3707134, z: -0.100385554, w: 0.8912092}
+  m_LocalRotation: {x: 0.24133073, y: 0.3707134, z: -0.10038558, w: 0.8912092}
   m_LocalPosition: {x: 39.52, y: 8.29, z: 49.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -38387,7 +38387,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5547195316041089122}
-  m_LocalRotation: {x: 0.24133071, y: 0.3707134, z: -0.100385554, w: 0.8912092}
+  m_LocalRotation: {x: 0.24133073, y: 0.3707134, z: -0.10038558, w: 0.8912092}
   m_LocalPosition: {x: 39.52, y: 8.29, z: 49.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
