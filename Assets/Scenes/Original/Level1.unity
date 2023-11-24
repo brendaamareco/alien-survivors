@@ -8854,7 +8854,7 @@ PrefabInstance:
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: boss
       value: 
-      objectReference: {fileID: 7646069978523975087, guid: 9ff68b7f8fb50c243a9f0885cc4d6012, type: 3}
+      objectReference: {fileID: 3038636458016065632, guid: a305bd5cd2604394f9b821a25528f27f, type: 3}
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: boss1
       value: 
