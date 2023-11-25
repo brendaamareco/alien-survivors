@@ -32,10 +32,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/AI/TrainingReinforcementFinal/TrainingReinforcementFinalEnemyMelee.unity
     guid: dce9887a59c9b4f4d921289c91450596
-  - enabled: 0
+  - enabled: 1
     path: Assets/AI/TrainingReinforcementFinal/TrainingReinforcementFinalPlayer.unity
     guid: 41905dd6a075c6c439781ca55f962409
-  - enabled: 1
+  - enabled: 0
     path: Assets/AI/TrainingReinforcementFinal/TrainingReinforcementFinalBoss.unity
     guid: 0113327a3cd4781439a51fd71b3adae3
   m_configObjects: {}

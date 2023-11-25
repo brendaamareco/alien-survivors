@@ -56,11 +56,47 @@ public class ReinforcementTrainingEnv : MonoBehaviour
         m_GroupEnemy = new SimpleMultiAgentGroup();
         m_GroupPlayer = new SimpleMultiAgentGroup();
 
+	    RegisterAgents();
+
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, HandleOnDamage);
         GameEventManager.GetInstance().Suscribe(GameEvent.ATTACK, HandleOnAttack);
         GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleOnDead);
 
         ResetScene();       
+    }
+
+    private void RegisterAgents()
+    {
+        if (bossGo != null)
+        {
+            Agent bossAgent = bossGo.GetComponent<Agent>();
+            m_GroupEnemy.RegisterAgent(bossAgent);
+        }
+
+        Agent playerAgent = playerGo.GetComponent<Agent>();
+        m_GroupPlayer.RegisterAgent(playerAgent);
+
+        RegisterEnemy(enemiesRange1Parent);
+        RegisterEnemy(enemiesRange2Parent);
+        RegisterEnemy(enemiesRange3Parent);
+    }
+
+    private void RegisterEnemy(GameObject enemiesParent)
+    {
+        if (enemiesParent != null)
+        {
+            int numberOfChilds = enemiesParent.transform.childCount;
+            for (int i = 0; i < numberOfChilds; i++)
+            {
+                GameObject enemyGo = enemiesParent.transform.GetChild(i).gameObject;
+                
+                if (enemyGo.activeInHierarchy)
+                { 
+                    Agent enemyAgent = enemyGo.GetComponent<Agent>();
+                    m_GroupEnemy.RegisterAgent(enemyAgent);
+                }
+            }
+        }
     }
 
     private void ResetScene()
@@ -240,8 +276,6 @@ public class ReinforcementTrainingEnv : MonoBehaviour
         boss.ResetStats();
         boss.Heal(boss.GetMaxHealthPoints());
 
-        m_GroupEnemy.RegisterAgent(bossGo.GetComponent<Agent>());
-
         return boss;        
     }
 
@@ -283,7 +317,6 @@ public class ReinforcementTrainingEnv : MonoBehaviour
                     enemy.Heal(enemy.GetMaxHealthPoints());
 
                     enemies.Add(enemy);
-                    m_GroupEnemy.RegisterAgent(enemyGo.GetComponent<Agent>());
                 }             
             }
         }      
@@ -311,8 +344,6 @@ public class ReinforcementTrainingEnv : MonoBehaviour
         Player player = playerGo.GetComponent<Player>();
         player.ResetStats();
         player.Heal(player.GetMaxHealthPoints());
-
-        m_GroupPlayer.RegisterAgent(playerGo.GetComponent<Agent>());
 
         return player;
     }
