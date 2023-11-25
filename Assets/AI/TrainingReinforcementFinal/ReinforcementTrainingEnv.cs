@@ -207,7 +207,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
                 else if (agent.CompareTag("Boss"))
                 {
-                    m_GroupEnemy.AddGroupReward(-0.01f);
+                    //m_GroupEnemy.AddGroupReward(-0.01f);
                 }
             }
 
@@ -230,8 +230,10 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
         BaseStats bossStats = bossGo.GetComponent<BaseStats>();
         bossStats.SetDefense(0);
-        bossStats.SetAttack(Random.Range(10, bossMaxAttack + 1));
-        bossStats.SetHealth(Random.Range(10, bossMaxHP + 1));
+        //bossStats.SetAttack(Random.Range(10, bossMaxAttack + 1));
+        bossStats.SetAttack(bossMaxAttack);
+        //bossStats.SetHealth(Random.Range(10, bossMaxHP + 1));
+	bossStats.SetHealth(bossMaxHP);
         //bossStats.SetSpeed(Random.Range(agentsMinSpeed, agentsMaxSpeed + 1));
 
         Enemy boss = bossGo.GetComponent<Enemy>();
@@ -271,7 +273,8 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
                     BaseStats enemyStats = enemyGo.GetComponent<BaseStats>();
                     enemyStats.SetDefense(0);
-                    enemyStats.SetAttack(Random.Range(10, enemiesMaxAttack + 1));
+		    enemyStats.SetAttack(enemiesMaxAttack);
+                    //enemyStats.SetAttack(Random.Range(10, enemiesMaxAttack + 1));
                     enemyStats.SetHealth(Random.Range(10, enemiesMaxHP + 1));
                     //enemyStats.SetSpeed(Random.Range(agentsMinSpeed, agentsMaxSpeed + 1));
 
