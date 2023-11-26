@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533272400472665394}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00009395838, y: -0.013952676, z: -0.027932161}
+  m_LocalPosition: {x: -0.00009395838, y: 0.075, z: -0.027932161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2196756158367548138}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000034439563, y: 0.017282978, z: -0.028132176}
+  m_LocalPosition: {x: -0.0000034439563, y: 0.075, z: -0.028132176}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4249658691347559742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.85, y: 0.711, z: 0}
+  m_LocalPosition: {x: 6.85, y: 0, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -493,7 +493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8353603590667422981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -526,7 +526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8700098516056703889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -552,7 +552,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3063102919838405124
 MonoBehaviour:
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: UfoWeapon
-  scope: 5
+  scope: 10
   cooldown: 2
   attackExtraPoints: 0
   upgradePercentage: 0.25

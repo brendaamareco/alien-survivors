@@ -4208,7 +4208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: AtTeWalkerWeapon
-  scope: 5
+  scope: 10
   cooldown: 1
   attackExtraPoints: 0
   upgradePercentage: 0.25
@@ -5985,7 +5985,7 @@ Transform:
   - {fileID: 3149624349106831503}
   - {fileID: 2061948716262548874}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6434934625408641519
 Animator:
@@ -6148,7 +6148,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bd7eabbc26397d44fb6f7a5046cf175d, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: EnemyRangedWeapon

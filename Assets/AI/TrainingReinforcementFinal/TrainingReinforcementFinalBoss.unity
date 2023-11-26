@@ -1025,6 +1025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Predator
       objectReference: {fileID: 0}
+    - target: {fileID: 1105699505783279114, guid: de6c17439f5ec2840a8d013c2b5100df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3398726356938314096, guid: de6c17439f5ec2840a8d013c2b5100df, type: 3}
       propertyPath: m_RootOrder
       value: -1
