@@ -23,6 +23,7 @@ public class BossImitationLearning : Agent
 
         Player player = GameObject.FindGameObjectWithTag("Player").transform.GetComponent<Player>();
         sensor.AddObservation(player.transform.position);
+        sensor.AddObservation(player.GetCurrentHealthPointsNormalized());
     }
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
