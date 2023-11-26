@@ -316,6 +316,10 @@ PrefabInstance:
       propertyPath: m_Health
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 4091565815205168254, guid: e337d8b475976644aaa692ff974e4fed, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5250514569022610469, guid: e337d8b475976644aaa692ff974e4fed, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -365,6 +369,10 @@ PrefabInstance:
       value: Michi
       objectReference: {fileID: 0}
     - target: {fileID: 5641017903040618783, guid: e337d8b475976644aaa692ff974e4fed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649355289162162064, guid: e337d8b475976644aaa692ff974e4fed, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -532,7 +540,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3463369821176119154, guid: c57b2cb4b1f44484483f0a393dbeb7d1, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3463369821176119154, guid: c57b2cb4b1f44484483f0a393dbeb7d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -787,7 +795,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &503498834
 AudioSource:
@@ -979,7 +987,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3463369821176119154, guid: c57b2cb4b1f44484483f0a393dbeb7d1, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3463369821176119154, guid: c57b2cb4b1f44484483f0a393dbeb7d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1208,7 +1216,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3463369821176119154, guid: c57b2cb4b1f44484483f0a393dbeb7d1, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3463369821176119154, guid: c57b2cb4b1f44484483f0a393dbeb7d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1305,7 +1313,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3463369821176119154, guid: c57b2cb4b1f44484483f0a393dbeb7d1, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3463369821176119154, guid: c57b2cb4b1f44484483f0a393dbeb7d1, type: 3}
       propertyPath: m_LocalPosition.x

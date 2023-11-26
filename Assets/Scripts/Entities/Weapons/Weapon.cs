@@ -35,6 +35,9 @@ public abstract class Weapon : StatsDecorator, IEntity
             StartCoroutine(nameof(AttackCoroutine), attack);
     }
 
+    public bool CanAttack()
+    { return !m_IsAttacking; }
+
     private IEnumerator AttackCoroutine(int attack)
     {
         m_IsAttacking = true;

@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 1889984652581136380}
   - component: {fileID: 7115835466739534086}
   - component: {fileID: 5775162310556909983}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,6 +322,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 6736623110088056837}
   ammunitionPrefab: {fileID: 1000011023395326, guid: 21ce0107bf7576246b86b2f5e4105590, type: 3}
   ammunitionSpeed: 10
+  layerName: Enemy
 --- !u!1 &805374076199701590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,7 +3094,6 @@ GameObject:
   - component: {fileID: 4816472217930187531}
   - component: {fileID: 4876710630098784891}
   - component: {fileID: 4210880603642707991}
-  - component: {fileID: 4471416103772734410}
   - component: {fileID: 5076424417851658685}
   - component: {fileID: 8664400357736572262}
   - component: {fileID: 8404507294787194571}
@@ -3218,7 +3218,7 @@ MonoBehaviour:
   m_Attack: 5
   m_Defense: 2
   m_Health: 75
-  m_Speed: 3
+  m_Speed: 4
 --- !u!136 &502344991063093497
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3286,7 +3286,7 @@ MonoBehaviour:
   - Enemy
   - Water
   - Boss
-  m_RaysPerDirection: 24
+  m_RaysPerDirection: 35
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.01
   m_RayLength: 100
@@ -3297,33 +3297,6 @@ MonoBehaviour:
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0
-  m_EndVerticalOffset: 0
---- !u!114 &4471416103772734410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7098359884938559839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SensorName: RayAmmunition
-  m_DetectableTags:
-  - Ammunition
-  m_RaysPerDirection: 20
-  m_MaxRayDegrees: 180
-  m_SphereCastRadius: 0.025
-  m_RayLength: 1
-  m_RayLayerMask:
-    serializedVersion: 2
-    m_Bits: 6336
-  m_ObservationStacks: 3
-  rayHitColor: {r: 0, g: 0.14955035, b: 0.9150943, a: 1}
-  rayMissColor: {r: 0, g: 0, b: 0, a: 1}
-  m_StartVerticalOffset: 0.03
   m_EndVerticalOffset: 0
 --- !u!114 &5076424417851658685
 MonoBehaviour:
@@ -3356,7 +3329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 10
+    VectorObservationSize: 6
     NumStackedVectorObservations: 3
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -3495,7 +3468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6736623110088056837}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

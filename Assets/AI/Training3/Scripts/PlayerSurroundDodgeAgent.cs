@@ -11,16 +11,10 @@ public class PlayerSurroundDodgeAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        Weapon weapon = m_Player.GetComponentInChildren<Weapon>();
+        //Weapon weapon = m_Player.GetComponentInChildren<Weapon>();
 
-        sensor.AddObservation(transform.localPosition);
+        //sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(m_Player.GetCurrentHealthPointsNormalized());
-        sensor.AddObservation(m_Player.GetSpeedPoints());
-        sensor.AddObservation(transform.localScale);
-
-        //TODO: null error
-        sensor.AddObservation(weapon.GetScope());
-        sensor.AddObservation(weapon.GetCooldown());
     }
 
     public override void OnActionReceived(ActionBuffers actions)

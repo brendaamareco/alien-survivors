@@ -50,9 +50,11 @@ public class ReinforcementTrainingEnv : MonoBehaviour
     private SimpleMultiAgentGroup m_GroupPlayer;
     private int m_ResetTimer = 0;
     private int m_DeadEnemies = 0;
+    private GameObject m_SpawnAreas;
 
     private void Start()
     {
+        m_SpawnAreas = GameObject.Find("SpawnAreas");
         m_GroupEnemy = new SimpleMultiAgentGroup();
         m_GroupPlayer = new SimpleMultiAgentGroup();
 
@@ -104,6 +106,9 @@ public class ReinforcementTrainingEnv : MonoBehaviour
         m_ResetTimer = 0;
         m_DeadEnemies = 0;
 
+        if (m_SpawnAreas != null)
+            spawnArea = m_SpawnAreas.transform.GetChild(Random.Range(0, m_SpawnAreas.transform.childCount)).GetComponent<BoxCollider>();
+
         CreatePlayer();
 
         if (bossGo)
@@ -127,9 +132,10 @@ public class ReinforcementTrainingEnv : MonoBehaviour
         if (m_ResetTimer >= maxEnvironmentSteps && maxEnvironmentSteps > 0)
         {
             //Debug.Log("Tie");
+            Player player = playerGo.GetComponent<Player>();
+            m_GroupEnemy.AddGroupReward(-2f * player.GetCurrentHealthPointsNormalized());
 
-            m_GroupEnemy.AddGroupReward(-2f);
-            m_GroupPlayer.AddGroupReward(-2f);
+            m_GroupPlayer.AddGroupReward(-2f * (1 - ( (float) m_DeadEnemies / (float) m_GroupEnemy.GetRegisteredAgents().Count)));
 
             m_GroupEnemy.EndGroupEpisode();
             m_GroupPlayer.EndGroupEpisode();
@@ -309,7 +315,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
                     enemyStats.SetDefense(0);
 		    enemyStats.SetAttack(enemiesMaxAttack);
                     //enemyStats.SetAttack(Random.Range(10, enemiesMaxAttack + 1));
-                    enemyStats.SetHealth(Random.Range(10, enemiesMaxHP + 1));
+                    enemyStats.SetHealth(enemiesMaxHP);
                     //enemyStats.SetSpeed(Random.Range(agentsMinSpeed, agentsMaxSpeed + 1));
 
                     Enemy enemy = enemyGo.GetComponent<Enemy>();
@@ -337,9 +343,9 @@ public class ReinforcementTrainingEnv : MonoBehaviour
 
         BaseStats playerStats = playerGo.GetComponent<BaseStats>();
         playerStats.SetDefense(0);
-        playerStats.SetAttack(Random.Range(10, playerMaxAttack + 1));
+        playerStats.SetAttack(playerMaxAttack);
         //playerStats.SetSpeed(Random.Range(1, 2));
-        playerStats.SetHealth(Random.Range(10, playerMaxHP + 1));
+        playerStats.SetHealth(playerMaxHP);
 
         Player player = playerGo.GetComponent<Player>();
         player.ResetStats();
