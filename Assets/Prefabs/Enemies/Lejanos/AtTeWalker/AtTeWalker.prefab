@@ -4141,6 +4141,83 @@ Transform:
   m_Father: {fileID: 7981854080772540204}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6036826360830068503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2061948716262548874}
+  - component: {fileID: 2496808956726910200}
+  - component: {fileID: 670726638538496068}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2061948716262548874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036826360830068503}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.7299824, y: 1.3819587, z: 2.1265793}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3065274646207719118}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2496808956726910200
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036826360830068503}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &670726638538496068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036826360830068503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: AtTeWalkerWeapon
+  scope: 5
+  cooldown: 1
+  attackExtraPoints: 0
+  upgradePercentage: 0.25
+  maxLevel: 1
+  icon: {fileID: 0}
+  spawnPosition: {fileID: 3149624349106831503}
+  ammunitionPrefab: {fileID: 1000011023395326, guid: 6e2c9790ba94adb46893b62d71bf158b, type: 3}
+  ammunitionSpeed: 8
+  layerName: Enemy
 --- !u!1 &6097559260571659426
 GameObject:
   m_ObjectHideFlags: 0
@@ -5874,18 +5951,16 @@ GameObject:
   - component: {fileID: 6434934625408641519}
   - component: {fileID: 2412467702841151947}
   - component: {fileID: 7791207932354133860}
-  - component: {fileID: 8203891549352824082}
-  - component: {fileID: 2196623773720662069}
   - component: {fileID: 7270891170745981362}
   - component: {fileID: 7612880435131252383}
-  - component: {fileID: 3177039907994072396}
   - component: {fileID: 7913261121899212451}
   - component: {fileID: 3828295575544242378}
-  - component: {fileID: 2009785746480755046}
   - component: {fileID: 5082309837269532724}
   - component: {fileID: 1313128616063714148}
   - component: {fileID: 1869200189912343937}
   - component: {fileID: 4218001328144997511}
+  - component: {fileID: 316029407323559851}
+  - component: {fileID: 8383233631712843898}
   m_Layer: 6
   m_Name: AtTeWalker
   m_TagString: Enemy
@@ -5908,8 +5983,9 @@ Transform:
   - {fileID: 4670047025678238626}
   - {fileID: 6303482048598472057}
   - {fileID: 3149624349106831503}
+  - {fileID: 2061948716262548874}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6434934625408641519
 Animator:
@@ -5947,7 +6023,7 @@ MonoBehaviour:
   m_Attack: 100
   m_Defense: 30
   m_Health: 200
-  m_Speed: 3
+  m_Speed: 4
 --- !u!114 &7791207932354133860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5962,49 +6038,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageableName: AtTeWalker
   invincibleTime: 4
---- !u!135 &8203891549352824082
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8176767757451781118}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2196623773720662069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8176767757451781118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponName: AtTeWalkerWeapon
-  scope: 5
-  cooldown: 1
-  attackExtraPoints: 0
-  upgradePercentage: 0.25
-  maxLevel: 1
-  icon: {fileID: 0}
-  spawnPosition: {fileID: 3149624349106831503}
-  ammunitionPrefab: {fileID: 1000011023395326, guid: 6e2c9790ba94adb46893b62d71bf158b, type: 3}
-  ammunitionSpeed: 8
 --- !u!114 &7270891170745981362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6023,7 +6056,7 @@ MonoBehaviour:
   poisonedVfx: {fileID: 0}
   damageAudioSource: {fileID: 0}
   attackAudioSource: {fileID: 0}
-  damageTextPrefab: {fileID: 0}
+  damageTextPrefab: {fileID: 5634242469028088512, guid: 933814add6b4d77458c8cdf4e56ea59d, type: 3}
 --- !u!54 &7612880435131252383
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6051,27 +6084,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!65 &3177039907994072396
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8176767757451781118}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.7372246, y: 2.316749, z: 3.53294}
-  m_Center: {x: -0.021047592, y: 0.65837455, z: -0.16256523}
 --- !u!114 &7913261121899212451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6097,51 +6109,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SensorName: RayPEWB
+  m_SensorName: RayEWB
   m_DetectableTags:
-  - Player
   - Enemy
   - Water
   - Boss
-  m_RaysPerDirection: 24
+  m_RaysPerDirection: 35
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.75
   m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 6352
+    m_Bits: 6224
   m_ObservationStacks: 3
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0
---- !u!114 &2009785746480755046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8176767757451781118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SensorName: RayAmmunition
-  m_DetectableTags:
-  - Ammunition
-  m_RaysPerDirection: 20
-  m_MaxRayDegrees: 180
-  m_SphereCastRadius: 1
-  m_RayLength: 6
-  m_RayLayerMask:
-    serializedVersion: 2
-    m_Bits: 6336
-  m_ObservationStacks: 3
-  rayHitColor: {r: 0, g: 0.14955035, b: 0.9150943, a: 1}
-  rayMissColor: {r: 0, g: 0, b: 0, a: 1}
-  m_StartVerticalOffset: 0.5
-  m_EndVerticalOffset: 0.44
 --- !u!114 &5082309837269532724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6155,7 +6139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 10
+    VectorObservationSize: 3
     NumStackedVectorObservations: 3
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -6164,7 +6148,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: bd7eabbc26397d44fb6f7a5046cf175d, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: EnemyRangedWeapon
@@ -6189,7 +6173,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   m_Enemy: {fileID: 7791207932354133860}
-  m_Weapon: {fileID: 2196623773720662069}
+  m_Weapon: {fileID: 670726638538496068}
 --- !u!114 &1869200189912343937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6217,6 +6201,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 360
+--- !u!114 &316029407323559851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176767757451781118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPlayer
+  m_DetectableTags:
+  - Player
+  m_RaysPerDirection: 35
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0.75
+  m_RayLength: 100
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ObservationStacks: 3
+  rayHitColor: {r: 0, g: 0.058670044, b: 1, a: 1}
+  rayMissColor: {r: 0, g: 0, b: 0, a: 1}
+  m_StartVerticalOffset: 0
+  m_EndVerticalOffset: 0
+--- !u!136 &8383233631712843898
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176767757451781118}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.059887
+  m_Height: 4.32022
+  m_Direction: 1
+  m_Center: {x: -0.01999998, y: 0.9243989, z: 0.13672256}
 --- !u!1 &8179655929488914379
 GameObject:
   m_ObjectHideFlags: 0

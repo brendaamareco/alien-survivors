@@ -173,7 +173,7 @@ public class ReinforcementTrainingEnv : MonoBehaviour
             {
                 m_DeadEnemies += 1;
 
-                agent.gameObject.transform.position = loserPlace.position;
+                agent.gameObject.transform.position += loserPlace.position;
 
                 if (agent.CompareTag("Boss") || m_DeadEnemies == m_GroupEnemy.GetRegisteredAgents().Count)
                 {
@@ -296,10 +296,15 @@ public class ReinforcementTrainingEnv : MonoBehaviour
             for (int i = 0; i < numberOfChilds; i++)
             {
                 GameObject enemyGo = enemiesParent.transform.GetChild(i).gameObject;
-                
+
                 if (enemyGo.activeInHierarchy)
                 {
-                    enemyGo.transform.localPosition = GetRandomPosition();
+                    float yPos = enemyGo.transform.localPosition.y;
+                    Vector3 newPos = GetRandomPosition();
+                    newPos.y = (yPos - loserPlace.position.y < 0)? yPos : yPos - loserPlace.position.y;
+
+                    enemyGo.transform.localPosition = newPos;
+
                     enemyGo.GetComponent<DropSpawner>().enabled = false;
                     DamageableEntityRepresentation der = enemyGo.GetComponent<DamageableEntityRepresentation>();
 

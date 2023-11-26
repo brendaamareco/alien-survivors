@@ -3121,7 +3121,7 @@ Transform:
   - {fileID: 7359483974018954749}
   - {fileID: 283530736286233846}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2887142708889438758
 Animator:
@@ -3203,7 +3203,7 @@ MonoBehaviour:
   poisonedVfx: {fileID: 0}
   damageAudioSource: {fileID: 0}
   attackAudioSource: {fileID: 0}
-  damageTextPrefab: {fileID: 0}
+  damageTextPrefab: {fileID: 5634242469028088512, guid: 933814add6b4d77458c8cdf4e56ea59d, type: 3}
 --- !u!114 &7284477678014786452
 MonoBehaviour:
   m_ObjectHideFlags: 0
