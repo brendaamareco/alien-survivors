@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/AI/TrainingReinforcementFinal/TrainingReinforcementFinalBoss.unity
     guid: 0113327a3cd4781439a51fd71b3adae3
+  - enabled: 0
+    path: Assets/AI/TrainingReinforcementFinal/TrainingReinforcementFinalEnemyRanged.unity
+    guid: 3578bda4297835b4eaf015a41114396b
   m_configObjects: {}

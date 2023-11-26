@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Attack: 16
   m_Defense: 10
   m_Health: 100
-  m_Speed: 3
+  m_Speed: 4
 --- !u!114 &8986922308155819663
 MonoBehaviour:
   m_ObjectHideFlags: 0
