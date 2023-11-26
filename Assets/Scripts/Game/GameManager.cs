@@ -67,7 +67,20 @@ public class GameManager : MonoBehaviour
                 enemiesOnScreen--;
             }
 
-        } catch { }
+        } 
+        catch { }
+        /*
+        try
+        {
+            Player player = (Player)context.GetEntity();
+
+            if (player != null)
+            {
+                player.DestroyWeapons();
+            }
+        }
+        catch { }
+        */
     }
 
     private void FinishLevel(EventContext obj) 
