@@ -597,10 +597,10 @@ GameObject:
   - component: {fileID: 2161805256312885118}
   - component: {fileID: 4275758532271988698}
   - component: {fileID: 7267418377522952941}
-  - component: {fileID: 6393750567464609021}
   - component: {fileID: 4665037503025377740}
   - component: {fileID: 9140940874666999713}
   - component: {fileID: 6888732288742594090}
+  - component: {fileID: 2944750265625449790}
   m_Layer: 6
   m_Name: Gargantua
   m_TagString: Enemy
@@ -641,7 +641,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 41633f811f52ba444ad07db936168bcb, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Attack: 50
   m_Defense: 30
   m_Health: 200
-  m_Speed: 5
+  m_Speed: 4
 --- !u!114 &4179840160226837587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,7 +753,7 @@ MonoBehaviour:
   poisonedVfx: {fileID: 0}
   damageAudioSource: {fileID: 0}
   attackAudioSource: {fileID: 0}
-  damageTextPrefab: {fileID: 0}
+  damageTextPrefab: {fileID: 5634242469028088512, guid: 933814add6b4d77458c8cdf4e56ea59d, type: 3}
 --- !u!114 &317793820823808870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,7 +792,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &2161805256312885118
 MonoBehaviour:
@@ -842,51 +842,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SensorName: RayPEWB
+  m_SensorName: RayEWB
   m_DetectableTags:
-  - Player
   - Enemy
   - Water
   - Boss
-  m_RaysPerDirection: 24
+  m_RaysPerDirection: 35
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.3
   m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 6352
+    m_Bits: 6224
   m_ObservationStacks: 3
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0
---- !u!114 &6393750567464609021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360687959597897219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SensorName: RayAmmunition
-  m_DetectableTags:
-  - Ammunition
-  m_RaysPerDirection: 20
-  m_MaxRayDegrees: 180
-  m_SphereCastRadius: 0.45
-  m_RayLength: 10
-  m_RayLayerMask:
-    serializedVersion: 2
-    m_Bits: 6336
-  m_ObservationStacks: 3
-  rayHitColor: {r: 0, g: 0.14955035, b: 0.9150943, a: 1}
-  rayMissColor: {r: 0, g: 0, b: 0, a: 1}
-  m_StartVerticalOffset: 1.35
-  m_EndVerticalOffset: 1.32
 --- !u!114 &4665037503025377740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,7 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 10
+    VectorObservationSize: 3
     NumStackedVectorObservations: 3
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -909,7 +881,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 0706e9d51214aa2478cd582e8afbd48e, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: EnemyMelee
@@ -949,6 +921,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &2944750265625449790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360687959597897219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPlayer
+  m_DetectableTags:
+  - Player
+  m_RaysPerDirection: 35
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0.3
+  m_RayLength: 100
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ObservationStacks: 3
+  rayHitColor: {r: 0.025950909, g: 0, b: 1, a: 1}
+  rayMissColor: {r: 0, g: 0, b: 0, a: 1}
+  m_StartVerticalOffset: 0
+  m_EndVerticalOffset: 0
 --- !u!1 &1431660408000957902
 GameObject:
   m_ObjectHideFlags: 0
