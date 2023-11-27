@@ -20,7 +20,7 @@ public class VideoController : MonoBehaviour
         if (Input.anyKey)
         {
             // Load the main menu scene
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene(1);
         }
     }
 }

@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     private Label stopwatchLbl;
     private int enemiesOnScreen = 0;
     private bool enemySpawnerStarted = false;
+    private bool bossDefeated = false;
 
     private void Start()
     {
@@ -291,6 +292,7 @@ public class GameManager : MonoBehaviour
 
     public void BossDefeated()
     {
+        bossDefeated = true;
         StopAllCoroutines();
     }
 
