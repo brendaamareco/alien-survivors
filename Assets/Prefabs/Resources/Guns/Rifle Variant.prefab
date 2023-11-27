@@ -754,7 +754,7 @@ Transform:
   - {fileID: 3072037943258494181}
   - {fileID: 8780192139318161910}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1365329762239700834
 SphereCollider:
@@ -799,6 +799,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 8780192139318161910}
   ammunitionPrefab: {fileID: 1000011023395326, guid: 21ce0107bf7576246b86b2f5e4105590, type: 3}
   ammunitionSpeed: 15
+  layerName: Player
 --- !u!1 &4666560123537695156
 GameObject:
   m_ObjectHideFlags: 0

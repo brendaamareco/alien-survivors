@@ -934,11 +934,11 @@ GameObject:
   - component: {fileID: 2845961481695379128}
   - component: {fileID: 7129180648671239712}
   - component: {fileID: 6101115139067383419}
-  - component: {fileID: 6844849884656037212}
   - component: {fileID: 3067405738408413224}
   - component: {fileID: 3797857511003056697}
   - component: {fileID: 7800012026568369531}
   - component: {fileID: 4673503178401481569}
+  - component: {fileID: 2389257105068316851}
   m_Layer: 6
   m_Name: Robot
   m_TagString: Enemy
@@ -964,7 +964,7 @@ Transform:
   - {fileID: 1865669327521027617}
   - {fileID: 7414107542277708603}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8262775623647815597
 Animator:
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Attack: 16
   m_Defense: 10
   m_Health: 100
-  m_Speed: 2
+  m_Speed: 4
 --- !u!114 &8986922308155819663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,8 +1051,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: "Pu\xF1o"
-  scope: 1
-  cooldown: 2
+  scope: 1.5
+  cooldown: 1
   attackExtraPoints: 0
   upgradePercentage: 0.25
   maxLevel: 1
@@ -1076,6 +1076,7 @@ MonoBehaviour:
   poisonedVfx: {fileID: 0}
   damageAudioSource: {fileID: 0}
   attackAudioSource: {fileID: 0}
+  damageTextPrefab: {fileID: 5634242469028088512, guid: 933814add6b4d77458c8cdf4e56ea59d, type: 3}
 --- !u!54 &4394525774781623174
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1122,10 +1123,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.4415145
+  m_Radius: 0.8024273
+  m_Height: 2.5939486
   m_Direction: 1
-  m_Center: {x: 0, y: 0.72075725, z: 0}
+  m_Center: {x: -0.0027103424, y: 0.7969743, z: 0}
 --- !u!114 &2845961481695379128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1165,50 +1166,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SensorName: RayPEWB
+  m_SensorName: RayEWB
   m_DetectableTags:
-  - Player
   - Enemy
   - Water
   - Boss
-  m_RaysPerDirection: 24
+  m_RaysPerDirection: 35
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.3
   m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 6352
+    m_Bits: 6224
   m_ObservationStacks: 3
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0
-  m_EndVerticalOffset: 0
---- !u!114 &6844849884656037212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4277234621566703959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SensorName: RayAmmunition
-  m_DetectableTags:
-  - Ammunition
-  m_RaysPerDirection: 20
-  m_MaxRayDegrees: 180
-  m_SphereCastRadius: 0.45
-  m_RayLength: 10
-  m_RayLayerMask:
-    serializedVersion: 2
-    m_Bits: 6336
-  m_ObservationStacks: 3
-  rayHitColor: {r: 0, g: 0.14955035, b: 0.9150943, a: 1}
-  rayMissColor: {r: 0, g: 0, b: 0, a: 1}
-  m_StartVerticalOffset: 1
   m_EndVerticalOffset: 0
 --- !u!114 &3067405738408413224
 MonoBehaviour:
@@ -1223,7 +1196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 10
+    VectorObservationSize: 3
     NumStackedVectorObservations: 3
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -1285,6 +1258,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 360
+--- !u!114 &2389257105068316851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277234621566703959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPlayer
+  m_DetectableTags:
+  - Player
+  m_RaysPerDirection: 35
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0.3
+  m_RayLength: 100
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ObservationStacks: 3
+  rayHitColor: {r: 0.09317875, g: 0, b: 1, a: 1}
+  rayMissColor: {r: 0, g: 0, b: 0, a: 1}
+  m_StartVerticalOffset: 0
+  m_EndVerticalOffset: 0
 --- !u!1 &4760725559900555445
 GameObject:
   m_ObjectHideFlags: 0

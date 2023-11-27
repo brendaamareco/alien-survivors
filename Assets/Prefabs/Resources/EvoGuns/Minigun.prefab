@@ -193,6 +193,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 8002958752243526183}
   ammunitionPrefab: {fileID: 1531967847672489153, guid: 228115fd5090ec74fb9ccccc6fb16dd3, type: 3}
   ammunitionSpeed: 30
+  layerName: Player
 --- !u!4 &3236174853011853200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 99c01d023008f2c4faf2a79e8c2a02bd, type: 3}

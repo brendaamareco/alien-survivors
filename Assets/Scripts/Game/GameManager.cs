@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject boss;
 
     [Header("Enemies Spawner")]
-    [SerializeField] int maxEnemiesOnScreen = 5;
+    [SerializeField] int maxEnemiesOnScreen = 40;
     [SerializeField] float spawnTime = 2f;
     [SerializeField] float probPerseguidor = 0.6f;
     [SerializeField] float probLejano = 0.35f;
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     private VisualElement rootStopwatch;
     private Label stopwatchLbl;
     private int enemiesOnScreen = 0;
+    private bool enemySpawnerStarted = false;
 
     private void Start()
     {
@@ -52,8 +53,6 @@ public class GameManager : MonoBehaviour
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
         GameEventManager.GetInstance().Suscribe(GameEvent.FINISH_LEVEL, FinishLevel);
         GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleDead);
-
-        StartCoroutine(SpawnEnemies());
     }
 
     private void HandleDead(EventContext context)
@@ -110,6 +109,9 @@ public class GameManager : MonoBehaviour
                 Debug.LogWarning("State does not exist");
                 break;
         }
+
+        if (!enemySpawnerStarted)
+            StartCoroutine(SpawnEnemies());
     }
 
     private void ChangeState(GameState NewState)
@@ -252,26 +254,27 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        while (!bossSpawned)
-        {
-            yield return new WaitForSeconds(spawnTime);
+        enemySpawnerStarted = true;
 
-            if (enemiesOnScreen <= maxEnemiesOnScreen)
-            {        
-                timer += spawnTime;
+        if (enemiesOnScreen <= maxEnemiesOnScreen)
+        {        
+            timer += spawnTime;
 
-                if (timer > 0 && timer < spawnMediumTime)
-                    SpawnRankedEnemies(0.9f, 0.1f, 0.0f);
+            if (timer > 0 && timer < spawnMediumTime)
+                SpawnRankedEnemies(0.9f, 0.1f, 0.0f);
 
-                if (timer >= spawnMediumTime && timer < spawnFinalTime)
-                    SpawnRankedEnemies(0.6f, 0.35f, 0.05f);
+            if (timer >= spawnMediumTime && timer < spawnFinalTime)
+                SpawnRankedEnemies(0.6f, 0.35f, 0.05f);
 
-                if (timer >= spawnFinalTime)
-                    SpawnRankedEnemies(0.1f, 0.6f, 0.3f);
+            if (timer >= spawnFinalTime)
+                SpawnRankedEnemies(0.1f, 0.6f, 0.3f);
 
-                enemiesOnScreen++;
-            }         
+            enemiesOnScreen++;
         }
+
+        yield return new WaitForSeconds(spawnTime);
+
+        enemySpawnerStarted = false;
     }
 
     public void BossDefeated()

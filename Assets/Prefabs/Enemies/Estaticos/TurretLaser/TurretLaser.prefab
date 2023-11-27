@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 8536094587368048913}
   - component: {fileID: 3815081401962111179}
   - component: {fileID: 3310876927458701352}
-  - component: {fileID: 3413400351764781136}
-  - component: {fileID: 5341715127822519239}
   - component: {fileID: 4371264807071294923}
   - component: {fileID: 8919548556332239626}
   - component: {fileID: 9159493382385023991}
@@ -39,8 +37,9 @@ Transform:
   m_Children:
   - {fileID: 2744947414068163292}
   - {fileID: 4861929483240508881}
+  - {fileID: 8544208416661644858}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!114 &3986343638678155471
 MonoBehaviour:
@@ -71,8 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageableName: "Torreta l\xE1ser"
-  m_Motion: {fileID: 3310876927458701352}
-  m_Weapon: {fileID: 5341715127822519239}
+  invincibleTime: 4
 --- !u!114 &3815081401962111179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,49 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efefa474ea54c0441b3ebbbfa7f67b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &3413400351764781136
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988055339678612311}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.010067903
-  m_Center: {x: 0.000004256144, y: 0.000000014901161, z: 0.0045329104}
---- !u!114 &5341715127822519239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988055339678612311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponName: TurretLaserWeapon
-  scope: 15
-  cooldown: 4
-  attackExtraPoints: 0
-  upgradePercentage: 0.25
-  maxLevel: 1
-  icon: {fileID: 0}
-  spawnPosition: {fileID: 4861929483240508881}
-  ammunitionPrefab: {fileID: 1000010122379484, guid: 476896f548afa7544a81b78015b0b2f2, type: 3}
-  ammunitionSpeed: 5
 --- !u!54 &4371264807071294923
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -201,6 +156,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExpModel: {fileID: 1342889782683910774, guid: c544534e6622d0342b591897c1b8d7b1, type: 3}
+--- !u!1 &3937522552694194807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8544208416661644858}
+  - component: {fileID: 7173350048764626892}
+  - component: {fileID: 7403181424973226266}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8544208416661644858
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937522552694194807}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2016300632345811474}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7173350048764626892
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937522552694194807}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7403181424973226266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937522552694194807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a471513ddc9d7424ba834c541d8850b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: TurretLaserWeapon
+  scope: 15
+  cooldown: 4
+  attackExtraPoints: 0
+  upgradePercentage: 0.25
+  maxLevel: 1
+  icon: {fileID: 0}
+  spawnPosition: {fileID: 4861929483240508881}
+  ammunitionPrefab: {fileID: 1000010122379484, guid: 476896f548afa7544a81b78015b0b2f2, type: 3}
+  ammunitionSpeed: 5
+  layerName: Enemy
 --- !u!1 &6097691719886665238
 GameObject:
   m_ObjectHideFlags: 0

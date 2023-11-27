@@ -7,6 +7,7 @@ public class RangedWeapon : Weapon
     [SerializeField] Transform spawnPosition;
     [SerializeField] GameObject ammunitionPrefab;
     [SerializeField] float ammunitionSpeed = 5f;
+    [SerializeField] string layerName;
 
     public override void PerformAttack(int attack)
     {
@@ -21,7 +22,7 @@ public class RangedWeapon : Weapon
         Ammunition ammunition = ammunitionGameObject.GetComponent<Ammunition>();
         ammunition.SetDamagePoints(attack);
         ammunition.tag = "Ammunition";
-        ammunition.SetLayerMask(gameObject.layer);
+        ammunition.SetLayerMask(LayerMask.NameToLayer(layerName));
         ammunition.SetDistance(GetScope());
         ammunition.SetWeapon(this);
     } 
