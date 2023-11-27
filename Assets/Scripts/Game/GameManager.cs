@@ -67,7 +67,8 @@ public class GameManager : MonoBehaviour
                 enemiesOnScreen--;
             }
 
-        } catch { }
+        } 
+        catch { }
     }
 
     private void FinishLevel(EventContext obj) 
@@ -161,6 +162,9 @@ public class GameManager : MonoBehaviour
 
             EvoGunsController evoGunsController = player.gameObject.GetComponentInChildren<EvoGunsController>();
             evoGunsController.Reset();
+
+            PlayerController playerController = player.gameObject.GetComponentInChildren<PlayerController>();
+            playerController.Reset();
         }
         
         else
