@@ -12,6 +12,7 @@ public class Player : DamageableEntity
     [SerializeField] GameObject[] itemInventory;
 
     private int m_Experience;
+    private int m_Level;
     private int m_MaxElementsInInventory;
     private PlayerState m_State;
 
@@ -26,6 +27,7 @@ public class Player : DamageableEntity
         m_MaxElementsInInventory = 6;
         m_State = new PlayerState(this);
         m_Experience = 0;
+        m_Level = 1;
     }
 
     public void Move(Vector3 vectorMovement)
@@ -135,6 +137,12 @@ public class Player : DamageableEntity
 
     public int GetExperience()
     { return m_Experience; }
+
+    public int GetLevel()
+    { return m_Level; }
+
+    public void AddLevel()
+    { m_Level+=1; }
 
     public void AddExperience(int experience)
     {

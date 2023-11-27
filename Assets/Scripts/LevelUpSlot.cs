@@ -24,6 +24,11 @@ public class LevelUpSlot
         TemplateContainer itemButtonContainer = template.Instantiate();
         button = itemButtonContainer.Q<UnityEngine.UIElements.Button>();
         button.text = weapon.GetName();
+        
+        Texture2D weaponImage = Resources.Load<Texture2D>("WeaponSprite/" + weapon.GetName());
+        StyleBackground weaponBackground = new StyleBackground(weaponImage);
+        button.style.backgroundImage = weaponBackground;
+        
         this.weapon = weapon;
         this.screen = screen;
         button.RegisterCallback<ClickEvent>(OnClickWeapon);
@@ -34,6 +39,11 @@ public class LevelUpSlot
         TemplateContainer itemButtonContainer = template.Instantiate();
         button = itemButtonContainer.Q<UnityEngine.UIElements.Button>();
         button.text = item.GetName();
+
+        Texture2D itemImage = Resources.Load<Texture2D>("ItemSprite/" + item.GetName());
+        StyleBackground itemBackground = new StyleBackground(itemImage);
+        button.style.backgroundImage = itemBackground;
+
         this.item = item;
         this.screen = screen;
         button.RegisterCallback<ClickEvent>(OnClickItem);
@@ -62,8 +72,9 @@ public class LevelUpSlot
                 // Equip the new weapon
                 player.Equip(weapon);
                 Debug.Log("Equipped " + weapon.GetName());
-                GameEventManager.GetInstance().Publish(GameEvent.INVENTORY_CHANGED, new EventContext(this));
             }
+            GameEventManager.GetInstance().Publish(GameEvent.INVENTORY_CHANGED, new EventContext(this));
+            player.AddLevel();
         }
         screen.Hide();
     }
@@ -91,7 +102,6 @@ public class LevelUpSlot
                 // Equip the new item
                 player.Equip(item);
                 Debug.Log("Equipped " + item.GetName());
-                GameEventManager.GetInstance().Publish(GameEvent.INVENTORY_CHANGED, new EventContext(this));
 
                 string itemName = item.GetName();
                 // Publish effect aura activation
@@ -100,6 +110,8 @@ public class LevelUpSlot
                     GameEventManager.GetInstance().Publish(itemEventMap[itemName], new EventContext(player));
                 }
             }
+            GameEventManager.GetInstance().Publish(GameEvent.INVENTORY_CHANGED, new EventContext(this));
+            player.AddLevel();
         }
         screen.Hide();
     }

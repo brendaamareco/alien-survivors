@@ -24,6 +24,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] rank2Enemies;
     [SerializeField] GameObject[] rank3Enemies;
 
+    [Header("Items Spawner")]
+    [SerializeField] GameObject boxPrefab;
+    [SerializeField] GameObject chestPrefab;
+    [SerializeField] float boxSpawnTime = 30f;
+    [SerializeField] float boxSpawnRadius = 15f;
+    [SerializeField] float chestSpawnTime = 120f;
+    [SerializeField] float chestSpawnRadius = 20f;
+
     private float timer = 0.0f;
     private float spawnMediumTime; 
     private float spawnFinalTime;
@@ -66,6 +74,10 @@ public class GameManager : MonoBehaviour
                 enemiesOnScreen--;
             }
 
+        //Invoke("SpawnBoss", bossSpawnTime);
+        StartCoroutine(SpawnEnemies());
+        StartCoroutine(SpawnBoxes());
+        StartCoroutine(SpawnChests());
         } 
         catch { }
     }
@@ -280,5 +292,32 @@ public class GameManager : MonoBehaviour
     public void BossDefeated()
     {
         StopAllCoroutines();
+    }
+
+    private IEnumerator SpawnBoxes()
+    {
+        while (!bossDefeated)
+        {
+            yield return new WaitForSeconds(boxSpawnTime);
+
+            Vector3 randomPosition = Random.onUnitSphere;
+            randomPosition.y = 0f;
+            Vector3 boxSpawnPosition = player.transform.position + randomPosition * boxSpawnRadius;
+
+            Instantiate(boxPrefab, boxSpawnPosition, Quaternion.identity);
+        }
+    }
+    private IEnumerator SpawnChests()
+    {
+        while (!bossDefeated)
+        {
+            yield return new WaitForSeconds(chestSpawnTime);
+
+            Vector3 randomPosition = Random.onUnitSphere;
+            randomPosition.y = 0f;
+            Vector3 chestSpawnPosition = player.transform.position + randomPosition * chestSpawnRadius;
+
+            Instantiate(chestPrefab, chestSpawnPosition, Quaternion.identity);
+        }
     }
 }
