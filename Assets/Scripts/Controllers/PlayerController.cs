@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
         m_Player = GetComponent<Player>();
     }
 
+    public void Reset() 
+    {
+        GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleDead);
+    }
+
     private void FixedUpdate()
     {
         if (!playerIsDead) { 

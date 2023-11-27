@@ -142,7 +142,6 @@ public class DamageableEntityRepresentation : MonoBehaviour
 
     private void OnDeathAnimationEnd()
     {
-        Debug.Log("*** HOLA");
         if (this.m_Damageable == null)
         { m_Damageable = GetComponent<DamageableEntity>(); }
 

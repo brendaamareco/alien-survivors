@@ -117,17 +117,6 @@ public class Player : DamageableEntity
         return weapons; 
     }
 
-    public void DestroyWeapons() {
-        foreach (GameObject weaponSlotObject in weaponInventory)
-        {
-            if (weaponSlotObject.transform.childCount > 0)
-            {
-                Weapon weapon = weaponSlotObject.GetComponentInChildren<Weapon>();
-                Destroy(weapon);
-            }
-        }
-    }
-
     public List<Item> GetItems() 
     {
         List<Item> items = new();

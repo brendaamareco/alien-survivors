@@ -69,18 +69,6 @@ public class GameManager : MonoBehaviour
 
         } 
         catch { }
-        /*
-        try
-        {
-            Player player = (Player)context.GetEntity();
-
-            if (player != null)
-            {
-                player.DestroyWeapons();
-            }
-        }
-        catch { }
-        */
     }
 
     private void FinishLevel(EventContext obj) 
@@ -174,6 +162,9 @@ public class GameManager : MonoBehaviour
 
             EvoGunsController evoGunsController = player.gameObject.GetComponentInChildren<EvoGunsController>();
             evoGunsController.Reset();
+
+            PlayerController playerController = player.gameObject.GetComponentInChildren<PlayerController>();
+            playerController.Reset();
         }
         
         else
