@@ -62,6 +62,9 @@ public class GameManager : MonoBehaviour
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
         GameEventManager.GetInstance().Suscribe(GameEvent.FINISH_LEVEL, FinishLevel);
         GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleDead);
+
+        StartCoroutine(SpawnBoxes());
+        StartCoroutine(SpawnChests());
     }
 
     private void HandleDead(EventContext context)
@@ -74,11 +77,6 @@ public class GameManager : MonoBehaviour
             {
                 enemiesOnScreen--;
             }
-
-        //Invoke("SpawnBoss", bossSpawnTime);
-        StartCoroutine(SpawnEnemies());
-        StartCoroutine(SpawnBoxes());
-        StartCoroutine(SpawnChests());
         } 
         catch { }
     }
