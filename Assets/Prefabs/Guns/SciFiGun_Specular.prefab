@@ -98,9 +98,11 @@ MonoBehaviour:
   attackExtraPoints: 10
   upgradePercentage: 0.25
   maxLevel: 10
+  icon: {fileID: 0}
   spawnPosition: {fileID: 6085272210847372969}
   ammunitionPrefab: {fileID: 1000012871492402, guid: c827049c3d8082640940d385e01eac27, type: 3}
   ammunitionSpeed: 10
+  layerName: Player
 --- !u!1 &160878
 GameObject:
   m_ObjectHideFlags: 0

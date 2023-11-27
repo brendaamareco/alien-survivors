@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     private VisualElement rootStopwatch;
     private Label stopwatchLbl;
     private int enemiesOnScreen = 0;
+    private bool enemySpawnerStarted = false;
 
     private void Start()
     {
@@ -52,8 +53,6 @@ public class GameManager : MonoBehaviour
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
         GameEventManager.GetInstance().Suscribe(GameEvent.FINISH_LEVEL, FinishLevel);
         GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleDead);
-
-        StartCoroutine(SpawnEnemies());
     }
 
     private void HandleDead(EventContext context)
@@ -109,6 +108,9 @@ public class GameManager : MonoBehaviour
                 Debug.LogWarning("State does not exist");
                 break;
         }
+
+        if (!enemySpawnerStarted)
+            StartCoroutine(SpawnEnemies());
     }
 
     private void ChangeState(GameState NewState)
@@ -248,7 +250,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        yield return new WaitForSeconds(spawnTime);
+        enemySpawnerStarted = true;
 
         if (enemiesOnScreen <= maxEnemiesOnScreen)
         {        
@@ -264,7 +266,11 @@ public class GameManager : MonoBehaviour
                 SpawnRankedEnemies(0.1f, 0.6f, 0.3f);
 
             enemiesOnScreen++;
-        }         
+        }
+
+        yield return new WaitForSeconds(spawnTime);
+
+        enemySpawnerStarted = false;
     }
 
     public void BossDefeated()
