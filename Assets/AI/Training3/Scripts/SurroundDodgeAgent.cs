@@ -13,13 +13,12 @@ public class SurroundDodgeAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(transform.localPosition);
-        sensor.AddObservation(m_Enemy.GetCurrentHealthPointsNormalized());
-        sensor.AddObservation(m_Enemy.GetSpeedPoints());
-        sensor.AddObservation(m_Enemy.transform.localScale);
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-        sensor.AddObservation(m_Weapon.GetScope());
-        sensor.AddObservation(m_Weapon.GetCooldown());
+        //sensor.AddObservation(transform.localPosition);
+        sensor.AddObservation(m_Enemy.GetCurrentHealthPointsNormalized());
+        sensor.AddObservation(m_Enemy.CanAttack());
+        sensor.AddObservation(player.GetCurrentHealthPoints());
     }
 
     public override void OnActionReceived(ActionBuffers actions)

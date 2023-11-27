@@ -21,6 +21,11 @@ public class Enemy : DamageableEntity
     public void Attack(Vector3 target)
     { m_Weapon.Attack(GetAttackPoints(), target); }
 
+    public bool CanAttack()
+    {
+        return m_Weapon.CanAttack();
+    }
+
     public void Rotate(Vector3 target)
     {
         Vector3 targetDirection = target - transform.position;

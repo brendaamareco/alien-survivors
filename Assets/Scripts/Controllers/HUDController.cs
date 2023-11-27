@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Xml.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEditor.Progress;
@@ -20,6 +17,7 @@ public class HUDController : MonoBehaviour
     private ProgressBar m_HealthBar;
     private ProgressBar m_ExperienceBar;
     private Label m_LevelLabel;
+    private ProgressBar m_HealthBarBoss;
 
     private List<Weapon> m_WeaponInventory;
     private List<Item> m_ItemInventory;
@@ -37,6 +35,9 @@ public class HUDController : MonoBehaviour
         m_HealthBar.highValue = m_Player.GetMaxHealthPoints();
         m_HealthBar.value = m_Player.GetCurrentHealthPoints();
         m_HealthBar.title = m_HealthBar.value + "/" + m_HealthBar.highValue;
+
+        m_HealthBarBoss = container.Q<ProgressBar>("HealthBarBoss");
+        m_HealthBarBoss.visible = false;
         GameEventManager.GetInstance().Suscribe(GameEvent.DAMAGE, UpdateHealthBar);
         GameEventManager.GetInstance().Suscribe(GameEvent.HEALED, UpdateHealthBar);
 
@@ -109,10 +110,21 @@ public class HUDController : MonoBehaviour
     }
 
     private void UpdateHealthBar(EventContext context)
-    {
+    {      
         m_HealthBar.highValue = m_Player.GetMaxHealthPoints();
         m_HealthBar.value = m_Player.GetCurrentHealthPoints();
         m_HealthBar.title = m_HealthBar.value + "/" + m_HealthBar.highValue;
+
+        GameObject bossGo = GameObject.FindGameObjectWithTag("Boss");
+        if (bossGo != null) 
+        {
+            Enemy boss = bossGo.GetComponent<Enemy>();
+
+            m_HealthBarBoss.visible = true;
+            m_HealthBarBoss.highValue = boss.GetMaxHealthPoints();
+            m_HealthBarBoss.value = boss.GetCurrentHealthPoints();
+            m_HealthBarBoss.title = m_HealthBarBoss.value + "/" + m_HealthBarBoss.highValue;
+        }
     }
 
     private void UpdateExperienceBar(EventContext context)

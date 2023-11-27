@@ -111,7 +111,6 @@ public class LevelUpController : MonoBehaviour
             if (itemComponent != null)
             {
                 string itemName = itemComponent.GetName();
-                Debug.Log("Selected Item Name: " + itemName);
                 LevelUpSlot invSlot = new LevelUpSlot(itemComponent, itemBtnTemplate, this);
                 m_LevelUp.Q<VisualElement>("ItemContainer").Add(invSlot.button);
             }
@@ -165,7 +164,6 @@ public class LevelUpController : MonoBehaviour
             if (gunComponent != null)
             {
                 string gunName = gunComponent.GetName();
-                Debug.Log("Selected Gun Name: " + gunName);
                 LevelUpSlot invSlot = new LevelUpSlot(gunComponent, itemBtnTemplate, this);
                 m_LevelUp.Q<VisualElement>("ItemContainer").Add(invSlot.button);
             }

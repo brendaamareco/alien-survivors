@@ -800,6 +800,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 8780192139318161910}
   ammunitionPrefab: {fileID: 1000011023395326, guid: 21ce0107bf7576246b86b2f5e4105590, type: 3}
   ammunitionSpeed: 15
+  layerName: Player
 --- !u!114 &7787536063847880664
 MonoBehaviour:
   m_ObjectHideFlags: 0

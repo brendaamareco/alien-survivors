@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EffectItemsController : MonoBehaviour
 {
+    [SerializeField] Player player;
+
     [SerializeField] GameObject EffectAttackUp;
     [SerializeField] GameObject EffectSpeedUp;
     [SerializeField] GameObject EffectDefenseUp;
@@ -12,6 +14,11 @@ public class EffectItemsController : MonoBehaviour
     [SerializeField] GameObject EffectLevelUp;
 
     void Start()
+    {
+        Reset();
+    }
+
+    public void Reset()
     {
         GameEventManager.GetInstance().Suscribe(GameEvent.EFFECT_ATKUP, HandleAtkUp);
         GameEventManager.GetInstance().Suscribe(GameEvent.EFFECT_SPDUP, HandleSpeedUp);
@@ -22,24 +29,58 @@ public class EffectItemsController : MonoBehaviour
 
     private void HandleAtkUp(EventContext context)
     {
-        EffectAttackUp.SetActive(true);
+        try
+        {
+            Player other = (Player)context.GetEntity();
+
+            if (other == player)
+                EffectAttackUp.SetActive(true);
+        }
+        catch { }
     }
     private void HandleSpeedUp(EventContext context)
     {
-        EffectSpeedUp.SetActive(true);
+        try
+        {
+            Player other = (Player)context.GetEntity();
+
+            if (other == player)
+                EffectSpeedUp.SetActive(true);
+        }
+        catch { }
     }
     private void HandleDefenseUp(EventContext context)
     {
-        EffectDefenseUp.SetActive(true);
+        try
+        {
+            Player other = (Player)context.GetEntity();
+
+            if (other == player)
+                EffectDefenseUp.SetActive(true);
+        }
+        catch { } 
     }
     private void HandleHealthUp(EventContext context)
     {
-        EffectHealthUp.SetActive(true);
+        try
+        {
+            Player other = (Player)context.GetEntity();
+
+            if (other == player)
+                EffectHealthUp.SetActive(true);
+        }
+        catch { }
     }
     private void HandleLevelUp(EventContext context)
     {
-        StartCoroutine(setOnAndOff());
+        try
+        {
+            Player other = (Player)context.GetEntity();
 
+            if (other == player)
+                StartCoroutine(setOnAndOff());
+        }
+        catch { }
     }
     private IEnumerator setOnAndOff()
     {

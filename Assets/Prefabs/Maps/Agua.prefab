@@ -34,7 +34,7 @@ Transform:
   - {fileID: 6821206620228519170}
   - {fileID: 3764249629116273608}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7891208198435534609
 BoxCollider:
@@ -442,8 +442,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 3774.876, z: 1}
-  m_Center: {x: 0, y: 2179.3386, z: 0}
+  m_Size: {x: 1, y: 3064.7065, z: 1}
+  m_Center: {x: 0, y: 1467.8, z: 0}
 --- !u!114 &1975630571885696837
 MonoBehaviour:
   m_ObjectHideFlags: 0

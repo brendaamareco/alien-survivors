@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,14 +9,14 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject UIObject;
     [SerializeField] GameState currentState;
-    [SerializeField] float timeLimit;
 
     [Header("Boss Spawner")]
     [SerializeField] float bossSpawnTime = 60.0f;
     [SerializeField] GameObject boss;
 
     [Header("Enemies Spawner")]
-    [SerializeField] float spawnTime = 1.5f;
+    [SerializeField] int maxEnemiesOnScreen = 40;
+    [SerializeField] float spawnTime = 2f;
     [SerializeField] float probPerseguidor = 0.6f;
     [SerializeField] float probLejano = 0.35f;
     [SerializeField] float probEstatico = 0.05f;
@@ -32,35 +33,53 @@ public class GameManager : MonoBehaviour
     [SerializeField] float chestSpawnRadius = 20f;
 
     private float timer = 0.0f;
-    private bool bossDefeated = false;
     private float spawnMediumTime; 
     private float spawnFinalTime;
     private Player player;
     private bool bossSpawned = false;
     private float stopwatchTime;
     private VisualElement rootStopwatch;
+    private Label stopwatchLbl;
+    private int enemiesOnScreen = 0;
+    private bool enemySpawnerStarted = false;
 
     private void Start()
     {
         Time.timeScale = 1.0f;
         spawnMediumTime = bossSpawnTime / 2f;
         spawnFinalTime = spawnMediumTime + bossSpawnTime / 4f;
-
-        GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
+        
+        rootStopwatch = UIObject.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Stopwatch");
+        stopwatchLbl = rootStopwatch.Q<Label>("stopwatch");
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         CinemachineVirtualCamera virtualCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponentInChildren<CinemachineVirtualCamera>();
         virtualCamera.Follow = player.transform;
         virtualCamera.LookAt = player.transform;
 
+        GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
         GameEventManager.GetInstance().Suscribe(GameEvent.GAME_OVER, PlayerIsDead);
         GameEventManager.GetInstance().Suscribe(GameEvent.FINISH_LEVEL, FinishLevel);
-        //GameEventManager.GetInstance().Suscribe(GameEvent.VICTORY, Victory);
+        GameEventManager.GetInstance().Suscribe(GameEvent.DEAD, HandleDead);
+    }
+
+    private void HandleDead(EventContext context)
+    {
+        try
+        {
+            Enemy enemy = (Enemy)context.GetEntity();
+
+            if (enemy != null)
+            {
+                enemiesOnScreen--;
+            }
 
         //Invoke("SpawnBoss", bossSpawnTime);
         StartCoroutine(SpawnEnemies());
         StartCoroutine(SpawnBoxes());
         StartCoroutine(SpawnChests());
+        } 
+        catch { }
     }
 
     private void FinishLevel(EventContext obj) 
@@ -102,6 +121,9 @@ public class GameManager : MonoBehaviour
                 Debug.LogWarning("State does not exist");
                 break;
         }
+
+        if (!enemySpawnerStarted)
+            StartCoroutine(SpawnEnemies());
     }
 
     private void ChangeState(GameState NewState)
@@ -148,6 +170,15 @@ public class GameManager : MonoBehaviour
 
             DamageableEntityRepresentation playerRepresentation = player.gameObject.GetComponent<DamageableEntityRepresentation>();
             playerRepresentation.Reset();
+
+            EffectItemsController effectItemsController = player.gameObject.GetComponentInChildren<EffectItemsController>();
+            effectItemsController.Reset();
+
+            EvoGunsController evoGunsController = player.gameObject.GetComponentInChildren<EvoGunsController>();
+            evoGunsController.Reset();
+
+            PlayerController playerController = player.gameObject.GetComponentInChildren<PlayerController>();
+            playerController.Reset();
         }
         
         else
@@ -158,13 +189,7 @@ public class GameManager : MonoBehaviour
     { 
         stopwatchTime += Time.deltaTime;
         UpdateStopwatchDisplay();
-        CheckSpawnTime();
 
-        //if (stopwatchTime >= timeLimit)
-        //{
-        //    GameEventManager.GetInstance().Publish(GameEvent.GAME_OVER, new EventContext(this));
-        //}
-        
         if (stopwatchTime >= bossSpawnTime)
             SpawnBoss();
     }
@@ -180,18 +205,7 @@ public class GameManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(stopwatchTime/60);
         int seconds = Mathf.FloorToInt(stopwatchTime%60);
 
-        rootStopwatch = UIObject.GetComponent<UIDocument>().rootVisualElement;
-
-        Label stopwatch = rootStopwatch.Q<Label>("stopwatch");
-
-        stopwatch.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    }
-
-    private void CheckSpawnTime()
-    {
-        rootStopwatch = UIObject.GetComponent<UIDocument>().rootVisualElement;
-
-        Label stopwatch = rootStopwatch.Q<Label>("stopwatch");
+        stopwatchLbl.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     private void SpawnBoss()
@@ -201,6 +215,7 @@ public class GameManager : MonoBehaviour
             Vector3 bossPosition = new Vector3(player.transform.position.x, 0f, player.transform.position.z);
             Instantiate(boss, bossPosition, Quaternion.identity);
             bossSpawned = true;
+            rootStopwatch.visible = false;
         }        
     }
 
@@ -251,10 +266,10 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        while (!bossDefeated)
-        {
-            yield return new WaitForSeconds(spawnTime);
+        enemySpawnerStarted = true;
 
+        if (enemiesOnScreen <= maxEnemiesOnScreen)
+        {        
             timer += spawnTime;
 
             if (timer > 0 && timer < spawnMediumTime)
@@ -265,12 +280,17 @@ public class GameManager : MonoBehaviour
 
             if (timer >= spawnFinalTime)
                 SpawnRankedEnemies(0.1f, 0.6f, 0.3f);
+
+            enemiesOnScreen++;
         }
+
+        yield return new WaitForSeconds(spawnTime);
+
+        enemySpawnerStarted = false;
     }
 
     public void BossDefeated()
     {
-        bossDefeated = true;
         StopAllCoroutines();
     }
 

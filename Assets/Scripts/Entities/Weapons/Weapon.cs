@@ -35,6 +35,9 @@ public abstract class Weapon : StatsDecorator, IEntity
             StartCoroutine(nameof(AttackCoroutine), attack);
     }
 
+    public bool CanAttack()
+    { return !m_IsAttacking; }
+
     private IEnumerator AttackCoroutine(int attack)
     {
         m_IsAttacking = true;
@@ -66,7 +69,7 @@ public abstract class Weapon : StatsDecorator, IEntity
 
     public void CheckMaxLevel()
     {
-        if (m_Level <= maxLevel)
+        if (m_Level >= maxLevel)
         {
             GameEventManager.GetInstance().Publish(GameEvent.MAXLVL_WEAPON, new EventContext(this));
             Debug.Log("maxLevel");
