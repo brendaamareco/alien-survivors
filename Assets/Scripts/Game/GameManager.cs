@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject boss;
 
     [Header("Enemies Spawner")]
-    [SerializeField] int maxEnemiesOnScreen = 5;
+    [SerializeField] int maxEnemiesOnScreen = 40;
     [SerializeField] float spawnTime = 2f;
     [SerializeField] float probPerseguidor = 0.6f;
     [SerializeField] float probLejano = 0.35f;
@@ -248,26 +248,23 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
-        while (!bossSpawned)
-        {
-            yield return new WaitForSeconds(spawnTime);
+        yield return new WaitForSeconds(spawnTime);
 
-            if (enemiesOnScreen <= maxEnemiesOnScreen)
-            {        
-                timer += spawnTime;
+        if (enemiesOnScreen <= maxEnemiesOnScreen)
+        {        
+            timer += spawnTime;
 
-                if (timer > 0 && timer < spawnMediumTime)
-                    SpawnRankedEnemies(0.9f, 0.1f, 0.0f);
+            if (timer > 0 && timer < spawnMediumTime)
+                SpawnRankedEnemies(0.9f, 0.1f, 0.0f);
 
-                if (timer >= spawnMediumTime && timer < spawnFinalTime)
-                    SpawnRankedEnemies(0.6f, 0.35f, 0.05f);
+            if (timer >= spawnMediumTime && timer < spawnFinalTime)
+                SpawnRankedEnemies(0.6f, 0.35f, 0.05f);
 
-                if (timer >= spawnFinalTime)
-                    SpawnRankedEnemies(0.1f, 0.6f, 0.3f);
+            if (timer >= spawnFinalTime)
+                SpawnRankedEnemies(0.1f, 0.6f, 0.3f);
 
-                enemiesOnScreen++;
-            }         
-        }
+            enemiesOnScreen++;
+        }         
     }
 
     public void BossDefeated()

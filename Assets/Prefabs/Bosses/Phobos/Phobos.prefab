@@ -4032,7 +4032,7 @@ Transform:
   - {fileID: 6430823528161582731}
   - {fileID: 4222047455786790507}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &205804496524621062
 MonoBehaviour:
@@ -4477,7 +4477,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: f82caebb81c435b4585ca3c708cd495f, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Boss
