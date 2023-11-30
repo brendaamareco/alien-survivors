@@ -17,7 +17,7 @@ public class LevelUpController : MonoBehaviour
     private VisualElement m_PopUpContainer;
     private VisualTreeAsset levelUpAsset;
 
-
+    private Player player;
     private List<Weapon> m_WeaponInventory;
     private List<Item> m_ItemInventory;
 
@@ -26,6 +26,9 @@ public class LevelUpController : MonoBehaviour
 
     void Start()
     {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        player = playerObject.GetComponent<Player>();
+
         m_PopUpContainer = root.rootVisualElement.Q<VisualElement>("PopUp");
 
         levelUpAsset = Resources.Load<VisualTreeAsset>(m_LevelUpAssetPath);
@@ -35,12 +38,14 @@ public class LevelUpController : MonoBehaviour
         GameEventManager.GetInstance().Suscribe(GameEvent.LEVEL_UP, HandleLevelUp);
 
     }
+    private void HandleLevelUp(EventContext context)
+    {
+        Show();
+    }
 
     private void SelectOwnedItem()
     {
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        Player player = playerObject.GetComponent<Player>();
-        m_ItemInventory = player.GetItems();
+        m_ItemInventory = RemoveMaxLevelItems(player.GetItems());
 
         // Randomly select one item
         Item selectedItem = m_ItemInventory.Count > 0 ? m_ItemInventory[UnityEngine.Random.Range(0, m_ItemInventory.Count)] : null;
@@ -54,9 +59,7 @@ public class LevelUpController : MonoBehaviour
 
     private void SelectOwnedGun()
     {
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        Player player = playerObject.GetComponent<Player>();
-        m_WeaponInventory = player.GetWeapons();
+        m_WeaponInventory = RemoveMaxLevelWeapons(player.GetWeapons());
 
         // Randomly select one weapon
         Weapon selectedWeapon = m_WeaponInventory.Count > 0 ? m_WeaponInventory[UnityEngine.Random.Range(0, m_WeaponInventory.Count)] : null;
@@ -66,11 +69,6 @@ public class LevelUpController : MonoBehaviour
             LevelUpSlot invSlot = new LevelUpSlot(selectedWeapon, itemBtnTemplate, this);
             m_LevelUp.Q<VisualElement>("ItemContainer").Add(invSlot.button);
         }
-    }
-
-    private void HandleLevelUp(EventContext context)
-    {
-        Show();
     }
 
     private void SelectRandomItem()
@@ -179,6 +177,52 @@ public class LevelUpController : MonoBehaviour
             Debug.LogWarning("No available gun prefabs found in the 'Guns' folder.");
         }
     }
+
+    private List<Item> RemoveMaxLevelItems(List<Item> itemList)
+    {
+        // Create a list to store items to be removed
+        List<Item> itemsToRemove = new List<Item>();
+
+        // Iterate through each item in the inventory
+        foreach (Item item in itemList)
+        {
+            // Check if the item is at max level
+            if (item.GetLevel() >= item.GetMaxLevel())
+            {
+                // Add the item to the removal list
+                itemsToRemove.Add(item);
+            }
+        }
+        // Remove items from the main inventory list
+        foreach (Item itemToRemove in itemsToRemove)
+        {
+            itemList.Remove(itemToRemove);
+        }
+        return itemList;
+    }
+    private List<Weapon> RemoveMaxLevelWeapons(List<Weapon> weaponList)
+    {
+        // Create a list to store items to be removed
+        List<Weapon> weaponsToRemove = new List<Weapon>();
+
+        // Iterate through each item in the inventory
+        foreach (Weapon weapon in weaponList)
+        {
+            // Check if the item is at max level
+            if (weapon.GetLevel() >= weapon.GetMaxLevel())
+            {
+                // Add the item to the removal list
+                weaponsToRemove.Add(weapon);
+            }
+        }
+        // Remove items from the main inventory list
+        foreach (Weapon weaponToRemove in weaponsToRemove)
+        {
+            weaponList.Remove(weaponToRemove);
+        }
+        return weaponList;
+    }
+
     public void Show()
     {
         m_PopUpContainer.Add(m_LevelUp);

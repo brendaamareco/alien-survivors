@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UIElements;
 
 public class CharacterSelectionController : MonoBehaviour
@@ -13,6 +14,8 @@ public class CharacterSelectionController : MonoBehaviour
     private Label speedLbl;
     private Label defenseLbl;
     private Label healthLbl;
+
+    private GameObject playerSelected;
 
     private void Awake()
     {
@@ -48,14 +51,9 @@ public class CharacterSelectionController : MonoBehaviour
 
     private void UpdateStats()
     {
-        GameObject playerGo = playerFactory.Create(selectedPlayer);
-        Transform cameraPosition = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        playerSelected = playerFactory.Create(selectedPlayer);
 
-        Vector3 targetDirection = cameraPosition.position - playerGo.transform.position;
-        Vector3 newDirection = Vector3.RotateTowards(playerGo.transform.forward, targetDirection, 20f, 0.0f);
-        playerGo.transform.rotation = Quaternion.LookRotation(newDirection);
-
-        Player player = playerGo.GetComponent<Player>();
+        Player player = playerSelected.GetComponent<Player>();
         
         attackLbl.text = "Ataque: " + player.GetAttackPoints().ToString();
         defenseLbl.text = "Defensa: " + player.GetDefensePoints().ToString();

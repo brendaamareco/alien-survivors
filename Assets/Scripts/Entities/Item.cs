@@ -30,6 +30,11 @@ public class Item : StatsDecorator, IEntity
     public string GetName()
     { return itemName; }
 
+    public int GetLevel()
+    { return level; }
+    public int GetMaxLevel()
+    { return maxLevel; }
+
     public void Upgrade() 
     {
         if (level < maxLevel)

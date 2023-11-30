@@ -33,6 +33,8 @@ public class PlayerFactory : MonoBehaviour
                     weaponSlot.SetActive(false);
 
                 GameObject character = Instantiate(characterPrefab, new Vector3(63, 0, 66), Quaternion.identity);
+                Animator animator = character.GetComponent<Animator>();
+                character.transform.Rotate(0, 180, 0);
 
                 return player;
             }

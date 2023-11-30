@@ -57,6 +57,12 @@ MonoBehaviour:
   rank1Enemies: []
   rank2Enemies: []
   rank3Enemies: []
+  boxPrefab: {fileID: 8342958423520132461, guid: 11f911b469b33a24285b31c29ba716ba, type: 3}
+  chestPrefab: {fileID: 2512502330527725376, guid: c0339bdd6d111fa4eb913c215c674c8c, type: 3}
+  boxSpawnTime: 30
+  boxSpawnRadius: 15
+  chestSpawnTime: 120
+  chestSpawnRadius: 20
 --- !u!114 &5287968784262530288
 MonoBehaviour:
   m_ObjectHideFlags: 0

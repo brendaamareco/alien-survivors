@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4f82fa58c4bf2aa41bc7c48434f264ea, type: 2}
     - target: {fileID: 919132149155446097, guid: 62559d5b1caadef4e884ada90ba7f37e, type: 3}
       propertyPath: m_Name
-      value: ClockStopTime
+      value: StopTime
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbc1438ecdee164098c0d0c24e4c05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopTimeDuration: 20
+  stopTimeDuration: 10
 --- !u!65 &7214304159108180456
 BoxCollider:
   m_ObjectHideFlags: 0
