@@ -1019,7 +1019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: bossSpawnTime
-      value: 60
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: probPerseguidor
