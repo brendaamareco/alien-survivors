@@ -1260,7 +1260,7 @@ PrefabInstance:
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: boss
       value: 
-      objectReference: {fileID: 7646069978523975087, guid: 9ff68b7f8fb50c243a9f0885cc4d6012, type: 3}
+      objectReference: {fileID: 5054334369296290443, guid: b7f33f9189c178a47bd63a7f4aff2d4e, type: 3}
     - target: {fileID: 1927386756900491571, guid: e24ebd3aef63ce142b258469cd383b39, type: 3}
       propertyPath: boss1
       value: 
